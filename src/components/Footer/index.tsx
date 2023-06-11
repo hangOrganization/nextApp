@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../../assets/image/svg/logo.svg";
+import logo from "@/assets/image/svg/logo.svg";
 export default function Footer() {
   return (
     <div className="w-screen">

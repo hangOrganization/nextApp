@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import top_bg from '../../assets/image/svg/top-bg.svg'
-import sign_logo from '../../assets/image/svg/sign-logo.svg'
-import top_bg_1 from '../../assets/image/svg/top-bg-1.svg'
-import top_bg_2 from '../../assets/image/svg/top-bg-2.svg'
+import top_bg from '@/assets/image/svg/top-bg.svg'
+import sign_logo from '@/assets/image/svg/sign-logo.svg'
+import top_bg_1 from '@/assets/image/svg/top-bg-1.svg'
+import top_bg_2 from '@/assets/image/svg/top-bg-2.svg'
 
 export default function Top() {
     return (
