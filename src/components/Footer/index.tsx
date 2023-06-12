@@ -8,9 +8,9 @@ import Tip from "../../components/Tips/tip";
 
 export default function Footer() {
   return (
-    <div className="pb-[80px]">
+    <div className="pb-[80px] px-6">
       <div
-        className="flex items-center justify-between  w-full px-[23px] mx-[24px] relative z-[10] pb-[32px] "
+        className="flex items-center justify-between px-6 w-full relative z-[10] pb-[32px] "
         style={{ borderBottom: "1px solid rgba(255, 255, 255, .5)" }}
       >
         <div className="w-[114px] ">
@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-[68px] ml-[95px] mb-[24px]  text-white leading-[200%] text-[14px] font-[250]">
+      <div className="mt-[68px] ml-[71px] mb-[24px]  text-white leading-[200%] text-[14px] font-[250]">
         <div className="flex items-center gap-[40px]">
           <div>联系我们</div>
           <div className="flex items-center gap-[8px]">

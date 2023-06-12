@@ -25,30 +25,32 @@ const ProductsRightBox = styled.div`
 `
 export default function Products() {
     return (
-        <div className='flex mt-[324px] pl-[136px] pr-[120px]'>
-            <ProductsBox>
-                <p className='font-extrabold text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>
-                <p className='font-medium mt-4 text-[24px] uppercase font-[Lexend] leading-[160%] text-[#1a1a1a]'>System  of  products</p>
-            </ProductsBox>
-            <div className='flex justify-between'>
-                <ProductsRightBox>
-                    <p className='text-[38px] text-[#FF4B00] font-medium leading-[160%]'>主体课程</p>
-                    <div className="flex gap-2 mt-[35px] items-center">
-                        <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight font-[Lexend]'>+</p>
-                        <p className='text-[20px] leading-[160%] text-[#cccccc] uppercase font-extralight font-[Lexend]'>Foundation</p>
-                        <p className='text-[20px] leading-[160%] text-[#cccccc] font-light'>音乐启蒙课</p>
-                    </div>
-                    <div className="flex gap-2 my-[30px] items-center">
-                        <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight font-[Lexend]'>+</p>
-                        <p className='text-[20px] leading-[160%] text-[#cccccc] font-light'>音乐专业课</p>
-                    </div>
-                    <div className="flex gap-2 items-center">
-                        <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight font-[Lexend]'>+</p>
-                        <p className='text-[20px] leading-[160%] text-[#cccccc] font-light'>音乐作品集</p>
-                    </div>
-                </ProductsRightBox>
-                <Image src={products_right} alt='s' />
+        <div className='flex mt-[324px] justify-between pl-[136px] pr-[120px]'>
+            <div className="flex">
+                <ProductsBox>
+                    <p className='font-extrabold text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>
+                    <p className='font-medium mt-4 text-[24px] uppercase font-[Lexend] leading-[160%] text-[#1a1a1a]'>System  of  products</p>
+                </ProductsBox>
+                <div className='flex justify-between'>
+                    <ProductsRightBox>
+                        <p className='text-[38px] text-[#FF4B00] font-medium leading-[160%]'>主体课程</p>
+                        <div className="flex gap-2 mt-[35px] items-center">
+                            <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight font-[Lexend]'>+</p>
+                            <p className='text-[20px] leading-[160%] text-[#cccccc] uppercase font-extralight font-[Lexend]'>Foundation</p>
+                            <p className='text-[20px] leading-[160%] text-[#cccccc] font-light'>音乐启蒙课</p>
+                        </div>
+                        <div className="flex gap-2 my-[30px] items-center">
+                            <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight font-[Lexend]'>+</p>
+                            <p className='text-[20px] leading-[160%] text-[#cccccc] font-light'>音乐专业课</p>
+                        </div>
+                        <div className="flex gap-2 items-center">
+                            <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight font-[Lexend]'>+</p>
+                            <p className='text-[20px] leading-[160%] text-[#cccccc] font-light'>音乐作品集</p>
+                        </div>
+                    </ProductsRightBox>
+                </div>
             </div>
+            <Image src={products_right} alt='' />
         </div>
     )
 }
