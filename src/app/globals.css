@@ -52,6 +52,10 @@
   src: url('../font/Lexend/static/Lexend-Medium.ttf');
   font-weight: 500;
 }
+@font-face {
+  font-family: 'Fusion Pixel';
+  src: url('../font/fusionPixel/fusion-pixel.ttf');
+}
 body {
   background: #1A1A1A;
   font-family: 'Alibaba PuHuiTi 2.0';
