@@ -13,9 +13,6 @@ export default function slogan() {
       >
         Shaping Sound Crafting Melodies Infinite Adaptations
       </div>
-      {/* <div className="w-[592px] h-[128px] ">
-
-      </div> */}
     </div>
   );
 }
