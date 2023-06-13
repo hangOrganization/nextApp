@@ -28,13 +28,13 @@ const TeachingBox = styled.div`
     mix-blend-mode: difference;
 `
 const EducationalBox = styled.div`
-    position: relative;
     width: 300px;
     height: 330px;
     display: flex;
     padding:  40px 28px 36px 12px;
     background: url(${teaching_bg.src});
     mix-blend-mode: difference;
+    position: relative;
     transform: matrix(-1, 0, 0, 1, 0, 0);
 `
 const ServiceBox = styled.div`

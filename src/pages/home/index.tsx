@@ -1,3 +1,4 @@
+"use client"
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Top from "./Sign";
@@ -10,8 +11,6 @@ import ServiceSystem from "./ServiceSystem";
 
 
 export default function Homepage() {
-
-
   return (
     <div>
       <Header />
