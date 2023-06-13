@@ -30,7 +30,7 @@ const CourseBox = styled.div`
 export default function Specialize() {
     const [musicGenre, setMusicGenre] = useState<number>(1)
     return (
-        <SpecializeBox className='flex justify-center items-center'>
+        <SpecializeBox className='flex justify-center w-screen overflow-hidden flex-col items-center'>
             <div>
                 <div className='px-[160px] flex justify-between'>
                     <div>
@@ -53,9 +53,9 @@ export default function Specialize() {
                     </div>
 
                 </div>
-                <div className='relative pb-[168px] w-screen overflow-hidden'>
+                <div className='relative pb-[168px] w-[1440px]'>
                     <Image className={`absolute bottom-[0px] transition-all duration-500 ${musicGenre === 1 ? 'rotate-0' : musicGenre === 2 ? 'rotate-[90deg]' : 'rotate-[180deg]'} right-[-50px]`} src={specialize_Star} alt='' />
-                    <div className='flex mt-12 w-[1440px] px-[120px]  overflow-hidden justify-between'>
+                    <div className='flex mt-12 w-[1440px] px-[120px] overflow-hidden justify-between'>
                         <div className={`flex gap-[120px] transition-all duration-300 ${musicGenre === 1 ? 'translate-x-[0px]' : musicGenre === 2 ? 'translate-x-[-1320px]' : 'translate-x-[-2640px]'} w-[3880px]`}>
                             <div className='flex w-[1200px] justify-between'>
                                 <CourseBox>
