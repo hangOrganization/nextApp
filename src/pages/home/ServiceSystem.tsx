@@ -28,6 +28,7 @@ const TeachingBox = styled.div`
     mix-blend-mode: difference;
 `
 const EducationalBox = styled.div`
+    position: relative;
     width: 300px;
     height: 330px;
     display: flex;
@@ -82,7 +83,7 @@ export default function ServiceSystem() {
                             <p className="text-[24px] font-normal leading-[160%] mt-[18px] uppercase tracking-[0.17em] font-['GuanZhi']">Service system</p>
                         </div>
                     </ServiceBox>
-                    <EducationalBox className="relative">
+                    <EducationalBox>
                         <div className="w-[30px] h-[30px] absolute top-0 left-[50%] bg-[#FF4B00]"></div>
                         <div style={{ transform: " matrix(-1, 0, 0, 1, 0, 0)" }} className="flex">
                             <p className="text-[32px] mr-[38px] mt-[34px] font-extrabold leading-[100%] text-[#0000ff]">规划端</p>
