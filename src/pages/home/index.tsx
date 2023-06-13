@@ -12,7 +12,7 @@ export default function Homepage() {
       <Top />
       <Products />
       <SchoolRoll />
-       <Specialize />
+      <Specialize />
       <Footer />
     </div>
   );
