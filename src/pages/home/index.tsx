@@ -4,7 +4,7 @@ import Top from "./Sign";
 import Products from "./Products";
 import SchoolRoll from "./SchoolRoll";
 import Specialize from "./Specialize";
-
+import Slogan from "./Slogan";
 export default function Homepage() {
   return (
     <div>
@@ -13,6 +13,7 @@ export default function Homepage() {
       <Products />
       <SchoolRoll />
       <Specialize />
+      <Slogan />
       <Footer />
     </div>
   );

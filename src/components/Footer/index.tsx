@@ -10,14 +10,14 @@ export default function Footer() {
   return (
     <div className="pb-[80px] px-6">
       <div
-        className="flex items-center justify-between px-6 w-full relative z-[10] pb-[32px] "
+        className="flex items-center justify-between px-6 w-full relative z-[10] pb-8 "
         style={{ borderBottom: "1px solid rgba(255, 255, 255, .5)" }}
       >
         <div className="w-[114px] ">
           <Image src={logo} alt=""></Image>
         </div>
         <div className="flex items-center ">
-          <div className="flex item-cneter gap-[32px]">
+          <div className="flex item-cneter gap-8">
             <Tip
               imgSrc={bilibili_img}
               qrCodeSrc={logo}
