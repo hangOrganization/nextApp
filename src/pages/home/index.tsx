@@ -8,10 +8,7 @@ import Slogan from "./Slogan";
 import SignCharacteristic from "./SignCharacteristic";
 import ServiceSystem from "./ServiceSystem";
 
-
 export default function Homepage() {
-
-
   return (
     <div>
       <Header />

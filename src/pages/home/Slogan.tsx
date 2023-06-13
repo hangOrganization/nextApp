@@ -44,7 +44,10 @@ export default function slogan() {
           Shaping Sound Crafting Melodies Infinite Adaptations
         </div>
 
-        <MoveBox>
+        <MoveBox
+          className="flex 
+        flex-col item-center justify-between py-6 "
+        >
           <p className="text-[#FF4B00] font-[250] text-6 leading-[180%] uppercase">
             探索更多声音服务
           </p>
