@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Top from "./Sign";
@@ -8,6 +8,7 @@ import Specialize from "./Specialize";
 import Slogan from "./Slogan";
 import SignCharacteristic from "./SignCharacteristic";
 import ServiceSystem from "./ServiceSystem";
+import BusinessPartner from "./BusinessPartner";
 
 export default function Homepage() {
   return (
@@ -19,6 +20,7 @@ export default function Homepage() {
       <Specialize />
       <ServiceSystem />
       <SignCharacteristic />
+      <BusinessPartner />
       <Slogan />
       <Footer />
     </div>
