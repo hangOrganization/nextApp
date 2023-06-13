@@ -12,9 +12,8 @@ interface props {
 
 export default function Index({ children, imgSrc, id, qrCodeSrc }: props) {
   return (
-    <div>
+    <div style={{ cursor: "pointer" }}>
       <Image src={imgSrc} alt="" id={id}></Image>
-
       <Tooltip anchorSelect={`#${id}`}>
         <Image src={qrCodeSrc} alt=""></Image>
       </Tooltip>
