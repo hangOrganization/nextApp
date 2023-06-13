@@ -14,7 +14,7 @@ export default function Homepage() {
       <SchoolRoll />
       <Specialize />
       <Slogan />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
