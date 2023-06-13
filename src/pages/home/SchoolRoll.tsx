@@ -6,7 +6,7 @@ const Box = styled.div`
     white-space:nowrap;
     border: 1px solid #FF4B00;
     border-radius: 24px;
-    font-family: 'Fusion Pixel';
+    font-family: 'FusionPixel';
     font-weight: 400;
     font-size: 28px;
     line-height: 160%;

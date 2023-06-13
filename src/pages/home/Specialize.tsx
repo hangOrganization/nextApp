@@ -11,10 +11,9 @@ import { useState } from 'react'
 const SpecializeBox = styled.div`
     background: linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.464341) 48.22%, #1A1A1A 100%),url(${specialize_bg.src}), url(${specialize_bg.src});
     width: 100vw;
-    padding: 270px 0px;
+    padding-top: 270px;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 1309px;
     background-blend-mode: normal, soft-light, color-dodge;
 `
 const CourseBox = styled.div`
@@ -54,8 +53,8 @@ export default function Specialize() {
                     </div>
 
                 </div>
-                <div className='relative'>
-                    <Image className={`absolute bottom-[-168px] transition-all duration-500 ${musicGenre === 1 ? 'rotate-0' : musicGenre === 2 ? 'rotate-[90deg]' : 'rotate-[180deg]'} right-[-50px]`} src={specialize_Star} alt='' />
+                <div className='relative pb-[168px] w-screen overflow-hidden'>
+                    <Image className={`absolute bottom-[0px] transition-all duration-500 ${musicGenre === 1 ? 'rotate-0' : musicGenre === 2 ? 'rotate-[90deg]' : 'rotate-[180deg]'} right-[-50px]`} src={specialize_Star} alt='' />
                     <div className='flex mt-12 w-[1440px] px-[120px]  overflow-hidden justify-between'>
                         <div className={`flex gap-[120px] transition-all duration-300 ${musicGenre === 1 ? 'translate-x-[0px]' : musicGenre === 2 ? 'translate-x-[-1320px]' : 'translate-x-[-2640px]'} w-[3880px]`}>
                             <div className='flex w-[1200px] justify-between'>
@@ -74,7 +73,6 @@ export default function Specialize() {
                                                     <p className='text-[12px] font-lighttext-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]'>{el.englishTitle}</p>
                                                 </div>
                                             ))}
-
                                         </div>
                                     </div>
                                 </CourseBox>

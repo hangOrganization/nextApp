@@ -53,8 +53,12 @@
   font-weight: 500;
 }
 @font-face {
-  font-family: 'Fusion Pixel';
+  font-family: 'FusionPixel';
   src: url('../font/fusionPixel/fusion-pixel.ttf');
+}
+@font-face {
+  font-family: 'GuanZhi';
+  src: url('../font/GuanZhi/GuanZhi-8px.ttf');
 }
 body {
   background: #1A1A1A;

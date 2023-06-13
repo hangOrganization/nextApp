@@ -25,13 +25,13 @@ const ProductsRightBox = styled.div`
 `
 export default function Products() {
     return (
-        <div className='flex mt-[324px] justify-between pl-[136px] pr-[120px]'>
-            <div className="flex">
+        <div className='flex mt-[324px] w-screen pl-[136px] pr-[120px]'>
+            <div className="flex w-[100%] justify-between">
                 <ProductsBox>
                     <p className='font-extrabold text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>
                     <p className='font-medium mt-4 text-[24px] uppercase font-[Lexend] leading-[160%] text-[#1a1a1a]'>System  of  products</p>
                 </ProductsBox>
-                <div className='flex justify-between'>
+                <div className='flex'>
                     <ProductsRightBox>
                         <p className='text-[38px] text-[#FF4B00] font-medium leading-[160%]'>主体课程</p>
                         <div className="flex gap-2 mt-[35px] items-center">
@@ -48,9 +48,9 @@ export default function Products() {
                             <p className='text-[20px] leading-[160%] text-[#cccccc] font-light'>音乐作品集</p>
                         </div>
                     </ProductsRightBox>
+                    <Image src={products_right} alt='' />
                 </div>
             </div>
-            <Image src={products_right} alt='' />
         </div>
     )
 }

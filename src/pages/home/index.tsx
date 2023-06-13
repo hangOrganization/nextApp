@@ -5,7 +5,13 @@ import Products from "./Products";
 import SchoolRoll from "./SchoolRoll";
 import Specialize from "./Specialize";
 import Slogan from "./Slogan";
+import SignCharacteristic from "./SignCharacteristic";
+import ServiceSystem from "./ServiceSystem";
+
+
 export default function Homepage() {
+
+
   return (
     <div>
       <Header />
@@ -13,6 +19,8 @@ export default function Homepage() {
       <Products />
       <SchoolRoll />
       <Specialize />
+      <ServiceSystem />
+      <SignCharacteristic />
       <Slogan />
       <Footer />
     </div>
