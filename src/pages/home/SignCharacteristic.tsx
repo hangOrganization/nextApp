@@ -15,9 +15,9 @@ const SignCharacteristicBox = styled.div`
 `
 export default function SignCharacteristic() {
     return (
-        <div className='flex px-[120px] justify-between'>
+        <div className='flex mt-[215px] px-[120px] justify-between'>
             <SignCharacteristicBox>
-                <div>
+                <div>a
                     <p className=' font-light text-[56px] leading-[120%]'>公司特色</p>
                     <p className=' font-extralight font-[Lexend] text-[22px] tracking-[0.53em] mt-4 opacity-60 uppercase leading-[160%]'>Why SIGN?</p>
                 </div>

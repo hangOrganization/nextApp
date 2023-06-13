@@ -9,6 +9,7 @@ import Slogan from "./Slogan";
 import SignCharacteristic from "./SignCharacteristic";
 import ServiceSystem from "./ServiceSystem";
 import BusinessPartner from "./BusinessPartner";
+import OurTeam from "./OurTeam";
 
 export default function Homepage() {
   return (
@@ -20,6 +21,7 @@ export default function Homepage() {
       <Specialize />
       <ServiceSystem />
       <SignCharacteristic />
+      <OurTeam />
       <BusinessPartner />
       <Slogan />
       <Footer />
