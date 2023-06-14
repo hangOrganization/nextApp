@@ -106,7 +106,7 @@ export default function OurTeam() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex w-screen gap-[67px] my-20">
+                    <div className="flex w-screen overflow-hidden gap-[67px] my-20">
                         <RollBox className='flex w-[3581px] gap-[67px]'>
                             {[...teachers, ...teachers, ...teachers].map((el: any, index: number) => (
                                 <CardBox style={{ background: `url(${el.image.src})` }} key={`${el.name}-${index}-teachers`}>
