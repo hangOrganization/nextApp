@@ -1,25 +1,45 @@
 "use client";
 import Image from "next/image";
-import businesspartner_bg from "../../assets/image/svg/businesspartner-bg.svg";
+import businesspartner_bg from "@/assets/image/svg/businesspartner-bg.svg";
 import styled from "styled-components";
-import businesspartner_landrover from "../../assets/image/svg/businesspartner-landrover.svg";
+import icon_landrover from "@/assets/image/brand-icon/icon-landrover.svg";
+
+import partner from "@/utils/partner";
+
 const Scroll = styled.div`
-  width: 1440px;
   overflow: hidden;
 `;
 const ScrollBox = styled.div`
   display: flex;
+  overflow: hidden;
   align-items: center;
-  width: 2416px;
+  cursor: pointer;
   gap: 16px;
-  transform: translateX(-126px);
-
-  animation: partnerRoll 10s linear infinite;
+  /* transform: translateX(-126px); */
+  animation: partnerRoll 25s linear infinite;
   @keyframes partnerRoll {
     from {
     }
     to {
-      transform: translateX(-850px);
+      transform: translateX(-2432px);
+    }
+  }
+`;
+
+const ScrollBox2 = styled.div`
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  cursor: pointer;
+  gap: 16px;
+  margin: 16px 0;
+  /* transform: translateX(-126px); */
+  animation: partnerRoll 25s linear -1.59s infinite;
+  @keyframes partnerRoll {
+    from {
+    }
+    to {
+      transform: translateX(-2432px);
     }
   }
 `;
@@ -57,181 +77,87 @@ export default function BusinessPartner() {
       </p>
       <Scroll>
         <ScrollBox>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
-          <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
-          </Partner>
+          {[...partner.first, ...partner.first, ...partner.first].map(
+            (item: any, index: number) => (
+              <Partner>
+                <Image className="w-[200px]" src={item} alt="" key={index} />
+              </Partner>
+            )
+          )}
+        </ScrollBox>
+        <ScrollBox2>
+          {[...partner.second, ...partner.second, ...partner.second].map(
+            (item: any, index: number) => (
+              <Partner>
+                <Image className="w-[200px]" src={item} alt="" key={index} />
+              </Partner>
+            )
+          )}
+        </ScrollBox2>
+
+        <ScrollBox>
+          {[...partner.third, ...partner.third, ...partner.third].map(
+            (item: any, index: number) => (
+              <Partner>
+                <Image className="w-[200px]" src={item} alt="" key={index} />
+              </Partner>
+            )
+          )}
         </ScrollBox>
 
-        <ScrollBox className="my-4">
+        {/* <ScrollBox className="my-4">
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
         </ScrollBox>
 
         <ScrollBox>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
           <Partner>
-            <Image
-              className="w-[118px]"
-              src={businesspartner_landrover}
-              alt=""
-            />
+            <Image className="w-[118px]" src={icon_landrover} alt="" />
           </Partner>
-        </ScrollBox>
+        </ScrollBox> */}
       </Scroll>
     </div>
   );
