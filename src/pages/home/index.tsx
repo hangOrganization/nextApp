@@ -10,11 +10,12 @@ import SignCharacteristic from "./SignCharacteristic";
 import ServiceSystem from "./ServiceSystem";
 import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
+import StudentWorks from "./StudentWorks";
 import Disc from "./Disc";
 
 export default function Homepage() {
   return (
-    <div>
+    <div className="relative">
       <Header />
       <Top />
       <Products />
@@ -23,6 +24,7 @@ export default function Homepage() {
       <ServiceSystem />
       <SignCharacteristic />
       <OurTeam />
+      <StudentWorks />
       <Disc />
       <BusinessPartner />
       <Slogan />

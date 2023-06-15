@@ -60,6 +60,10 @@
   font-family: 'GuanZhi';
   src: url('../font/GuanZhi/GuanZhi-8px.ttf');
 }
+@font-face {
+  font-family: 'Misto';
+  src: url('../font/Misto/Misto.ttf');
+}
 body {
   background: #1A1A1A;
   font-family: 'Alibaba PuHuiTi 2.0';
