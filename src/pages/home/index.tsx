@@ -12,6 +12,7 @@ import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import StudentWorks from "./StudentWorks";
 import Disc from "./Disc";
+import AboutUs from "./AboutUs";
 
 export default function Homepage() {
   return (
@@ -25,6 +26,7 @@ export default function Homepage() {
       <SignCharacteristic />
       <OurTeam />
       <StudentWorks />
+      <AboutUs />
       <Disc />
       <BusinessPartner />
       <Slogan />
