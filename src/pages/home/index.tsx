@@ -10,7 +10,7 @@ import SignCharacteristic from "./SignCharacteristic";
 import ServiceSystem from "./ServiceSystem";
 import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
-import Disc from "./disc";
+import Disc from "./Disc";
 
 export default function Homepage() {
   return (

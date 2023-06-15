@@ -34,7 +34,7 @@ const ScrollBox2 = styled.div`
   gap: 16px;
   margin: 16px 0;
   /* transform: translateX(-126px); */
-  animation: partnerRoll 25s linear -0.8s infinite;
+  animation: partnerRoll 25s linear -1.59s infinite;
   @keyframes partnerRoll {
     from {
     }
