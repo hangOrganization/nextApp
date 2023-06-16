@@ -1,9 +1,9 @@
 import Image from "next/image";
 import logo from "@/assets/image/svg/logo.svg";
-import bilibili_img from "../../assets/image/svg/icon-bilibili.svg";
-import wechat_img from "../../assets/image/svg/icon-wechat.svg";
-import red_book_img from "../../assets/image/svg/icon-red-book.svg";
-import net_ease_cloud_img from "../../assets/image/svg/icon-net-ease-cloud.svg";
+import wechat_QRcode from "../../assets/image/svg/wechat-QRcode.svg";
+import red_book_QRcode from "../../assets/image/svg/red-book-QRcode.svg";
+import bilibili_QRcode from "../../assets/image/svg/bilibili-QRcode.svg";
+import net_ease_cloud_QRcode from "../../assets/image/svg/net-ease-cloud-QRcode.svg";
 import Tip from "../../components/Tips/tip";
 
 export default function Footer() {
@@ -19,24 +19,24 @@ export default function Footer() {
         <div className="flex items-center ">
           <div className="flex item-cneter gap-8">
             <Tip
-              imgSrc={bilibili_img}
-              qrCodeSrc={logo}
-              id="my-anchor-element-id"
+              imgSrc={1}
+              qrCodeSrc={bilibili_QRcode}
+              id="my-anchor-element-id-bilibili_img"
             ></Tip>
             <Tip
-              imgSrc={wechat_img}
-              qrCodeSrc={logo}
-              id="my-anchor-element-id"
+              imgSrc={2}
+              qrCodeSrc={wechat_QRcode}
+              id="my-anchor-element-id-wechat_img"
             ></Tip>
             <Tip
-              imgSrc={red_book_img}
-              qrCodeSrc={logo}
-              id="my-anchor-element-id"
+              imgSrc={3}
+              qrCodeSrc={red_book_QRcode}
+              id="my-anchor-element-id-red_book_img"
             ></Tip>
             <Tip
-              imgSrc={net_ease_cloud_img}
-              qrCodeSrc={logo}
-              id="my-anchor-element-id"
+              imgSrc={4}
+              qrCodeSrc={net_ease_cloud_QRcode}
+              id="my-anchor-element-id-net_ease_cloud_img"
             ></Tip>
           </div>
         </div>

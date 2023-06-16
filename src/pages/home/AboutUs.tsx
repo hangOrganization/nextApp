@@ -1,4 +1,5 @@
-import AboutUs_bg from '@/assets/image/svg/AboutUs-bg.svg'
+import AboutUs_bg from '@/assets/image/svg/aboutUs-bg.svg'
+import AboutUsAboutUs_right_bg_bg from '@/assets/image/svg/aboutUs-right-bg.svg'
 import Image from 'next/image'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
@@ -10,6 +11,7 @@ const AboutUsBox = styled.div`
     padding-left: 221px;
     padding-right: 120px;
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -95,7 +97,7 @@ export default function AboutUs() {
                     </div>
                 </ButtonBox>
             </div>
-
+            <Image className='absolute bottom-[-196px] right-0' src={AboutUsAboutUs_right_bg_bg} alt='' />
         </AboutUsBox>
     )
 }
