@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import sign_bg from '@/assets/image/svg/sign-bg.svg'
+// import sign_bg from '@/assets/image/svg/sign-bg.svg'
 import sign_logo from '@/assets/image/svg/sign-logo.svg'
 import sign_text from '@/assets/image/svg/sign-text.svg'
 import sign_bg_1 from '@/assets/image/svg/sign-bg-1.svg'
@@ -100,6 +100,8 @@ export default function Sign() {
                 <button className='bg-[#FF4B00] rounded-[39px] w-[314px] h-20 absolute text-[28px] text-[#1a1a1a] leading-[100%] font-[Lexend] font-black'>LEt’s Rock</button>
                 <Image src={lEtsRock_button} alt='' />
             </div>
+            {/* <iframe src="https://www.bilibili.com/video/BV1zP411i7RD/?spm_id_from=333.337.search-card.all.click&vd_source=f824a6facffe513da888c75a98cbc62a" marginHeight="50">
+            </iframe> */}
         </div >
     )
 }
