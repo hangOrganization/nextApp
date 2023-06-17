@@ -1,5 +1,7 @@
 import ourTeam_bg from "@/assets/image/svg/ourTeam-bg.svg";
+import MentorInformation from "@/components/Modal/MentorInformation";
 import { teachers } from "@/utils/ourTeam";
+import { useState } from "react";
 import styled from "styled-components";
 
 const OurTeamBox = styled.div`
@@ -87,6 +89,8 @@ const RollBox = styled.div`
   }
 `;
 export default function OurTeam() {
+    const [isOpen, setIsOpen] = useState<number>(0)
+    const [textValue, setTextValue] = useState<number>(0)
     return (
         <OurTeamBox>
             <OurTeamBg>
@@ -135,6 +139,10 @@ export default function OurTeam() {
                             {[...teachers, ...teachers, ...teachers].map(
                                 (el: any, index: number) => (
                                     <CardBox
+                                        onClick={() => {
+                                            setIsOpen(1)
+                                            setTextValue(el.value)
+                                        }}
                                         style={{ background: `url(${el.image.src})` }}
                                         key={`${el.name}-${index}-teachers`}
                                     >
@@ -175,6 +183,7 @@ export default function OurTeam() {
                     </ButtonBox>
                 </OurTeamBlur>
             </OurTeamBg>
+            <MentorInformation textValue={textValue} isOpen={isOpen} setIsOpen={setIsOpen} />
         </OurTeamBox>
     );
 }
