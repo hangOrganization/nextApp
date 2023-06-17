@@ -15,6 +15,7 @@ interface DiscBoxProps {
   bg: any;
   src: string;
   type: string;
+  key: number;
 }
 const Box = styled.div`
   height: 1440px;
@@ -149,7 +150,7 @@ export default function Disc() {
       <div className="w-[4439px] flex items-center gap-[16px]">
         {discList.map((item: DiscBoxProps) => (
           <DiscBox
-            key={item.title}
+            key={item.key}
             onMouseEnter={() => mouseEnter(item.bg)}
             onMouseLeave={mouseLeave}
           >
