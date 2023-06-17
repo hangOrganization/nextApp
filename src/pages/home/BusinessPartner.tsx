@@ -55,16 +55,16 @@ const Partner = styled.div`
 `;
 export default function BusinessPartner() {
   return (
-    <div className="w-screen h-[1187px] pt-[220px] flex flex-col items-center justify-center relative overflow-hidden ">
+    <div className="w-screen h-[1187px]  flex flex-col items-center pt-[220px] relative overflow-hidden ">
       <Image
         alt=""
         src={businesspartner_bg}
-        className="absolute top-0 left-0 w-[720px]"
+        className="absolute top-0 left-0 w-[720px]  translate-x-[-184px]"
       ></Image>
       <Image
         alt=""
         src={businesspartner_bg}
-        className="absolute top-0 right-0 scale-[-1] w-[720px] "
+        className="absolute top-0 right-0 scale-[-1] w-[720px]  translate-x-[184px]"
       ></Image>
       <p className="text-[56px] font-[300] leading-[120%] uppercase">
         合作伙伴
@@ -79,7 +79,7 @@ export default function BusinessPartner() {
         <ScrollBox>
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
-              <Partner>
+              <Partner key={item}>
                 <Image className="w-[200px]" src={item} alt="" key={index} />
               </Partner>
             )
@@ -88,7 +88,7 @@ export default function BusinessPartner() {
         <ScrollBox2>
           {[...partner.second, ...partner.second, ...partner.second].map(
             (item: any, index: number) => (
-              <Partner>
+              <Partner key={item}>
                 <Image className="w-[200px]" src={item} alt="" key={index} />
               </Partner>
             )
@@ -98,66 +98,12 @@ export default function BusinessPartner() {
         <ScrollBox>
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
-              <Partner>
+              <Partner key={item}>
                 <Image className="w-[200px]" src={item} alt="" key={index} />
               </Partner>
             )
           )}
         </ScrollBox>
-
-        {/* <ScrollBox className="my-4">
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-        </ScrollBox>
-
-        <ScrollBox>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-          <Partner>
-            <Image className="w-[118px]" src={icon_landrover} alt="" />
-          </Partner>
-        </ScrollBox> */}
       </Scroll>
     </div>
   );
