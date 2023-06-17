@@ -20,10 +20,51 @@ const MoveBox = styled.div`
   width: 592px;
   height: 128px;
   margin: auto;
-
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 38px;
+
+  .export-text {
+    font-weight: 250;
+    font-size: 16px;
+    line-height: 180%;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ff4b00;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    p:first-child {
+      font-size: 24px;
+    }
+  }
+  .test {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 180%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    display: none;
+  }
+  :hover {
+    background: #ff4b00;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+
+    .export-text {
+      color: #1a1a1a;
+      p:last-child {
+        opacity: 0.6;
+      }
+    }
+  }
 `;
 
 export default function slogan() {
@@ -46,16 +87,12 @@ export default function slogan() {
         <div
           style={{ background: "rgb(255,255,255,.02", borderRadius: "24px" }}
         >
-          <MoveBox
-            className="flex 
-        flex-col item-center justify-between py-6 "
-          >
-            <p className="text-[#FF4B00] font-[250] text-6 leading-[180%] uppercase">
-              探索更多声音服务
-            </p>
-            <p className="text-[#FF4B00] font-[250] text-[16px] leading-[180%] uppercase tracking-[0.2em]">
-              其实，你可以听见更多
-            </p>
+          <MoveBox>
+            <div className="export-text ">
+              <p className="mb-[8px]">探索更多声音服务</p>
+              <p>其实，你可以听见更多</p>
+            </div>
+            <div className="test">前往万像循声</div>
           </MoveBox>
         </div>
       </div>
