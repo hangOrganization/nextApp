@@ -10,26 +10,24 @@ import SignCharacteristic from "./SignCharacteristic";
 import ServiceSystem from "./ServiceSystem";
 import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
-import StudentWorks from "./StudentWorks";
+// import StudentWorks from "./StudentWorks";
 import Disc from "./Disc";
 import AboutUs from "./AboutUs";
 
 
 export default function Homepage() {
   return (
-    <div className="relative"   onScroll={()=>{
-      console.log('11111')
-  }}>
+    <div className="relative">
       <Header />
       <Top />
       <Products />
       <SchoolRoll />
       <Specialize />
       <ServiceSystem />
-      <SignCharacteristic />
       <OurTeam />
-      <StudentWorks />
+      <SignCharacteristic />
       <AboutUs />
+      {/* <StudentWorks /> */}
       <Disc />
       <BusinessPartner />
       <Slogan />

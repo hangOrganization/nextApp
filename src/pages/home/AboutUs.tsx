@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const AboutUsBox = styled.div`
     width: 100%;
     height: 960px;
-    padding-left: 221px;
+    padding-left: 120px;
     padding-right: 120px;
     display: flex;
     position: relative;
@@ -53,15 +53,10 @@ export default function AboutUs() {
     return (
         <AboutUsBox>
             <div className=' flex justify-between w-full items-center'>
-                <SignCharacteristicBox>
-                    <div>
-                        <p className=' font-light text-[56px] leading-[120%]'>关于我们</p>
-                        <p className=' font-extralight font-[Lexend] text-[22px] tracking-[0.53em] mt-4 opacity-60 uppercase leading-[160%]'>ABOUT US</p>
-                    </div>
-                </SignCharacteristicBox>
                 <div className='flex'>
-                    <div className='mr-[89px]'>
-                        <div className='w-[491px] mt-12'>
+                    <Image src={products_right} alt='' />
+                    <div className='ml-[80px]'>
+                        <div className='w-[599px] mt-12'>
                             <p className='text-[14px] font-light leading-[220%] opacity-70'>
                                 SIGNART 十万象限音乐留学作品集由世界名校海归艺术导师与顶尖音乐传媒公司联合创立，杭州首家拥有十年音乐传媒行业经验的创始人团队，专攻于音乐艺术作品集教育，留学申请规划以及跨界艺术联动，致力打造音乐教育与声音全流程制作的产学联动生态。同时作为浙江传媒学院等艺术高校的实训基地，每年为传媒行业输送大量人才。
                             </p>
@@ -73,11 +68,16 @@ export default function AboutUs() {
                             </p>
                         </div>
                     </div>
-                    <Image src={products_right} alt='' />
                 </div>
+                <SignCharacteristicBox>
+                    <div>
+                        <p className=' font-light text-[56px] leading-[120%]'>关于我们</p>
+                        <p className=' font-extralight font-[Lexend] text-[22px] tracking-[0.53em] mt-4 opacity-60 uppercase leading-[160%]'>ABOUT US</p>
+                    </div>
+                </SignCharacteristicBox>
             </div>
-            <div className=' flex justify-end mt-[60px] w-full'>
-                <ButtonBox className="p-4 text-[16px] mr-[101.5px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]">
+            <div className=' flex justify-start mt-[60px] w-full'>
+                <ButtonBox className="p-4 text-[16px] ml-[98px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]">
                     了解校区环境
                     <div className="w-[36px] hover ml-[14px] items-center justify-center flex rounded-full h-[36px]">
                         <svg
@@ -97,7 +97,7 @@ export default function AboutUs() {
                     </div>
                 </ButtonBox>
             </div>
-            <Image className='absolute bottom-[-196px] right-0' src={AboutUsAboutUs_right_bg_bg} alt='' />
+            {/* <Image className='absolute bottom-[-196px] right-0' src={AboutUsAboutUs_right_bg_bg} alt='' /> */}
         </AboutUsBox>
     )
 }
