@@ -7,7 +7,7 @@ import discList from "@/utils/discList";
 import disc_left_decoraton from "../../assets/image/svg/disc-left-decoration.svg";
 import disc_right_decoraton from "../../assets/image/svg/disc-right-decoration.svg";
 import disc_film from "../../assets/image/png/disc-film.png";
-import disc_acquiesce from "../../assets/image/svg/disc-acquiesce.svg";
+import disc_acquiesce from "../../assets/image/png/disc-acquiesce.png";
 
 import { useState } from "react";
 interface DiscBoxProps {
@@ -31,9 +31,10 @@ const Box = styled.div`
   .active-move {
     .film-img {
       transition: all 500ms;
-      transform: translateX(160px) rotate(40deg);
+      transform: translateX(162px) rotate(40deg);
     }
-    .film-bg {
+    .film-mask {
+      opacity: 0.5;
       transform: translateX(-20px);
       transition: all 500ms;
     }
@@ -44,6 +45,13 @@ const Box = styled.div`
     .right-coraton {
       transition: all 500ms;
       right: 15px;
+    }
+    .film-master-map {
+      position: absolute;
+      transition: all 500ms;
+      transform: translateX(-20px);
+      opacity: 1;
+      z-index: 5;
     }
   }
 `;
@@ -111,11 +119,21 @@ const FilmBox = styled.div`
     transform: translateX(120px) rotate(0deg);
     transform-origin: center center;
   }
-  .film-bg {
+  .film-mask {
     width: 492px;
     height: 492px;
     position: relative;
     z-index: 3;
+    transition: all 500ms;
+    opacity: 1;
+  }
+  .film-master-map {
+    position: absolute;
+    width: 492px;
+    height: 492px;
+    top: 0;
+    left: 0;
+    opacity: 0;
     transition: all 500ms;
   }
 `;
@@ -140,7 +158,8 @@ export default function Disc() {
 
             <FilmBox>
               <Image src={disc_film} alt="" className="film-img"></Image>
-              <Image src={discImg} alt="" className="film-bg"></Image>
+              <Image src={disc_acquiesce} alt="" className="film-mask"></Image>
+              <Image src={discImg} alt="" className="film-master-map"></Image>
             </FilmBox>
           </div>
 

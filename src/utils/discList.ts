@@ -1,19 +1,19 @@
 import DOCUMENTARY_II from "@/assets/image/disc-icon/DOCUMENTARY-II.svg";
-import DOCUMENTARY_II_bg from "@/assets/image/disc-icon/DOCUMENTARY-II-bg.svg";
+import DOCUMENTARY_II_bg from "@/assets/image/disc-icon/DOCUMENTARY-II-bg.png";
 import DOCUMENTARY_I from "@/assets/image/disc-icon/DOCUMENTARY-I.svg";
-import DOCUMENTARY_I_bg from "@/assets/image/disc-icon/DOCUMENTARY-I-bg.svg";
+import DOCUMENTARY_I_bg from "@/assets/image/disc-icon/DOCUMENTARY-I-bg.png";
 import RHYTHM from "@/assets/image/disc-icon/RHYTHM.svg";
-import RHYTHM_bg from "@/assets/image/disc-icon/RHYTHM-bg.svg";
+import RHYTHM_bg from "@/assets/image/disc-icon/RHYTHM-bg.png";
 import CHINA_I from "@/assets/image/disc-icon/CHINA-I.svg";
-import CHINA_I_bg from "@/assets/image/disc-icon/CHINA-I-bg.svg";
+import CHINA_I_bg from "@/assets/image/disc-icon/CHINA-I-bg.png";
 import CHINA_II from "@/assets/image/disc-icon/CHINA-II.svg";
-import CHINA_II_bg from "@/assets/image/disc-icon/CHINA-II-bg.svg";
+import CHINA_III_bg from "@/assets/image/disc-icon/CHINA-III-bg.png";
 import CHINA_III from "@/assets/image/disc-icon/CHINA-III.svg";
 import FASHION from "@/assets/image/disc-icon/FASHION.svg";
 import Hopeful from "@/assets/image/disc-icon/Hopeful.svg";
 import SCI_TECH from "@/assets/image/disc-icon/SCI-TECH.svg";
-import SCI_TECH_bg from "@/assets/image/disc-icon/SCI-TECH-bg.svg";
-import disc_acquiesce from "../assets/image/svg/disc-acquiesce.svg";
+import SCI_TECH_bg from "@/assets/image/disc-icon/SCI-TECH-bg.png";
+import disc_acquiesce from "../assets/image/png/disc-acquiesce.png";
 
 export default [
   {
@@ -34,7 +34,7 @@ export default [
     title: "CHINA-II",
     src: CHINA_II,
     type: "国风",
-    bg: CHINA_II_bg,
+    bg: CHINA_III_bg,
     key: 3,
   },
 
