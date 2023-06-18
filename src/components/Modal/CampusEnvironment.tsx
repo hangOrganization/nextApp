@@ -35,7 +35,6 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
         setIsOpen(0)
     }
     const [currentPage, setCurrentPage] = useState<number>(0)
-    console.log("🚀 ~ file: CampusEnvironment.tsx:38 ~ CampusEnvironment ~ currentPage:", currentPage)
     const list = [
         {
             index: 0,

@@ -25,7 +25,11 @@ const ProductsRightBox = styled.div`
 `
 export default function Products() {
     return (
-        <div className='flex mt-[324px] w-screen pl-[136px] pr-[120px]'>
+        <div 
+        onScroll={()=>{
+            console.log('11111')
+        }}
+        className='flex mt-[324px] box2 w-screen pl-[136px] pr-[120px]'>
             <div className="flex w-[100%] justify-between">
                 <ProductsBox>
                     <p className='font-extrabold text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>
