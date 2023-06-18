@@ -1,9 +1,9 @@
-import MA from '@/assets/image/teachers-icon/icon-MA.svg'
-import Gao from '@/assets/image/teachers-icon/Gao.svg'
-import HUANG from '@/assets/image/teachers-icon/HUANG.svg'
-import XIA from '@/assets/image/teachers-icon/XIA.svg'
-import SHI from '@/assets/image/teachers-icon/SHI.svg'
-import ZHAO from '@/assets/image/teachers-icon/ZHAO.svg'
+import MA from '@/assets/image/teachers-icon/icon-MA.png'
+import Gao from '@/assets/image/teachers-icon/Gao.png'
+import HUANG from '@/assets/image/teachers-icon/HUANG.png'
+import XIA from '@/assets/image/teachers-icon/XIA.png'
+import SHI from '@/assets/image/teachers-icon/SHI.png'
+import ZHAO from '@/assets/image/teachers-icon/ZHAO.png'
 
 export const teachers =[
     {

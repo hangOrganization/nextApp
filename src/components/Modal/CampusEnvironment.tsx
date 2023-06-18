@@ -1,15 +1,15 @@
 import { Dialog, Transition } from "@headlessui/react"
 import Image from 'next/image'
-import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.svg"
-import campusEnvironment_2 from "@/assets/image/campusEnvironment/campusEnvironment-2.svg"
-import campusEnvironment_3 from "@/assets/image/campusEnvironment/campusEnvironment-3.svg"
-import campusEnvironment_4 from "@/assets/image/campusEnvironment/campusEnvironment-4.svg"
-import campusEnvironment_5 from "@/assets/image/campusEnvironment/campusEnvironment-5.svg"
-import campusEnvironment_6 from "@/assets/image/campusEnvironment/campusEnvironment-6.svg"
-import campusEnvironment_7 from "@/assets/image/campusEnvironment/campusEnvironment-7.svg"
-import campusEnvironment_8 from "@/assets/image/campusEnvironment/campusEnvironment-8.svg"
-import campusEnvironment_9 from "@/assets/image/campusEnvironment/campusEnvironment-9.svg"
-import campusEnvironment_10 from "@/assets/image/campusEnvironment/campusEnvironment-10.svg"
+import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.png"
+import campusEnvironment_2 from "@/assets/image/campusEnvironment/campusEnvironment-2.png"
+import campusEnvironment_3 from "@/assets/image/campusEnvironment/campusEnvironment-3.png"
+import campusEnvironment_4 from "@/assets/image/campusEnvironment/campusEnvironment-4.png"
+import campusEnvironment_5 from "@/assets/image/campusEnvironment/campusEnvironment-5.png"
+import campusEnvironment_6 from "@/assets/image/campusEnvironment/campusEnvironment-6.png"
+import campusEnvironment_7 from "@/assets/image/campusEnvironment/campusEnvironment-7.png"
+import campusEnvironment_8 from "@/assets/image/campusEnvironment/campusEnvironment-8.png"
+import campusEnvironment_9 from "@/assets/image/campusEnvironment/campusEnvironment-9.png"
+import campusEnvironment_10 from "@/assets/image/campusEnvironment/campusEnvironment-10.png"
 import { Fragment, useState } from "react"
 import styled from "styled-components"
 
@@ -35,7 +35,6 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
         setIsOpen(0)
     }
     const [currentPage, setCurrentPage] = useState<number>(0)
-    console.log("🚀 ~ file: CampusEnvironment.tsx:38 ~ CampusEnvironment ~ currentPage:", currentPage)
     const list = [
         {
             index: 0,
@@ -134,7 +133,7 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                             </defs>
                                         </svg>
                                     </TurningButton>
-                                    <Image src={list[currentPage].image} alt="" />
+                                    <Image className=" w-[694px] h-[520px]" src={list[currentPage].image} alt="" />
                                     <TurningButton className={`${currentPage === list.length - 1 ? 'opacity-0' : 'cursor-pointer'}`}
                                         onClick={() => {
                                             if (currentPage !== list.length - 1) {
@@ -159,7 +158,10 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                 <div className="flex mt-[40px] justify-center relative items-center gap-4">
                                     <div className="flex w-[336px] justify-end items-center gap-4">
                                         {list.slice(currentPage > 4 ? currentPage - 4 : 0, currentPage).map((el: any, index: number) => (
-                                            <Image className="w-[70px] h-[70px]" key={`CampusEnvironment-${index}`} src={el.image} alt="" />
+                                            <Image className="w-[70px] h-[70px] cursor-pointer" key={`CampusEnvironment-${index}`} src={el.image} alt=""
+                                            onClick={()=>{
+                                                setCurrentPage(el.index)
+                                            }} />
                                         ))}
                                     </div>
                                     <div style={{ border: ' 1px solid #FF4B00' }} className="p-2">
@@ -167,7 +169,10 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                     </div>
                                     <div className="flex w-[336px] justify-start items-center gap-4">
                                         {list.slice(currentPage + 1, currentPage + 5).map((el: any, index: number) => (
-                                            <Image className="w-[70px] h-[70px]" key={`CampusEnvironment-${index}`} src={el.image} alt="" />
+                                            <Image className="w-[70px] cursor-pointer h-[70px]" key={`CampusEnvironment-${index}`} src={el.image} alt="" 
+                                            onClick={()=>{
+                                                setCurrentPage(el.index)
+                                            }}/>
                                         ))}
                                     </div>
                                 </div>

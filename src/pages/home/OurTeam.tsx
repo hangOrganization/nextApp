@@ -47,10 +47,11 @@ const OurTeamBlur = styled.div`
 `;
 const CardBox = styled.div`
   width: 237px;
+  position: relative;
   cursor: pointer;
   height: 368px;
-  background-size: cover;
   transition: all 150ms;
+  background-size: contain;
   background-repeat: no-repeat;
   :hover {
     transform: translateY(-10px);
@@ -143,7 +144,7 @@ export default function OurTeam() {
                                             setIsOpen(1)
                                             setTextValue(el.value)
                                         }}
-                                        style={{ background: `url(${el.image.src})` }}
+                                        style={{ backgroundImage: `url(${el.image.src})`}}
                                         key={`${el.name}-${index}-teachers`}
                                     >
                                         <CardFilterBox>
