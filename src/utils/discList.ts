@@ -21,18 +21,21 @@ export default [
     src: SCI_TECH,
     type: "科幻",
     bg: SCI_TECH_bg,
+    key: 1,
   },
   {
     title: "FASHION",
     src: FASHION,
     type: "时尚",
     bg: disc_acquiesce,
+    key: 2,
   },
   {
     title: "CHINA-II",
     src: CHINA_II,
     type: "国风",
     bg: CHINA_II_bg,
+    key: 3,
   },
 
   {
@@ -40,6 +43,7 @@ export default [
     src: Hopeful,
     type: "阳光",
     bg: disc_acquiesce,
+    key: 4,
   },
 
   {
@@ -47,18 +51,21 @@ export default [
     src: SCI_TECH,
     type: "科幻",
     bg: SCI_TECH_bg,
+    key: 5,
   },
   {
     title: "RHYTHM",
     src: RHYTHM,
     type: "快剪",
     bg: RHYTHM_bg,
+    key: 6,
   },
   {
     title: "DOCUMENTARY-II",
     src: DOCUMENTARY_II,
     type: "记录",
     bg: DOCUMENTARY_II_bg,
+    key: 7,
   },
 
   {
@@ -66,6 +73,7 @@ export default [
     src: CHINA_I,
     type: "国风 ",
     bg: CHINA_I_bg,
+    key: 8,
   },
 
   {
@@ -73,12 +81,14 @@ export default [
     src: CHINA_III,
     type: "国风",
     bg: disc_acquiesce,
+    key: 9,
   },
   {
     title: "DOCUMENTARY-I",
     src: DOCUMENTARY_I,
     type: "记录",
     bg: DOCUMENTARY_I_bg,
+    key: 10,
   },
 
   {
@@ -86,5 +96,6 @@ export default [
     src: CHINA_I,
     type: "国风",
     bg: CHINA_I_bg,
+    key: 11,
   },
 ];

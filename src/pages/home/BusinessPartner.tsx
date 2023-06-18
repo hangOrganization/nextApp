@@ -79,7 +79,7 @@ export default function BusinessPartner() {
         <ScrollBox>
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
-              <Partner key={item}>
+              <Partner key={index}>
                 <Image className="w-[200px]" src={item} alt="" key={index} />
               </Partner>
             )
@@ -88,7 +88,7 @@ export default function BusinessPartner() {
         <ScrollBox2>
           {[...partner.second, ...partner.second, ...partner.second].map(
             (item: any, index: number) => (
-              <Partner key={item}>
+              <Partner key={index}>
                 <Image className="w-[200px]" src={item} alt="" key={index} />
               </Partner>
             )
@@ -98,7 +98,7 @@ export default function BusinessPartner() {
         <ScrollBox>
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
-              <Partner key={item}>
+              <Partner key={index}>
                 <Image className="w-[200px]" src={item} alt="" key={index} />
               </Partner>
             )

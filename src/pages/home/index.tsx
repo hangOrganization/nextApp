@@ -17,7 +17,9 @@ import AboutUs from "./AboutUs";
 
 export default function Homepage() {
   return (
-    <div className="relative">
+    <div className="relative"   onScroll={()=>{
+      console.log('11111')
+  }}>
       <Header />
       <Top />
       <Products />
