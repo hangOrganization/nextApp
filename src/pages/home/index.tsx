@@ -13,25 +13,35 @@ import OurTeam from "./OurTeam";
 // import StudentWorks from "./StudentWorks";
 import Disc from "./Disc";
 import AboutUs from "./AboutUs";
+import { useState } from "react";
 
 
 export default function Homepage() {
+  const [value, setValue] = useState<number>(0)
+
   return (
-    <div className="relative">
-      <Header />
-      <Top />
-      <Products />
-      <SchoolRoll />
-      <Specialize />
-      <ServiceSystem />
-      <OurTeam />
-      <SignCharacteristic />
-      <AboutUs />
-      {/* <StudentWorks /> */}
-      <Disc />
-      <BusinessPartner />
-      <Slogan />
-      <Footer />
+    <div className="relative h-screen overflow-auto" onScroll={
+      (e: any) => {
+        if (value === 1) {
+          e.target.scrollTop=1848
+        }
+      }}>
+      <div className="h-full">
+        <Header />
+        <Top />
+        <Products value={value} setValue={setValue} />
+        <SchoolRoll />
+        <Specialize />
+        <ServiceSystem />
+        <OurTeam />
+        <SignCharacteristic />
+        <AboutUs />
+        {/* <StudentWorks /> */}
+        <Disc />
+        <BusinessPartner />
+        <Slogan />
+        <Footer />
+      </div>
     </div>
   );
 }

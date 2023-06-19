@@ -9,29 +9,29 @@ const OurTeamBox = styled.div`
   position: relative;
   z-index: 2;
   margin-top: 450px;
-  border-radius: 48px;
+  border-radius: 48px 48px 0px 0px;
   background: url(${ourTeam_bg.src});
 `;
-const ButtonBox = styled.div`
-  cursor: pointer;
-  border: 1px solid #ffffff;
-  .hover {
-    border: 1px solid #ffffff;
-  }
-  &:hover {
-    color: #ffffff;
-    background: #1a1a1a;
-    border: 1px solid #1a1a1a;
-    mix-blend-mode: difference;
-    .hover {
-      border: 1px solid #1a1a1a;
-      background: #cccccc;
-    }
-    path {
-      stroke: #1a1a1a;
-    }
-  }
-`;
+// const ButtonBox = styled.div`
+//   cursor: pointer;
+//   border: 1px solid #ffffff;
+//   .hover {
+//     border: 1px solid #ffffff;
+//   }
+//   &:hover {
+//     color: #ffffff;
+//     background: #1a1a1a;
+//     border: 1px solid #1a1a1a;
+//     mix-blend-mode: difference;
+//     .hover {
+//       border: 1px solid #1a1a1a;
+//       background: #cccccc;
+//     }
+//     path {
+//       stroke: #1a1a1a;
+//     }
+//   }
+// `;
 const OurTeamBg = styled.div`
   width: 100%;
   height: 100%;
@@ -163,7 +163,7 @@ export default function OurTeam() {
                             )}
                         </RollBox>
                     </div>
-                    <ButtonBox className="p-4 text-[16px] leading-[120%] w-[226px] font-normal mx-auto pl-[30px] pr-[15px] flex items-center rounded-[64px]">
+                    {/* <ButtonBox className="p-4 text-[16px] leading-[120%] w-[226px] font-normal mx-auto pl-[30px] pr-[15px] flex items-center rounded-[64px]">
                         观看导师精彩作品
                         <div className="w-[36px] hover ml-[14px] items-center justify-center flex rounded-full h-[36px]">
                             <svg
@@ -181,7 +181,7 @@ export default function OurTeam() {
                                 <path d="M18 8L0 8" stroke="white" strokeWidth="1.6" />
                             </svg>
                         </div>
-                    </ButtonBox>
+                    </ButtonBox> */}
                 </OurTeamBlur>
             </OurTeamBg>
             <MentorInformation textValue={textValue} isOpen={isOpen} setIsOpen={setIsOpen} />
