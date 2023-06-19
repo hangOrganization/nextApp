@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
+import characteristic_bg from '@/assets/image/svg/characteristic-bg.svg'
 import seniorMentor_bg from '@/assets/image/svg/seniorMentor-bg.svg'
 import styled from 'styled-components'
 
@@ -15,7 +16,7 @@ const SignCharacteristicBox = styled.div`
 `
 export default function SignCharacteristic() {
     return (
-        <div className='flex mt-[215px] px-[120px] justify-between'>
+        <div style={{background: `url(${characteristic_bg.src}), linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 17.84%)`}} className='flex h-[1278px] items-center px-[120px] justify-between'>
             <SignCharacteristicBox>
                 <div>
                     <p className=' font-light text-[56px] leading-[120%]'>公司特色</p>

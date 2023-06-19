@@ -156,7 +156,7 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                 </div>
                                 <p className=" font-light text-[14px] leading-[180%]">{list[currentPage].name}</p>
                                 <div className="flex mt-[40px] justify-center relative items-center gap-4">
-                                    <div className="flex w-[336px] justify-end items-center gap-4">
+                                    <div className="flex relative w-[336px] justify-end items-center gap-4">
                                         {list.slice(currentPage > 4 ? currentPage - 4 : 0, currentPage).map((el: any, index: number) => (
                                             <Image className="w-[70px] h-[70px] cursor-pointer" key={`CampusEnvironment-${index}`} src={el.image} alt=""
                                             onClick={()=>{

@@ -1,14 +1,11 @@
-import AboutUs_bg from '@/assets/image/svg/aboutUs-bg.svg'
-import AboutUsAboutUs_right_bg_bg from '@/assets/image/svg/aboutUs-right-bg.svg'
-import Image from 'next/image'
-import products_right from '@/assets/image/svg/icon-products-right.svg'
+import AboutUs_bg from '@/assets/image/svg/aboutUs-bg.png'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
 import styled from 'styled-components'
 
 const AboutUsBox = styled.div`
     width: 100%;
-    height: 960px;
-    padding-left: 120px;
+    height: 1050px;
+    padding-left: 212px;
     padding-right: 120px;
     display: flex;
     position: relative;
@@ -17,7 +14,7 @@ const AboutUsBox = styled.div`
     justify-content: center;
     margin-top: 80px;
     background: url(${AboutUs_bg.src});
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     /* mix-blend-mode: color-dodge; */
 `
@@ -52,10 +49,9 @@ const SignCharacteristicBox = styled.div`
 export default function AboutUs() {
     return (
         <AboutUsBox>
-            <div className=' flex justify-between w-full items-center'>
+            <div className=' flex justify-between pt-[312px] w-full'>
                 <div className='flex'>
-                    <Image src={products_right} alt='' />
-                    <div className='ml-[80px]'>
+                    <div className=''>
                         <div className='w-[599px] mt-12'>
                             <p className='text-[14px] font-light leading-[220%] opacity-70'>
                                 SIGNART 十万象限音乐留学作品集由世界名校海归艺术导师与顶尖音乐传媒公司联合创立，杭州首家拥有十年音乐传媒行业经验的创始人团队，专攻于音乐艺术作品集教育，留学申请规划以及跨界艺术联动，致力打造音乐教育与声音全流程制作的产学联动生态。同时作为浙江传媒学院等艺术高校的实训基地，每年为传媒行业输送大量人才。
@@ -77,7 +73,7 @@ export default function AboutUs() {
                 </SignCharacteristicBox>
             </div>
             <div className=' flex justify-start mt-[60px] w-full'>
-                <ButtonBox className="p-4 text-[16px] ml-[98px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]">
+                <ButtonBox className="p-4 text-[16px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]">
                     了解校区环境
                     <div className="w-[36px] hover ml-[14px] items-center justify-center flex rounded-full h-[36px]">
                         <svg
@@ -97,7 +93,6 @@ export default function AboutUs() {
                     </div>
                 </ButtonBox>
             </div>
-            {/* <Image className='absolute bottom-[-196px] right-0' src={AboutUsAboutUs_right_bg_bg} alt='' /> */}
         </AboutUsBox>
     )
 }

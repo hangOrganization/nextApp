@@ -14,19 +14,22 @@ export default function Header() {
       </div>
       <div className="flex gap-4 items-center">
         <div className="py-4 cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
-          服务项目
+          音乐留学
+        </div>
+        <div className="py-4 cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
+          师资团队
         </div>
         <div className="py-4 cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
           公司特色
         </div>
         <div className="py-4 cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
-          团队作品
-        </div>
-        <div className="py-4 cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
           关于我们
         </div>
-        <div onClick={() => setIsOpenCampus(1)} className="py-4 cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
-        校区环境
+        <div className="py-4 cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
+          原创音乐计划
+        </div>
+        <div style={{ border: '1px solid rgba(204, 204, 204, 0.3)' }} onClick={() => setIsOpenCampus(1)} className="py-4 rounded-2xl cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 font-light">
+          校区环境
         </div>
         <div
           style={{ border: "1px solid rgba(255, 75, 0, 0.5)" }}
