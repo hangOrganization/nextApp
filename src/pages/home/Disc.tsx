@@ -10,6 +10,7 @@ import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
 
 import { useState } from "react";
+import { relative } from "path";
 interface DiscBoxProps {
   title: string;
   bg: any;
@@ -20,7 +21,7 @@ interface DiscBoxProps {
 const Box = styled.div`
   overflow: hidden;
   background: url(${disc_bg.src});
-  background-size: cover;
+  background-size: 100% 100%;
   .active-move {
     .film-img {
       transform: translateX(162px) rotate(40deg);
@@ -33,11 +34,14 @@ const Box = styled.div`
       transform: translateX(-35px);
     }
     .right-coraton {
-      right: 15px;
+      right: -15px;
     }
     .film-master-map {
       transform: translateX(-20px);
       opacity: 1;
+    }
+    .film-bottom {
+      transform: translateX(-20px);
     }
   }
   .transform-0 {
@@ -51,9 +55,25 @@ const Box = styled.div`
   }
 `;
 
+const FilterBox = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1440px;
+  opacity: 0;
+
+  -moz-opacity: 0.15;
+  -khtml-opacity: 0.15;
+  opacity: 0.15;
+  filter: blur(100px);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: all 500ms;
+`;
+
 const DiscBox = styled.div`
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.6);
   background-blend-mode: soft-light, overlay;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
@@ -95,14 +115,19 @@ const FilmBox = styled.div`
     left: 0;
     opacity: 0;
   }
+  .film-bottom {
+    top: 0;
+    z-index: 1;
+    left: 0;
+    position: absolute;
+    opacity: 1;
+  }
 `;
 const ButtonBox = styled.div`
   position: absolute;
   bottom: -40px;
   right: 0;
 `;
-
-const ScrollDiscBox = styled.div``;
 
 const ChangeButton = styled.div`
   border-radius: 100%;
@@ -147,29 +172,38 @@ export default function Disc() {
     setCurrentPage(currentPage + 1);
   };
   return (
-    <Box className="h-[1440px] w-screen flex items-center justify-center flex-col relative">
+    <Box className="h-[1440px] w-screen flex items-center justify-center flex-col relative ">
+      <FilterBox
+        className="fliter-box z-[1] "
+        style={{
+          backgroundImage:
+            discImg.src != disc_acquiesce.src ? `url(${discImg.src})` : "",
+          opacity: discImg.src != disc_acquiesce.src ? 0.15 : 0,
+        }}
+      ></FilterBox>
       <div className={moveFlag ? "active-move" : ""}>
         <div className=" w-[1160px] flex mb-[72px] relative mx-auto">
           <div className="flex">
-            <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] "></LeftDecoraton>
+            <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5]"></LeftDecoraton>
             <FilmBox className=" w-[492px] h-[492px] flex items-center justify-center relative">
               <Image
                 src={disc_film}
                 alt=""
-                className="film-img w-[444px] h-[444px] absolute transition-all duration-500"
+                className="film-img w-[444px] h-[444px] absolute transition-all duration-500  z-[2]"
               ></Image>
               <Image
                 src={disc_acquiesce}
                 alt=""
                 className="film-mask   w-[492px] h-[492px] relative z-[5] transition-all duration-500 opacity-[1]"
               ></Image>
+
               <Image
                 src={discImg}
                 alt=""
-                className="film-master-map w-[492px] h-[492px] absolute z-[5] transition-all duration-500 opacity-0"
+                className="film-master-map w-[492px] h-[492px] absolute z-[5] transition-all duration-500 opacity-[1]"
               ></Image>
             </FilmBox>
-            <ButtonBox className="flex gap-[40px] h-[48px]">
+            <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5]">
               <ChangeButton className="scale-x-[-1]" onClick={prePage}>
                 <svg
                   width="48"
@@ -231,7 +265,7 @@ export default function Disc() {
             </ButtonBox>
           </div>
 
-          <RightDecoraton className="right-coraton  w-[329px] h-[176px] absolute transition-all duration-500"></RightDecoraton>
+          <RightDecoraton className="right-coraton  w-[329px] h-[176px] absolute transition-all duration-500  z-[5]"></RightDecoraton>
         </div>
       </div>
       <div
@@ -243,7 +277,7 @@ export default function Disc() {
             : currentPage == 2
             ? "transform-2"
             : ""
-        } w-[4439px] flex items-center gap-[16px]  duration-500  transition-all`}
+        } w-[4439px] flex items-center gap-[16px]  duration-500  transition-all relative z-[5]`}
       >
         {discList.map((item: DiscBoxProps) => (
           <DiscBox
