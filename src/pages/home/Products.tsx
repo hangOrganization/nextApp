@@ -31,9 +31,6 @@ interface ProductsProps{
     setValue:Function
 }
 export default function Products({value, setValue}:ProductsProps) {
-    // const throttle = _.throttle;
-    console.log("🚀 ~ file: Products.tsx:30 ~ Products ~ value:", value)
-
     return (
         <div className='flex mt-[324px] box2 w-screen pl-[136px] pr-[120px]'
             onWheelCapture={
@@ -41,23 +38,19 @@ export default function Products({value, setValue}:ProductsProps) {
                     if (value === 0) {
                         if (e.deltaY > 0) {
                             setValue(1)
-                            e.pageY = 270
                         }
                     } else if (value === 2) {
                         if (e.deltaY < 0) {
                             setValue(1)
-                            e.pageY = 270
                         }
                     } else {
                         if (e.deltaY < 0) {
                             setValue(0)
-                            e.pageY = 270
                         } else {
                             setValue(2)
-                            e.pageY = 270
                         }
                     }
-                }, 300)
+                }, 200)
             }
         >
             <div className="flex w-[100%] items-center justify-between">

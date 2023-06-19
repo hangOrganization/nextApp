@@ -1,7 +1,7 @@
 "use client";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Top from "./Sign";
+import Sign from "./Sign";
 import Products from "./Products";
 import SchoolRoll from "./SchoolRoll";
 import Specialize from "./Specialize";
@@ -16,19 +16,19 @@ import AboutUs from "./AboutUs";
 import { useState } from "react";
 
 
+
 export default function Homepage() {
   const [value, setValue] = useState<number>(0)
-
   return (
-    <div className="relative h-screen overflow-auto" onScroll={
-      (e: any) => {
+    <div className={`relative ${value === 1 ? ' overflow-hidden' : ' overflow-auto'} h-screen`}
+      onScroll={(e: any) => {
         if (value === 1) {
-          e.target.scrollTop=1848
+          e.target.scrollTop = 1848
         }
       }}>
       <div className="h-full">
         <Header />
-        <Top />
+        <Sign />
         <Products value={value} setValue={setValue} />
         <SchoolRoll />
         <Specialize />
