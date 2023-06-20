@@ -17,7 +17,7 @@ export default function Video() {
   const videoRef = useRef<HTMLVideoElement>();
   const changeVideoState = () => {
     serVideoState(!videoState);
-    videoState ? videoRef.current?.pause() : videoRef.current?.play();
+    videoState ? videoRef.current?.play() : videoRef.current?.pause();
   };
 
   return (
