@@ -5,7 +5,6 @@ import products_bg from '@/assets/image/svg/products-bg.svg'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
 import products_right_bg from '@/assets/image/svg/products-right-bg.svg'
 import styled from 'styled-components'
-import { useState } from 'react'
 
 const ProductsBox = styled.div`
     width: 440px;
@@ -51,8 +50,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                         }
                     }
                 }, 300)
-            }
-        >
+            }>
             <div className="flex w-[100%] items-center justify-between">
                 <ProductsBox>
                     <p className='font-extrabold text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>

@@ -1,11 +1,11 @@
 "use client"
 import Image from 'next/image'
-import Shadow from '@/assets/image/svg/Shadow.png'
 import sign_logo from '@/assets/image/svg/sign-logo.svg'
 import sign_text from '@/assets/image/svg/sign-text.svg'
 import sign_bg_1 from '@/assets/image/svg/sign-bg-1.svg'
 import sign_bg_2 from '@/assets/image/svg/sign-bg-2.svg'
 import icon_star from '@/assets/image/svg/icon-star.svg'
+import sign_shadow_bg from '@/assets/image/svg/sign-shadow-bg.svg'
 import lEtsRock_button from '@/assets/image/svg/lEt’s-Rock-button.svg'
 import styled from 'styled-components'
 
@@ -160,6 +160,7 @@ const LineBox = styled.div`
 export default function Sign() {
     return (
         <div className='relative w-screen'>
+            <Image className='absolute mix-blend-normal blur-[100px] top-[800px] left-0' src={sign_shadow_bg} alt='' />
             <div className='h-[728px]'>
                 <div className=' absolute z-10 h-[728px] w-screen flex justify-center top-0 left-0'>
                     {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
