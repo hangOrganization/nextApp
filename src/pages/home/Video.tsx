@@ -20,23 +20,22 @@ const VideoStateBox = styled.div`
 
 export default function Video() {
   const [videoState, setVideoState] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>();
+  const videoRef = useRef<any>();
   const [clickNumber, setClickNumber] = useState(1);
   const changeVideoState = () => {
     setClickNumber(() => clickNumber + 1);
-    console.log(clickNumber);
     if (clickNumber == 1) {
       setVideoState(!videoState);
     }
     if (clickNumber == 2 && videoState) {
       videoRef.current?.play();
-      setClickNumber(0);
-      setVideoState(!videoState);
+      setClickNumber(1);
+      setVideoState(false);
     }
     if (clickNumber == 2 && !videoState) {
-      setClickNumber(0);
+      setClickNumber(1);
       videoRef.current?.pause();
-      setVideoState(!videoState);
+      setVideoState(true);
     }
   };
 
