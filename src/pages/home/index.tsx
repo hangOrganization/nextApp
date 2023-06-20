@@ -13,19 +13,20 @@ import OurTeam from "./OurTeam";
 // import StudentWorks from "./StudentWorks";
 import Disc from "./Disc";
 import AboutUs from "./AboutUs";
+import Video from "./Video";
 import { useState } from "react";
 
-
-
 export default function Homepage() {
-  const [value, setValue] = useState<number>(0)
+  const [value, setValue] = useState<number>(0);
   return (
-    <div className={`relative ${value === 1 ? ' overflow-hidden' : ' overflow-auto'} h-screen`}
+    <div
+      className={`relative overflow-auto h-screen`}
       onScroll={(e: any) => {
         if (value === 1) {
-          e.target.scrollTop = 1848
+          e.target.scrollTop = 1848;
         }
-      }}>
+      }}
+    >
       <div className="h-full">
         <Header />
         <Sign />
