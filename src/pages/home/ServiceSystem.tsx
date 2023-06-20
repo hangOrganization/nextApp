@@ -111,7 +111,7 @@ export default function ServiceSystem() {
               </p>
             </div>
           </ServiceBox>
-          <EducationalBox>
+          <EducationalBox className=" relative">
             <div className="w-[30px] h-[30px] absolute top-0 left-[50%] bg-[#FF4B00]"></div>
             <div
               style={{ transform: " matrix(-1, 0, 0, 1, 0, 0)" }}

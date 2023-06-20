@@ -23,16 +23,17 @@ export default function Homepage() {
   console.log("🚀 ~ file: index.tsx:24 ~ Homepage ~ scrollTop:", scrollTop)
   return (
     <div className="relative h-screen overflow-auto"
-      onScroll={
-        (e: any) => {
-          setScrollTop(e.target.scrollTop)
-          if (value === 1) {
-            e.target.scrollTop = 1848
-          }
-          if (characteristicType === 1 || characteristicType === 2) {
-            e.target.scrollTop = 6550
-          }
-        }}>
+      // onScroll={
+      //   (e: any) => {
+      //     setScrollTop(e.target.scrollTop)
+      //     if (value === 1) {
+      //       e.target.scrollTop = 1848
+      //     }
+      //     if (characteristicType === 1 || characteristicType === 2) {
+      //       e.target.scrollTop = 6550
+      //     }
+      //   }}
+        >
       <div className="relative h-full">
           <Header />
           <Sign />

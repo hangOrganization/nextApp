@@ -58,7 +58,6 @@ const CardBox = styled.div`
   }
 `;
 const CardFilterBox = styled.div`
-  position: relative;
   width: 237px;
   height: 368px;
   background: linear-gradient(
@@ -147,7 +146,7 @@ export default function OurTeam() {
                                         style={{ backgroundImage: `url(${el.image.src})`}}
                                         key={`${el.name}-${index}-teachers`}
                                     >
-                                        <CardFilterBox>
+                                        <CardFilterBox className="relative">
                                             <div className="p-6 pr-[17px] w-[253px] absolute bottom-0 right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
                                                 <NameOur>{el.name}</NameOur>
                                                 <p className="font-normal text-[16px] mt-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
