@@ -26,13 +26,13 @@ const ProductsRightBox = styled.div`
     background: url(${products_right_bg.src});
     background-blend-mode: soft-light, overlay, normal;
 `
-interface ProductsProps{
-    value:number
-    setValue:Function
+interface ProductsProps {
+    value: number
+    setValue: Function
 }
-export default function Products({value, setValue}:ProductsProps) {
+export default function Products({ value, setValue }: ProductsProps) {
     return (
-        <div className='flex mt-[324px] box2 w-screen pl-[136px] pr-[120px]'
+        <div className='flex pt-[324px] box2 w-screen pl-[136px] pr-[120px]'
             onWheelCapture={
                 _.debounce((e: any) => {
                     if (value === 0) {
@@ -50,7 +50,7 @@ export default function Products({value, setValue}:ProductsProps) {
                             setValue(2)
                         }
                     }
-                }, 200)
+                }, 300)
             }
         >
             <div className="flex w-[100%] items-center justify-between">
