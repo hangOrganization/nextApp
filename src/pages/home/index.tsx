@@ -12,6 +12,7 @@ import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import Disc from "./Disc";
 import AboutUs from "./AboutUs";
+import Video from "./Video";
 import { useState } from "react";
 
 
