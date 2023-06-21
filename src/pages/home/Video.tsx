@@ -28,14 +28,16 @@ export default function Video() {
       setVideoState(!videoState);
     }
     if (clickNumber == 2 && videoState) {
-      videoRef.current?.play();
       setClickNumber(1);
-      setVideoState(false);
+      setVideoState(true);
+      videoRef.current?.play();
+      console.log("开始");
     }
     if (clickNumber == 2 && !videoState) {
       setClickNumber(1);
+      setVideoState(false);
       videoRef.current?.pause();
-      setVideoState(true);
+      console.log("暂停");
     }
   };
 
