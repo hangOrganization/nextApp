@@ -20,7 +20,6 @@ interface SignCharacteristicProps {
     setCharacteristicType: Function
 }
 export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
-    console.log("🚀 ~ file: SignCharacteristic.tsx:23 ~ SignCharacteristic ~ characteristicType:", characteristicType)
     return (
         <div style={{ background: `url(${characteristic_bg.src}), linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 17.84%)` }} className='flex h-[1278px] items-center px-[120px] justify-between'
             onWheelCapture={

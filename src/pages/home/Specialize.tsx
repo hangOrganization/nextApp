@@ -43,10 +43,10 @@ export default function Specialize() {
                                 <p className='text-[24px] font-[300] leading-[160%]'>现代音乐类</p>
                             </div>
                             <div className={`w-[200px] ${musicGenre === 2 ? 'mb-2' : ''} transition-all duration-300 cursor-pointer text-center`} onClick={() => setMusicGenre(2)}>
-                                <p className='text-[24px] font-[250] leading-[160%]'>古典音乐类</p>
+                                <p className='text-[24px] font-[200] leading-[160%]'>古典音乐类</p>
                             </div>
                             <div className={`w-[200px] ${musicGenre === 3 ? 'mb-2' : ''} transition-all duration-300 cursor-pointer text-center`} onClick={() => setMusicGenre(3)}>
-                                <p className='text-[24px] font-[250] leading-[160%]'>音乐理论及应用类</p>
+                                <p className='text-[24px] font-[200] leading-[160%]'>音乐理论及应用类</p>
                             </div>
                         </div>
                         <div className={`w-[86px] transition-all duration-300 ${musicGenre === 1 ? 'translate-x-[-488.5px]' : musicGenre === 2 ? 'translate-x-[-272.5px]' : 'translate-x-[-56.5px]'} `} style={{ border: "1px solid #FFFFFF" }}></div>

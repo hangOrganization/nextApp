@@ -2,8 +2,10 @@
 import Image from "next/image";
 import Shadow from "@/assets/image/svg/Shadow.png";
 import sign_logo from "@/assets/image/svg/sign-logo.svg";
+import moireFringe_bg from "@/assets/image/svg/moireFringe-bg.svg";
 import sign_text from "@/assets/image/svg/sign-text.svg";
 import sign_bg_1 from "@/assets/image/svg/sign-bg-1.svg";
+import moireFringe_bg_1 from "@/assets/image/svg/moireFringe-bg-1.svg";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
 import icon_star from "@/assets/image/svg/icon-star.svg";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
@@ -102,6 +104,16 @@ const ButtonBox = styled.div`
     }
   }
 `;
+const EchoRollBox = styled.div`
+   animation: echoRollBox 4s linear infinite;
+   @keyframes echoRollBox {
+    0%{transform:translateX(0px)}
+    40%{transform:translateX(0px)}
+    50%{transform:translateX(-780px)}
+    90%{transform:translateX(-780px)}
+    100%{transform:translateX(-1560px)}
+   }
+`;
 const ButtonBorder = styled.div`
   border: 1px solid;
   box-sizing: border-box;
@@ -151,6 +163,43 @@ const RollBox = styled.div`
     100% {
       transform: translateY(-306px);
     }
+  }
+`;
+const MoireFringe = styled.div`
+  overflow: hidden;
+  .moireFringe{
+    animation: MoireFringe 5s linear infinite;
+    @keyframes MoireFringe {
+      0%{transform:scale(1);}
+      50%{
+        transform:scale(1.3);
+      }
+      100%{
+        transform:scale(1);
+      }
+    }
+  }
+  :after{
+    content:' ';
+    position: absolute;
+    top: -140px;
+    left: 0;
+    z-index: 100;
+    height: 280px;
+    width: 100vw;
+    border-radius: 100%;
+    background: #1a1a1a;
+  }
+  :before{
+    content:' ';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    z-index: 100;
+    height: 100px;
+    width: 100vw;
+    border-radius: 100%;
+    background: #1a1a1a;
   }
 `;
 const LineBox = styled.div`
@@ -222,29 +271,43 @@ const LineBox = styled.div`
 export default function Sign() {
   return (
     <div className="relative w-screen">
-      <div className="h-[728px]">
+        <MoireFringe className="w-full top-0 flex z-30 justify-center items-center left-0 absolute h-[728px]">
+          <Image className="absolute moireFringe !w-screen !h-[1400px] z-30" src={moireFringe_bg_1} alt="" />
+          <Image className="absolute z-20" src={moireFringe_bg} alt="" />
+        </MoireFringe>
+      <div className="h-[728px] z-40 relative">
         <div className=" absolute z-10 h-[728px] w-screen flex justify-center top-0 left-0">
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
+
           <Image className="absolute" src={sign_bg_1} alt="" />
-          <Image className="absolute  w-screen" src={sign_bg_2} alt="" />
+
+          <Image className="absolute w-screen" src={sign_bg_2} alt="" />
         </div>
         <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px]">
           <Image
-            className=""
-            src={sign_logo}
-            alt=""
-            onClick={() => {
-              window.scrollTo({
-                top: 1846,
-                behavior: "smooth",
-              });
-              console.log("smooth");
-            }}
-          />
+            className="" src={sign_logo} alt="" />
           <Image className="mt-[70px]" src={sign_text} alt="" />
-          <p className=" font-normal uppercase tracking-[1em] mt-[72px] text-[26px]">
-            听见世界的回响
-          </p>
+          <div className="flex w-[780px] overflow-hidden">
+            <EchoRollBox className="flex">
+              <div className="w-[780px] text-center">
+                <p className=" font-normal uppercase tracking-[1em] mt-[72px] text-[26px]">
+                  听见世界的回响
+                </p>
+              </div>
+              <div className="w-[780px] text-center">
+                <p className=" font-[300] uppercase tracking-[0.51em] mt-[72px] font-[Lexend] text-[26px]">
+                  Echo of the World
+                </p>
+              </div>
+              <div className="w-[780px] text-center">
+                <p className=" font-normal uppercase tracking-[1em] mt-[72px] text-[26px]">
+                  听见世界的回响
+                </p>
+              </div>
+            </EchoRollBox>
+
+          </div>
+
         </div>
       </div>
       <div className="flex items-center mt-[280px] px-[192px] justify-between">
@@ -365,9 +428,7 @@ export default function Sign() {
           </div>
         </div>
       </div>
-
       <Video />
-
       <ButtonBox className="flex mt-16 items-center relative justify-center">
         <ButtonBorder
           style={{ borderColor: "rgb(157, 54, 11,0.1)" }}
