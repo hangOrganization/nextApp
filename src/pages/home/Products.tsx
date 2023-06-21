@@ -5,7 +5,6 @@ import products_bg from '@/assets/image/svg/products-bg.svg'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
 import products_right_bg from '@/assets/image/svg/products-right-bg.svg'
 import styled from 'styled-components'
-import { useState } from 'react'
 
 const ProductsBox = styled.div`
     width: 440px;
@@ -26,13 +25,13 @@ const ProductsRightBox = styled.div`
     background: url(${products_right_bg.src});
     background-blend-mode: soft-light, overlay, normal;
 `
-interface ProductsProps{
-    value:number
-    setValue:Function
+interface ProductsProps {
+    value: number
+    setValue: Function
 }
-export default function Products({value, setValue}:ProductsProps) {
+export default function Products({ value, setValue }: ProductsProps) {
     return (
-        <div className='flex mt-[324px] box2 w-screen pl-[136px] pr-[120px]'
+        <div className='flex pt-[324px] box2 w-screen pl-[136px] pr-[120px]'
             onWheelCapture={
                 _.debounce((e: any) => {
                     if (value === 0) {
@@ -50,9 +49,8 @@ export default function Products({value, setValue}:ProductsProps) {
                             setValue(2)
                         }
                     }
-                }, 200)
-            }
-        >
+                }, 300)
+            }>
             <div className="flex w-[100%] items-center justify-between">
                 <ProductsBox>
                     <p className='font-extrabold text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>
