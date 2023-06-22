@@ -4,9 +4,15 @@ import _ from 'lodash'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
 import characteristic_bg from '@/assets/image/svg/characteristic-bg.svg'
-// import seniorMentor_bg from '@/assets/image/svg/seniorMentor-bg.svg'
 import styled from 'styled-components'
+import { useEffect } from 'react'
 
+const SignBox = styled.div`
+    width: 100vw;
+    background-image:url(${characteristic_bg.src});
+    background-size: 100% !important;
+    background-repeat: no-repeat !important;
+`
 const SignCharacteristicBox = styled.div`
     width: 310px;
     height: 385px;
@@ -20,8 +26,32 @@ interface SignCharacteristicProps {
     setCharacteristicType: Function
 }
 export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
+    useEffect(() => {
+        console.log(document.documentElement.scrollTop)
+        document.body.addEventListener('wheel', function (e) {
+            if (document.documentElement.scrollTop > 7350 && document.documentElement.scrollTop < 7450) {
+                document.body.classList.add("overflow-hidden");
+                if (characteristicType === 0) {
+                    if (e.deltaY < 0) {
+                        document.body.classList.remove("overflow-hidden");
+                    } else {
+                        document.body.classList.add("overflow-hidden");
+                    }
+                }
+                if (characteristicType === 3) {
+                    if (e.deltaY > 0) {
+                        document.body.classList.remove("overflow-hidden");
+                    } else {
+                        document.body.classList.add("overflow-hidden");
+                    }
+                }
+            } else {
+                document.body.classList.remove("overflow-hidden");
+            }
+        })
+    }, [characteristicType])
     return (
-        <div style={{ background: `url(${characteristic_bg.src}), linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1A1A1A 17.84%)` }} className='flex h-[1278px] items-center px-[120px] justify-between'
+        <SignBox className='flex h-[1278px] items-center px-[120px] justify-between'
             onWheelCapture={
                 _.debounce((e: any) => {
                     if (characteristicType === 0) {
@@ -39,7 +69,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                             setCharacteristicType(characteristicType + 1)
                         }
                     }
-                }, 300)
+                }, 200)
             }>
             <SignCharacteristicBox>
                 <div>
@@ -117,8 +147,16 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                         </div>
                     </div>
                 </div>
-                <Image src={products_right} alt='' />
+                <div className='h-[457px] overflow-hidden'>
+                    <div
+                        className={` transition-all duration-300 ${characteristicType === 1 ? 'translate-y-[-457px]' : characteristicType === 2 ? 'translate-y-[-914px]' : characteristicType === 3 ? 'translate-y-[-1371px]' : ''} `} >
+                        <Image src={products_right} alt='' />
+                        <Image src={products_right} alt='' />
+                        <Image src={products_right} alt='' />
+                        <Image src={products_right} alt='' />
+                    </div>
+                </div>
             </div>
-        </div>
+        </SignBox>
     )
 }

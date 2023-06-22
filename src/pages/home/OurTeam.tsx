@@ -1,4 +1,5 @@
 import ourTeam_bg from "@/assets/image/svg/ourTeam-bg.svg";
+import ourTeam_bg_gif from "@/assets/image/svg/ourTeam_bg.gif";
 import MentorInformation from "@/components/Modal/MentorInformation";
 import { teachers } from "@/utils/ourTeam";
 import { useState } from "react";
@@ -10,7 +11,7 @@ const OurTeamBox = styled.div`
   z-index: 2;
   margin-top: 450px;
   border-radius: 48px 48px 0px 0px;
-  background: url(${ourTeam_bg.src});
+  background: url(${ourTeam_bg_gif.src});
 `;
 // const ButtonBox = styled.div`
 //   cursor: pointer;

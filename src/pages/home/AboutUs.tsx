@@ -1,5 +1,6 @@
 import AboutUs_bg from '@/assets/image/svg/aboutUs-bg.png'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
+import CampusEnvironment from '@/components/Modal/CampusEnvironment';
 import styled from 'styled-components'
 
 const AboutUsBox = styled.div`
@@ -46,7 +47,11 @@ const SignCharacteristicBox = styled.div`
     justify-content: center;
     background: url(${signCharacteristic_bg.src});
 `
-export default function AboutUs() {
+interface AboutUsProps {
+    isOpenCampus: number
+    setIsOpenCampus: Function
+}
+export default function AboutUs({ setIsOpenCampus, isOpenCampus }: AboutUsProps) {
     return (
         <div>
             <AboutUsBox>
@@ -74,7 +79,7 @@ export default function AboutUs() {
                     </SignCharacteristicBox>
                 </div>
                 <div className=' flex justify-start mt-[60px] w-full'>
-                    <ButtonBox className="p-4 text-[16px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]">
+                    <ButtonBox className="p-4 text-[16px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]" onClick={() => { setIsOpenCampus(1) }}>
                         了解校区环境
                         <div className="w-[36px] hover ml-[14px] items-center justify-center flex rounded-full h-[36px]">
                             <svg
@@ -101,13 +106,13 @@ export default function AboutUs() {
                         <div className=''>
                             <div className='w-[599px] mt-12'>
                                 <p className='text-[14px] font-light leading-[320%] opacity-70'>
-                                2012年 初始音乐团队创办SOUNDPIC工作室<br/>
-                                2016年 万像循声文化传媒有限公司正式成立 ｜总部位于杭州滨江，并在南京、重庆设立分棚<br/>
-                                2016年 开启音乐留学作品集培训服务 初步组建音乐教学团队<br/>
-                                2020年 完善音乐留学作品集规划团队建设<br/>
-                                2021年 十万象限教育咨询有限公司正式成立<br/>
-                                2022年 UDC音乐艺术中心校区正式启用<br/>
-                                2023年 西兴校区教学场地全新升级 扩建至1500平<br/>
+                                    2012年 初始音乐团队创办SOUNDPIC工作室<br />
+                                    2016年 万像循声文化传媒有限公司正式成立 ｜总部位于杭州滨江，并在南京、重庆设立分棚<br />
+                                    2016年 开启音乐留学作品集培训服务 初步组建音乐教学团队<br />
+                                    2020年 完善音乐留学作品集规划团队建设<br />
+                                    2021年 十万象限教育咨询有限公司正式成立<br />
+                                    2022年 UDC音乐艺术中心校区正式启用<br />
+                                    2023年 西兴校区教学场地全新升级 扩建至1500平<br />
                                 </p>
                             </div>
                         </div>
@@ -120,7 +125,7 @@ export default function AboutUs() {
                     </SignCharacteristicBox>
                 </div>
                 <div className=' flex justify-start mt-[60px] w-full'>
-                    <ButtonBox className="p-4 text-[16px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]">
+                    <ButtonBox className="p-4 text-[16px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]" onClick={() => { setIsOpenCampus(1) }}>
                         了解校区环境
                         <div className="w-[36px] hover ml-[14px] items-center justify-center flex rounded-full h-[36px]">
                             <svg
@@ -141,6 +146,7 @@ export default function AboutUs() {
                     </ButtonBox>
                 </div>
             </AboutUsBox>
+            <CampusEnvironment setIsOpen={setIsOpenCampus} isOpen={isOpenCampus} />
         </div>
     )
 }

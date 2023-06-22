@@ -9,22 +9,7 @@ import icon_love from "../../assets/image/png/video-icon-love.png";
 import icon_time from "../../assets/image/png/video-icon-time.png";
 import icon_share from "../../assets/image/png/video-icon-share.png";
 const Box = styled.div`
-  img {
-    height: 40px;
-    width: 38px;
-    transition: all 5000ms;
-  }
-  .videoImg {
-    width: 65px;
-    height: 40px;
-    bottom: 10px;
-    left: 42px;
-    img {
-      height: 20px;
-      width: 5px;
-      transition: all 5000ms;
-    }
-  }
+display
 `;
 
 const VideoStateBox = styled.div`
@@ -38,9 +23,22 @@ export default function Video() {
   const videoRef = useRef<any>();
   const [clickNumber, setClickNumber] = useState(1);
   const changeVideoState = () => {
-    setVideoState(!videoState);
-
-    videoState ? videoRef.current?.pause() : videoRef.current?.play();
+    setClickNumber(() => clickNumber + 1);
+    if (clickNumber == 1) {
+      setVideoState(!videoState);
+    }
+    if (clickNumber == 2 && videoState) {
+      setClickNumber(1);
+      setVideoState(true);
+      videoRef.current?.play();
+      console.log("开始");
+    }
+    if (clickNumber == 2 && !videoState) {
+      setClickNumber(1);
+      setVideoState(false);
+      videoRef.current?.pause();
+      console.log("暂停");
+    }
   };
 
   return (
@@ -51,41 +49,40 @@ export default function Video() {
 
       <div
         className="relative w-[960px] h-[542px] mx-auto flex items-center justify-center"
-        // onClick={changeVideoState}
+        onClick={changeVideoState}
       >
-        {/* {videoState && (
-          <div className="w-[32px] h-[112px] absolute top-[10px] right-[8px] flex flex-col gap-[8px] z-[5]">
-            <Image src={icon_love} alt="" className=" cursor-pointer"></Image>
-            <Image src={icon_time} alt="" className=" cursor-pointer"></Image>
-            <Image src={icon_share} alt="" className=" cursor-pointer"></Image>
-          </div>
-        )}
+        <div className="w-[32px] h-[112px] absolute top-[10px] right-[8px] flex flex-col gap-[8px] z-[5]">
+          <Image src={icon_love} alt="" className=" cursor-pointer"></Image>
+          <Image src={icon_time} alt="" className=" cursor-pointer"></Image>
+          <Image src={icon_share} alt="" className=" cursor-pointer"></Image>
+        </div>
 
         <VideoStateBox
           className={[
-            "w-[144px] h-[80px]  absolute left-[50%] z-[5] bottom-[50%] cursor-pointer  flex items-center justify-center duration-500 transition-all ",
-            videoState ? "videoImg" : "",
+            "w-[144px] h-[80px]  absolute z-[5] cursor-pointer  flex items-center justify-center duration-500 transition-all ",
           ].join("")}
           style={{
             background: videoState ? "#FF4B00" : "rgba(0, 0, 0, 0.7)",
-            transform: "translate(-50%,50%)",
           }}
         >
           {videoState ? (
-            <div className="flex items-center ">
-              <Image src={video_play} alt="" className="mr-[10px]"></Image>
-              <Image src={video_play} alt=""></Image>
+            <div className="flex items-center">
+              <Image
+                src={video_play}
+                alt=""
+                className="w-[10px] mr-[10px]"
+              ></Image>
+              <Image src={video_play} alt="" className="w-[10px]"></Image>
             </div>
           ) : (
-            <Image src={video_pause} alt=""></Image>
+            <Image src={video_pause} alt="" className="w-[38px] "></Image>
           )}
-        </VideoStateBox> */}
+        </VideoStateBox>
         <video
           className="mx-auto relative z-[1]"
           id="playChatVideo"
           ref={videoRef}
           width="960"
-          controls
           height="542"
         >
           <source src="/video/test.mp4" type="video/mp4"></source>

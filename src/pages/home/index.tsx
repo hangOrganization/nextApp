@@ -12,43 +12,31 @@ import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import Disc from "./Disc";
 import AboutUs from "./AboutUs";
-import Video from "./Video";
 import { useState } from "react";
 
+
+
 export default function Homepage() {
-  const [value, setValue] = useState<number>(0);
-  const [characteristicType, setCharacteristicType] = useState<number>(0);
-  const [scrollTop, setScrollTop] = useState<number>(0);
-  console.log("🚀 ~ file: index.tsx:24 ~ Homepage ~ scrollTop:", scrollTop);
-
-  const scrollView = (number: any) => {
-    const homePage = document.querySelector("#homePage");
-    homePage?.scrollTo({
-      top: number,
-      behavior: "smooth",
-    });
-  };
-
+  const [value, setValue] = useState<number>(0)
+  const [isOpenConsult, setIsOpenConsult] = useState<number>(0)
+  const [characteristicType, setCharacteristicType] = useState<number>(0)
+  const [isOpenCampus, setIsOpenCampus] = useState<number>(0)
   return (
-    <div id="homePage" className="relative h-screen overflow-auto">
-      <div className="relative h-full">
-        <Header scrollView={scrollView} />
-        <Sign />
+    <div className={`relative`}
+    >
+        <Header isOpenConsult={isOpenConsult} setIsOpenConsult={setIsOpenConsult} isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} />
+        <Sign isOpenConsult={isOpenConsult} setIsOpenConsult={setIsOpenConsult}  />
         <Products value={value} setValue={setValue} />
         <SchoolRoll />
         <Specialize />
         <ServiceSystem />
         <OurTeam />
-        <SignCharacteristic
-          characteristicType={characteristicType}
-          setCharacteristicType={setCharacteristicType}
-        />
-        <AboutUs />
+        <SignCharacteristic characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} />
+        <AboutUs isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} />
         <Disc />
         <BusinessPartner />
         <Slogan />
         <Footer />
       </div>
-    </div>
   );
 }

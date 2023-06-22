@@ -5,6 +5,7 @@ import products_bg from '@/assets/image/svg/products-bg.svg'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
 import products_right_bg from '@/assets/image/svg/products-right-bg.svg'
 import styled from 'styled-components'
+import { useEffect } from 'react'
 
 const ProductsBox = styled.div`
     width: 440px;
@@ -30,8 +31,31 @@ interface ProductsProps {
     setValue: Function
 }
 export default function Products({ value, setValue }: ProductsProps) {
+    useEffect(() => {
+        document.body.addEventListener('wheel', function (e) {
+            if (document.documentElement.scrollTop > 2650 && document.documentElement.scrollTop < 2750) {
+                document.body.classList.add("overflow-hidden");
+                if (value === 0) {
+                    if (e.deltaY < 0) {
+                        document.body.classList.remove("overflow-hidden");
+                    } else {
+                        document.body.classList.add("overflow-hidden");
+                    }
+                }
+                if (value === 2) {
+                    if (e.deltaY > 0) {
+                        document.body.classList.remove("overflow-hidden");
+                    } else {
+                        document.body.classList.add("overflow-hidden");
+                    }
+                }
+            } else {
+                document.body.classList.remove("overflow-hidden");
+            }
+        })
+    }, [value])
     return (
-        <div className='flex pt-[324px] box2 w-screen pl-[136px] pr-[120px]'
+        <div id='Products' className='flex mt-[250px] pt-[74px] box2 w-screen pl-[136px] pr-[120px]'
             onWheelCapture={
                 _.debounce((e: any) => {
                     if (value === 0) {
@@ -49,8 +73,8 @@ export default function Products({ value, setValue }: ProductsProps) {
                             setValue(2)
                         }
                     }
-                }, 300)
-            }>
+                }, 200)}
+        >
             <div className="flex w-[100%] items-center justify-between">
                 <ProductsBox>
                     <p className='font-extrabold text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>
@@ -193,7 +217,13 @@ export default function Products({ value, setValue }: ProductsProps) {
                         </ProductsRightBox>
                     </div>
                 </div>
-                <Image src={products_right} alt='' />
+                <div className='h-[457px] overflow-hidden'>
+                    <div className={`transition-all duration-300 ${value === 1 ? 'translate-y-[-457px]' : value === 2 ? 'translate-y-[-914px]' : ''}`}>
+                        <Image src={products_right} alt='' />
+                        <Image src={products_right} alt='' />
+                        <Image src={products_right} alt='' />
+                    </div>
+                </div>
             </div>
         </div>
     )

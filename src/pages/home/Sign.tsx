@@ -268,13 +268,17 @@ const LineBox = styled.div`
     }
   }
 `;
-export default function Sign() {
+interface SignProps {
+  isOpenConsult: number
+  setIsOpenConsult: Function
+}
+export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
   return (
     <div className="relative w-screen">
-        <MoireFringe className="w-full top-0 flex z-30 justify-center items-center left-0 absolute h-[728px]">
-          <Image className="absolute moireFringe !w-screen !h-[1400px] z-30" src={moireFringe_bg_1} alt="" />
-          <Image className="absolute z-20" src={moireFringe_bg} alt="" />
-        </MoireFringe>
+      <MoireFringe className="w-full top-0 flex z-30 justify-center items-center left-0 absolute h-[728px]">
+        <Image className="absolute moireFringe !w-screen !h-[1400px] z-30" src={moireFringe_bg_1} alt="" />
+        <Image className="absolute z-20" src={moireFringe_bg} alt="" />
+      </MoireFringe>
       <div className="h-[728px] z-40 relative">
         <div className=" absolute z-10 h-[728px] w-screen flex justify-center top-0 left-0">
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
@@ -462,7 +466,8 @@ export default function Sign() {
                         style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
                         className=" opacity-100 rounded-[55px] "
                       >
-                        <button className="bg-[#FF4B00] rounded-[39px] flex transition-all duration-500 justify-center relative items-center w-[314px] hover:mx-8 my-[6px] mx-[24px] h-20">
+                        <button className="bg-[#FF4B00] rounded-[39px] flex transition-all duration-500 justify-center relative items-center w-[314px] hover:mx-8 my-[6px] mx-[24px] h-20"
+                          onClick={() => { setIsOpenConsult(1) }}>
                           <p className=" text-[28px] z-20 text-[#1a1a1a] leading-[100%] font-[Lexend] font-black">
                             LEt’s Rock
                           </p>
