@@ -9,7 +9,11 @@ import icon_love from "../../assets/image/png/video-icon-love.png";
 import icon_time from "../../assets/image/png/video-icon-time.png";
 import icon_share from "../../assets/image/png/video-icon-share.png";
 const Box = styled.div`
-display
+  :hover {
+    .img-box {
+      opacity: 1;
+    }
+  }
 `;
 
 const VideoStateBox = styled.div`
@@ -42,22 +46,22 @@ export default function Video() {
   };
 
   return (
-    <Box className="w-full my-[160px]">
+    <div className="w-full my-[160px]">
       <p className="mx-auto mt-[8px] mb-[40px] font-[300] text-[14px] leading-[220%] uppercase text-center text-[#FFFFFF] opacity-[0.7]">
         - 请观看导师学生作品混剪 -
       </p>
 
-      <div
+      <Box
         className="relative w-[960px] h-[542px] mx-auto flex items-center justify-center"
         onClick={changeVideoState}
       >
-        <div className="w-[32px] h-[112px] absolute top-[10px] right-[8px] flex flex-col gap-[8px] z-[5]">
+        <div className="w-[32px] h-[112px] absolute top-[10px] right-[8px] opacity-0 flex flex-col gap-[8px] z-[5] img-box ">
           <Image src={icon_love} alt="" className=" cursor-pointer"></Image>
           <Image src={icon_time} alt="" className=" cursor-pointer"></Image>
           <Image src={icon_share} alt="" className=" cursor-pointer"></Image>
         </div>
 
-        <VideoStateBox
+        {/* <VideoStateBox
           className={[
             "w-[144px] h-[80px]  absolute z-[5] cursor-pointer  flex items-center justify-center duration-500 transition-all ",
           ].join("")}
@@ -77,17 +81,18 @@ export default function Video() {
           ) : (
             <Image src={video_pause} alt="" className="w-[38px] "></Image>
           )}
-        </VideoStateBox>
+        </VideoStateBox> */}
         <video
           className="mx-auto relative z-[1]"
           id="playChatVideo"
           ref={videoRef}
           width="960"
+          controls
           height="542"
         >
           <source src="/video/test.mp4" type="video/mp4"></source>
         </video>
-      </div>
-    </Box>
+      </Box>
+    </div>
   );
 }

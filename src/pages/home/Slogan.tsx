@@ -98,7 +98,7 @@ const MoveBox = styled.div`
 
 export default function slogan() {
   return (
-    <Box>
+    <Box className="mt-[-185px]">
       <div className="h-[866px] flex items-center flex-col text-center ">
         <div className="text-[24px] text-[#FFFFFF] leading-[180%] font-[250]  mt-[235px] mb-[40px] ">
           因形创声 随时造曲 应物无穷

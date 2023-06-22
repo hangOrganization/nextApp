@@ -12,31 +12,45 @@ import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import Disc from "./Disc";
 import AboutUs from "./AboutUs";
-import { useState } from "react";
-
-
+import { useEffect, useState } from "react";
 
 export default function Homepage() {
-  const [value, setValue] = useState<number>(0)
-  const [isOpenConsult, setIsOpenConsult] = useState<number>(0)
-  const [characteristicType, setCharacteristicType] = useState<number>(0)
-  const [isOpenCampus, setIsOpenCampus] = useState<number>(0)
+  const [value, setValue] = useState<number>(0);
+  const [isOpenConsult, setIsOpenConsult] = useState<number>(0);
+  const [characteristicType, setCharacteristicType] = useState<number>(0);
+  const [isOpenCampus, setIsOpenCampus] = useState<number>(0);
+
+  const scrollToView = (number: any) => {
+    window?.scrollTo({
+      top: number,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className={`relative`}
-    >
-        <Header isOpenConsult={isOpenConsult} setIsOpenConsult={setIsOpenConsult} isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} />
-        <Sign isOpenConsult={isOpenConsult} setIsOpenConsult={setIsOpenConsult}  />
-        <Products value={value} setValue={setValue} />
-        <SchoolRoll />
-        <Specialize />
-        <ServiceSystem />
-        <OurTeam />
-        <SignCharacteristic characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} />
-        <AboutUs isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} />
-        <Disc />
-        <BusinessPartner />
-        <Slogan />
-        <Footer />
-      </div>
+    <div className={`relative`}>
+      <Header
+        isOpenConsult={isOpenConsult}
+        setIsOpenConsult={setIsOpenConsult}
+        isOpenCampus={isOpenCampus}
+        setIsOpenCampus={setIsOpenCampus}
+        scrollToView={scrollToView}
+      />
+      <Sign isOpenConsult={isOpenConsult} setIsOpenConsult={setIsOpenConsult} />
+      <Products value={value} setValue={setValue} />
+      <SchoolRoll />
+      <Specialize />
+      <ServiceSystem />
+      <OurTeam />
+      <SignCharacteristic
+        characteristicType={characteristicType}
+        setCharacteristicType={setCharacteristicType}
+      />
+      <AboutUs isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} />
+      <Disc />
+      <BusinessPartner />
+      <Slogan />
+      <Footer />
+    </div>
   );
 }

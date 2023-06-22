@@ -8,7 +8,7 @@ import Tip from "../../components/Tips/tip";
 
 export default function Footer() {
   return (
-    <div className="pb-[80px] px-6">
+    <div className="pb-[80px] px-6 mt-[-80px]">
       <div
         className="flex items-center justify-between px-6 w-full relative z-[10] pb-8 "
         style={{ borderBottom: "1px solid rgba(255, 255, 255, .5)" }}
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         <div
-          className="mt-[24px] text-[12px]"
+          className="mt-[24px] text-[12px] font-[300]"
           style={{ color: "rgba(255, 255, 255, .5)" }}
         >
           © 2023 SIGNART. All Right Reserved.

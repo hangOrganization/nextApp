@@ -1,39 +1,109 @@
-"use client"
+"use client";
 import Image from "next/image";
 import logo from "@/assets/image/svg/logo.svg";
 import Consult from "../Modal/Consult";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CampusEnvironment from "../Modal/CampusEnvironment";
+import styled from "styled-components";
 
 interface HeaderProps {
-  isOpenCampus: number
-  setIsOpenCampus: Function
-  isOpenConsult: number
-  setIsOpenConsult: Function
+  isOpenCampus: number;
+  setIsOpenCampus: Function;
+  isOpenConsult: number;
+  setIsOpenConsult: Function;
+  scrollToView: any;
 }
-export default function Header({ isOpenCampus, setIsOpenCampus, setIsOpenConsult, isOpenConsult }: HeaderProps) {
+const Box = styled.div`
+  .active-item {
+    :before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 1px;
+      border-radius: 2px;
+      bottom: 8px;
+      background: #fff;
+    }
+  }
+`;
+
+export default function Header({
+  isOpenCampus,
+  setIsOpenCampus,
+  setIsOpenConsult,
+  isOpenConsult,
+  scrollToView,
+}: HeaderProps) {
+  const [pageTop, setPageTop] = useState<number>(0);
+  useEffect(() => {
+    document.documentElement.addEventListener("wheel", () => {
+      setPageTop(document.documentElement.scrollTop);
+    });
+  });
+  console.log(pageTop);
+
   return (
-    <div className="fixed z-[10000] w-screen pl-[48px] pr-6 py-4 left-0 flex items-center justify-between top-0">
+    <Box className="fixed z-[10000] w-screen pl-[48px]  pr-6  py-4 left-0 flex items-center justify-between top-0">
       <div>
         <Image src={logo} alt="" />
       </div>
       <div className="flex gap-4 items-center">
-        <div className="py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light">
+        <div
+          className={`py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light `}
+        >
           音乐留学
         </div>
-        <div className="py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light">
+        <div
+          className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${
+            pageTop >= 6242 && pageTop < 7365 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            scrollToView(6242);
+            setPageTop(6242);
+          }}
+        >
           师资团队
         </div>
-        <div className="py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light">
+        <div
+          className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            pageTop >= 7365 && pageTop < 8758 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            setPageTop(7365);
+
+            scrollToView(7365);
+          }}
+        >
           公司特色
         </div>
-        <div className="py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light">
+        <div
+          className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            pageTop >= 8758 && pageTop < 9808 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            setPageTop(8758);
+            scrollToView(8758);
+          }}
+        >
           关于我们
         </div>
-        <div className="py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light">
+        <div
+          className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            pageTop >= 10828 && pageTop < 11808 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            setPageTop(10828);
+            scrollToView(10828);
+          }}
+        >
           原创音乐计划
         </div>
-        <div style={{ border: '1px solid rgba(204, 204, 204, 0.3)' }} onClick={() => setIsOpenCampus(1)} className="py-4 rounded-2xl hover:text-[#1A1A1A] hover:font-bold hover:bg-[#FFFFFF] cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 hover:opacity-100 font-light">
+
+        <div
+          style={{ border: "1px solid rgba(204, 204, 204, 0.3)" }}
+          onClick={() => setIsOpenCampus(1)}
+          className="py-4 rounded-2xl hover:text-[#1A1A1A] hover:font-bold hover:bg-[#FFFFFF] cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 hover:opacity-100 font-light"
+        >
           校区环境
         </div>
         <div
@@ -46,6 +116,6 @@ export default function Header({ isOpenCampus, setIsOpenCampus, setIsOpenConsult
       </div>
       <Consult setIsOpen={setIsOpenConsult} isOpen={isOpenConsult} />
       <CampusEnvironment setIsOpen={setIsOpenCampus} isOpen={isOpenCampus} />
-    </div>
+    </Box>
   );
 }
