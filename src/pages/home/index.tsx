@@ -15,39 +15,39 @@ import AboutUs from "./AboutUs";
 import Video from "./Video";
 import { useState } from "react";
 
-
 export default function Homepage() {
-  const [value, setValue] = useState<number>(0)
-  const [characteristicType, setCharacteristicType] = useState<number>(0)
-  const [scrollTop, setScrollTop] = useState<number>(0)
-  console.log("🚀 ~ file: index.tsx:24 ~ Homepage ~ scrollTop:", scrollTop)
+  const [value, setValue] = useState<number>(0);
+  const [characteristicType, setCharacteristicType] = useState<number>(0);
+  const [scrollTop, setScrollTop] = useState<number>(0);
+  console.log("🚀 ~ file: index.tsx:24 ~ Homepage ~ scrollTop:", scrollTop);
+
+  const scrollView = (number: any) => {
+    const homePage = document.querySelector("#homePage");
+    homePage?.scrollTo({
+      top: number,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className="relative h-screen overflow-auto"
-      // onScroll={
-      //   (e: any) => {
-      //     setScrollTop(e.target.scrollTop)
-      //     if (value === 1) {
-      //       e.target.scrollTop = 1848
-      //     }
-      //     if (characteristicType === 1 || characteristicType === 2) {
-      //       e.target.scrollTop = 6550
-      //     }
-      //   }}
-        >
+    <div id="homePage" className="relative h-screen overflow-auto">
       <div className="relative h-full">
-          <Header />
-          <Sign />
-          <Products value={value} setValue={setValue} />
-          <SchoolRoll />
-          <Specialize />
-          <ServiceSystem />
-          <OurTeam />
-          <SignCharacteristic characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} />
-          <AboutUs />
-          <Disc />
-          <BusinessPartner />
-          <Slogan />
-          <Footer />
+        <Header scrollView={scrollView} />
+        <Sign />
+        <Products value={value} setValue={setValue} />
+        <SchoolRoll />
+        <Specialize />
+        <ServiceSystem />
+        <OurTeam />
+        <SignCharacteristic
+          characteristicType={characteristicType}
+          setCharacteristicType={setCharacteristicType}
+        />
+        <AboutUs />
+        <Disc />
+        <BusinessPartner />
+        <Slogan />
+        <Footer />
       </div>
     </div>
   );

@@ -42,14 +42,14 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-[68px] ml-[71px] mb-[24px]  text-white leading-[200%] text-[14px] font-[250]">
+      <div className="mt-[68px] ml-[71px]  text-white leading-[200%] text-[14px] font-[250]">
         <div className="flex items-center gap-[40px]">
           <div>联系我们</div>
           <div className="flex items-center gap-[8px]">
             <span>马老师</span>
             +8619273829182
           </div>
-          <div className="flex items-center gap-[8px]">
+          <div className="flex items-center gap-[8px] font-[300] text-[12px]">
             <span>邮箱</span>
             Mrxia@signart.com
           </div>
