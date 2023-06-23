@@ -33,7 +33,7 @@ interface ProductsProps {
 export default function Products({ value, setValue }: ProductsProps) {
     useEffect(() => {
         window.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 2550 && document.documentElement.scrollTop < 2900) {
+            if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900) {
                 document.body.classList.add("overflow-hidden");
                 if (value === 0) {
                     if (e.deltaY < 0) {
@@ -57,7 +57,7 @@ export default function Products({ value, setValue }: ProductsProps) {
     return (
         <div id='Products' className='flex mt-[250px] pt-[74px] box2 w-screen pl-[136px] pr-[120px]'
             onWheelCapture={
-                _.debounce((e: any) => {
+                _.throttle((e: any) => {
                     if (value === 0) {
                         if (e.deltaY > 0) {
                             setValue(1)
@@ -73,7 +73,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                             setValue(2)
                         }
                     }
-                }, 100)}
+                }, 300)}
         >
             <div className="flex w-[100%] items-center justify-between">
                 <ProductsBox>

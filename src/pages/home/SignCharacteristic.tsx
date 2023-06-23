@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import _ from 'lodash'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
+import AboutUs_bg from '@/assets/image/svg/aboutUs-bg.png'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
 import characteristic_bg from '@/assets/image/svg/characteristic-bg.svg'
 import styled from 'styled-components'
@@ -10,6 +11,9 @@ import { useEffect, useState } from 'react'
 const SignBox = styled.div`
     width: 100vw;
     background-image:url(${characteristic_bg.src});
+    &.ABOUT{
+        background-image:url(${AboutUs_bg.src}) !important;
+    }
     background-size: 100% !important;
     background-repeat: no-repeat !important;
 `
@@ -49,9 +53,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
     const [right, setRight] = useState<number>(0)
     useEffect(() => {
         document.body.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 6000 && document.documentElement.scrollTop < 6300) {
-                console.log("🚀 ~ file: SignCharacteristic.tsx:54 ~ document.documentElement.scrollTop:", document.documentElement.scrollTop)
-                console.log("🚀 ~ file: SignCharacteristic.tsx:54 ~ document.documentElement.scrollTop:", characteristicType)
+            if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500) {
                 document.body.classList.add("overflow-hidden");
                 if (characteristicType === 0) {
                     if (e.deltaY < 0) {
@@ -73,9 +75,9 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
     return (
         <div className="flex w-screen overflow-hidden">
             <div className='flex'>
-                <SignBox className='flex h-[1278px] w-screen items-center px-[120px] justify-between'
+                <SignBox className={`flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} h-[1278px] w-screen items-center px-[120px] justify-between`}
                     onWheelCapture={
-                        _.debounce((e: any) => {
+                        _.throttle((e: any) => {
                             if (right === 0) {
                                 if (characteristicType === 0) {
                                     if (e.deltaY > 0) {
@@ -100,8 +102,8 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                     setRight(0)
                                 }
                             }
-                        }, 100)
-                    }>
+                        }, 500)}
+                >
                     <SignCharacteristicBox className={`${right === 1 ? ' translate-x-[908px]' : 'translate-x-[0px]'} transition-all duration-300`}>
                         <div >
                             <p className=' font-light text-[56px] leading-[120%]'>{`${right === 1 ? '关于我们' : '公司特色'}`}</p>

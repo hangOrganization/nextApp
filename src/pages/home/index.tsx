@@ -10,7 +10,7 @@ import SignCharacteristic from "./SignCharacteristic";
 import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import Disc from "./Disc";
-import AboutUs from "./AboutUs";
+import Development from "./Development";
 import { useEffect, useState } from "react";
 
 export default function Homepage() {
@@ -44,7 +44,7 @@ export default function Homepage() {
         characteristicType={characteristicType}
         setCharacteristicType={setCharacteristicType}
       />
-      <AboutUs isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} />
+      <Development isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} />
       <Disc />
       <BusinessPartner />
       <Slogan />
