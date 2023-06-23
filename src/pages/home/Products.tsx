@@ -1,34 +1,34 @@
-"use client"
-import Image from 'next/image'
-import _ from 'lodash'
-import products_bg from '@/assets/image/svg/products-bg.svg'
-import products_right from '@/assets/image/svg/icon-products-right.svg'
-import products_right_bg from '@/assets/image/svg/products-right-bg.svg'
-import styled from 'styled-components'
-import { useEffect } from 'react'
+"use client";
+import Image from "next/image";
+import _ from "lodash";
+import products_bg from "@/assets/image/svg/products-bg.svg";
+import products_right from "@/assets/image/svg/icon-products-right.svg";
+import products_right_bg from "@/assets/image/svg/products-right-bg.svg";
+import styled from "styled-components";
+import { useEffect } from "react";
 
 const ProductsBox = styled.div`
-    width: 440px;
-    height: 530px;
-    padding: 92px 40px;
-    background: url(${products_bg.src});
-    background-blend-mode: soft-light, overlay, normal;
-    opacity: 0.9;
-    border-radius: 40px;
-`
+  width: 440px;
+  height: 530px;
+  padding: 92px 40px;
+  background: url(${products_bg.src});
+  background-blend-mode: soft-light, overlay, normal;
+  opacity: 0.9;
+  border-radius: 40px;
+`;
 const ProductsRightBox = styled.div`
-    width: 621px;
-    padding-left: 136px;
-    margin-right: 76px;
-    height: 530px;
-    display: flex;
-    flex-direction: column;
-    background: url(${products_right_bg.src});
-    background-blend-mode: soft-light, overlay, normal;
-`
+  width: 621px;
+  padding-left: 136px;
+  margin-right: 76px;
+  height: 530px;
+  display: flex;
+  flex-direction: column;
+  background: url(${products_right_bg.src});
+  background-blend-mode: soft-light, overlay, normal;
+`;
 interface ProductsProps {
-    value: number
-    setValue: Function
+  value: number;
+  setValue: Function;
 }
 export default function Products({ value, setValue }: ProductsProps) {
     useEffect(() => {
@@ -226,5 +226,5 @@ export default function Products({ value, setValue }: ProductsProps) {
                 </div>
             </div>
         </div>
-    )
+  );
 }
