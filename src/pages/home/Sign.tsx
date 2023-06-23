@@ -353,7 +353,21 @@ const TextBox = styled.div`
     }
   }
 `;
+const SingLogo = styled.div`
+  animation: sign-logo-move 1500ms linear 100ms forwards;
+  overflow: hidden;
+  height: 0px;
 
+  @keyframes sign-logo-move {
+    0% {
+      height: 0px;
+    }
+
+    100% {
+      height: 155px;
+    }
+  }
+`;
 interface SignProps {
   isOpenConsult: number;
   setIsOpenConsult: Function;
@@ -382,7 +396,9 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
           />
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px]">
-          <Image className="" src={sign_logo} alt="" />
+          <SingLogo>
+            <Image className="h-[155px]" src={sign_logo} alt="" />
+          </SingLogo>
           <TextBox className="mt-[70px]  h-[49px] ">
             <div className="flex">
               <div className="w-[818px]  h-[49px]">
