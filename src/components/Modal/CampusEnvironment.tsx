@@ -1,5 +1,12 @@
-import { Dialog, Transition } from "@headlessui/react"
+
+import "swiper/css";
 import Image from 'next/image'
+import "swiper/css/pagination";
+import { Pagination, Navigation, FreeMode, Thumbs } from "swiper";
+import styled from "styled-components"
+import { Fragment, useState } from "react"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Dialog, Transition } from "@headlessui/react"
 import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.png"
 import campusEnvironment_2 from "@/assets/image/campusEnvironment/campusEnvironment-2.png"
 import campusEnvironment_3 from "@/assets/image/campusEnvironment/campusEnvironment-3.png"
@@ -10,8 +17,7 @@ import campusEnvironment_7 from "@/assets/image/campusEnvironment/campusEnvironm
 import campusEnvironment_8 from "@/assets/image/campusEnvironment/campusEnvironment-8.png"
 import campusEnvironment_9 from "@/assets/image/campusEnvironment/campusEnvironment-9.png"
 import campusEnvironment_10 from "@/assets/image/campusEnvironment/campusEnvironment-10.png"
-import { Fragment, useState } from "react"
-import styled from "styled-components"
+
 
 const TurningButton = styled.div`
     border-radius: 100%;
@@ -31,10 +37,10 @@ interface CampusEnvironmentProps {
     setIsOpen: Function
 }
 export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironmentProps) {
+    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     function closeModal() {
         setIsOpen(0)
     }
-    const [currentPage, setCurrentPage] = useState<number>(0)
     const list = [
         {
             index: 0,
@@ -112,8 +118,8 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="text-center">
-                                <div className="flex items-center gap-12 justify-center">
+                            <Dialog.Panel className="text-center w-screen">
+                                {/* <div className="flex items-center gap-12 justify-center">
                                     <TurningButton className={`${currentPage === 0 ? 'opacity-0' : 'cursor-pointer'} rotate-180`}
                                         onClick={() => {
                                             if (currentPage !== 0) {
@@ -133,7 +139,7 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                             </defs>
                                         </svg>
                                     </TurningButton>
-                                    <Image className=" w-[694px] h-[520px]" src={list[currentPage].image} alt="" />
+                                    <Image className="w-[694px] h-[520px]" src={list[currentPage].image} alt="" />
                                     <TurningButton className={`${currentPage === list.length - 1 ? 'opacity-0' : 'cursor-pointer'}`}
                                         onClick={() => {
                                             if (currentPage !== list.length - 1) {
@@ -159,9 +165,9 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                     <div className="flex relative w-[336px] justify-end items-center gap-4">
                                         {list.slice(currentPage > 4 ? currentPage - 4 : 0, currentPage).map((el: any, index: number) => (
                                             <Image className="w-[70px] h-[70px] cursor-pointer" key={`CampusEnvironment-${index}`} src={el.image} alt=""
-                                            onClick={()=>{
-                                                setCurrentPage(el.index)
-                                            }} />
+                                                onClick={() => {
+                                                    setCurrentPage(el.index)
+                                                }} />
                                         ))}
                                     </div>
                                     <div style={{ border: ' 1px solid #FF4B00' }} className="p-2">
@@ -169,14 +175,45 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                     </div>
                                     <div className="flex w-[336px] justify-start items-center gap-4">
                                         {list.slice(currentPage + 1, currentPage + 5).map((el: any, index: number) => (
-                                            <Image className="w-[70px] cursor-pointer h-[70px]" key={`CampusEnvironment-${index}`} src={el.image} alt="" 
-                                            onClick={()=>{
-                                                setCurrentPage(el.index)
-                                            }}/>
+                                            <Image className="w-[70px] cursor-pointer h-[70px]" key={`CampusEnvironment-${index}`} src={el.image} alt=""
+                                                onClick={() => {
+                                                    setCurrentPage(el.index)
+                                                }} />
                                         ))}
                                     </div>
                                 </div>
-                                <p className=" font-light text-[14px] leading-[180%] text-[#FF4B00]"> {currentPage + 1}/{list.length}</p>
+                                <p className=" font-light text-[14px] leading-[180%] text-[#FF4B00]"> {currentPage + 1}/{list.length}</p> */}
+                                <Swiper
+                                    slidesPerView={3}
+                                    spaceBetween={30}
+                                    // pagination={{
+                                    //     clickable: true,
+                                    //   }}
+                                    thumbs={{ swiper: thumbsSwiper }}
+                                    modules={[Pagination, FreeMode, Navigation, Thumbs]}
+                                    className="mySwiper"
+                                >
+                                    {list.map((el: any) => (
+                                        <SwiperSlide key={`${el.index}-CampusEnvironment`}>
+                                            <Image src={el.image} alt="" />
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                                {/* <Swiper
+                                    onSwiper={setThumbsSwiper}
+                                    spaceBetween={10}
+                                    slidesPerView={10}
+                                    watchSlidesProgress={true}
+                                    freeMode={true}
+                                    modules={[Navigation, FreeMode, Thumbs]}
+                                    className="mySwiper w-[758px]"
+                                >
+                                        {list.map((el: any) => (
+                                            <SwiperSlide key={`${el.index}-CampusEnvironment`}>
+                                                <Image className="w-[70px] h-[70px]" src={el.image} alt="" />
+                                            </SwiperSlide>
+                                        ))}
+                                </Swiper> */}
                             </Dialog.Panel>
                         </Transition.Child>
                     </div>

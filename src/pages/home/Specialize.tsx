@@ -49,15 +49,15 @@ export default function Specialize() {
                                 <p className='text-[24px] font-[200] leading-[160%]'>音乐理论及应用类</p>
                             </div>
                         </div>
-                        <div className={`w-[86px] transition-all duration-300 ${musicGenre === 1 ? 'translate-x-[-488.5px]' : musicGenre === 2 ? 'translate-x-[-272.5px]' : 'translate-x-[-56.5px]'} `} style={{ border: "1px solid #FFFFFF" }}></div>
+                        <div className={`w-[86px] transition-all duration-500 ${musicGenre === 1 ? 'translate-x-[-488.5px]' : musicGenre === 2 ? 'translate-x-[-272.5px]' : 'translate-x-[-56.5px]'} `} style={{ border: "1px solid #FFFFFF" }}></div>
                     </div>
 
                 </div>
                 <div className='relative pb-[168px] w-[1440px]'>
                     <Image className={`absolute bottom-[0px] transition-all duration-500 ${musicGenre === 1 ? 'rotate-0' : musicGenre === 2 ? 'rotate-[90deg]' : 'rotate-[180deg]'} right-[-50px]`} src={specialize_Star} alt='' />
                     <div className='flex mt-12 w-[1440px] px-[120px] overflow-hidden justify-between'>
-                        <div className={`flex gap-[120px] transition-all duration-300 ${musicGenre === 1 ? 'translate-x-[0px]' : musicGenre === 2 ? 'translate-x-[-1320px]' : 'translate-x-[-2640px]'} w-[3880px]`}>
-                            <div className='flex w-[1200px] justify-between'>
+                        <div className={`flex gap-[120px] transition-all duration-500 ${musicGenre === 1 ? 'translate-x-[0px]' : musicGenre === 2 ? 'translate-x-[-1320px]' : 'translate-x-[-2640px]'} w-[3880px]`}>
+                            <div className={`flex w-[1200px] transition-all duration-500 ${musicGenre === 1 ? ' opacity-100' : 'opacity-0'} justify-between`}>
                                 <CourseBox>
                                     <div className="flex items-center">
                                         <p className='text-[32px] mr-3 leading-[160%] text-[#0000FF] font-black'>
@@ -115,7 +115,7 @@ export default function Specialize() {
                                     </div>
                                 </CourseBox>
                             </div>
-                            <div className='flex w-[1200px] justify-between'>
+                            <div className={`flex w-[1200px]  transition-all duration-500 ${musicGenre === 2 ? ' opacity-100' : 'opacity-0'} justify-between`}>
                                 <CourseBox>
                                     <div className="flex items-center">
                                         <p className='text-[32px] mr-3 leading-[160%] text-[#0000FF] font-black'>
@@ -174,7 +174,7 @@ export default function Specialize() {
                                     </div>
                                 </CourseBox>
                             </div>
-                            <div className='flex w-[1200px] justify-between'>
+                            <div className={`flex w-[1200px]  transition-all duration-500 ${musicGenre === 3 ? ' opacity-100' : 'opacity-0'} justify-between`}>
                                 <CourseBox>
                                     <div className="flex items-center">
                                         <p className='text-[32px] mr-3 leading-[160%] text-[#0000FF] font-black'>
