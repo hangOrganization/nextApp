@@ -297,8 +297,15 @@ const LineBox = styled.div`
   }
 `;
 const SignBgBox = styled.div`
+  height: 155px !important;
+  .img-box {
+    transform: scaleY(0);
+    transform-origin: center bottom;
+    animation: sign-bg-2-move 1000ms linear 300ms forwards;
+  }
   .sign-bg-2 {
     transform: scaleY(0);
+    transform-origin: center center;
     animation: sign-bg-2-move 1000ms linear forwards;
   }
   @keyframes sign-bg-2-move {
@@ -310,6 +317,7 @@ const SignBgBox = styled.div`
       transform: scaleY(1);
     }
   }
+
   .sign-bg-1 {
     transform: scaleY(0);
     animation: sign-bg-1-move 1000ms linear 50ms forwards;
@@ -386,19 +394,49 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
       <div className="h-[728px] z-40 relative">
         <SignBgBox className=" absolute z-10 h-[728px] w-screen flex justify-center top-0 left-0">
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
-
           <Image className="absolute sign-bg-1" src={sign_bg_1} alt="" />
-
           <Image
             className="absolute w-screen sign-bg-2"
             src={sign_bg_2}
             alt=""
           />
         </SignBgBox>
-        <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px]">
-          <SingLogo>
-            <Image className="h-[155px]" src={sign_logo} alt="" />
-          </SingLogo>
+        <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px] ">
+          <div className="h-[155px]">
+            <SingLogo className="h-[155px]">
+              <div className="img-box h-[20px] overflow-hidden">
+                <Image className="h-[155px]" src={sign_logo} alt="" />
+              </div>
+              <div className="img-box h-[50px] overflow-hidden">
+                <Image
+                  className="h-[155px] mt-[-20px]"
+                  src={sign_logo}
+                  alt=""
+                />
+              </div>
+              <div className="img-box h-[30px] overflow-hidden">
+                <Image
+                  className="h-[155px] mt-[-70px]"
+                  src={sign_logo}
+                  alt=""
+                />
+              </div>
+              <div className="img-box h-[10px] overflow-hidden">
+                <Image
+                  className="h-[155px] mt-[-100px]"
+                  src={sign_logo}
+                  alt=""
+                />
+              </div>
+              <div className="img-box h-[45px] overflow-hidden">
+                <Image
+                  className="h-[155px] mt-[-110px]"
+                  src={sign_logo}
+                  alt=""
+                />
+              </div>
+            </SingLogo>
+          </div>
           <TextBox className="mt-[70px]  h-[49px] ">
             <div className="flex">
               <div className="w-[818px]  h-[49px]">
