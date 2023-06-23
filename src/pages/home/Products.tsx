@@ -32,8 +32,8 @@ interface ProductsProps {
 }
 export default function Products({ value, setValue }: ProductsProps) {
     useEffect(() => {
-        document.body.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 2600 && document.documentElement.scrollTop < 2850) {
+        window.addEventListener('wheel', function (e) {
+            if (document.documentElement.scrollTop > 2550 && document.documentElement.scrollTop < 2900) {
                 document.body.classList.add("overflow-hidden");
                 if (value === 0) {
                     if (e.deltaY < 0) {
@@ -50,7 +50,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                     }
                 }
             } else {
-                document.body.classList.remove("overflow-hidden");
+                // document.body.classList.remove("overflow-hidden");
             }
         })
     }, [value])
@@ -73,7 +73,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                             setValue(2)
                         }
                     }
-                }, 200)}
+                }, 100)}
         >
             <div className="flex w-[100%] items-center justify-between">
                 <ProductsBox>

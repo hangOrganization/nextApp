@@ -7,7 +7,6 @@ import SchoolRoll from "./SchoolRoll";
 import Specialize from "./Specialize";
 import Slogan from "./Slogan";
 import SignCharacteristic from "./SignCharacteristic";
-import ServiceSystem from "./ServiceSystem";
 import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import Disc from "./Disc";
@@ -40,7 +39,6 @@ export default function Homepage() {
       <Products value={value} setValue={setValue} />
       <SchoolRoll />
       <Specialize />
-      <ServiceSystem />
       <OurTeam />
       <SignCharacteristic
         characteristicType={characteristicType}
