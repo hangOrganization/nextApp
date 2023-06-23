@@ -199,7 +199,7 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
-                                {/* <Swiper
+                                <Swiper
                                     onSwiper={setThumbsSwiper}
                                     spaceBetween={10}
                                     slidesPerView={10}
@@ -213,7 +213,7 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                                 <Image className="w-[70px] h-[70px]" src={el.image} alt="" />
                                             </SwiperSlide>
                                         ))}
-                                </Swiper> */}
+                                </Swiper>
                             </Dialog.Panel>
                         </Transition.Child>
                     </div>
