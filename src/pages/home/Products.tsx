@@ -34,8 +34,8 @@ export default function Products({ value, setValue }: ProductsProps) {
   useEffect(() => {
     document.body.addEventListener("wheel", function (e) {
       if (
-        document.documentElement.scrollTop > 2650 &&
-        document.documentElement.scrollTop < 2750
+        document.documentElement.scrollTop > 2600 &&
+        document.documentElement.scrollTop < 2850
       ) {
         document.body.classList.add("overflow-hidden");
         if (value === 0) {
