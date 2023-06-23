@@ -77,7 +77,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
             <div className='flex'>
                 <SignBox className={`flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} h-[1278px] w-screen items-center px-[120px] justify-between`}
                     onWheelCapture={
-                        _.throttle((e: any) => {
+                        _.debounce((e: any) => {
                             if (right === 0) {
                                 if (characteristicType === 0) {
                                     if (e.deltaY > 0) {
@@ -102,7 +102,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                     setRight(0)
                                 }
                             }
-                        }, 500)}
+                        }, 70)}
                 >
                     <SignCharacteristicBox className={`${right === 1 ? ' translate-x-[908px]' : 'translate-x-[0px]'} transition-all duration-300`}>
                         <div >

@@ -57,7 +57,7 @@ export default function Products({ value, setValue }: ProductsProps) {
     return (
         <div id='Products' className='flex mt-[250px] pt-[74px] box2 w-screen pl-[136px] pr-[120px]'
             onWheelCapture={
-                _.throttle((e: any) => {
+                _.debounce((e: any) => {
                     if (value === 0) {
                         if (e.deltaY > 0) {
                             setValue(1)
@@ -73,7 +73,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                             setValue(2)
                         }
                     }
-                }, 300)}
+                }, 70)}
         >
             <div className="flex w-[100%] items-center justify-between">
                 <ProductsBox>
