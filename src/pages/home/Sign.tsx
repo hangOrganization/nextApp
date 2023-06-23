@@ -105,7 +105,23 @@ const ButtonBox = styled.div`
   }
 `;
 const EchoRollBox = styled.div`
-  animation: echoRollBox 4s linear infinite;
+  opacity: 0;
+
+  animation: move-testaa 2s linear 1s forwards,
+    echoRollBox 6s cubic-bezier(0.33, 0.6, 0.81, 0.5) infinite 3s;
+
+  /* animation:  */
+  @keyframes move-testaa {
+    0% {
+      opacity: 0;
+      transform: translateX(230px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+
   @keyframes echoRollBox {
     0% {
       transform: translateX(0px);
@@ -310,21 +326,30 @@ const SignBgBox = styled.div`
 `;
 
 const TextBox = styled.div`
-  animation: text-move 1200ms linear forwards;
+  animation: text-box-move 1200ms linear forwards;
+  /* width: 818px; */
   width: 288px;
+  display: flex;
   opacity: 0;
   overflow: hidden;
-  @keyframes text-move {
+  justify-content: center;
+  height: 49px;
+
+  @keyframes text-box-move {
     0% {
       width: 288px;
+      height: 49px;
+      opacity: 0;
     }
     30% {
       opacity: 1;
+      height: 49px;
     }
 
     100% {
       width: 818px;
       opacity: 1;
+      height: 49px;
     }
   }
 `;
@@ -338,7 +363,7 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
     <div className="relative w-screen">
       <MoireFringe className="w-full top-0 flex z-30 justify-center items-center left-0 absolute h-[728px]">
         <Image
-          className="absolute moireFringe !w-screen !h-[1400px] z-30"
+          className="absolute moireFringe  !w-screen !h-[1400px] z-30"
           src={moireFringe_bg_1}
           alt=""
         />
@@ -358,9 +383,9 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px]">
           <Image className="" src={sign_logo} alt="" />
-          <TextBox className="mt-[70px] w-[288px] h-[49px] overflow-hidden justify-center items-center">
+          <TextBox className="mt-[70px]  h-[49px] ">
             <div className="flex">
-              <div className="w-[818px] h-[49px]">
+              <div className="w-[818px]  h-[49px]">
                 <Image className=" w-[818px] h-[49px]" src={sign_text} alt="" />
               </div>
             </div>
