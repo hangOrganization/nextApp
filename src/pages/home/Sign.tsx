@@ -107,11 +107,11 @@ const ButtonBox = styled.div`
 const EchoRollBox = styled.div`
   opacity: 0;
 
-  animation: move-testaa 2s linear 1s forwards,
+  animation: move-echo 2s linear 1s forwards,
     echoRollBox 6s cubic-bezier(0.33, 0.6, 0.81, 0.5) infinite 3s;
 
   /* animation:  */
-  @keyframes move-testaa {
+  @keyframes move-echo {
     0% {
       opacity: 0;
       transform: translateX(230px);
@@ -296,16 +296,10 @@ const LineBox = styled.div`
     }
   }
 `;
+
 const SignBgBox = styled.div`
-  height: 155px !important;
-  .img-box {
-    transform: scaleY(0);
-    transform-origin: center bottom;
-    animation: sign-bg-2-move 1000ms linear 300ms forwards;
-  }
   .sign-bg-2 {
     transform: scaleY(0);
-    transform-origin: center center;
     animation: sign-bg-2-move 1000ms linear forwards;
   }
   @keyframes sign-bg-2-move {
@@ -362,17 +356,69 @@ const TextBox = styled.div`
   }
 `;
 const SingLogo = styled.div`
-  animation: sign-logo-move 1500ms linear 100ms forwards;
-  overflow: hidden;
-  height: 0px;
+  height: 155px;
 
-  @keyframes sign-logo-move {
+  .img-box-1 {
+    transform-origin: center center;
+    animation: img-box-1-move 300ms linear 100ms forwards;
+  }
+  @keyframes img-box-1-move {
     0% {
-      height: 0px;
+      transform: scaleY(0);
     }
-
     100% {
-      height: 155px;
+      transform: scaleY(1);
+    }
+  }
+
+  .img-box-2 {
+    transform-origin: center center;
+    animation: img-box-2-move 300ms linear forwards;
+  }
+  @keyframes img-box-2-move {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  .img-box-3 {
+    transform-origin: center center;
+    animation: img-box-3-move 100ms linear forwards;
+  }
+  @keyframes img-box-3-move {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  .img-box-4 {
+    transform-origin: center center;
+    animation: img-box-4-move 100ms linear 100ms forwards;
+  }
+  @keyframes img-box-4-move {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  .img-box-5 {
+    transform-origin: center center;
+    animation: img-box-5-move 400ms linear 100ms forwards;
+  }
+  @keyframes img-box-5-move {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
     }
   }
 `;
@@ -404,33 +450,33 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
         <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px] ">
           <div className="h-[155px]">
             <SingLogo className="h-[155px]">
-              <div className="img-box h-[20px] overflow-hidden">
-                <Image className="h-[155px]" src={sign_logo} alt="" />
+              <div className="img-box-1  h-[20px] overflow-hidden">
+                <Image className="h-[155px] " src={sign_logo} alt="" />
               </div>
-              <div className="img-box h-[50px] overflow-hidden">
+              <div className="img-box-2  h-[50px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-20px]"
+                  className="h-[155px] mt-[-20px] "
                   src={sign_logo}
                   alt=""
                 />
               </div>
-              <div className="img-box h-[30px] overflow-hidden">
+              <div className="img-box-3  h-[30px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-70px]"
+                  className="h-[155px] mt-[-70px]  "
                   src={sign_logo}
                   alt=""
                 />
               </div>
-              <div className="img-box h-[10px] overflow-hidden">
+              <div className="img-box-4  h-[10px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-100px]"
+                  className="h-[155px] mt-[-100px] "
                   src={sign_logo}
                   alt=""
                 />
               </div>
-              <div className="img-box h-[45px] overflow-hidden">
+              <div className="img-box-5  h-[45px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-110px]"
+                  className="h-[155px] mt-[-110px] "
                   src={sign_logo}
                   alt=""
                 />
