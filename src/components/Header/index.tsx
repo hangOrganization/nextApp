@@ -55,45 +55,45 @@ export default function Header({
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${
-            pageTop >= 6242 && pageTop < 7365 ? "active-item " : ""
+            pageTop >= 5152 && pageTop < 6315 ? "active-item " : ""
           }`}
           onClick={() => {
-            scrollToView(6242);
-            setPageTop(6242);
+            scrollToView(5152);
+            setPageTop(5152);
           }}
         >
           师资团队
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            pageTop >= 7365 && pageTop < 8758 ? "active-item " : ""
+            pageTop >= 6315 && pageTop < 7708 ? "active-item " : ""
           }`}
           onClick={() => {
-            setPageTop(7365);
+            setPageTop(6315);
 
-            scrollToView(7365);
+            scrollToView(6315);
           }}
         >
           公司特色
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            pageTop >= 8758 && pageTop < 9808 ? "active-item " : ""
+            pageTop >= 7708 && pageTop < 8758 ? "active-item " : ""
           }`}
           onClick={() => {
-            setPageTop(8758);
-            scrollToView(8758);
+            setPageTop(7708);
+            scrollToView(7708);
           }}
         >
           关于我们
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            pageTop >= 10828 && pageTop < 11808 ? "active-item " : ""
+            pageTop >= 9778 && pageTop < 10758 ? "active-item " : ""
           }`}
           onClick={() => {
-            setPageTop(10828);
-            scrollToView(10828);
+            setPageTop(9778);
+            scrollToView(9778);
           }}
         >
           原创音乐计划
