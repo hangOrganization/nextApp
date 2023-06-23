@@ -105,14 +105,24 @@ const ButtonBox = styled.div`
   }
 `;
 const EchoRollBox = styled.div`
-   animation: echoRollBox 4s linear infinite;
-   @keyframes echoRollBox {
-    0%{transform:translateX(0px)}
-    40%{transform:translateX(0px)}
-    50%{transform:translateX(-780px)}
-    90%{transform:translateX(-780px)}
-    100%{transform:translateX(-1560px)}
-   }
+  animation: echoRollBox 4s linear infinite;
+  @keyframes echoRollBox {
+    0% {
+      transform: translateX(0px);
+    }
+    40% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-780px);
+    }
+    90% {
+      transform: translateX(-780px);
+    }
+    100% {
+      transform: translateX(-1560px);
+    }
+  }
 `;
 const ButtonBorder = styled.div`
   border: 1px solid;
@@ -167,20 +177,22 @@ const RollBox = styled.div`
 `;
 const MoireFringe = styled.div`
   overflow: hidden;
-  .moireFringe{
+  .moireFringe {
     animation: MoireFringe 5s linear infinite;
     @keyframes MoireFringe {
-      0%{transform:scale(1);}
-      50%{
-        transform:scale(1.3);
+      0% {
+        transform: scale(1);
       }
-      100%{
-        transform:scale(1);
+      50% {
+        transform: scale(1.3);
+      }
+      100% {
+        transform: scale(1);
       }
     }
   }
-  :after{
-    content:' ';
+  :after {
+    content: " ";
     position: absolute;
     top: -140px;
     left: 0;
@@ -190,8 +202,8 @@ const MoireFringe = styled.div`
     border-radius: 100%;
     background: #1a1a1a;
   }
-  :before{
-    content:' ';
+  :before {
+    content: " ";
     position: absolute;
     bottom: -50px;
     left: 0;
@@ -268,29 +280,91 @@ const LineBox = styled.div`
     }
   }
 `;
+const SignBgBox = styled.div`
+  .sign-bg-2 {
+    transform: scaleY(0);
+    animation: sign-bg-2-move 1000ms linear forwards;
+  }
+  @keyframes sign-bg-2-move {
+    0% {
+      transform: scaleY(0);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  .sign-bg-1 {
+    transform: scaleY(0);
+    animation: sign-bg-1-move 1000ms linear 50ms forwards;
+  }
+  @keyframes sign-bg-1-move {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
+
+const TextBox = styled.div`
+  animation: text-move 1200ms linear forwards;
+  width: 288px;
+  opacity: 0;
+  overflow: hidden;
+  @keyframes text-move {
+    0% {
+      width: 288px;
+    }
+    30% {
+      opacity: 1;
+    }
+
+    100% {
+      width: 818px;
+      opacity: 1;
+    }
+  }
+`;
+
 interface SignProps {
-  isOpenConsult: number
-  setIsOpenConsult: Function
+  isOpenConsult: number;
+  setIsOpenConsult: Function;
 }
 export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
   return (
     <div className="relative w-screen">
       <MoireFringe className="w-full top-0 flex z-30 justify-center items-center left-0 absolute h-[728px]">
-        <Image className="absolute moireFringe !w-screen !h-[1400px] z-30" src={moireFringe_bg_1} alt="" />
+        <Image
+          className="absolute moireFringe !w-screen !h-[1400px] z-30"
+          src={moireFringe_bg_1}
+          alt=""
+        />
         <Image className="absolute z-20" src={moireFringe_bg} alt="" />
       </MoireFringe>
       <div className="h-[728px] z-40 relative">
-        <div className=" absolute z-10 h-[728px] w-screen flex justify-center top-0 left-0">
+        <SignBgBox className=" absolute z-10 h-[728px] w-screen flex justify-center top-0 left-0">
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
 
-          <Image className="absolute" src={sign_bg_1} alt="" />
+          <Image className="absolute sign-bg-1" src={sign_bg_1} alt="" />
 
-          <Image className="absolute w-screen" src={sign_bg_2} alt="" />
-        </div>
-        <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px]">
           <Image
-            className="" src={sign_logo} alt="" />
-          <Image className="mt-[70px]" src={sign_text} alt="" />
+            className="absolute w-screen sign-bg-2"
+            src={sign_bg_2}
+            alt=""
+          />
+        </SignBgBox>
+        <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px]">
+          <Image className="" src={sign_logo} alt="" />
+          <TextBox className="mt-[70px] w-[288px] h-[49px] overflow-hidden justify-center items-center">
+            <div className="flex">
+              <div className="w-[818px] h-[49px]">
+                <Image className=" w-[818px] h-[49px]" src={sign_text} alt="" />
+              </div>
+            </div>
+          </TextBox>
           <div className="flex w-[780px] overflow-hidden">
             <EchoRollBox className="flex">
               <div className="w-[780px] text-center">
@@ -309,9 +383,7 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
                 </p>
               </div>
             </EchoRollBox>
-
           </div>
-
         </div>
       </div>
       <div className="flex items-center mt-[280px] px-[192px] justify-between">
@@ -466,8 +538,12 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
                         style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
                         className=" opacity-100 rounded-[55px] "
                       >
-                        <button className="bg-[#FF4B00] rounded-[39px] flex transition-all duration-500 justify-center relative items-center w-[314px] hover:mx-8 my-[6px] mx-[24px] h-20"
-                          onClick={() => { setIsOpenConsult(1) }}>
+                        <button
+                          className="bg-[#FF4B00] rounded-[39px] flex transition-all duration-500 justify-center relative items-center w-[314px] hover:mx-8 my-[6px] mx-[24px] h-20"
+                          onClick={() => {
+                            setIsOpenConsult(1);
+                          }}
+                        >
                           <p className=" text-[28px] z-20 text-[#1a1a1a] leading-[100%] font-[Lexend] font-black">
                             LEt’s Rock
                           </p>
