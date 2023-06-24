@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import Shadow from "@/assets/image/svg/Shadow.png";
 import sign_logo from "@/assets/image/svg/sign-logo.svg";
+import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
+import mobile_sign_bg_1 from "@/assets/image/mobile/mobile-sign-bg-1.png";
 import moireFringe_bg from "@/assets/image/svg/moireFringe-bg.svg";
 import sign_text from "@/assets/image/svg/sign-text.svg";
 import sign_bg_1 from "@/assets/image/svg/sign-bg-1.svg";
@@ -9,419 +10,9 @@ import moireFringe_bg_1 from "@/assets/image/svg/moireFringe-bg-1.svg";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
 import icon_star from "@/assets/image/svg/icon-star.svg";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
-import styled from "styled-components";
+import { Box, ButtonBorder, ButtonBox, EchoRollBox, LineBox, MoireFringe, RollBox, 
+  ScaleBox, ShadowBox, ShadowBox2, SignBgBox, SingLogo, SliderBox, TextBox } from "./SignCss"
 import Video from "./Video";
-
-const Box = styled.div`
-  position: absolute;
-  z-index: 20;
-  width: 196.08px;
-  height: 87.87px;
-  top: 25px;
-  mix-blend-mode: normal;
-  border-radius: 100px/45px;
-  border: 1px solid #cccccc;
-  transform: rotate(-30deg);
-  .ball1 {
-    animation: animX 2s cubic-bezier(0.36, 0, 0.64, 1) 1s infinite alternate,
-      animY 2s cubic-bezier(0.36, 0, 0.64, 1) 0s infinite alternate;
-  }
-  @keyframes animX {
-    0% {
-      left: -20px;
-    }
-    100% {
-      left: 170px;
-    }
-  }
-  @keyframes animY {
-    0% {
-      top: -20px;
-    }
-    100% {
-      top: 70px;
-    }
-  }
-`;
-const SliderBox = styled.div`
-  .slider {
-    animation: sliderAnimation 5s linear infinite;
-  }
-  @keyframes sliderAnimation {
-    0% {
-      top: 0%;
-    }
-    30% {
-      top: 0%;
-    }
-    35% {
-      top: 50%;
-    }
-    60% {
-      top: 50%;
-    }
-    65% {
-      top: 100%;
-    }
-    95% {
-      top: 100%;
-    }
-    100% {
-      top: 0%;
-    }
-  }
-`;
-const ShadowBox = styled.div`
-  width: 33.58px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 129.57px;
-  background: #ffd701;
-  mix-blend-mode: overlay;
-  filter: blur(8px);
-  transform: rotate(30deg);
-`;
-const ShadowBox2 = styled.div`
-  width: 6.16px;
-  height: 99.63px;
-  background: #ffd701;
-  mix-blend-mode: overlay;
-  filter: blur(4px);
-  transform: rotate(30deg);
-`;
-const ButtonBox = styled.div`
-  button {
-    :hover {
-      transform: scale(1.05);
-      img {
-        transform: scale(1.2);
-      }
-      .shadow {
-        margin-top: -27px;
-        margin-left: 340px;
-      }
-    }
-  }
-`;
-const EchoRollBox = styled.div`
-  opacity: 0;
-
-  animation: move-echo 2s linear 1s forwards,
-    echoRollBox 6s cubic-bezier(0.33, 0.6, 0.81, 0.5) infinite 3s;
-
-  /* animation:  */
-  @keyframes move-echo {
-    0% {
-      opacity: 0;
-      transform: translateX(230px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
-    }
-  }
-
-  @keyframes echoRollBox {
-    0% {
-      transform: translateX(0px);
-    }
-    40% {
-      transform: translateX(0px);
-    }
-    50% {
-      transform: translateX(-780px);
-    }
-    90% {
-      transform: translateX(-780px);
-    }
-    100% {
-      transform: translateX(-1560px);
-    }
-  }
-`;
-const ButtonBorder = styled.div`
-  border: 1px solid;
-  box-sizing: border-box;
-`;
-const ScaleBox = styled.div`
-  .textScale {
-    animation: textScale 4s linear infinite;
-  }
-  @keyframes textScale {
-    0% {
-      transform: scale(1);
-    }
-    5% {
-      transform: scale(1.2);
-    }
-    10% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-`;
-const RollBox = styled.div`
-  .roll {
-    animation: rollBox 5s linear infinite;
-  }
-  @keyframes rollBox {
-    0% {
-      transform: translateY(0px);
-    }
-    30% {
-      transform: translateY(0px);
-    }
-    35% {
-      transform: translateY(-102px);
-    }
-    60% {
-      transform: translateY(-102px);
-    }
-    65% {
-      transform: translateY(-204px);
-    }
-    95% {
-      transform: translateY(-204px);
-    }
-    100% {
-      transform: translateY(-306px);
-    }
-  }
-`;
-const MoireFringe = styled.div`
-  overflow: hidden;
-  .moireFringe {
-    animation: MoireFringe 5s linear infinite;
-    @keyframes MoireFringe {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.3);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-  }
-  :after {
-    content: " ";
-    position: absolute;
-    top: -140px;
-    left: 0;
-    z-index: 100;
-    height: 280px;
-    width: 100vw;
-    border-radius: 100%;
-    background: #1a1a1a;
-  }
-  :before {
-    content: " ";
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    z-index: 100;
-    height: 100px;
-    width: 100vw;
-    border-radius: 100%;
-    background: #1a1a1a;
-  }
-`;
-const LineBox = styled.div`
-  .line-1 {
-    animation: line-1 1s linear infinite;
-    transform: translateX(80px);
-  }
-  @keyframes line-1 {
-    0% {
-      transform: translateX(80px);
-    }
-    50% {
-      transform: translateX(-112px);
-    }
-    100% {
-      transform: translateX(-230px);
-      width: 20px;
-    }
-  }
-  .line-2 {
-    animation: line-2 800ms linear infinite;
-    transform: translateX(85px);
-  }
-  @keyframes line-2 {
-    0% {
-      transform: translateX(85px);
-    }
-    50% {
-      transform: translateX(-112px);
-    }
-    100% {
-      transform: translateX(-230px);
-      width: 20px;
-    }
-  }
-  .line-3 {
-    animation: line-3 1200ms linear infinite;
-    transform: translateX(62px);
-  }
-  @keyframes line-3 {
-    0% {
-      transform: translateX(62px);
-    }
-    50% {
-      transform: translateX(-112px);
-    }
-    100% {
-      transform: translateX(-230px);
-      width: 20px;
-    }
-  }
-  .line-4 {
-    animation: line-4 900ms linear infinite;
-    transform: translateX(62px);
-  }
-  @keyframes line-4 {
-    0% {
-      transform: translateX(62px);
-    }
-    50% {
-      transform: translateX(-112px);
-    }
-    100% {
-      transform: translateX(-230px);
-      width: 20px;
-    }
-  }
-`;
-
-const SignBgBox = styled.div`
-  .sign-bg-2 {
-    transform: scaleY(0);
-    animation: sign-bg-2-move 1000ms linear forwards;
-  }
-  @keyframes sign-bg-2-move {
-    0% {
-      transform: scaleY(0);
-    }
-
-    100% {
-      transform: scaleY(1);
-    }
-  }
-
-  .sign-bg-1 {
-    transform: scaleY(0);
-    animation: sign-bg-1-move 1000ms linear 50ms forwards;
-  }
-  @keyframes sign-bg-1-move {
-    0% {
-      transform: scale(0);
-    }
-
-    100% {
-      transform: scale(1);
-    }
-  }
-`;
-
-const TextBox = styled.div`
-  animation: text-box-move 1200ms linear forwards;
-  /* width: 818px; */
-  width: 288px;
-  display: flex;
-  opacity: 0;
-  overflow: hidden;
-  justify-content: center;
-  height: 49px;
-
-  @keyframes text-box-move {
-    0% {
-      width: 288px;
-      height: 49px;
-      opacity: 0;
-    }
-    30% {
-      opacity: 1;
-      height: 49px;
-    }
-
-    100% {
-      width: 818px;
-      opacity: 1;
-      height: 49px;
-    }
-  }
-`;
-const SingLogo = styled.div`
-  height: 155px;
-
-  .img-box-1 {
-    transform-origin: center center;
-    animation: img-box-1-move 300ms linear 100ms forwards;
-  }
-  @keyframes img-box-1-move {
-    0% {
-      transform: scaleY(0);
-    }
-    100% {
-      transform: scaleY(1);
-    }
-  }
-
-  .img-box-2 {
-    transform-origin: center center;
-    animation: img-box-2-move 300ms linear forwards;
-  }
-  @keyframes img-box-2-move {
-    0% {
-      transform: scaleY(0);
-    }
-    100% {
-      transform: scaleY(1);
-    }
-  }
-
-  .img-box-3 {
-    transform-origin: center center;
-    animation: img-box-3-move 100ms linear forwards;
-  }
-  @keyframes img-box-3-move {
-    0% {
-      transform: scaleY(0);
-    }
-    100% {
-      transform: scaleY(1);
-    }
-  }
-  .img-box-4 {
-    transform-origin: center center;
-    animation: img-box-4-move 100ms linear 100ms forwards;
-  }
-  @keyframes img-box-4-move {
-    0% {
-      transform: scaleY(0);
-    }
-    100% {
-      transform: scaleY(1);
-    }
-  }
-
-  .img-box-5 {
-    transform-origin: center center;
-    animation: img-box-5-move 400ms linear 100ms forwards;
-  }
-  @keyframes img-box-5-move {
-    0% {
-      transform: scaleY(0);
-    }
-    100% {
-      transform: scaleY(1);
-    }
-  }
-`;
 interface SignProps {
   isOpenConsult: number;
   setIsOpenConsult: Function;
@@ -437,56 +28,54 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
         />
         <Image className="absolute z-20" src={moireFringe_bg} alt="" />
       </MoireFringe>
-      <div className="h-[728px] z-40 relative">
-        <SignBgBox className=" absolute z-10 h-[728px] w-screen flex justify-center top-0 left-0">
+      <div className="md:h-[728px] z-40 relative">
+        <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0">
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
-          <Image className="absolute sign-bg-1" src={sign_bg_1} alt="" />
-          <Image
-            className="absolute w-screen sign-bg-2"
-            src={sign_bg_2}
-            alt=""
-          />
+          <Image className="absolute max-md:hidden sign-bg-1" src={sign_bg_1} alt="" />
+          <Image className="absolute md:hidden mt-10 sign-bg-1" src={mobile_sign_bg_1} alt="" />
+          <Image className="absolute md:hidden w-screen sign-bg-2" src={mobile_sign_bg_2} alt="" />
+          <Image className="absolute max-md:hidden w-screen sign-bg-2" src={sign_bg_2} alt="" />
         </SignBgBox>
-        <div className=" relative z-20 flex justify-center items-center flex-col pt-[302px] ">
-          <div className="h-[155px]">
-            <SingLogo className="h-[155px]">
-              <div className="img-box-1  h-[20px] overflow-hidden">
-                <Image className="h-[155px] " src={sign_logo} alt="" />
+        <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[246px] pt-[302px] ">
+          <div className="h-[155px] max-md:h-[72px]">
+            <SingLogo className="h-[155px] max-md:h-[72px]">
+              <div className="img-box-1 max-md:h-[14.4px] h-[20px] overflow-hidden">
+                <Image className="h-[155px] max-md:h-[72px] " src={sign_logo} alt="" />
               </div>
-              <div className="img-box-2  h-[50px] overflow-hidden">
+              <div className="img-box-2 max-md:h-[14.4px] h-[50px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-20px] "
+                  className="h-[155px] max-md:mt-[-14.4px] max-md:h-[72px] mt-[-20px] "
                   src={sign_logo}
                   alt=""
                 />
               </div>
-              <div className="img-box-3  h-[30px] overflow-hidden">
+              <div className="img-box-3 max-md:h-[14.4px] h-[30px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-70px]  "
+                  className="h-[155px] max-md:h-[72px] max-md:mt-[-28.8px] mt-[-70px] "
                   src={sign_logo}
                   alt=""
                 />
               </div>
-              <div className="img-box-4  h-[10px] overflow-hidden">
+              <div className="img-box-4 max-md:h-[14.4px]  h-[10px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-100px] "
+                  className="h-[155px] max-md:h-[72px] max-md:mt-[-43.2px] mt-[-100px] "
                   src={sign_logo}
                   alt=""
                 />
               </div>
-              <div className="img-box-5  h-[45px] overflow-hidden">
+              <div className="img-box-5 max-md:h-[14.4px] h-[45px] overflow-hidden">
                 <Image
-                  className="h-[155px] mt-[-110px] "
+                  className="h-[155px] max-md:h-[72px] max-md:mt-[-57.6px] mt-[-110px] "
                   src={sign_logo}
                   alt=""
                 />
               </div>
             </SingLogo>
           </div>
-          <TextBox className="mt-[70px]  h-[49px] ">
-            <div className="flex">
-              <div className="w-[818px]  h-[49px]">
-                <Image className=" w-[818px] h-[49px]" src={sign_text} alt="" />
+          <TextBox className="mt-[70px] max-md:mt-12 max-md:h-[21px] h-[49px]">
+            <div className="flex max-md:h-[21px] ">
+              <div className="w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]">
+                <Image className=" w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]" src={sign_text} alt="" />
               </div>
             </div>
           </TextBox>
@@ -516,18 +105,13 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
           <LineBox className="w-full overflow-hidden">
             <div
               className="w-20 ml-[143px] line-1 h-[1px] mt-2"
-              style={{ border: "0.5px solid #CCCCCC" }}
-            ></div>
+              style={{ border: "0.5px solid #CCCCCC" }}>
+            </div>
             <div
               className="w-[65px] line-2 ml-[85px] h-[1px] mt-2"
-              style={{ border: "0.5px solid #CCCCCC" }}
-            ></div>
-            <div className="flex mt-[-2px] w-full gap-[6px] justify-center items-end">
-              <p className="font-[Lexend] text-[72px] leading-[120%] font-[150]">
-                10
-              </p>
-              <p className="text-[40px] leading-[150%] font-[300]">年</p>
+              style={{ border: "0.5px solid #CCCCCC" }}>
             </div>
+            <div className="flex mt-[-2px] h-[86px] w-full gap-[6px] before justify-center items-end"></div>
             <div
               className="w-[62px] ml-[143px] line-3 h-[1px] mb-[8px]"
               style={{ border: "0.5px solid #CCCCCC" }}
@@ -570,13 +154,17 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
                   <p className="text-[32px] leading-[160%] font-[300]">
                     留学申请
                   </p>
-                  <p className="text-[32px] leading-[160%] font-[300]">规划</p>
+                  <p className="text-[32px] leading-[160%] font-[300]">
+                    规划
+                  </p>
                 </div>
                 <div className="text-center">
                   <p className="text-[32px] leading-[160%] font-[300]">
                     跨界艺术
                   </p>
-                  <p className="text-[32px] leading-[160%] font-[300]">联动</p>
+                  <p className="text-[32px] leading-[160%] font-[300]">
+                    联动
+                  </p>
                 </div>
                 <div className="text-center">
                   <p className="text-[32px] leading-[160%] font-[300]">

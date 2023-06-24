@@ -27,7 +27,7 @@ export default function Homepage() {
   };
 
   return (
-    <div className={`relative`}>
+    <div className={`relative w-screen overflow-hidden`}>
       <Header
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}

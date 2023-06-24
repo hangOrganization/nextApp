@@ -51,58 +51,58 @@ interface SignCharacteristicProps {
 }
 export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
     const [right, setRight] = useState<number>(0)
-    useEffect(() => {
-        document.body.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500) {
-                document.body.classList.add("overflow-hidden");
-                if (characteristicType === 0) {
-                    if (e.deltaY < 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-                if (characteristicType === 3) {
-                    if (e.deltaY > 0 && right === 1) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-            }
-        })
-    }, [characteristicType, right])
+    // useEffect(() => {
+    //     document.body.addEventListener('wheel', function (e) {
+    //         if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500) {
+    //             document.body.classList.add("overflow-hidden");
+    //             if (characteristicType === 0) {
+    //                 if (e.deltaY < 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //             if (characteristicType === 3) {
+    //                 if (e.deltaY > 0 && right === 1) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //         }
+    //     })
+    // }, [characteristicType, right])
     return (
         <div className="flex w-screen overflow-hidden">
             <div className='flex'>
                 <SignBox className={`flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} h-[1278px] w-screen items-center px-[120px] justify-between`}
-                    onWheelCapture={
-                        _.debounce((e: any) => {
-                            if (right === 0) {
-                                if (characteristicType === 0) {
-                                    if (e.deltaY > 0) {
-                                        setCharacteristicType(1)
-                                    }
-                                } else if (characteristicType === 3) {
-                                    if (e.deltaY < 0) {
-                                        setCharacteristicType(2)
-                                    }
-                                    if (e.deltaY > 0) {
-                                        setRight(1)
-                                    }
-                                } else {
-                                    if (e.deltaY < 0) {
-                                        setCharacteristicType(characteristicType - 1)
-                                    } else {
-                                        setCharacteristicType(characteristicType + 1)
-                                    }
-                                }
-                            } else {
-                                if (e.deltaY < 0) {
-                                    setRight(0)
-                                }
-                            }
-                        }, 70)}
+                    // onWheelCapture={
+                    //     _.debounce((e: any) => {
+                    //         if (right === 0) {
+                    //             if (characteristicType === 0) {
+                    //                 if (e.deltaY > 0) {
+                    //                     setCharacteristicType(1)
+                    //                 }
+                    //             } else if (characteristicType === 3) {
+                    //                 if (e.deltaY < 0) {
+                    //                     setCharacteristicType(2)
+                    //                 }
+                    //                 if (e.deltaY > 0) {
+                    //                     setRight(1)
+                    //                 }
+                    //             } else {
+                    //                 if (e.deltaY < 0) {
+                    //                     setCharacteristicType(characteristicType - 1)
+                    //                 } else {
+                    //                     setCharacteristicType(characteristicType + 1)
+                    //                 }
+                    //             }
+                    //         } else {
+                    //             if (e.deltaY < 0) {
+                    //                 setRight(0)
+                    //             }
+                    //         }
+                    //     }, 70)}
                 >
                     <SignCharacteristicBox className={`${right === 1 ? ' translate-x-[908px]' : 'translate-x-[0px]'} transition-all duration-300`}>
                         <div >

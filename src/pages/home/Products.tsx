@@ -31,49 +31,49 @@ interface ProductsProps {
   setValue: Function;
 }
 export default function Products({ value, setValue }: ProductsProps) {
-    useEffect(() => {
-        window.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900) {
-                document.body.classList.add("overflow-hidden");
-                if (value === 0) {
-                    if (e.deltaY < 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-                if (value === 2) {
-                    if (e.deltaY > 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-            } else {
-                // document.body.classList.remove("overflow-hidden");
-            }
-        })
-    }, [value])
+    // useEffect(() => {
+    //     window.addEventListener('wheel', function (e) {
+    //         if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900) {
+    //             document.body.classList.add("overflow-hidden");
+    //             if (value === 0) {
+    //                 if (e.deltaY < 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //             if (value === 2) {
+    //                 if (e.deltaY > 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //         } else {
+    //             // document.body.classList.remove("overflow-hidden");
+    //         }
+    //     })
+    // }, [value])
     return (
         <div id='Products' className='flex mt-[250px] pt-[74px] box2 w-screen pl-[136px] pr-[120px]'
-            onWheelCapture={
-                _.debounce((e: any) => {
-                    if (value === 0) {
-                        if (e.deltaY > 0) {
-                            setValue(1)
-                        }
-                    } else if (value === 2) {
-                        if (e.deltaY < 0) {
-                            setValue(1)
-                        }
-                    } else {
-                        if (e.deltaY < 0) {
-                            setValue(0)
-                        } else {
-                            setValue(2)
-                        }
-                    }
-                }, 70)}
+            // onWheelCapture={
+            //     _.debounce((e: any) => {
+            //         if (value === 0) {
+            //             if (e.deltaY > 0) {
+            //                 setValue(1)
+            //             }
+            //         } else if (value === 2) {
+            //             if (e.deltaY < 0) {
+            //                 setValue(1)
+            //             }
+            //         } else {
+            //             if (e.deltaY < 0) {
+            //                 setValue(0)
+            //             } else {
+            //                 setValue(2)
+            //             }
+            //         }
+            //     }, 70)}
         >
             <div className="flex w-[100%] items-center justify-between">
                 <ProductsBox>
