@@ -20,7 +20,7 @@ interface SignProps {
 export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
   return (
     <div className="relative w-screen">
-      <MoireFringe className="w-full top-0 flex z-30 justify-center items-center left-0 absolute h-[728px]">
+      <MoireFringe className="w-full top-[-100px] flex z-30 justify-center items-center left-0 absolute h-[728px]">
         <Image
           className="absolute moireFringe  !w-screen !h-[1400px] z-30"
           src={moireFringe_bg_1}
@@ -79,20 +79,20 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
               </div>
             </div>
           </TextBox>
-          <div className="flex w-[780px] overflow-hidden">
-            <EchoRollBox className="flex">
-              <div className="w-[780px] text-center">
-                <p className=" font-normal uppercase tracking-[1em] mt-[72px] text-[26px]">
+          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px] overflow-hidden">
+            <EchoRollBox className="md:flex">
+              <div className="md:w-[780px] max-md:w-screen  text-center">
+                <p className="md:font-normal uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px]">
                   听见世界的回响
                 </p>
               </div>
-              <div className="w-[780px] text-center">
-                <p className=" font-[300] uppercase tracking-[0.51em] mt-[72px] font-[Lexend] text-[26px]">
+              <div className="md:w-[780px] max-md:mt-4 text-center">
+                <p className=" font-[300] uppercase max-md:tracking-[3.84px] max-md:text-[12px] max-md:font-thin tracking-[0.51em] font-[Lexend] text-[26px]">
                   Echo of the World
                 </p>
               </div>
-              <div className="w-[780px] text-center">
-                <p className=" font-normal uppercase tracking-[1em] mt-[72px] text-[26px]">
+              <div className="md:w-[780px] max-md:hidden text-center">
+                <p className=" font-normal uppercase tracking-[1em] text-[26px]">
                   听见世界的回响
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
           </div>
         </div>
       </div>
-      <div className="flex items-center mt-[280px] px-[192px] justify-between">
+      <div className="flex max-md:flex-col items-center mt-[280px] md:px-[192px] justify-between">
         <div className="w-[224px] flex-col flex items-center">
           <LineBox className="w-full overflow-hidden">
             <div
@@ -131,7 +131,7 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
             </div>
           </div>
         </div>
-        <div className="w-[224px] flex-col flex items-center">
+        <div className="w-[224px] flex-col max-md:mt-[112px] flex items-center">
           <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
             <SliderBox className="relative flex justify-center">
               <div className="absolute top-[0%] slider w-4 h-1 bg-[#CCCCCC]"></div>
@@ -193,7 +193,7 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
             </div>
           </div>
         </div>
-        <div className="w-[224px] flex-col flex relative items-center pt-[13px]">
+        <div className="w-[224px] max-md:mt-[81px] flex-col flex relative items-center pt-[13px]">
           <ScaleBox className=" flex flex-col py-[14px] items-center justify-center">
             <p className="font-[Lexend] textScale z-30 bg-[#1A1A1A] w-[98px] text-[28px] leading-[100%] font-[250]">
               DREAM
@@ -252,12 +252,12 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
                         className=" opacity-100 rounded-[55px] "
                       >
                         <button
-                          className="bg-[#FF4B00] rounded-[39px] flex transition-all duration-500 justify-center relative items-center w-[314px] hover:mx-8 my-[6px] mx-[24px] h-20"
+                          className="bg-[#FF4B00] max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] hover:mx-8 my-[6px] mx-[24px] h-20"
                           onClick={() => {
                             setIsOpenConsult(1);
                           }}
                         >
-                          <p className=" text-[28px] z-20 text-[#1a1a1a] leading-[100%] font-[Lexend] font-black">
+                          <p className=" text-[28px] max-md:text-[20px] z-20 text-[#1a1a1a] leading-[100%] font-[Lexend] font-black">
                             LEt’s Rock
                           </p>
                           <Image

@@ -93,11 +93,10 @@ export const ButtonBox = styled.div`
   }
 `;
 export const EchoRollBox = styled.div`
-  opacity: 0;
+  @media (min-width: 768px) {
+    opacity: 0;
   animation: move-echo 2s linear 1s forwards,
     echoRollBox 6s cubic-bezier(0.33, 0.6, 0.81, 0.5) infinite 3s;
-
-  /* animation:  */
   @keyframes move-echo {
     0% {
       opacity: 0;
@@ -108,7 +107,6 @@ export const EchoRollBox = styled.div`
       transform: translateX(0px);
     }
   }
-
   @keyframes echoRollBox {
     0% {
       transform: translateX(0px);
@@ -125,6 +123,7 @@ export const EchoRollBox = styled.div`
     100% {
       transform: translateX(-1560px);
     }
+  }
   }
 `;
 export const ButtonBorder = styled.div`
