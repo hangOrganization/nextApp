@@ -221,38 +221,38 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
       <ButtonBox className="flex mt-16 items-center relative justify-center">
         <ButtonBorder
           style={{ borderColor: "rgb(157, 54, 11,0.1)" }}
-          className=" opacity-100 z-20 py-[10px] rounded-[55px] px-[73px]"
+          className=" opacity-100 z-20 max-md:py-2 py-[10px] rounded-[55px] px-[73px]"
         >
           <ButtonBorder
             style={{ borderColor: "rgb(157, 54, 11,0.2)" }}
-            className=" opacity-100  py-[10px] rounded-[55px] px-[76px]"
+            className=" opacity-100 max-md:py-2 py-[10px] rounded-[55px] px-[76px]"
           >
             <ButtonBorder
               style={{ borderColor: "rgb(157, 54, 11,0.3)" }}
-              className=" opacity-100  py-[9px] rounded-[55px] px-[61px]"
+              className=" opacity-100 max-md:py-[7px] py-[9px] rounded-[55px] px-[61px]"
             >
               <ButtonBorder
                 style={{ borderColor: "rgb(157, 54, 11,0.4)" }}
-                className=" opacity-100  py-[8px] rounded-[55px] px-[49px]"
+                className=" opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] px-[49px]"
               >
                 <ButtonBorder
                   style={{ borderColor: "rgb(157, 54, 11,0.5)" }}
-                  className=" opacity-100  py-[8px] rounded-[55px] px-[34px]"
+                  className=" opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] max-md:px-[17px] px-[34px]"
                 >
                   <ButtonBorder
                     style={{ borderColor: "rgb(157, 54, 11,0.6)" }}
-                    className=" opacity-100  py-[9px] rounded-[55px] px-[27px]"
+                    className=" opacity-100 max-md:py-[6px] py-[9px] rounded-[55px] max-md:px-[15px] px-[27px]"
                   >
                     <ButtonBorder
                       style={{ borderColor: "rgb(157, 54, 11,0.7)" }}
-                      className=" opacity-100  py-[8px] rounded-[55px] px-[23px]"
+                      className=" opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] max-md:px-[13px] px-[23px]"
                     >
                       <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
-                        className=" opacity-100 rounded-[55px] "
+                        className=" opacity-100 max-md:py-[6px] rounded-[55px] "
                       >
                         <button
-                          className="bg-[#FF4B00] max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] hover:mx-8 my-[6px] mx-[24px] h-20"
+                          className="bg-[#FF4B00] max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2 hover:mx-8 my-[6px] mx-[24px] h-20"
                           onClick={() => {
                             setIsOpenConsult(1);
                           }}
