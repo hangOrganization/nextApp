@@ -10,13 +10,29 @@ import moireFringe_bg_1 from "@/assets/image/svg/moireFringe-bg-1.svg";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
 import icon_star from "@/assets/image/svg/icon-star.svg";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
-import { Box, ButtonBorder, ButtonBox, EchoRollBox, LineBox, MoireFringe, RollBox, 
-  ScaleBox, ShadowBox, ShadowBox2, SignBgBox, SingLogo, SliderBox, TextBox } from "./SignCss"
+import {
+  Box,
+  ButtonBorder,
+  ButtonBox,
+  EchoRollBox,
+  LineBox,
+  MoireFringe,
+  RollBox,
+  ScaleBox,
+  ShadowBox,
+  ShadowBox2,
+  SignBgBox,
+  SingLogo,
+  SliderBox,
+  TextBox,
+} from "./SignCss";
 import Video from "./Video";
+import { useEffect } from "react";
 interface SignProps {
   isOpenConsult: number;
   setIsOpenConsult: Function;
 }
+
 export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
   return (
     <div className="relative w-screen">
@@ -31,16 +47,36 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
       <div className="md:h-[728px] z-40 relative">
         <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0">
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
-          <Image className="absolute max-md:hidden sign-bg-1" src={sign_bg_1} alt="" />
-          <Image className="absolute md:hidden mt-10 sign-bg-1" src={mobile_sign_bg_1} alt="" />
-          <Image className="absolute md:hidden w-screen sign-bg-2" src={mobile_sign_bg_2} alt="" />
-          <Image className="absolute max-md:hidden w-screen sign-bg-2" src={sign_bg_2} alt="" />
+          <Image
+            className="absolute max-md:hidden sign-bg-1"
+            src={sign_bg_1}
+            alt=""
+          />
+          <Image
+            className="absolute md:hidden mt-10 sign-bg-1"
+            src={mobile_sign_bg_1}
+            alt=""
+          />
+          <Image
+            className="absolute md:hidden w-screen sign-bg-2"
+            src={mobile_sign_bg_2}
+            alt=""
+          />
+          <Image
+            className="absolute max-md:hidden w-screen sign-bg-2"
+            src={sign_bg_2}
+            alt=""
+          />
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[246px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">
             <SingLogo className="h-[155px] max-md:h-[72px]">
               <div className="img-box-1 max-md:h-[14.4px] h-[20px] overflow-hidden">
-                <Image className="h-[155px] max-md:h-[72px] " src={sign_logo} alt="" />
+                <Image
+                  className="h-[155px] max-md:h-[72px] "
+                  src={sign_logo}
+                  alt=""
+                />
               </div>
               <div className="img-box-2 max-md:h-[14.4px] h-[50px] overflow-hidden">
                 <Image
@@ -75,7 +111,11 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
           <TextBox className="mt-[70px] max-md:mt-12 max-md:h-[21px] h-[49px]">
             <div className="flex max-md:h-[21px] ">
               <div className="w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]">
-                <Image className=" w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]" src={sign_text} alt="" />
+                <Image
+                  className=" w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]"
+                  src={sign_text}
+                  alt=""
+                />
               </div>
             </div>
           </TextBox>
@@ -105,12 +145,12 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
           <LineBox className="w-full overflow-hidden">
             <div
               className="w-20 ml-[143px] line-1 h-[1px] mt-2"
-              style={{ border: "0.5px solid #CCCCCC" }}>
-            </div>
+              style={{ border: "0.5px solid #CCCCCC" }}
+            ></div>
             <div
               className="w-[65px] line-2 ml-[85px] h-[1px] mt-2"
-              style={{ border: "0.5px solid #CCCCCC" }}>
-            </div>
+              style={{ border: "0.5px solid #CCCCCC" }}
+            ></div>
             <div className="flex mt-[-2px] h-[86px] w-full gap-[6px] before justify-center items-end"></div>
             <div
               className="w-[62px] ml-[143px] line-3 h-[1px] mb-[8px]"
@@ -154,17 +194,13 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
                   <p className="text-[32px] leading-[160%] font-[300]">
                     留学申请
                   </p>
-                  <p className="text-[32px] leading-[160%] font-[300]">
-                    规划
-                  </p>
+                  <p className="text-[32px] leading-[160%] font-[300]">规划</p>
                 </div>
                 <div className="text-center">
                   <p className="text-[32px] leading-[160%] font-[300]">
                     跨界艺术
                   </p>
-                  <p className="text-[32px] leading-[160%] font-[300]">
-                    联动
-                  </p>
+                  <p className="text-[32px] leading-[160%] font-[300]">联动</p>
                 </div>
                 <div className="text-center">
                   <p className="text-[32px] leading-[160%] font-[300]">

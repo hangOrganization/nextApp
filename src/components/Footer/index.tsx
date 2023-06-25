@@ -8,12 +8,12 @@ import Tip from "../../components/Tips/tip";
 
 export default function Footer() {
   return (
-    <div className="pb-[80px] px-6 mt-[-80px]">
+    <div className="pb-[80px] max-md:pb-[24px]  px-6 max-md:px-[16px] mt-[-80px] max-md:mt-[200px]">
       <div
-        className="flex items-center justify-between px-6 w-full relative z-[10] pb-8 "
+        className="flex items-center justify-between max-md:justify-center px-6 max-md:px-4 w-full relative z-[10] pb-8  "
         style={{ borderBottom: "1px solid rgba(255, 255, 255, .5)" }}
       >
-        <div className="w-[114px] ">
+        <div className="w-[114px] max-md:hidden">
           <Image src={logo} alt=""></Image>
         </div>
         <div className="flex items-center ">
@@ -42,9 +42,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-[68px] ml-[71px] mb-[24px]  text-white leading-[200%] text-[14px] font-[250]">
-        <div className="flex items-center gap-[40px]">
-          <div>联系我们</div>
+      <div className="mt-[68px] max-md:mt-[24px] ml-[71px] max-md:ml-0  mb-[24px]  max-md:mb-0  text-white leading-[200%]   text-[14px] font-[250] ">
+        <div className="flex items-center max-md:flex-col gap-[40px] max-md:gap-2">
+          <div className="max-md:font-[300]  max-md:opacity-[0.5] ">
+            联系我们
+          </div>
           <div className="flex items-center gap-[8px]">
             <span>马老师</span>
             +8619273829182
@@ -55,13 +57,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex items-center gap-[40px] mt-[16px]">
-          <div>联系我们</div>
+        <div className="flex items-center max-md:flex-col  gap-[40px] mt-[16px]  max-md:mt-[32px] max-md:mb-[150px] max-md:gap-2  max-md:text-[12px]">
+          <div className="max-md:opacity-[0.5]   max-md:text-[14px] ">
+            公司地址
+          </div>
           浙江省杭州市滨江区西兴街道江淑路260号11603室
         </div>
 
         <div
-          className="mt-[24px] text-[12px] font-[300]"
+          className="mt-[24px] text-[12px] font-[300] max-md:text-center"
           style={{ color: "rgba(255, 255, 255, .5)" }}
         >
           © 2023 SIGNART. All Right Reserved.

@@ -221,10 +221,10 @@ export const LineBox = styled.div`
     animation: line-1 1s linear infinite;
     transform: translateX(80px);
   }
-  .before{
-    :before{
-      content:'10';
-      color: #FFF;
+  .before {
+    :before {
+      content: "10";
+      color: #fff;
       text-align: center;
       font-size: 72px;
       font-family: Lexend;
@@ -233,22 +233,55 @@ export const LineBox = styled.div`
       text-transform: uppercase;
       animation: beforeMove 2s linear;
       @keyframes beforeMove {
-        0%{content:'0'; opacity:0}
-        10%{content:'1'; opacity:0.1}
-        20%{content:'2'; opacity:0.2}
-        30%{content:'3'; opacity:0.3}
-        40%{content:'4'; opacity:0.4}
-        50%{content:'5'; opacity:0.5}
-        60%{content:'6'; opacity:0.6}
-        70%{content:'7'; opacity:0.7}
-        80%{content:'8'; opacity:0.8}
-        90%{content:'9'; opacity:0.9}
-        100%{content:'10'; opacity:1}
+        0% {
+          content: "0";
+          opacity: 0;
+        }
+        10% {
+          content: "1";
+          opacity: 0.1;
+        }
+        20% {
+          content: "2";
+          opacity: 0.2;
+        }
+        30% {
+          content: "3";
+          opacity: 0.3;
+        }
+        40% {
+          content: "4";
+          opacity: 0.4;
+        }
+        50% {
+          content: "5";
+          opacity: 0.5;
+        }
+        60% {
+          content: "6";
+          opacity: 0.6;
+        }
+        70% {
+          content: "7";
+          opacity: 0.7;
+        }
+        80% {
+          content: "8";
+          opacity: 0.8;
+        }
+        90% {
+          content: "9";
+          opacity: 0.9;
+        }
+        100% {
+          content: "10";
+          opacity: 1;
+        }
       }
     }
-    :after{
-      content:'年';
-      color: #CCC;
+    :after {
+      content: "年";
+      color: #ccc;
       text-align: center;
       font-size: 40px;
       font-weight: 300;
@@ -256,17 +289,39 @@ export const LineBox = styled.div`
       text-transform: uppercase;
       animation: afterMove 2s linear;
       @keyframes afterMove {
-        0%{opacity:0}
-        10%{opacity:0.1}
-        20%{opacity:0.2}
-        30%{opacity:0.3}
-        40%{opacity:0.4}
-        50%{opacity:0.5}
-        60%{opacity:0.6}
-        70%{opacity:0.7}
-        80%{opacity:0.8}
-        90%{opacity:0.9}
-        100%{opacity:1}
+        0% {
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.1;
+        }
+        20% {
+          opacity: 0.2;
+        }
+        30% {
+          opacity: 0.3;
+        }
+        40% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        60% {
+          opacity: 0.6;
+        }
+        70% {
+          opacity: 0.7;
+        }
+        80% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 1;
+        }
       }
     }
   }
@@ -335,7 +390,7 @@ export const LineBox = styled.div`
 export const SignBgBox = styled.div`
   .sign-bg-2 {
     transform: scaleY(0);
-    animation: sign-bg-2-move 1000ms linear forwards;
+    animation: sign-bg-2-move 1500ms linear 300ms forwards;
   }
   @keyframes sign-bg-2-move {
     0% {
@@ -348,22 +403,40 @@ export const SignBgBox = styled.div`
   }
 
   .sign-bg-1 {
-    transform: scaleY(0);
-    animation: sign-bg-1-move 1000ms linear 50ms forwards;
+    opacity: 0;
+
+    animation: sign-bg-1-move 2000ms linear 800ms,
+      sign-bg-1-move-2 3000ms linear infinite 2800ms;
   }
   @keyframes sign-bg-1-move {
     0% {
-      transform: scale(0);
+      opacity: 0;
     }
 
     100% {
-      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes sign-bg-1-move-2 {
+    0% {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1.1);
+      opacity: 1;
     }
   }
 `;
 
 export const TextBox = styled.div`
-  animation: text-box-move 1200ms linear forwards;
+  animation: text-box-move 1200ms linear forwards 1400ms;
   width: 288px;
   display: flex;
   opacity: 0;
@@ -374,21 +447,21 @@ export const TextBox = styled.div`
     width: 120px;
     height: 21px !important;
     @keyframes text-box-move {
-    0% {
-      width: 120px;
-      height: 21px;
-      opacity: 0;
-    }
-    30% {
-      opacity: 1;
+      0% {
+        width: 120px;
         height: 21px;
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+        height: 21px;
+      }
+      100% {
+        width: 343px;
+        opacity: 1;
+        height: 21px;
+      }
     }
-    100% {
-      width: 343px;
-      opacity: 1;
-      height: 21px;
-    }
-  }
   }
   @keyframes text-box-move {
     0% {
@@ -408,11 +481,12 @@ export const TextBox = styled.div`
     }
   }
 `;
-export const SingLogo = styled.div`  
-   height: 155px;
+export const SingLogo = styled.div`
+  height: 155px;
   .img-box-1 {
+    transform: scaleY(0);
     transform-origin: center center;
-    animation: img-box-1-move 300ms linear 100ms forwards;
+    animation: img-box-1-move 260ms linear 920ms forwards;
   }
   @keyframes img-box-1-move {
     0% {
@@ -424,8 +498,10 @@ export const SingLogo = styled.div`
   }
 
   .img-box-2 {
+    transform: scaleY(0);
+
     transform-origin: center center;
-    animation: img-box-2-move 300ms linear forwards;
+    animation: img-box-2-move 300ms linear 900ms forwards;
   }
   @keyframes img-box-2-move {
     0% {
@@ -437,8 +513,10 @@ export const SingLogo = styled.div`
   }
 
   .img-box-3 {
+    transform: scaleY(0);
+
     transform-origin: center center;
-    animation: img-box-3-move 100ms linear forwards;
+    animation: img-box-3-move 170ms linear 930ms forwards;
   }
   @keyframes img-box-3-move {
     0% {
@@ -449,8 +527,9 @@ export const SingLogo = styled.div`
     }
   }
   .img-box-4 {
+    transform: scaleY(0);
     transform-origin: center center;
-    animation: img-box-4-move 100ms linear 100ms forwards;
+    animation: img-box-4-move 100ms linear 900ms forwards;
   }
   @keyframes img-box-4-move {
     0% {
@@ -462,8 +541,9 @@ export const SingLogo = styled.div`
   }
 
   .img-box-5 {
+    transform: scaleY(0);
     transform-origin: center center;
-    animation: img-box-5-move 400ms linear 100ms forwards;
+    animation: img-box-5-move 250ms linear 950ms forwards;
   }
   @keyframes img-box-5-move {
     0% {

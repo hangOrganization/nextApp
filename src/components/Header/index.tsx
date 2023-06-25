@@ -41,7 +41,6 @@ export default function Header({
       setPageTop(document.documentElement.scrollTop);
     });
   });
-  console.log(pageTop);
 
   return (
     <Box className="fixed z-[10000] w-screen pl-[48px] max-md:px-4 max-md:py-3  pr-6  py-4 left-0 flex items-center justify-between top-0">
