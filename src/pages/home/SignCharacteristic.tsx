@@ -2,6 +2,10 @@
 import Image from 'next/image'
 import _ from 'lodash'
 import products_right from '@/assets/image/svg/icon-products-right.svg'
+import mobile_SignCharacteristic from '@/assets/image/mobile/mobile-SignCharacteristic.svg'
+import signCharacteristic_title from '@/assets/image/mobile/mobile-signCharacteristic-title.svg'
+import signCharacteristic_active from '@/assets/image/mobile/icon-mobile-signCharacteristic-active.svg'
+import mobile_signCharacteristic_bg from '@/assets/image/mobile/mobile-signCharacteristic-bg.svg'
 import AboutUs_bg from '@/assets/image/svg/aboutUs-bg.png'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
 import characteristic_bg from '@/assets/image/svg/characteristic-bg.svg'
@@ -9,40 +13,64 @@ import styled from 'styled-components'
 import { useEffect, useState } from 'react'
 
 const SignBox = styled.div`
-    width: 100vw;
-    background-image:url(${characteristic_bg.src});
-    &.ABOUT{
-        background-image:url(${AboutUs_bg.src}) !important;
+    @media (min-width: 768px) {
+        width: 100vw;
+        background-image:url(${characteristic_bg.src});
+        &.ABOUT{
+            background-image:url(${AboutUs_bg.src}) !important;
+        }
+        background-size: 100% !important;
+        background-repeat: no-repeat !important;
     }
-    background-size: 100% !important;
-    background-repeat: no-repeat !important;
+`
+const Box = styled.div`
+    @media not all and (min-width: 768px) {
+        background:url(${mobile_SignCharacteristic.src}),linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, #1A1A1A 9.17%) !important;
+    }
 `
 const SignCharacteristicBox = styled.div`
-    width: 310px;
-    height: 385px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url(${signCharacteristic_bg.src});
+    @media (min-width: 768px) {
+        width: 310px;
+        height: 385px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(${signCharacteristic_bg.src});
+    }
+    @media not all and (min-width: 768px) {
+        background: url(${mobile_signCharacteristic_bg.src});
+    }
 `
 const ButtonBox = styled.div`
-  cursor: pointer;
-  border: 1px solid #ffffff;
-  .hover {
+  @media (min-width: 768px) {
+    cursor: pointer;
     border: 1px solid #ffffff;
-  }
-  &:hover {
-    color: #ffffff;
-    background: #1a1a1a;
-    border: 1px solid #1a1a1a;
-    mix-blend-mode: difference;
     .hover {
-      border: 1px solid #1a1a1a;
-      background: #cccccc;
+        border: 1px solid #ffffff;
     }
-    path {
-      stroke: #1a1a1a;
+    &:hover {
+        color: #ffffff;
+        background: #1a1a1a;
+        border: 1px solid #1a1a1a;
+        mix-blend-mode: difference;
+        .hover {
+        border: 1px solid #1a1a1a;
+        background: #cccccc;
+        }
+        path {
+        stroke: #1a1a1a;
+        }
     }
+    }
+  @media not all and (min-width: 768px) {
+    border-radius: 64px;
+    color:  #CCC;
+    font-size: 12px;
+    font-family: 'Alibaba PuHuiTi 2.0';
+    line-height: 120%;
+    text-transform: uppercase;
+    padding: 12px 11px 12px 15px;
+    border: 1px solid rgba(204, 204, 204, 0.50);
   }
 `;
 interface SignCharacteristicProps {
@@ -51,6 +79,7 @@ interface SignCharacteristicProps {
 }
 export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
     const [right, setRight] = useState<number>(0)
+    const [mobileRight, setMobileRight] = useState<number>(0)
     const isMobile = /mobile/i.test(navigator.userAgent);
     useEffect(() => {
         document.body.addEventListener('wheel', function (e) {
@@ -74,9 +103,9 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
         })
     }, [characteristicType, right])
     return (
-        <div className="flex w-screen overflow-hidden">
+        <Box className="flex w-screen max-md:h-[2590px] max-md:pb-[210px] overflow-hidden">
             <div className='flex'>
-                <SignBox className={`flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} h-[1278px] w-screen items-center px-[120px] justify-between`}
+                <SignBox className={`md:flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} md:h-[1278px] max-md:pt-[300px] w-screen items-center md:px-[120px] justify-between`}
                     onWheelCapture={
                         _.debounce((e: any) => {
                             if (!isMobile) {
@@ -107,64 +136,128 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                             }
                         }, 70)}
                 >
-                    <SignCharacteristicBox className={`${right === 1 ? ' translate-x-[908px]' : 'translate-x-[0px]'} transition-all duration-300`}>
+                    <SignCharacteristicBox className={`${right === 1 ? ' translate-x-[908px]' : 'translate-x-[0px]'} max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-300`}>
                         <div >
-                            <p className=' font-light text-[56px] leading-[120%]'>{`${right === 1 ? '关于我们' : '公司特色'}`}</p>
-                            <p className={`font-extralight font-[Lexend] text-[22px] ${right === 1 ? 'tracking-[15.18px]' : 'tracking-[0.53em]'} mt-4 opacity-60 uppercase leading-[160%]`}>{`${right === 1 ? 'ABOUT US' : 'Why SIGN?'}`}</p>
+                            <div className='max-md:flex justify-between'>
+                                <p className=' font-light text-[56px] max-md:text-[24px] leading-[120%]' onClick={() => setMobileRight(0)}>{`${right === 1 ? '关于我们' : '公司特色'}`}</p>
+                                <p className=' font-light text-[56px] max-md:text-[24px] md:hidden leading-[120%]' onClick={() => setMobileRight(1)}>关于我们</p>
+                            </div>
+                            <div className='mt-[18px] relative h-2 w-full'>
+                                <Image className={`absolute transition-all ${mobileRight === 0 ? 'translate-x-[16px] left-0' : 'translate-x-[-125%] left-[100%]'}`} src={signCharacteristic_active} alt='' />
+                            </div>
+                            <p className={`font-extralight max-md:hidden font-[Lexend] text-[22px] ${right === 1 ? 'tracking-[15.18px]' : 'tracking-[0.53em]'} mt-4 opacity-60 uppercase leading-[160%]`}>{`${right === 1 ? 'ABOUT US' : 'Why SIGN?'}`}</p>
                         </div>
                     </SignCharacteristicBox>
-                    <div className={`transition-all duration-300 flex items-center ${right === 1 ? ' flex-row-reverse translate-x-[-510px]' : 'translate-x-[0px]'}`}>
-                        <div className={`${right === 1 ? 'ml-20' : 'mr-[193px]'}`}>
+                    <div className={`transition-all duration-300 md:flex items-center ${right === 1 ? ' flex-row-reverse translate-x-[-510px]' : 'translate-x-[0px]'}`}>
+                        <div className={`${right === 1 ? 'ml-20' : 'md:mr-[193px]'}`}>
                             {right === 0 ?
-                                <div className=' h-[488px] overflow-hidden'>
-                                    <div className={`w-[599px transition-all duration-300 ${characteristicType === 1 ? 'translate-y-[-488px]' : characteristicType === 2 ? 'translate-y-[-976px]' : characteristicType === 3 ? 'translate-y-[-1464px]' : ''} `}>
-                                        <div className='h-[488px] flex flex-col justify-center'>
-                                            <p className='text-[40px] mr-[26px] font-normal leading-[120%] text-[#FF4B00]'>资深导师团队</p>
-                                            <div className='w-[488px] mt-12'>
-                                                <p className='text-[14px] font-light leading-[220%] opacity-70'>
-                                                    高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
+                                <>{
+                                    mobileRight === 0 ? <div className='md:h-[488px] max-md:px-6 overflow-hidden'>
+                                        <div className={`md:w-[599px transition-all duration-300 ${characteristicType === 1 ? 'translate-y-[-488px]' : characteristicType === 2 ? 'translate-y-[-976px]' : characteristicType === 3 ? 'translate-y-[-1464px]' : ''} `}>
+                                            <div className='md:h-[488px] max-md:mt-11 flex flex-col justify-center'>
+                                                <div className='flex'>
+                                                    <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>资深导师团队</p>
+                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                </div>
+                                                <div className='md:w-[488px] mt-12'>
+                                                    <p className='text-[14px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70'>
+                                                        高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
+                                                    </p>
+                                                    <p className='text-[14px] max-md:hidden my-[31px] max-md:leading-[200%] font-light leading-[220%] opacity-70'>
+                                                        已配备全职音乐导师6人，兼职音乐导师150+，音乐产业规划师1人，专业录音师2人，资深留学规划师2人，专业师资团队由海外各个院校的海归音乐导师、一线声音从业者及交响乐团演奏家组成。
+                                                    </p>
+                                                    <p className='text-[14px] max-md:hidden font-light max-md:text-[12px] max-md:leading-[200%] leading-[220%] opacity-70'>
+                                                        由SIGNART名校录取导师团队全程跟踪，各领域专业导师多对一服务，实现名校战略录取。
+                                                    </p>
+                                                    <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>资深海归音乐导师团队，全职导师8人，兼职导师150+，由一线资深从业者及专业院团演奏家及教师组成。</p>
+                                                    <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>数次参与奥运会，冬奥会，亚运会等重大项目的全职作品集审核团队。</p>
+                                                    <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>5年以上一线从业经验及教学经验，最新的行业思维，独树一帜的产学研联动。</p>
+                                                    <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>独家配备全职音乐录音师，混音师，发行级母带处理师，摄影灯光拍摄团队。</p>
+                                                    <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>7年以上留学申请经验的全职资深规划师及后端文书服务团队。</p>
+                                                    <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] font-light leading-[220%] opacity-70'>丰富的一线背景提升项目，海外大师建联，海外管弦乐录制资源。</p>
+                                                </div>
+                                            </div>
+                                            <div className='md:h-[488px] max-md:mt-20 flex flex-col justify-center'>
+                                                <div className='flex'>
+                                                    <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>独家顶级设备配置</p>
+                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                </div>
+                                                <p className='text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70'>
+                                                    浙江省内最大的国际音乐教育空间<br />
+                                                    西兴+UDC双校区配置，教学实践总面积达1500m2+<br />
+                                                    独家7.1.4 Dolby Atmos电影混录棚<br />
+                                                    独家5.1.4 Dolby Atmos音乐混录棚<br />
+                                                    独家现代电声乐队排练录音棚<br />
+                                                    独家自然混响古典演奏录音棚<br />
+                                                    Foley拟音棚，声音设计实验室，音频编辑室，独立编曲间，表演教室等<br />
+                                                    ITU标准声学环境垂直于作品全方向全流程的学习与实践<br />
                                                 </p>
-                                                <p className='text-[14px] my-[31px] font-light leading-[220%] opacity-70'>
-                                                    已配备全职音乐导师6人，兼职音乐导师150+，音乐产业规划师1人，专业录音师2人，资深留学规划师2人，专业师资团队由海外各个院校的海归音乐导师、一线声音从业者及交响乐团演奏家组成。
+                                                <p className='text-[14px] mt-12 md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>浙江省内最大的国际音乐教育空间</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>西兴+UDC双校区配置，教学实践总面积达1500m2+</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>独家7.1.4 Dolby Atmos电影混录棚</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>独家5.1.4 Dolby Atmos音乐混录棚</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>独家现代电声乐队排练录音棚</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>独家自然混响古典演奏录音棚</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>Foley拟音棚，声音设计实验室，音频编辑室，独立编曲间，表演教室等</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] font-light leading-[220%] opacity-70'>ITU标准声学环境垂直于作品全方向全流程的学习与实践</p>
+
+                                            </div>
+                                            <div className='md:h-[488px] max-md:mt-20 flex flex-col justify-center'>
+                                                <div className='flex'>
+                                                    <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>高质量高效率精致教学</p>
+                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                </div>
+                                                <p className='text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70'>
+                                                    免费专业入学评估<br />
+                                                    一对一课程定制+未来职业规划<br />
+                                                    高效干货教学，拒绝照本宣科，拒绝纯应试培训<br />
+                                                    各专业导师多对一服务，实现名校战略录取<br />
+                                                    独家审核团队多轮严格作品审核，保证最高录取率<br />
+                                                    公开透明的艺术文书创作及升学行前指导<br />
+                                                    提供名校保录取<br />
                                                 </p>
-                                                <p className='text-[14px] font-light leading-[220%] opacity-70'>
-                                                    由SIGNART名校录取导师团队全程跟踪，各领域专业导师多对一服务，实现名校战略录取。
+                                                <p className='text-[14px] md:hidden mt-12 max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>免费专业入学评估</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>一对一课程定制+未来职业规划</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>高效干货教学，拒绝照本宣科，拒绝纯应试培训</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>各专业导师多对一服务，实现名校战略录取</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>独家审核团队多轮严格作品审核，保证最高录取率</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70'>公开透明的艺术文书创作及升学行前指导</p>
+                                                <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] font-light leading-[220%] opacity-70'>提供名校保录取</p>
+                                            </div>
+                                            <div className='md:h-[488px] max-md:mt-20 flex flex-col justify-center '>
+                                                <div className='flex'>
+                                                    <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>产学结合&背景提升</p>
+                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                </div>
+                                                <p className='text-[14px] md:w-[488px] max-md:text-[13px] max-md:leading-[200%]  mt-12 font-light leading-[220%] opacity-70'>
+                                                    产学研一体，团队十余年一线音乐行业经验。各类音乐作品千余，如央视《2008我们的奥林匹克》 《中国冰雪记忆》《家园》《2022北京冬奥会遗产纪录片》《张艺谋的2022》，芒果TV《这十年》《党的女儿》以及浙江卫视《西泠印社》等，团队独立厂牌发行创作人计划系列专辑二十余张，将创作，录制，发行全流程结为一体，让学生在学习中有机会参与各类重大音乐项目的录制与制作，为其音乐生涯提供丰富的背景提升和行业经验。
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className='h-[488px] flex flex-col justify-center'>
-                                            <p className='text-[40px] mr-[26px] font-normal leading-[120%] text-[#FF4B00]'>独家顶级设备配置</p>
-                                            <p className='text-[14px] w-[488px] mt-12 font-light leading-[320%] opacity-70'>
-                                                浙江省内最大的国际音乐教育空间<br />
-                                                西兴+UDC双校区配置，教学实践总面积达1500m2+<br />
-                                                独家7.1.4 Dolby Atmos电影混录棚<br />
-                                                独家5.1.4 Dolby Atmos音乐混录棚<br />
-                                                独家现代电声乐队排练录音棚<br />
-                                                独家自然混响古典演奏录音棚<br />
-                                                Foley拟音棚，声音设计实验室，音频编辑室，独立编曲间，表演教室等<br />
-                                                ITU标准声学环境垂直于作品全方向全流程的学习与实践<br />
-                                            </p>
+                                    </div> :
+                                        <div className='md:hidden px-6'>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>已配备全职音乐导师6人，兼职音乐导师150+，音乐产业规划师1人，专业录音师2人，资深留学规划师2人，专业师资团队由海外各个院校的海归音乐导师、一线声音从业者及交响乐团演奏家组成。</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] mb-12 max-md:leading-[200%]  font-light leading-[220%] opacity-70'>由SIGNART名校录取导师团队全程跟踪，各领域专业导师多对一服务，实现名校战略录取。</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2012年 初始音乐团队创办SOUNDPIC工作室</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2016年 万像循声文化传媒有限公司正式成立 ｜总部位于杭州滨江，并在南京、重庆设立分棚</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2016年 开启音乐留学作品集培训服务 初步组建音乐教学团队</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2020年 完善音乐留学作品集规划团队建设</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2021年 十万象限教育咨询有限公司正式成立</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2022年 UDC音乐艺术中心校区正式启用</p>
+                                            <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2023年 西兴校区教学场地全新升级 扩建至1500平</p>
+                                            <ButtonBox className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center" onClick={() => { }}>
+                                                了解校区环境
+                                                <div style={{border: '1px solid #CCC' }} className="w-6 hover ml-2 items-center justify-center flex rounded-full h-6">
+                                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7 13C7 13 9.35294 7 15 7C9.35294 7 7 1 7 1" stroke="#CCCCCC" />
+                                                        <path d="M14 7L0 7" stroke="#CCCCCC" />
+                                                    </svg>
+                                                </div>
+                                            </ButtonBox>
                                         </div>
-                                        <div className='h-[488px] flex flex-col justify-center'>
-                                            <p className='text-[40px] mr-[26px] font-normal leading-[120%] text-[#FF4B00]'>高质量高效率精致教学</p>
-                                            <p className='text-[14px] w-[488px] mt-12 font-light leading-[320%] opacity-70'>
-                                                免费专业入学评估<br />
-                                                一对一课程定制+未来职业规划<br />
-                                                高效干货教学，拒绝照本宣科，拒绝纯应试培训<br />
-                                                各专业导师多对一服务，实现名校战略录取<br />
-                                                独家审核团队多轮严格作品审核，保证最高录取率<br />
-                                                公开透明的艺术文书创作及升学行前指导<br />
-                                                提供名校保录取<br />
-                                            </p>
-                                        </div>
-                                        <div className='h-[488px] flex flex-col justify-center '>
-                                            <p className='text-[40px] mr-[26px] font-normal leading-[120%] text-[#FF4B00]'>产学结合&背景提升</p>
-                                            <p className='text-[14px] w-[488px]  mt-12 font-light leading-[220%] opacity-70'>
-                                                产学研一体，团队十余年一线音乐行业经验。各类音乐作品千余，如央视《2008我们的奥林匹克》 《中国冰雪记忆》《家园》《2022北京冬奥会遗产纪录片》《张艺谋的2022》，芒果TV《这十年》《党的女儿》以及浙江卫视《西泠印社》等，团队独立厂牌发行创作人计划系列专辑二十余张，将创作，录制，发行全流程结为一体，让学生在学习中有机会参与各类重大音乐项目的录制与制作，为其音乐生涯提供丰富的背景提升和行业经验。
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
+                                </>
                                 :
                                 <div className='w-[599px] mt-12'>
                                     <p className='text-[14px] font-light leading-[220%] opacity-70'>
@@ -198,7 +291,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                 </div>
                             }
                         </div>
-                        <div className='h-[457px] overflow-hidden'>
+                        <div className='h-[457px] max-md:hidden overflow-hidden'>
                             <div
                                 onClick={() => { setRight(0) }}
                                 className={` transition-all duration-300 ${characteristicType === 1 ? 'translate-y-[-457px]' : characteristicType === 2 ? 'translate-y-[-914px]' : characteristicType === 3 ? 'translate-y-[-1371px]' : ''} `} >
@@ -210,7 +303,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                         </div>
                     </div>
                 </SignBox>
-            </div>
-        </div>
+            </div >
+        </Box >
     )
 }

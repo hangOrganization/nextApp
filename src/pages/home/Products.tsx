@@ -42,7 +42,7 @@ interface ProductsProps {
     setValue: Function;
 }
 export default function Products({ value, setValue }: ProductsProps) {
-    const isMobile = /mobile/i.test(navigator.userAgent);
+    const isMobile = /mobile/i.test(navigator?.userAgent);
     useEffect(() => {
         window.addEventListener('wheel', function (e) {
             if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900 && !isMobile) {
@@ -62,7 +62,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                     }
                 }
             } else {
-                // document.body.classList.remove("overflow-hidden");
+                document.body.classList.remove("overflow-hidden");
             }
         })
     }, [value])
@@ -118,67 +118,67 @@ export default function Products({ value, setValue }: ProductsProps) {
                             <p className='text-[38px] max-md:hidden max-md:mb-4 mb-[35px] text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]'>主体课程综合增值服务</p>
                             <p className='text-[38px] md:hidden max-md:mb-4 mb-[35px] text-right text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]'>综合增值服务</p>
                             <div className='flex md:h-[404px] max-md:gap-y-2 gap-y-[30px] gap-x-12 flex-col flex-wrap'>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>顶尖录音棚录制</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>专业录音师监棚</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>作品集教研审核</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>留学择校指导</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>艺术文书申请</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>签证办理</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>夏校申请</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>专业导师推荐信</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>行业就业指导</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>行业实习引荐</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>行业实地学习</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>留学期间学习指导</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
                                 </div>
-                                <div className="flex gap-2 max-md:gap-1 flex-row-reverse  items-center">
+                                <div className="flex gap-2 max-md:gap-1 max-md:flex-row-reverse  items-center">
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
                                     <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>寒暑期进修实习</p>
                                     <div style={{ border: '1px solid #FF4B00' }} className='text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]'>vip</div>
