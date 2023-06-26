@@ -27,22 +27,32 @@ import {
   TextBox,
 } from "./SignCss";
 import Video from "./Video";
-import { useEffect } from "react";
+import { useState } from "react";
 interface SignProps {
   isOpenConsult: number;
   setIsOpenConsult: Function;
 }
 
 export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
+  const [buttonHover,setButtonHover] = useState<string>('')
+  console.log("🚀 ~ file: Sign.tsx:38 ~ Sign ~ buttonHover:", buttonHover)
   return (
     <div className="relative w-screen">
-      <MoireFringe className="w-full top-[-100px] flex z-30 justify-center items-center left-0 absolute h-[728px]">
-        <Image
+      <MoireFringe className="w-full max-md:top-[-100px] flex z-[30] justify-center items-center left-0 absolute h-[728px]">
+        {/* <Image
           className="absolute moireFringe  !w-screen !h-[1400px] z-30"
           src={moireFringe_bg_1}
           alt=""
         />
-        <Image className="absolute z-20" src={moireFringe_bg} alt="" />
+        <Image className="absolute z-20" src={moireFringe_bg} alt="" /> */}
+        <video
+          autoPlay
+          muted 
+          className="mx-auto"
+          width={"100%"}
+        >
+          <source src="/video/moireFringe.mp4" type="video/mp4"></source>
+        </video>
       </MoireFringe>
       <div className="md:h-[728px] z-40 relative">
         <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0">
@@ -269,31 +279,37 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
             >
               <ButtonBorder
                 style={{ borderColor: "rgb(157, 54, 11,0.4)" }}
-                className=" opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] px-[49px]"
+                className={`${buttonHover==='hover'?' scale-[1.01]':''} transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] px-[49px]`}
               >
                 <ButtonBorder
                   style={{ borderColor: "rgb(157, 54, 11,0.5)" }}
-                  className=" opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] max-md:px-[17px] px-[34px]"
+                  className={`opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-500 ${buttonHover==='hover'?' scale-[1.02]':''}`}
                 >
                   <ButtonBorder
                     style={{ borderColor: "rgb(157, 54, 11,0.6)" }}
-                    className=" opacity-100 max-md:py-[6px] py-[9px] rounded-[55px] max-md:px-[15px] px-[27px]"
+                    className={`opacity-100 max-md:py-[6px] ${buttonHover==='hover'?' scale-[1.03]':''} transition-all duration-500 py-[9px] rounded-[55px] max-md:px-[15px] px-[27px]`}
                   >
                     <ButtonBorder
                       style={{ borderColor: "rgb(157, 54, 11,0.7)" }}
-                      className=" opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] max-md:px-[13px] px-[23px]"
+                      className={`opacity-100 max-md:py-[6px] ${buttonHover==='hover'?' scale-[1.04]':''} transition-all duration-500 py-[8px] rounded-[55px] max-md:px-[13px] px-[23px]`}
                     >
                       <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
-                        className=" opacity-100 max-md:py-[6px] rounded-[55px] "
+                        className={`opacity-100 md:px-[24px] ${buttonHover==='hover'?' scale-[1.05]':''} transition-all duration-500 py-[6px] max-md:py-[6px] rounded-[55px]`}
                       >
                         <button
-                          className="bg-[#FF4B00] max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2 hover:mx-8 my-[6px] mx-[24px] h-20"
+                          className={`bg-[#FF4B00] ${buttonHover==='hover'?' scale-[1.1]':''} max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
                           onClick={() => {
                             setIsOpenConsult(1);
                           }}
+                          onMouseEnter={()=>{
+                            setButtonHover('hover')
+                          }}
+                          onMouseLeave={()=>{
+                            setButtonHover('')
+                          }}
                         >
-                          <p className=" text-[28px] max-md:text-[20px] z-20 text-[#1a1a1a] leading-[100%] font-[Lexend] font-black">
+                          <p className=" text-[28px] uppercase max-md:text-[20px] z-20 text-[#1a1a1a] leading-[100%] font-[Lexend] font-black">
                             LEt’s Rock
                           </p>
                           <Image

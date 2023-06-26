@@ -81,16 +81,12 @@ export const ShadowBox2 = styled.div`
 export const ButtonBox = styled.div`
   button {
     :hover {
-      transform: scale(1.05);
-      img {
-        transform: scale(1.2);
-      }
       .shadow {
         margin-top: -27px;
-        margin-left: 340px;
-      }
+        margin-left: 260px;
     }
   }
+}
 `;
 export const EchoRollBox = styled.div`
   @media (min-width: 768px) {
@@ -192,28 +188,6 @@ export const MoireFringe = styled.div`
         transform: scale(1);
       }
     }
-  }
-  :after {
-    content: " ";
-    position: absolute;
-    top: -140px;
-    left: 0;
-    z-index: 100;
-    height: 280px;
-    width: 100vw;
-    border-radius: 100%;
-    background: #1a1a1a;
-  }
-  :before {
-    content: " ";
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    z-index: 100;
-    height: 100px;
-    width: 100vw;
-    border-radius: 100%;
-    background: #1a1a1a;
   }
 `;
 export const LineBox = styled.div`

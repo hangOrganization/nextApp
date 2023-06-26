@@ -11,7 +11,8 @@ import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import Disc from "./Disc";
 import Development from "./Development";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ShadowBg from "@/components/ShadowBg";
 
 export default function Homepage() {
   const [value, setValue] = useState<number>(0);
@@ -28,6 +29,7 @@ export default function Homepage() {
 
   return (
     <div className={`relative w-screen overflow-hidden`}>
+      <ShadowBg />
       <Header
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}
