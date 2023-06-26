@@ -19,38 +19,7 @@
 
 @font-face {
   font-family: 'Lexend';
-  src: url('../font/Lexend/static/Lexend-Regular.ttf');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Lexend';
-  src: url('../font/Lexend/static/Lexend-Light.ttf');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: 'Lexend';
-  src: url('../font/Lexend/static/Lexend-Bold.ttf');
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: 'Lexend';
-  src: url('../font/Lexend/static/Lexend-SemiBold.ttf');
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: 'Lexend';
-  src: url('../font/Lexend/static/Lexend-Thin.ttf');
-  font-weight: 100;
-}
-
-@font-face {
-  font-family: 'Lexend';
-  src: url('../font/Lexend/static/Lexend-Medium.ttf');
-  font-weight: 500;
+  src: url('../font/Lexend/Lexend.ttf');
 }
 @font-face {
   font-family: 'FusionPixel';
@@ -64,6 +33,42 @@
   font-family: 'Misto';
   src: url('../font/Misto/Misto.ttf');
 }
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-35-Thin.otf');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-45-Light.otf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-65-Medium.otf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-75-SemiBold.otf');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-85-Bold.otf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-95-ExtraBold.otf');
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi//AlibabaPuHuiTi-2-115-Black.otf');
+  font-weight: 900;
+}
+
 body {
   background: #1A1A1A;
   font-family: 'Alibaba PuHuiTi 2.0';

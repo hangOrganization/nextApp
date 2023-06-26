@@ -53,7 +53,7 @@ interface AboutUsProps {
 }
 export default function Development({ setIsOpenCampus, isOpenCampus }: AboutUsProps) {
     return (
-        <div className=''>
+        <div className='max-md:hidden'>
             <DevelopmentBox>
                 <div className=' flex justify-between pt-[312px] w-full'>
                     <div className=''>
