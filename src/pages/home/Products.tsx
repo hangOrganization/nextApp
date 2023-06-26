@@ -42,10 +42,10 @@ interface ProductsProps {
     setValue: Function;
 }
 export default function Products({ value, setValue }: ProductsProps) {
-    // const isMobile = /mobile/i.test(navigator?.userAgent);
+    const isMobile = /mobile/i.test(navigator?.userAgent);
     useEffect(() => {
         window.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900) {
+            if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900 && !isMobile) {
                 document.body.classList.add("overflow-hidden");
                 if (value === 0) {
                     if (e.deltaY < 0) {
@@ -70,6 +70,7 @@ export default function Products({ value, setValue }: ProductsProps) {
         <div id='Products' className='flex md:mt-[250px] pt-[74px] box2 w-screen md:pl-[136px] md:pr-[120px]'
             onWheelCapture={
                 _.debounce((e: any) => {
+                    if (!isMobile) {
                         if (value === 0) {
                             if (e.deltaY > 0) {
                                 setValue(1)
@@ -85,6 +86,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                 setValue(2)
                             }
                         }
+                    }
                 }, 70)}
         >
             <div className="md:flex w-[100%] items-center justify-between">
