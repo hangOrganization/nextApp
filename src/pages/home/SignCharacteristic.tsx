@@ -82,7 +82,7 @@ interface SignCharacteristicProps {
 export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
     const [right, setRight] = useState<number>(0)
     const [mobileRight, setMobileRight] = useState<number>(0)
-    const [isMobile, setIsMobile] = useState<boolean>(true)
+    const [isMobile, setIsMobile] = useState<boolean>(false)
     useEffect(() => {
         if (window) {
             setIsMobile(window.innerWidth > 768)
