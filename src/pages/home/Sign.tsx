@@ -279,26 +279,26 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
             >
               <ButtonBorder
                 style={{ borderColor: "rgb(157, 54, 11,0.4)" }}
-                className={`${buttonHover==='hover'?' scale-[1.01]':''} transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] px-[49px]`}
+                className={`${buttonHover==='hover'?' md:scale-[1.01]':''} transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] px-[49px]`}
               >
                 <ButtonBorder
                   style={{ borderColor: "rgb(157, 54, 11,0.5)" }}
-                  className={`opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-500 ${buttonHover==='hover'?' scale-[1.02]':''}`}
+                  className={`opacity-100 max-md:py-[6px] py-[8px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-500 ${buttonHover==='hover'?' md:scale-[1.02]':''}`}
                 >
                   <ButtonBorder
                     style={{ borderColor: "rgb(157, 54, 11,0.6)" }}
-                    className={`opacity-100 max-md:py-[6px] ${buttonHover==='hover'?' scale-[1.03]':''} transition-all duration-500 py-[9px] rounded-[55px] max-md:px-[15px] px-[27px]`}
+                    className={`opacity-100 max-md:py-[6px] ${buttonHover==='hover'?' md:scale-[1.03]':''} transition-all duration-500 py-[9px] rounded-[55px] max-md:px-[15px] px-[27px]`}
                   >
                     <ButtonBorder
                       style={{ borderColor: "rgb(157, 54, 11,0.7)" }}
-                      className={`opacity-100 max-md:py-[6px] ${buttonHover==='hover'?' scale-[1.04]':''} transition-all duration-500 py-[8px] rounded-[55px] max-md:px-[13px] px-[23px]`}
+                      className={`opacity-100 max-md:py-[6px] ${buttonHover==='hover'?' md:scale-[1.04]':''} transition-all duration-500 py-[8px] rounded-[55px] max-md:px-[13px] px-[23px]`}
                     >
                       <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
-                        className={`opacity-100 md:px-[24px] ${buttonHover==='hover'?' scale-[1.05]':''} transition-all duration-500 py-[6px] max-md:py-[6px] rounded-[55px]`}
+                        className={`opacity-100 md:px-[24px] ${buttonHover==='hover'?' md:scale-[1.05]':''} transition-all duration-500 py-[6px] max-md:py-[6px] rounded-[55px]`}
                       >
                         <button
-                          className={`bg-[#FF4B00] ${buttonHover==='hover'?' scale-[1.1]':''} max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
+                          className={`bg-[#FF4B00] ${buttonHover==='hover'?' md:scale-[1.1]':''} max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
                           onClick={() => {
                             setIsOpenConsult(1);
                           }}
@@ -317,7 +317,7 @@ export default function Sign({ isOpenConsult, setIsOpenConsult }: SignProps) {
                             src={lEtsRock_button}
                             alt=""
                           />
-                          <div className="absolute w-[314px] rounded-[39px] overflow-hidden h-20 z-10">
+                          <div className="absolute w-[314px] max-md:hidden rounded-[39px] overflow-hidden h-20 z-10">
                             <ShadowBox className="transition-all ml-[-60px] mt-[-27px] duration-500 shadow">
                               <ShadowBox2 className=""></ShadowBox2>
                             </ShadowBox>

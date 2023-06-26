@@ -79,14 +79,16 @@ export const ShadowBox2 = styled.div`
   transform: rotate(30deg);
 `;
 export const ButtonBox = styled.div`
-  button {
+  @media (min-width: 768px) {
+    button {
     :hover {
       .shadow {
         margin-top: -27px;
         margin-left: 260px;
     }
+    }
   }
-}
+  }
 `;
 export const EchoRollBox = styled.div`
   @media (min-width: 768px) {
