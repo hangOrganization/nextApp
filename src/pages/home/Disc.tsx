@@ -14,9 +14,10 @@ import { relative } from "path";
 interface DiscBoxProps {
   title: string;
   bg: any;
-  src: string;
-  type: string;
+  src: any;
+  type: any;
   key: number;
+  url?: any;
 }
 const Box = styled.div`
   overflow: hidden;
@@ -28,6 +29,7 @@ const Box = styled.div`
     }
     .film-mask {
       opacity: 0;
+      transition: opacity 600ms, transform 450ms;
       transform: translateX(-20px);
     }
     .left-coraton {
@@ -37,21 +39,10 @@ const Box = styled.div`
       right: -15px;
     }
     .film-master-map {
-      transform: translateX(-20px);
       opacity: 1;
-    }
-    .film-bottom {
+      transition: transform 450ms;
       transform: translateX(-20px);
     }
-  }
-  .transform-0 {
-    transform: translateX(1215px);
-  }
-  .transform-1 {
-    transform: translateX(0);
-  }
-  .transform-2 {
-    transform: translateX(-1215px);
   }
 `;
 
@@ -112,14 +103,13 @@ const FilmBox = styled.div`
 
   .film-master-map {
     top: 0;
-    left: 0;
     opacity: 0;
-  }
-  .film-bottom {
-    top: 0;
-    z-index: 1;
     left: 0;
-    position: absolute;
+    transition: transform 450ms;
+  }
+  .film-mask {
+    transition: opacity 600ms, transform 450ms;
+
     opacity: 1;
   }
 `;
@@ -150,6 +140,10 @@ export default function Disc() {
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
   const [currentPage, setCurrentPage] = useState(1);
+  const goOtherPage = (url: any) => {
+    // window.location.href = url;
+    window.open(url);
+  };
   const mouseLeave = (bg: any) => {
     setDiscImg(disc_acquiesce);
     setMoveFlag(false);
@@ -160,13 +154,15 @@ export default function Disc() {
   };
   const prePage = () => {
     console.log(currentPage);
-    if (currentPage == 0) {
+    if (currentPage <= -3) {
       return;
     }
     setCurrentPage(currentPage - 1);
   };
   const nextPage = () => {
-    if (currentPage == 2) {
+    console.log(currentPage);
+
+    if (currentPage == 4) {
       return;
     }
     setCurrentPage(currentPage + 1);
@@ -189,18 +185,18 @@ export default function Disc() {
               <Image
                 src={disc_film}
                 alt=""
-                className="film-img w-[444px] h-[444px] absolute transition-all duration-500  z-[2]"
+                className="film-img w-[444px] h-[444px] absolute transition-all duration-1000  z-[2]"
               ></Image>
               <Image
                 src={disc_acquiesce}
                 alt=""
-                className="film-mask   w-[492px] h-[492px] relative z-[5] transition-all duration-500 opacity-[1]"
+                className="film-mask   w-[492px] h-[492px] relative z-[5]  "
               ></Image>
 
               <Image
                 src={discImg}
                 alt=""
-                className="film-master-map w-[492px] h-[492px] absolute z-[5] transition-all duration-500 opacity-[1]"
+                className="film-master-map w-[492px] h-[492px] absolute z-[4]  "
               ></Image>
             </FilmBox>
             <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5]">
@@ -269,15 +265,10 @@ export default function Disc() {
         </div>
       </div>
       <div
-        className={`${
-          currentPage == 1
-            ? ""
-            : currentPage == 0
-            ? "transform-0"
-            : currentPage == 2
-            ? "transform-2"
-            : ""
-        } w-[4439px] flex items-center gap-[16px]  duration-500  transition-all relative z-[5]`}
+        className={` w-[10089px] flex items-center gap-[16px]  duration-500 transition-all relative z-[5]`}
+        style={{
+          transform: `translateX(${currentPage * 1215}px)`,
+        }}
       >
         {discList.map((item: DiscBoxProps) => (
           <DiscBox
@@ -292,20 +283,30 @@ export default function Disc() {
               alt=""
             ></Image>
             <div className="ml-4 w-full">
-              <div
-                className="w-[52px] h-[30px] flex items-center justify-center mt-1 mb-[16px]  text-[14px] leading-[100%] font-[400] text-[#FF4B00] box-border "
-                style={{
-                  border: "1px solid rgba(255, 75, 0, 0.5)",
-                  borderRadius: "12px",
-                }}
-              >
-                {item.type}
+              <div className="flex items-center gap-[8px]">
+                {item.type.map((item: any) => {
+                  return (
+                    <div
+                      key={item}
+                      className=" h-[30px] px-[12px] flex items-center justify-center mt-1 mb-[16px]  text-[14px] leading-[100%] font-[400] text-[#FF4B00] box-border "
+                      style={{
+                        border: "1px solid rgba(255, 75, 0, 0.5)",
+                        borderRadius: "12px",
+                      }}
+                    >
+                      {item}
+                    </div>
+                  );
+                })}
               </div>
-              <div className="font-[300] text-[22px] leading-[100%] text-[#FFFFFF]">
+              <div className="font-[300] text-[22px] leading-[100%] text-[#FFFFFF] whitespace-nowrap">
                 {item.title}
               </div>
               <div className=" w-[112px]" style={{ marginLeft: "auto" }}>
-                <div className="flex items-center justify-center w-[112px] h-[40px] bg-[#FF4B00] rounded-[16px] mt-[20px]  transition-all duration-500 audition-button">
+                <div
+                  className="flex items-center justify-center w-[112px] h-[40px] bg-[#FF4B00] rounded-[16px] mt-[20px]  transition-all duration-500 audition-button"
+                  onClick={() => goOtherPage(item.url)}
+                >
                   <div className=" font-[400] text-[14px] leading-[100%]">
                     前往试听
                   </div>
