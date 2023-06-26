@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import video_cover from "../../assets/image/png/video-cover.png";
+import mobile_video from "../../assets/image/mobile/mobile-video.png";
 import video_pause from "../../assets/image/png/video-pause.png";
 import video_play from "../../assets/image/png/video-play.png";
 import icon_love from "../../assets/image/png/video-icon-love.png";
@@ -83,7 +84,7 @@ export default function Video() {
           )}
         </VideoStateBox> */}
         <video
-          className="mx-auto relative z-[1]"
+          className="mx-auto max-md:hidden relative z-[1]"
           id="playChatVideo"
           ref={videoRef}
           width="960"

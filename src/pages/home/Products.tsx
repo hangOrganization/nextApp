@@ -50,27 +50,27 @@ export default function Products({ value, setValue }: ProductsProps) {
         }
     }, [])
     console.log("🚀 ~ file: Products.tsx:47 ~ Products ~ isMobile:", isMobile)
-    useEffect(() => {
-        window.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900 && isMobile) {
-                document.body.classList.add("overflow-hidden");
-                if (value === 0) {
-                    if (e.deltaY < 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-                if (value === 2) {
-                    if (e.deltaY > 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-            } 
-        })
-    }, [value])
+    // useEffect(() => {
+    //     window.addEventListener('wheel', function (e) {
+    //         if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900 && isMobile) {
+    //             document.body.classList.add("overflow-hidden");
+    //             if (value === 0) {
+    //                 if (e.deltaY < 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //             if (value === 2) {
+    //                 if (e.deltaY > 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //         } 
+    //     })
+    // }, [value])
     return (
         <div id='Products' className='flex md:mt-[250px] pt-[74px] box2 w-screen md:pl-[136px] md:pr-[120px]'
             onWheelCapture={
