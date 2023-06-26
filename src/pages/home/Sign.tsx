@@ -25,7 +25,7 @@ import {
   SingLogo,
   SliderBox,
   TextBox,
-} from "./SignCss";
+} from "../../utils/SignCss";
 import Video from "./Video";
 import { useState } from "react";
 interface SignProps {
