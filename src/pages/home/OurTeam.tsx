@@ -174,8 +174,7 @@ export default function OurTeam() {
                                             </div>
                                         </CardFilterBox>
                                     </CardBox>
-                                )
-                            )}
+                                ))}
                         </RollBox>
                     </div>
                     {/* <ButtonBox className="p-4 text-[16px] leading-[120%] w-[226px] font-normal mx-auto pl-[30px] pr-[15px] flex items-center rounded-[64px]">

@@ -93,7 +93,7 @@ export default function Video() {
           <source src="/video/test.mp4" type="video/mp4"></source>
         </video>
       </Box>
-      <div>
+      <div className="md:hidden">
         <Image className="w-full" src={mobile_video} alt="" />
       </div>
     </div>

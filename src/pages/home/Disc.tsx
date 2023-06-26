@@ -8,9 +8,8 @@ import disc_left_decoraton from "@/assets/image/svg/disc-left-decoration.svg";
 import disc_right_decoraton from "@/assets/image/svg/disc-right-decoration.svg";
 import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
-
 import { useState } from "react";
-import { relative } from "path";
+
 interface DiscBoxProps {
   title: string;
   bg: any;
@@ -141,7 +140,6 @@ export default function Disc() {
   const [discImg, setDiscImg] = useState(disc_acquiesce);
   const [currentPage, setCurrentPage] = useState(1);
   const goOtherPage = (url: any) => {
-    // window.location.href = url;
     window.open(url);
   };
   const mouseLeave = (bg: any) => {
