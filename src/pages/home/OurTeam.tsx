@@ -16,6 +16,7 @@ const OurTeamBox = styled.div`
   }
   @media not all and (min-width: 768px) {
     background: url(${mobileOurTeam_bg.src});
+    background-size: cover;
   }
 `;
 const OurTeamBg = styled.div`
@@ -149,7 +150,7 @@ export default function OurTeam() {
                         </div>
                     </div>
                     <div className="flex w-screen overflow-hidden md:gap-[67px] max-md:pb-20 max-md:mt-10 md:my-20">
-                        <RollBox className="flex max-md:w-screen md:w-[3581px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]">
+                        <RollBox className="flex max-md:w-screen md:w-[3581px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]">
                             {[...teachers, ...teachers, ...teachers].map(
                                 (el: any, index: number) => (
                                     <CardBox

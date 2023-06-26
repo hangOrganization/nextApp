@@ -25,7 +25,9 @@ const SignBox = styled.div`
 `
 const Box = styled.div`
     @media not all and (min-width: 768px) {
+        width: 100vw;
         background:url(${mobile_SignCharacteristic.src}),linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, #1A1A1A 9.17%) !important;
+        background-size: cover !important;
     }
 `
 const SignCharacteristicBox = styled.div`
@@ -80,10 +82,16 @@ interface SignCharacteristicProps {
 export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
     const [right, setRight] = useState<number>(0)
     const [mobileRight, setMobileRight] = useState<number>(0)
-    const isMobile = /mobile/i.test(navigator.userAgent);
+    const [isMobile, setIsMobile] = useState<boolean>(true)
+    useEffect(() => {
+        if (window) {
+            setIsMobile(window.innerWidth > 768)
+        }
+    }, [])
+    console.log("🚀 ~ file: SignCharacteristic.tsx:86 ~ SignCharacteristic ~ isMobile:", isMobile)
     useEffect(() => {
         document.body.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500 && !isMobile) {
+            if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500 && isMobile) {
                 document.body.classList.add("overflow-hidden");
                 if (characteristicType === 0) {
                     if (e.deltaY < 0) {
@@ -108,7 +116,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                 <SignBox className={`md:flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} md:h-[1278px] max-md:pt-[300px] w-screen items-center md:px-[120px] justify-between`}
                     onWheelCapture={
                         _.debounce((e: any) => {
-                            if (!isMobile) {
+                            if (isMobile) {
                                 if (right === 0) {
                                     if (characteristicType === 0) {
                                         if (e.deltaY > 0) {
@@ -248,7 +256,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                             <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2023年 西兴校区教学场地全新升级 扩建至1500平</p>
                                             <ButtonBox className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center" onClick={() => { }}>
                                                 了解校区环境
-                                                <div style={{border: '1px solid #CCC' }} className="w-6 hover ml-2 items-center justify-center flex rounded-full h-6">
+                                                <div style={{ border: '1px solid #CCC' }} className="w-6 hover ml-2 items-center justify-center flex rounded-full h-6">
                                                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M7 13C7 13 9.35294 7 15 7C9.35294 7 7 1 7 1" stroke="#CCCCCC" />
                                                         <path d="M14 7L0 7" stroke="#CCCCCC" />
