@@ -68,9 +68,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                         document.body.classList.add("overflow-hidden");
                     }
                 }
-            } else {
-                document.body.classList.remove("overflow-hidden");
-            }
+            } 
         })
     }, [value])
     return (
