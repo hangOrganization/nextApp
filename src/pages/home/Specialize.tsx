@@ -42,7 +42,7 @@ export default function Specialize() {
     return (
         <SpecializeBox className='flex justify-center w-screen overflow-hidden flex-col items-center'>
             <div className=''>
-                <div style={{background: 'rgba(26, 26, 26, 0.90)',backdropFilter: 'blur(40px)'}} className='md:px-[160px] max-md:pb-1 max-md:pt-[21px] max-md:flex-col max-md:justify-center max-md:items-center flex justify-between'>
+                <div style={{ background: 'rgba(26, 26, 26, 0.90)', backdropFilter: 'blur(40px)' }} className='md:px-[160px] max-md:pb-1 max-md:pt-[21px] max-md:flex-col max-md:justify-center max-md:items-center flex justify-between'>
                     <div className='max-md:text-center'>
                         <p className='text-[56px] max-md:text-[28px] leading-[120%] font-light'>专攻方向</p>
                         <p className='text-[22px] max-md:text-[14px] mt-4 text-[Lexend] tracking-[.4em] max-md:tracking-[5.6px] leading-[120%] text-sp opacity-60 uppercase font-extralight'>MUSIC MAJOR</p>

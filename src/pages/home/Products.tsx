@@ -9,6 +9,7 @@ import styled from "styled-components";
 import { useEffect, useMemo, useState } from "react";
 import SchoolRoll from "./SchoolRoll";
 import Specialize from "./Specialize";
+import { useSwiper } from "swiper/react";
 
 const ProductsBox = styled.div`
   width: 440px;
@@ -42,36 +43,32 @@ const ProductsRightBox = styled.div`
 `;
 interface ProductsProps {
     value: number;
-    innerHeight: number;
+    innerWidth: number;
     setValue: Function;
 }
-export default function Products({ value, setValue, innerHeight }: ProductsProps) {
+export default function Products({ value, setValue, innerWidth }: ProductsProps) {
+    const swiper = useSwiper()
     return (
-        <div className=" md:h-screen md:min-h-screen md:overflow-auto"
-            onScroll={(e: any) => {
-                if (innerHeight > 768) {
-                    if (e.target.scrollTop === 906) {
-                        if (value === 2) {
-                            window.scrollTo({
-                                top: innerHeight * 3,
-                                behavior: "smooth",
-                            });
-                        }
+        <div className=" md:h-screen md:pt-20 md:overflow-auto"
+        onScroll={(e: any) => {
+            if (innerWidth > 768) {
+                if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
+                    if (value === 2) {
+                        swiper.slideNext(1000);
                     }
                 }
-            }}>
+            }
+        }}
+        >
             <div id='Products' className='flex pt-[74px] w-screen md:pl-[136px] md:pr-[120px]'
-                onWheelCapture={
-                    _.throttle((e: any) => {
-                        if (innerHeight > 768) {
+                onWheel={
+                    _.debounce((e: any) => {
+                        if (innerWidth > 768) {
                             if (value === 0) {
                                 if (e.deltaY > 0) {
                                     setValue(1)
                                 } else {
-                                    window.scrollTo({
-                                        top: innerHeight,
-                                        behavior: "smooth",
-                                    });
+                                    swiper.slidePrev(1000)
                                 }
                             } else if (value === 2) {
                                 if (e.deltaY < 0) {
@@ -85,7 +82,8 @@ export default function Products({ value, setValue, innerHeight }: ProductsProps
                                 }
                             }
                         }
-                    }, 1000)}>
+                    }, 70)}
+            >
                 <div className="md:flex w-[100%] items-center justify-between">
                     <ProductsBox className="max-md:text-center max-md:!pt-[45px]">
                         <p className='font-extrabold max-md:text-[28px] text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>
@@ -238,7 +236,7 @@ export default function Products({ value, setValue, innerHeight }: ProductsProps
                     </div>
                 </div>
             </div>
-            {value === 2 &&
+            {innerWidth < 768 || value === 2 &&
                 <>
                     <SchoolRoll />
                     <Specialize />

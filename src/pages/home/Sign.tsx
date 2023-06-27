@@ -12,24 +12,33 @@ import {
   SingLogo,
   TextBox,
 } from "../../utils/SignCss";
+import { useSwiper } from 'swiper/react';
+import _ from "lodash";
+
 
 interface SignProps {
-  innerHeight: number
+  innerWidth: number
 }
-export default function Sign({ innerHeight }: SignProps) {
+export default function Sign({ innerWidth }: SignProps) {
+  let flag = false
+  const swiper = useSwiper()
   return (
     <div className="relative max-md:pb-20 md:h-screen w-screen"
-      onWheel={(e: any) => {
-        if (innerHeight > 768) {
-          if (e.deltaY > 0) {
-            window?.scrollTo({
-              top: innerHeight,
-              behavior: "smooth",
-            });
+      onWheel={
+        (e: any) => {
+          if (flag) return
+          flag = true
+          if (innerWidth > 768) {
+            if (e.deltaY > 0) {
+              swiper.slideNext(1000);
+              setTimeout(() => {
+                flag = false
+              },1000)
+            }
           }
-        }
-      }}>
-      <div className="w-screen flex z-[30] top-[150px] left-0 absolute">
+        }}
+    >
+      <div className="w-screen flex z-[30] max-md:top-[150px] left-0 absolute">
         <div style={{ border: '10px solid #1a1a1a' }} className="md:h-[727px] absolute w-screen"> </div>
         <video
           autoPlay

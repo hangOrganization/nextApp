@@ -1,3 +1,4 @@
+
 "use client";
 import styled from "styled-components";
 import disc_bg from "@/assets/image/svg/disc-bg.svg";
@@ -8,10 +9,14 @@ import disc_left_decoraton from "@/assets/image/svg/disc-left-decoration.svg";
 import disc_right_decoraton from "@/assets/image/svg/disc-right-decoration.svg";
 import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
+import disc_mobile_bg from "../../assets/image/mobile/mobile-disc-bg.png";
+
 import { useState } from "react";
-import Footer from "@/components/Footer";
 import BusinessPartner from "./BusinessPartner";
+import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
+import { useSwiper } from "swiper/react";
+import _ from "lodash";
 
 interface DiscBoxProps {
   title: string;
@@ -25,25 +30,27 @@ const Box = styled.div`
   overflow: hidden;
   background: url(${disc_bg.src});
   background-size: 100% 100%;
-  .active-move {
-    .film-img {
-      transform: translateX(162px) rotate(40deg);
-    }
-    .film-mask {
-      opacity: 0;
-      transition: opacity 600ms, transform 450ms;
-      transform: translateX(-20px);
-    }
-    .left-coraton {
-      transform: translateX(-35px);
-    }
-    .right-coraton {
-      right: -15px;
-    }
-    .film-master-map {
-      opacity: 1;
-      transition: transform 450ms;
-      transform: translateX(-20px);
+  @media (min-width: 768px) {
+    .active-move {
+      .film-img {
+        transform: translateX(162px) rotate(40deg);
+      }
+      .film-mask {
+        opacity: 0;
+        transition: opacity 600ms, transform 450ms;
+        transform: translateX(-20px);
+      }
+      .left-coraton {
+        transform: translateX(-35px);
+      }
+      .right-coraton {
+        right: -15px;
+      }
+      .film-master-map {
+        opacity: 1;
+        transition: transform 450ms;
+        transform: translateX(-20px);
+      }
     }
   }
 `;
@@ -68,16 +75,19 @@ const FilterBox = styled.div`
 const DiscBox = styled.div`
   box-sizing: border-box;
   background-blend-mode: soft-light, overlay;
+
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   cursor: pointer;
   .audition-button {
     opacity: 0;
   }
-  :hover {
-    transform: translateY(-5px);
-    .audition-button {
-      opacity: 1;
+  @media (min-width: 768px) {
+    :hover {
+      transform: translateY(-5px);
+      .audition-button {
+        opacity: 1;
+      }
     }
   }
 `;
@@ -98,21 +108,31 @@ const RightDecoraton = styled.div`
 `;
 
 const FilmBox = styled.div`
-  .film-img {
-    transform: translateX(120px) rotate(0deg);
-    transform-origin: center center;
+  @media (min-width: 768px) {
+    .film-img {
+      transform: translateX(120px) rotate(0deg);
+      transform-origin: center center;
+    }
+    .film-master-map {
+      top: 0;
+      opacity: 0;
+      left: 0;
+      transition: transform 450ms;
+    }
+    .film-mask {
+      transition: opacity 600ms, transform 450ms;
+      opacity: 1;
+    }
   }
 
-  .film-master-map {
-    top: 0;
-    opacity: 0;
-    left: 0;
-    transition: transform 450ms;
-  }
-  .film-mask {
-    transition: opacity 600ms, transform 450ms;
-
-    opacity: 1;
+  @media not all and (min-width: 768px) {
+    .bg-box {
+      position: absolute;
+      background: url(${disc_mobile_bg.src});
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
   }
 `;
 const ButtonBox = styled.div`
@@ -139,9 +159,10 @@ const ChangeButton = styled.div`
   }
 `;
 interface DiscProps {
-  innerHeight: number
+  innerWidth: number
 }
-export default function Disc({ innerHeight }: DiscProps) {
+export default function Disc({ innerWidth }: DiscProps) {
+  const swiper = useSwiper()
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
   const [currentPage, setCurrentPage] = useState(1);
@@ -172,19 +193,19 @@ export default function Disc({ innerHeight }: DiscProps) {
     setCurrentPage(currentPage + 1);
   };
   return (
-    <div className="md:h-screen overflow-auto "
-      onScroll={(e: any) => {
-        if (e.target.scrollTop === 0) {
-          window.scrollTo({
-            top: innerHeight * 3,
-            behavior: "smooth",
-          });
-        }
-      }}
+    <div className="md:h-screen md:overflow-auto "
+      onScroll={
+        _.debounce((e: any) => {
+          if (innerWidth > 768) {
+            if (e.target.scrollTop === 0) {
+              swiper.slidePrev(1000)
+            }
+          }
+        }, 100)}
     >
-      <Box className="h-[1440px] w-screen flex items-center justify-center flex-col relative ">
+      <Box className="h-[1440px] max-md:h-full max-md:pb-[160px] w-screen flex  items-center justify-center max-md:justify-normal flex-col relative ">
         <FilterBox
-          className="fliter-box z-[1] "
+          className="fliter-box z-[1] max-md:hidden"
           style={{
             backgroundImage:
               discImg.src != disc_acquiesce.src ? `url(${discImg.src})` : "",
@@ -192,28 +213,30 @@ export default function Disc({ innerHeight }: DiscProps) {
           }}
         ></FilterBox>
         <div className={moveFlag ? "active-move" : ""}>
-          <div className=" w-[1160px] flex mb-[72px] relative mx-auto">
+          <div className=" w-[1160px] max-md:w-full flex mb-[72px] relative mx-auto">
             <div className="flex">
-              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5]"></LeftDecoraton>
-              <FilmBox className=" w-[492px] h-[492px] flex items-center justify-center relative">
+              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5] max-md:hidden"></LeftDecoraton>
+              <FilmBox className=" w-[492px] h-[492px]  max-md:w-[297px] max-md:h-[246px] mx-auto  flex items-center justify-center relative max-md:mt-[160px]">
+                <div className="bg-box w-screen h-[566px]"></div>
+
                 <Image
                   src={disc_film}
                   alt=""
-                  className="film-img w-[444px] h-[444px] absolute transition-all duration-1000  z-[2]"
+                  className="film-img w-[444px] h-[444px] absolute transition-all duration-1000  z-[2] max-md:w-[222px] max-md:h-[222px] max-md:translate-x-[40px] "
                 ></Image>
                 <Image
                   src={disc_acquiesce}
                   alt=""
-                  className="film-mask   w-[492px] h-[492px] relative z-[5]  "
+                  className="film-mask   w-[492px] h-[492px] relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
                 ></Image>
 
                 <Image
                   src={discImg}
                   alt=""
-                  className="film-master-map w-[492px] h-[492px] absolute z-[4]  "
+                  className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden  "
                 ></Image>
               </FilmBox>
-              <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5]">
+              <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
                 <ChangeButton className="scale-x-[-1]" onClick={prePage}>
                   <svg
                     width="48"
@@ -274,12 +297,11 @@ export default function Disc({ innerHeight }: DiscProps) {
                 </ChangeButton>
               </ButtonBox>
             </div>
-
-            <RightDecoraton className="right-coraton  w-[329px] h-[176px] absolute transition-all duration-500  z-[5]"></RightDecoraton>
+            <RightDecoraton className="right-coraton  w-[329px] h-[176px] absolute transition-all duration-500  z-[5] max-md:hidden"></RightDecoraton>
           </div>
         </div>
         <div
-          className={` w-[10089px] flex items-center gap-[16px]  duration-500 transition-all relative z-[5]`}
+          className={` w-[10089px] flex items-center gap-[16px]  duration-500 transition-all relative z-[5] max-md:hidden`}
           style={{
             transform: `translateX(${currentPage * 1215}px)`,
           }}
@@ -313,7 +335,7 @@ export default function Disc({ innerHeight }: DiscProps) {
                     );
                   })}
                 </div>
-                <div className="font-[300] text-[22px] leading-[100%] text-[#FFFFFF] whitespace-nowrap">
+                <div className="font-[300] text-[22px] leading-[100%] font-[Lexend] text-[#FFFFFF] whitespace-nowrap">
                   {item.title}
                 </div>
                 <div className=" w-[112px]" style={{ marginLeft: "auto" }}>
@@ -334,6 +356,113 @@ export default function Disc({ innerHeight }: DiscProps) {
               </div>
             </DiscBox>
           ))}
+        </div>
+
+        <div
+          className={` w-full md:hidden flex items-center gap-[8px] flex-col  duration-500 transition-all relative z-[5] `}
+        >
+          <div
+            className=" absolute w-full h-[228px] z-20 bottom-[90px]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgb(26,26,26,0) 0%, rgb(26,26,26,0.85) 100%)",
+            }}
+          ></div>
+          {discList.slice(0, 5).map((item: DiscBoxProps) => (
+            <DiscBox
+              key={item.key}
+              onMouseEnter={() => mouseEnter(item.bg)}
+              onMouseLeave={mouseLeave}
+              onClick={() => goOtherPage(item.url)}
+              className="w-[343px] h-[104px] relative z-10 flex transition-all duration-500 p-[12px] pr-[20px]"
+            >
+              <Image
+                className="w-[80px] h-[80px] rounded-[12px]"
+                src={item.src}
+                alt=""
+              ></Image>
+              <div className="ml-4 w-full">
+                <div className="flex items-center gap-[8px]">
+                  {item.type.map((item: any) => {
+                    return (
+                      <div
+                        key={item}
+                        className=" h-[24px] px-[8px] flex items-center justify-center mt-2 mb-[12px]  text-[12px] leading-[100%] font-[400] text-[#FF4B00] box-border "
+                        style={{
+                          border: "1px solid rgba(255, 75, 0, 0.5)",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        {item}
+                      </div>
+                    );
+                  })}
+
+                  <div className="flex items-center justify-centerpx-1 ml-auto py-2 gap-1    ">
+                    <div className=" font-[400] text-[12px] text-[#FF4B00] leading-[100%]">
+                      前往试听
+                    </div>
+
+                    <svg
+                      className="md:hidden"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 20C12 20 15.2353 12 23 12C15.2353 12 12 4 12 4"
+                        stroke="#FF4B00"
+                      />
+                      <path d="M23 12L1 12" stroke="#FF4B00" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="font-[300] text-[16px] leading-[100%] font-[Lexend] text-[#FFFFFF] whitespace-nowrap">
+                  {item.title}
+                </div>
+              </div>
+            </DiscBox>
+          ))}
+
+          <div
+            className=" p-[12px] pl-[16px] flex items-center gap-2  rounded-[64px] mt-[48px]"
+            style={{
+              border: "1px solid rgba(255, 75, 0, 0.50)",
+            }}
+          >
+            <div
+              className="text-[12px] leading-[120%] text-[#FF4B00] relative z-10"
+              onClick={() => {
+                window.open("http://www.soundpic.cn/listen");
+              }}
+            >
+              前往试听全部专辑
+            </div>
+
+            <div
+              className="w-[24px] h-[24px] rounded-[24px]  flex items-center justify-center roun "
+              style={{
+                border: "1px solid  #FF4B00",
+              }}
+            >
+              <svg
+                className="md:hidden"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 20C12 20 15.2353 12 23 12C15.2353 12 12 4 12 4"
+                  stroke="#FF4B00"
+                />
+                <path d="M23 12L1 12" stroke="#FF4B00" />
+              </svg>
+            </div>
+          </div>
         </div>
       </Box>
       <BusinessPartner />

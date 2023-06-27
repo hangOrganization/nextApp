@@ -5,6 +5,8 @@ import { teachers } from "@/utils/ourTeam";
 import { useState } from "react";
 import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
+import { useSwiper } from "swiper/react";
+import _ from "lodash";
 
 const OurTeamBox = styled.div`
   width: 100%;
@@ -106,31 +108,28 @@ const RollBox = styled.div`
   }
 `;
 interface OurTeamProps {
-    innerHeight: number
+    innerWidth: number
 }
-export default function OurTeam({ innerHeight }: OurTeamProps) {
+export default function OurTeam({ innerWidth }: OurTeamProps) {
+    const swiper = useSwiper()
     const [right, setRight] = useState<number>(0)
     const [isOpen, setIsOpen] = useState<number>(0)
     const [textValue, setTextValue] = useState<number>(0)
     const [characteristicType, setCharacteristicType] = useState<number>(0);
     return (
         <div className=" md:h-screen md:overflow-auto"
-            onScroll={(e: any) => {
-                if (innerHeight > 768) {
-                    if (e.target.scrollTop === 0) {
-                        window.scrollTo({
-                            top: innerHeight * 2,
-                            behavior: "smooth",
-                        });
+            onScroll={
+                _.debounce((e: any) => {
+                    if (innerWidth > 768) {
+                        if (e.target.scrollTop === 0) {
+                            swiper.slidePrev(1000)
+                        }
+                        if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1 && right === 1) {
+                            swiper.slideNext(1000);
+                        }
                     }
-                    if (e.target.scrollTop === 1043.25 && right === 1) {
-                        window.scrollTo({
-                            top: innerHeight * 4,
-                            behavior: "smooth",
-                        });
-                    }
-                }
-            }}>
+                }, 100)}
+        >
             <OurTeamBox>
                 <OurTeamBg>
                     <OurTeamBlur>
@@ -227,7 +226,7 @@ export default function OurTeam({ innerHeight }: OurTeamProps) {
             <SignCharacteristic
                 right={right}
                 setRight={setRight}
-                innerHeight={innerHeight}
+                innerWidth={innerWidth}
                 characteristicType={characteristicType}
                 setCharacteristicType={setCharacteristicType}
             />

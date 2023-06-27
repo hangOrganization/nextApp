@@ -26,24 +26,11 @@ const VideoStateBox = styled.div`
 export default function Video() {
   const [videoState, setVideoState] = useState(false);
   const videoRef = useRef<any>();
-  const [clickNumber, setClickNumber] = useState(1);
+  // const [clickNumber, setClickNumber] = useState(1);
   const changeVideoState = () => {
-    setClickNumber(() => clickNumber + 1);
-    if (clickNumber == 1) {
-      setVideoState(!videoState);
-    }
-    if (clickNumber == 2 && videoState) {
-      setClickNumber(1);
-      setVideoState(true);
-      videoRef.current?.play();
-      console.log("开始");
-    }
-    if (clickNumber == 2 && !videoState) {
-      setClickNumber(1);
-      setVideoState(false);
-      videoRef.current?.pause();
-      console.log("暂停");
-    }
+    videoState ? videoRef.current?.pause() : videoRef.current?.play();
+
+    setVideoState(!videoState);
   };
 
   return (
@@ -56,12 +43,14 @@ export default function Video() {
         className="relative w-[960px] h-[542px] max-md:hidden mx-auto flex items-center justify-center"
         onClick={changeVideoState}
       >
-        <div className="w-[32px] h-[112px] absolute top-[10px] right-[8px] opacity-0 flex flex-col gap-[8px] z-[5] img-box ">
-          <Image src={icon_love} alt="" className=" cursor-pointer"></Image>
-          <Image src={icon_time} alt="" className=" cursor-pointer"></Image>
-          <Image src={icon_share} alt="" className=" cursor-pointer"></Image>
-        </div>
-        {/* <VideoStateBox
+        {videoState && (
+          <div className="w-[32px] h-[112px] absolute top-[10px] right-[8px] opacity-0 flex flex-col gap-[8px] z-[5] img-box ">
+            <Image src={icon_love} alt="" className=" cursor-pointer"></Image>
+            <Image src={icon_time} alt="" className=" cursor-pointer"></Image>
+            <Image src={icon_share} alt="" className=" cursor-pointer"></Image>
+          </div>
+        )}
+        <VideoStateBox
           className={[
             "w-[144px] h-[80px]  absolute z-[5] cursor-pointer  flex items-center justify-center duration-500 transition-all ",
           ].join("")}
@@ -81,13 +70,12 @@ export default function Video() {
           ) : (
             <Image src={video_pause} alt="" className="w-[38px] "></Image>
           )}
-        </VideoStateBox> */}
+        </VideoStateBox>
         <video
           className="mx-auto max-md:hidden relative z-[1]"
           id="playChatVideo"
           ref={videoRef}
           width="960"
-          controls
           height="542"
         >
           <source src="/video/test.mp4" type="video/mp4"></source>
