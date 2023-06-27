@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import sign_logo from "@/assets/image/svg/sign-logo.svg";
 import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
@@ -14,26 +15,33 @@ import {
 } from "../../utils/SignCss";
 import { useSwiper } from 'swiper/react';
 import _ from "lodash";
+import { useAppDispatch } from "@/state";
+import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { setOuterWidth, setThrottleFlag } from "@/state/application/reducer";
 
 
 interface SignProps {
-  innerWidth: number
 }
-export default function Sign({ innerWidth }: SignProps) {
-  let flag = false
+export default function Sign({ }: SignProps) {
+  const throttleFlag = useThrottleFlag()
+  const innerWidth = useOuterWidth()
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(setOuterWidth(window.outerWidth))
+  })
   const swiper = useSwiper()
   return (
     <div className="relative max-md:pb-20 md:h-screen w-screen"
       onWheel={
         (e: any) => {
-          if (flag) return
-          flag = true
+          if (throttleFlag) return
           if (innerWidth > 768) {
             if (e.deltaY > 0) {
+              dispatch(setThrottleFlag(true))
               swiper.slideNext(1000);
               setTimeout(() => {
-                flag = false
-              },1000)
+                dispatch(setThrottleFlag(false))
+              }, 1000)
             }
           }
         }}
@@ -50,7 +58,7 @@ export default function Sign({ innerWidth }: SignProps) {
         </video>
       </div>
       <div className="md:h-[728px] z-40 relative">
-        <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0">
+        <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0" >
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
           <Image
             className="absolute max-md:hidden sign-bg-1"
@@ -124,7 +132,7 @@ export default function Sign({ innerWidth }: SignProps) {
               </div>
             </div>
           </TextBox>
-          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px] overflow-hidden">
+          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden">
             <EchoRollBox className="md:flex">
               <div className="md:w-[780px] max-md:w-screen  text-center">
                 <p className="md:font-normal uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px]">

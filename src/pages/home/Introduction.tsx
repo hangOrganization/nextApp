@@ -7,27 +7,39 @@ import { LineBox, SliderBox, RollBox, ScaleBox, ButtonBox, ButtonBorder, ShadowB
 import { useState } from "react";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
+import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useAppDispatch } from "@/state/hooks";
+import { setThrottleFlag } from "@/state/application/reducer";
 interface IntroductionProps {
     setIsOpenConsult: Function;
-    innerWidth: number
 }
-export default function Introduction({ setIsOpenConsult, innerWidth }: IntroductionProps) {
+export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
+    const dispatch = useAppDispatch()
+    const throttleFlag = useThrottleFlag()
     const swiper = useSwiper()
+    const innerWidth = useOuterWidth()
     const [buttonHover, setButtonHover] = useState<string>('')
-    const [onHover, setnHover] = useState<number>(0)
     return (
         <div className="md:h-screen md:pb-20 md:overflow-auto"
-            onScroll={
-                _.debounce((e: any) => {
-                    if (innerWidth > 768) {
-                        if (e.target.scrollTop === 0) {
-                            swiper.slidePrev(1000)
-                        }
-                        if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
-                            swiper.slideNext(1000);
-                        }
+            onScroll={(e: any) => {
+                if (throttleFlag) return
+                if (innerWidth > 768) {
+                    if (e.target.scrollTop === 0) {
+                        dispatch(setThrottleFlag(true))
+                        swiper.slidePrev(1000)
+                        setTimeout(() => {
+                            dispatch(setThrottleFlag(false))
+                        }, 1000)
                     }
-                }, 100)}
+                    if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
+                        dispatch(setThrottleFlag(true))
+                        swiper.slideNext(1000);
+                        setTimeout(() => {
+                            dispatch(setThrottleFlag(false))
+                        }, 1000)
+                    }
+                }
+            }}
         >
             <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:px-[192px] justify-between">
                 <div className="w-[224px] flex-col flex items-center">
@@ -190,7 +202,7 @@ export default function Introduction({ setIsOpenConsult, innerWidth }: Introduct
                                                     }}
                                                 >
                                                     <p className=" text-[28px] uppercase max-md:text-[20px] z-20 text-[#1a1a1a] leading-[100%] font-[Lexend] font-black">
-                                                        LEt’s Rock{onHover}
+                                                        LEt’s Rock
                                                     </p>
                                                     <Image
                                                         className="absolute transition-all duration-500 max-w-[918px] z-10 w-[918px] h-[110px]"

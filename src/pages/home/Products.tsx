@@ -6,10 +6,12 @@ import mobile_products_bg from "@/assets/image/mobile/mobile-products-bg.png";
 import products_right from "@/assets/image/svg/icon-products-right.svg";
 import products_right_bg from "@/assets/image/svg/products-right-bg.svg";
 import styled from "styled-components";
-import { useEffect, useMemo, useState } from "react";
 import SchoolRoll from "./SchoolRoll";
 import Specialize from "./Specialize";
 import { useSwiper } from "swiper/react";
+import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useAppDispatch } from "@/state";
+import { setThrottleFlag } from "@/state/application/reducer";
 
 const ProductsBox = styled.div`
   width: 440px;
@@ -43,46 +45,66 @@ const ProductsRightBox = styled.div`
 `;
 interface ProductsProps {
     value: number;
-    innerWidth: number;
     setValue: Function;
 }
-export default function Products({ value, setValue, innerWidth }: ProductsProps) {
+export default function Products({ value, setValue }: ProductsProps) {
+    const dispatch = useAppDispatch()
+    const throttleFlag = useThrottleFlag()
     const swiper = useSwiper()
+    const innerWidth = useOuterWidth()
     return (
         <div className=" md:h-screen md:pt-20 md:overflow-auto"
-        onScroll={(e: any) => {
-            if (innerWidth > 768) {
-                if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
-                    if (value === 2) {
-                        swiper.slideNext(1000);
+            onScroll={(e: any) => {
+                if (throttleFlag) return
+                if (innerWidth > 768) {
+                    if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
+                        if (value === 2) {
+                            dispatch(setThrottleFlag(true))
+                            swiper.slideNext(1000);
+                            setTimeout(() => {
+                                dispatch(setThrottleFlag(false))
+                            }, 1000)
+                        }
                     }
                 }
             }
-        }}
+            }
         >
             <div id='Products' className='flex pt-[74px] w-screen md:pl-[136px] md:pr-[120px]'
-                onWheel={
-                    _.debounce((e: any) => {
-                        if (innerWidth > 768) {
-                            if (value === 0) {
-                                if (e.deltaY > 0) {
-                                    setValue(1)
-                                } else {
-                                    swiper.slidePrev(1000)
-                                }
-                            } else if (value === 2) {
-                                if (e.deltaY < 0) {
-                                    setValue(1)
-                                }
+                onWheel={(e: any) => {
+                    if (throttleFlag) return
+                    if (innerWidth > 768) {
+                        if (value === 0) {
+                            dispatch(setThrottleFlag(true))
+                            if (e.deltaY > 0) {
+                                setValue(1)
                             } else {
-                                if (e.deltaY < 0) {
-                                    setValue(0)
-                                } else {
-                                    setValue(2)
-                                }
+                                swiper.slidePrev(1000)
                             }
+                            setTimeout(() => {
+                                dispatch(setThrottleFlag(false))
+                            }, 300)
+                        } else if (value === 2) {
+                            if (e.deltaY < 0) {
+                                dispatch(setThrottleFlag(true))
+                                setTimeout(() => {
+                                    dispatch(setThrottleFlag(false))
+                                }, 300)
+                                setValue(1)
+                            }
+                        } else {
+                            if (e.deltaY < 0) {
+                                setValue(0)
+                            } else {
+                                setValue(2)
+                            }
+                            dispatch(setThrottleFlag(true))
+                            setTimeout(() => {
+                                dispatch(setThrottleFlag(false))
+                            }, 300)
                         }
-                    }, 70)}
+                    }
+                }}
             >
                 <div className="md:flex w-[100%] items-center justify-between">
                     <ProductsBox className="max-md:text-center max-md:!pt-[45px]">

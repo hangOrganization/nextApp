@@ -1,10 +1,10 @@
 import Homepage from "@/pages/home";
 
 
-export default function Home() {
+export default function App() {
   return (
     <main>
-      <Homepage></Homepage>
+        <Homepage></Homepage>
     </main>
   )
 }

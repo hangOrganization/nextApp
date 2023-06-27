@@ -17,6 +17,9 @@ import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
+import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useAppDispatch } from "@/state/hooks";
+import { setThrottleFlag } from "@/state/application/reducer";
 
 interface DiscBoxProps {
   title: string;
@@ -159,10 +162,12 @@ const ChangeButton = styled.div`
   }
 `;
 interface DiscProps {
-  innerWidth: number
 }
-export default function Disc({ innerWidth }: DiscProps) {
+export default function Disc({ }: DiscProps) {
   const swiper = useSwiper()
+  const innerWidth = useOuterWidth()
+  const dispatch = useAppDispatch()
+  const throttleFlag = useThrottleFlag()
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
   const [currentPage, setCurrentPage] = useState(1);
@@ -195,13 +200,18 @@ export default function Disc({ innerWidth }: DiscProps) {
   return (
     <div className="md:h-screen md:overflow-auto "
       onScroll={
-        _.debounce((e: any) => {
+        (e: any) => {
+          if(throttleFlag)return
           if (innerWidth > 768) {
             if (e.target.scrollTop === 0) {
+              dispatch(setThrottleFlag(true))
               swiper.slidePrev(1000)
+              setTimeout(()=>{
+                dispatch(setThrottleFlag(false))
+              },1000)
             }
           }
-        }, 100)}
+        }}
     >
       <Box className="h-[1440px] max-md:h-full max-md:pb-[160px] w-screen flex  items-center justify-center max-md:justify-normal flex-col relative ">
         <FilterBox

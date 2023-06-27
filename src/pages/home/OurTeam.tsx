@@ -7,13 +7,15 @@ import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
+import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useAppDispatch } from "@/state/hooks";
+import { setThrottleFlag } from "@/state/application/reducer";
 
 const OurTeamBox = styled.div`
   width: 100%;
   position: relative;
   z-index: 2;
   @media (min-width: 768px) {
-    /* margin-top: 450px; */
     margin-top: 100px;
     background: url(${ourTeam_bg_gif.src});
     border-radius: 48px 48px 0px 0px;
@@ -108,10 +110,12 @@ const RollBox = styled.div`
   }
 `;
 interface OurTeamProps {
-    innerWidth: number
 }
-export default function OurTeam({ innerWidth }: OurTeamProps) {
+export default function OurTeam({ }: OurTeamProps) {
     const swiper = useSwiper()
+    const dispatch = useAppDispatch()
+    let throttleFlag = useThrottleFlag()
+    const innerWidth = useOuterWidth()
     const [right, setRight] = useState<number>(0)
     const [isOpen, setIsOpen] = useState<number>(0)
     const [textValue, setTextValue] = useState<number>(0)
@@ -119,16 +123,18 @@ export default function OurTeam({ innerWidth }: OurTeamProps) {
     return (
         <div className=" md:h-screen md:overflow-auto"
             onScroll={
-                _.debounce((e: any) => {
+                (e: any) => {
+                    if (throttleFlag) return
                     if (innerWidth > 768) {
                         if (e.target.scrollTop === 0) {
+                            dispatch(setThrottleFlag(true))
                             swiper.slidePrev(1000)
-                        }
-                        if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1 && right === 1) {
-                            swiper.slideNext(1000);
+                            setTimeout(() => {
+                                dispatch(setThrottleFlag(false))
+                            }, 1000)
                         }
                     }
-                }, 100)}
+                }}
         >
             <OurTeamBox>
                 <OurTeamBg>
