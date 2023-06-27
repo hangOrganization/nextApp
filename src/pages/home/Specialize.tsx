@@ -41,7 +41,7 @@ export default function Specialize() {
     const [musicGenre, setMusicGenre] = useState<number>(1)
     return (
         <SpecializeBox className='flex justify-center w-screen overflow-hidden flex-col items-center'>
-            <div>
+            <div className=''>
                 <div style={{background: 'rgba(26, 26, 26, 0.90)',backdropFilter: 'blur(40px)'}} className='md:px-[160px] max-md:pb-1 max-md:pt-[21px] max-md:flex-col max-md:justify-center max-md:items-center flex justify-between'>
                     <div className='max-md:text-center'>
                         <p className='text-[56px] max-md:text-[28px] leading-[120%] font-light'>专攻方向</p>

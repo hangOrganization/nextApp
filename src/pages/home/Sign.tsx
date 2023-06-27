@@ -8,26 +8,38 @@ import sign_bg_1 from "@/assets/image/svg/sign-bg-1.svg";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
 import {
   EchoRollBox,
-  MoireFringe,
   SignBgBox,
   SingLogo,
   TextBox,
 } from "../../utils/SignCss";
 
-export default function Sign() {
+interface SignProps {
+  innerHeight: number
+}
+export default function Sign({ innerHeight }: SignProps) {
   return (
-    <div className="relative w-screen">
-      <MoireFringe className="w-full max-md:top-[-100px] flex z-[30] justify-center items-center left-0 absolute h-[728px]">
+    <div className="relative max-md:pb-20 md:h-screen w-screen"
+      onWheel={(e: any) => {
+        if (innerHeight > 768) {
+          if (e.deltaY > 0) {
+            window?.scrollTo({
+              top: innerHeight,
+              behavior: "smooth",
+            });
+          }
+        }
+      }}>
+      <div className="w-screen flex z-[30] top-[150px] left-0 absolute">
+        <div style={{ border: '10px solid #1a1a1a' }} className="md:h-[727px] absolute w-screen"> </div>
         <video
           autoPlay
-          muted 
+          muted
           loop
-          className="mx-auto"
-          width={"100%"}
+          className="w-screen"
         >
           <source src="/video/moireFringe.mp4" type="video/mp4"></source>
         </video>
-      </MoireFringe>
+      </div>
       <div className="md:h-[728px] z-40 relative">
         <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0">
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}

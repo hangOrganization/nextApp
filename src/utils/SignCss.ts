@@ -175,23 +175,6 @@ export const RollBox = styled.div`
     }
   }
 `;
-export const MoireFringe = styled.div`
-  overflow: hidden;
-  .moireFringe {
-    animation: MoireFringe 5s linear infinite;
-    @keyframes MoireFringe {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.3);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-  }
-`;
 export const LineBox = styled.div`
   .line-1 {
     animation: line-1 1s linear infinite;

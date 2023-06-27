@@ -13,7 +13,7 @@ export default function Footer() {
         className="flex items-center justify-between max-md:justify-center px-6 max-md:px-4 w-full relative z-[10] pb-8  "
         style={{ borderBottom: "1px solid rgba(255, 255, 255, .5)" }}
       >
-        <div className="w-[114px] max-md:hidden">
+        <div className="w-[114px] max-md:hidden" >
           <Image src={logo} alt=""></Image>
         </div>
         <div className="flex items-center ">

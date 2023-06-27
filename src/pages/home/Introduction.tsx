@@ -1,18 +1,38 @@
 
 import Image from "next/image";
 import icon_star from "@/assets/image/svg/icon-star.svg";
+import DreamOffer from "@/assets/image/svg/dreamOffer.gif";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
 import Video from "./Video";
 import { LineBox, SliderBox, RollBox, ScaleBox, Box, ButtonBox, ButtonBorder, ShadowBox, ShadowBox2 } from "@/utils/SignCss";
 import { useState } from "react";
 interface IntroductionProps {
     setIsOpenConsult: Function;
-  }
-export default function Introduction({setIsOpenConsult}:IntroductionProps) {
+    innerHeight: number
+}
+export default function Introduction({ setIsOpenConsult, innerHeight }: IntroductionProps) {
     const [buttonHover, setButtonHover] = useState<string>('')
     return (
-        <div>
-            <div className="flex max-md:flex-col items-center mt-[280px] md:px-[192px] justify-between">
+        <div className="md:h-screen md:pb-20 md:overflow-auto"
+            onScroll={(e: any) => {
+                if (innerHeight > 768) {
+                    if (e.target.scrollTop === 0) {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "smooth",
+
+                        });
+                    }
+                    if (e.target.scrollTop === 472.5) {
+                        window.scrollTo({
+                            top: innerHeight * 2,
+                            behavior: "smooth",
+
+                        });
+                    }
+                }
+            }}>
+            <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:px-[192px] justify-between">
                 <div className="w-[224px] flex-col flex items-center">
                     <LineBox className="w-full overflow-hidden">
                         <div
@@ -102,8 +122,8 @@ export default function Introduction({setIsOpenConsult}:IntroductionProps) {
                     </div>
                 </div>
                 <div className="w-[224px] max-md:mt-[81px] flex-col flex relative items-center pt-[13px]">
-                    <ScaleBox className=" flex flex-col py-[14px] items-center justify-center">
-                        <p className="font-[Lexend] textScale z-30 bg-[#1A1A1A] w-[98px] text-[28px] leading-[100%] font-[250]">
+                    <ScaleBox className=" flex flex-col items-center justify-center">
+                        {/* <p className="font-[Lexend] textScale z-30 bg-[#1A1A1A] w-[98px] text-[28px] leading-[100%] font-[250]">
                             DREAM
                         </p>
                         <p className="font-[Lexend] textScale mt-5 z-30 bg-[#1A1A1A] text-[40px] leading-[100%] font-[250]">
@@ -115,9 +135,10 @@ export default function Introduction({setIsOpenConsult}:IntroductionProps) {
                                 src={icon_star}
                                 alt=""
                             />
-                        </Box>
+                        </Box> */}
+                        <div className="w-[224px] bg-cover mt-[-45px] bg-blend-lighten bg-[#1A1A1A] h-[203px]" style={{ backgroundImage: `url(${DreamOffer.src})` }}></div>
                     </ScaleBox>
-                    <div className="mt-6 py-4">
+                    <div className="py-4">
                         <div className="font-light leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
                             以专业的教学专注的态度帮助每一位热爱音乐的学生拿到dream offer
                             开发艺术领域的无限可能性
@@ -126,7 +147,7 @@ export default function Introduction({setIsOpenConsult}:IntroductionProps) {
                 </div>
             </div>
             <Video />
-            <ButtonBox className="flex mt-16 items-center relative justify-center">
+            <ButtonBox className="flex mt-16 w-screen overflow-hidden items-center relative justify-center">
                 <ButtonBorder
                     style={{ borderColor: "rgb(157, 54, 11,0.1)" }}
                     className=" opacity-100 z-20 max-md:py-2 py-[10px] rounded-[55px] px-[73px]"
@@ -194,7 +215,6 @@ export default function Introduction({setIsOpenConsult}:IntroductionProps) {
                     </ButtonBorder>
                 </ButtonBorder>
             </ButtonBox>
-
         </div>
     )
 }

@@ -44,7 +44,13 @@ export default function Header({
 
   return (
     <Box className="fixed z-[10000] w-screen pl-[48px] max-md:px-4 max-md:py-3  pr-6  py-4 left-0 flex items-center justify-between top-0">
-      <div>
+      <div className=" cursor-pointer"
+        onClick={() => {
+          window?.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}>
         <Image className="max-md:hidden" src={logo} alt="" />
         <Image className="md:hidden" src={mobile_logo} alt="" />
       </div>
@@ -55,9 +61,8 @@ export default function Header({
           音乐留学
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${
-            pageTop >= 5152 && pageTop < 6315 ? "active-item " : ""
-          }`}
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${pageTop >= 5152 && pageTop < 6315 ? "active-item " : ""
+            }`}
           onClick={() => {
             scrollToView(5152);
             setPageTop(5152);
@@ -66,9 +71,8 @@ export default function Header({
           师资团队
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            pageTop >= 6315 && pageTop < 7708 ? "active-item " : ""
-          }`}
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${pageTop >= 6315 && pageTop < 7708 ? "active-item " : ""
+            }`}
           onClick={() => {
             setPageTop(6315);
 
@@ -78,9 +82,8 @@ export default function Header({
           公司特色
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            pageTop >= 7708 && pageTop < 8758 ? "active-item " : ""
-          }`}
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${pageTop >= 7708 && pageTop < 8758 ? "active-item " : ""
+            }`}
           onClick={() => {
             setPageTop(7708);
             scrollToView(7708);
@@ -89,9 +92,8 @@ export default function Header({
           关于我们
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] max-md:hidden flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            pageTop >= 9778 && pageTop < 10758 ? "active-item " : ""
-          }`}
+          className={`py-4 cursor-pointer text-[14px] max-md:hidden flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${pageTop >= 9778 && pageTop < 10758 ? "active-item " : ""
+            }`}
           onClick={() => {
             setPageTop(9778);
             scrollToView(9778);

@@ -77,46 +77,41 @@ const ButtonBox = styled.div`
 `;
 interface SignCharacteristicProps {
     characteristicType: number
+    innerHeight: number
     setCharacteristicType: Function
+    right: number
+    setRight: Function
 }
-export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
-    const [right, setRight] = useState<number>(0)
+export default function SignCharacteristic({ innerHeight, setRight, right, characteristicType, setCharacteristicType }: SignCharacteristicProps) {
     const [mobileRight, setMobileRight] = useState<number>(0)
-    const [isMobile, setIsMobile] = useState<boolean>(false)
-    useEffect(() => {
-        if (window) {
-            setIsMobile(window.innerWidth > 768)
-        }
-    }, [])
-    console.log("🚀 ~ file: SignCharacteristic.tsx:86 ~ SignCharacteristic ~ isMobile:", isMobile)
-    useEffect(() => {
-        document.body.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500 && isMobile) {
-                document.body.classList.add("overflow-hidden");
-                if (characteristicType === 0) {
-                    if (e.deltaY < 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-                if (characteristicType === 3) {
-                    if (e.deltaY > 0 && right === 1) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-            }
-        })
-    }, [characteristicType, right])
+    // useEffect(() => {
+    //     document.body.addEventListener('wheel', function (e) {
+    //         if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500 && isMobile) {
+    //             document.body.classList.add("overflow-hidden");
+    //             if (characteristicType === 0) {
+    //                 if (e.deltaY < 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //             if (characteristicType === 3) {
+    //                 if (e.deltaY > 0 && right === 1) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //         }
+    //     })
+    // }, [characteristicType, right])
     return (
         <Box className="flex w-screen max-md:h-[2590px] max-md:pb-[210px] overflow-hidden">
             <div className='flex'>
                 <SignBox className={`md:flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} md:h-[1278px] max-md:pt-[300px] w-screen items-center md:px-[120px] justify-between`}
                     onWheelCapture={
-                        _.debounce((e: any) => {
-                            if (isMobile) {
+                        _.throttle((e: any) => {
+                            if (innerHeight > 768) {
                                 if (right === 0) {
                                     if (characteristicType === 0) {
                                         if (e.deltaY > 0) {
@@ -139,10 +134,11 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                 } else {
                                     if (e.deltaY < 0) {
                                         setRight(0)
+                                    } else {
                                     }
                                 }
                             }
-                        }, 70)}
+                        }, 1000)}
                 >
                     <SignCharacteristicBox className={`${right === 1 ? ' translate-x-[908px]' : 'translate-x-[0px]'} max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-300`}>
                         <div >
