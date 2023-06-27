@@ -9,7 +9,8 @@ import disc_right_decoraton from "@/assets/image/svg/disc-right-decoration.svg";
 import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
 import disc_mobile_bg from "../../assets/image/mobile/mobile-disc-bg.png";
-
+import cd_mask from "../../assets/image/disc-icon/CDMask.png";
+import text_bg from "../../assets/image/disc-icon/Bright.png";
 import { useState } from "react";
 
 interface DiscBoxProps {
@@ -42,11 +43,19 @@ const Box = styled.div`
       }
       .film-master-map {
         opacity: 1;
+        background-color: red;
         transition: transform 450ms;
+
         transform: translateX(-20px);
       }
     }
   }
+`;
+const ImgBox = styled.div`
+  width: 300px;
+  height: 300px;
+  mask-image: url(${cd_mask.src});
+  mask-size: 100% 100%;
 `;
 
 const FilterBox = styled.div`
@@ -113,6 +122,7 @@ const FilmBox = styled.div`
       left: 0;
       transition: transform 450ms;
     }
+
     .film-mask {
       transition: opacity 600ms, transform 450ms;
       opacity: 1;
@@ -210,11 +220,17 @@ export default function Disc() {
                 className="film-mask   w-[492px] h-[492px] relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
               ></Image>
 
-              <Image
-                src={discImg}
-                alt=""
-                className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden  "
-              ></Image>
+              <ImgBox
+                style={{
+                  backgroundImage: `url(${discImg.src})`,
+                }}
+              >
+                {/* <Image
+                  src={discImg}
+                  alt=""
+                  className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden  "
+                ></Image> */}
+              </ImgBox>
             </FilmBox>
             <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
               <ChangeButton className="scale-x-[-1]" onClick={prePage}>
