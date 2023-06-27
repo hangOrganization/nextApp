@@ -25,7 +25,9 @@ const SignBox = styled.div`
 `
 const Box = styled.div`
     @media not all and (min-width: 768px) {
+        width: 100vw;
         background:url(${mobile_SignCharacteristic.src}),linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, #1A1A1A 9.17%) !important;
+        background-size: cover !important;
     }
 `
 const SignCharacteristicBox = styled.div`
@@ -80,10 +82,16 @@ interface SignCharacteristicProps {
 export default function SignCharacteristic({ characteristicType, setCharacteristicType }: SignCharacteristicProps) {
     const [right, setRight] = useState<number>(0)
     const [mobileRight, setMobileRight] = useState<number>(0)
-    const isMobile = /mobile/i.test(navigator.userAgent);
+    const [isMobile, setIsMobile] = useState<boolean>(false)
+    useEffect(() => {
+        if (window) {
+            setIsMobile(window.innerWidth > 768)
+        }
+    }, [])
+    console.log("🚀 ~ file: SignCharacteristic.tsx:86 ~ SignCharacteristic ~ isMobile:", isMobile)
     useEffect(() => {
         document.body.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500 && !isMobile) {
+            if (document.documentElement.scrollTop > 6200 && document.documentElement.scrollTop < 6500 && isMobile) {
                 document.body.classList.add("overflow-hidden");
                 if (characteristicType === 0) {
                     if (e.deltaY < 0) {
@@ -108,7 +116,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                 <SignBox className={`md:flex ${right === 0 ? 'WhySIGN' : 'ABOUT'} md:h-[1278px] max-md:pt-[300px] w-screen items-center md:px-[120px] justify-between`}
                     onWheelCapture={
                         _.debounce((e: any) => {
-                            if (!isMobile) {
+                            if (isMobile) {
                                 if (right === 0) {
                                     if (characteristicType === 0) {
                                         if (e.deltaY > 0) {
@@ -142,7 +150,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                 <p className=' font-light text-[56px] max-md:text-[24px] leading-[120%]' onClick={() => setMobileRight(0)}>{`${right === 1 ? '关于我们' : '公司特色'}`}</p>
                                 <p className=' font-light text-[56px] max-md:text-[24px] md:hidden leading-[120%]' onClick={() => setMobileRight(1)}>关于我们</p>
                             </div>
-                            <div className='mt-[18px] relative h-2 w-full'>
+                            <div className='mt-[18px] md:hidden relative h-2 w-full'>
                                 <Image className={`absolute transition-all ${mobileRight === 0 ? 'translate-x-[16px] left-0' : 'translate-x-[-125%] left-[100%]'}`} src={signCharacteristic_active} alt='' />
                             </div>
                             <p className={`font-extralight max-md:hidden font-[Lexend] text-[22px] ${right === 1 ? 'tracking-[15.18px]' : 'tracking-[0.53em]'} mt-4 opacity-60 uppercase leading-[160%]`}>{`${right === 1 ? 'ABOUT US' : 'Why SIGN?'}`}</p>
@@ -157,7 +165,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                             <div className='md:h-[488px] max-md:mt-11 flex flex-col justify-center'>
                                                 <div className='flex'>
                                                     <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>资深导师团队</p>
-                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                    <Image className='md:hidden max-md:w-[94px] max-md:h-6' src={signCharacteristic_title} alt='' />
                                                 </div>
                                                 <div className='md:w-[488px] mt-12'>
                                                     <p className='text-[14px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70'>
@@ -180,7 +188,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                             <div className='md:h-[488px] max-md:mt-20 flex flex-col justify-center'>
                                                 <div className='flex'>
                                                     <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>独家顶级设备配置</p>
-                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                    <Image className='md:hidden max-md:w-[94px] max-md:h-6' src={signCharacteristic_title} alt='' />
                                                 </div>
                                                 <p className='text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70'>
                                                     浙江省内最大的国际音乐教育空间<br />
@@ -205,7 +213,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                             <div className='md:h-[488px] max-md:mt-20 flex flex-col justify-center'>
                                                 <div className='flex'>
                                                     <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>高质量高效率精致教学</p>
-                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                    <Image className='md:hidden max-md:w-[94px] max-md:h-6' src={signCharacteristic_title} alt='' />
                                                 </div>
                                                 <p className='text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70'>
                                                     免费专业入学评估<br />
@@ -227,7 +235,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                             <div className='md:h-[488px] max-md:mt-20 flex flex-col justify-center '>
                                                 <div className='flex'>
                                                     <p className='text-[40px] mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]'>产学结合&背景提升</p>
-                                                    <Image className='md:hidden' src={signCharacteristic_title} alt='' />
+                                                    <Image className='md:hidden max-md:w-[94px] max-md:h-6' src={signCharacteristic_title} alt='' />
                                                 </div>
                                                 <p className='text-[14px] md:w-[488px] max-md:text-[13px] max-md:leading-[200%]  mt-12 font-light leading-[220%] opacity-70'>
                                                     产学研一体，团队十余年一线音乐行业经验。各类音乐作品千余，如央视《2008我们的奥林匹克》 《中国冰雪记忆》《家园》《2022北京冬奥会遗产纪录片》《张艺谋的2022》，芒果TV《这十年》《党的女儿》以及浙江卫视《西泠印社》等，团队独立厂牌发行创作人计划系列专辑二十余张，将创作，录制，发行全流程结为一体，让学生在学习中有机会参与各类重大音乐项目的录制与制作，为其音乐生涯提供丰富的背景提升和行业经验。
@@ -248,7 +256,7 @@ export default function SignCharacteristic({ characteristicType, setCharacterist
                                             <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2023年 西兴校区教学场地全新升级 扩建至1500平</p>
                                             <ButtonBox className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center" onClick={() => { }}>
                                                 了解校区环境
-                                                <div style={{border: '1px solid #CCC' }} className="w-6 hover ml-2 items-center justify-center flex rounded-full h-6">
+                                                <div style={{ border: '1px solid #CCC' }} className="w-6 hover ml-2 items-center justify-center flex rounded-full h-6">
                                                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M7 13C7 13 9.35294 7 15 7C9.35294 7 7 1 7 1" stroke="#CCCCCC" />
                                                         <path d="M14 7L0 7" stroke="#CCCCCC" />

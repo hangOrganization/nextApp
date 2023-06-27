@@ -6,7 +6,7 @@ import mobile_products_bg from "@/assets/image/mobile/mobile-products-bg.png";
 import products_right from "@/assets/image/svg/icon-products-right.svg";
 import products_right_bg from "@/assets/image/svg/products-right-bg.svg";
 import styled from "styled-components";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const ProductsBox = styled.div`
   width: 440px;
@@ -19,6 +19,7 @@ const ProductsBox = styled.div`
     padding: 0px;
     background: url(${mobile_products_bg.src});
     background-repeat: no-repeat;
+    background-size: 100% 100%;
     border-radius: 0px;
   }
   background-blend-mode: soft-light, overlay, normal;
@@ -42,35 +43,39 @@ interface ProductsProps {
     setValue: Function;
 }
 export default function Products({ value, setValue }: ProductsProps) {
-    const isMobile = /mobile/i.test(navigator?.userAgent);
+    const [isMobile, setIsMobile] = useState<boolean>(false)
     useEffect(() => {
-        window.addEventListener('wheel', function (e) {
-            if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900 && !isMobile) {
-                document.body.classList.add("overflow-hidden");
-                if (value === 0) {
-                    if (e.deltaY < 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-                if (value === 2) {
-                    if (e.deltaY > 0) {
-                        document.body.classList.remove("overflow-hidden");
-                    } else {
-                        document.body.classList.add("overflow-hidden");
-                    }
-                }
-            } else {
-                document.body.classList.remove("overflow-hidden");
-            }
-        })
-    }, [value])
+        if (window) {
+            setIsMobile(window.innerWidth > 768)
+        }
+    }, [])
+    console.log("🚀 ~ file: Products.tsx:47 ~ Products ~ isMobile:", isMobile)
+    // useEffect(() => {
+    //     window.addEventListener('wheel', function (e) {
+    //         if (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 2900 && isMobile) {
+    //             document.body.classList.add("overflow-hidden");
+    //             if (value === 0) {
+    //                 if (e.deltaY < 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //             if (value === 2) {
+    //                 if (e.deltaY > 0) {
+    //                     document.body.classList.remove("overflow-hidden");
+    //                 } else {
+    //                     document.body.classList.add("overflow-hidden");
+    //                 }
+    //             }
+    //         } 
+    //     })
+    // }, [value])
     return (
         <div id='Products' className='flex md:mt-[250px] pt-[74px] box2 w-screen md:pl-[136px] md:pr-[120px]'
             onWheelCapture={
                 _.debounce((e: any) => {
-                    if (!isMobile) {
+                    if (isMobile) {
                         if (value === 0) {
                             if (e.deltaY > 0) {
                                 setValue(1)

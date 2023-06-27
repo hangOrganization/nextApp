@@ -78,7 +78,7 @@ export default function Specialize() {
                                         <Image className='max-md:w-6 max-md:h-6' src={courseArrow} alt='' />
                                     </div>
                                     <div className="flex mt-4 md:items-center h-[469px] justify-between">
-                                        <div className='flex flex-col max-md:h-[390px] h-[469px] flex-wrap md:pl-2 max-md:gap-y-[11px] max-md:gap-x-6 gap-3'>
+                                        <div className='flex flex-col max-md:h-[390px] h-[469px] flex-wrap md:pl-2 max-md:gap-y-[11px] max-md:gap-x-6 gap-3 md:gap-x-8'>
                                             {modernMusicHotMajor.map((el: any, index: number) => (
                                                 <div className='max-md:w-[124px] max-md:text-center' key={`${index}-${el.englishTitle}-modernMusicHotMajor`}>
                                                     <p className='text-[16px] max-md:text-[14px] font-normal text-[#1A1A1A] leading-[160%]'>{el.title}</p>
@@ -98,7 +98,7 @@ export default function Specialize() {
                                     <div className='md:pl-2'>
                                         <div className='flex items-center'>
                                             <p className='text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]'>英美</p>
-                                            <div style={{ border: '1px solid #000000' }} className='ml-[25px]  md:w-[483px] opacity-10'></div>
+                                            <div style={{ border: '0.5px solid #000000' }} className='ml-[25px]  md:w-[483px] opacity-10'></div>
                                         </div>
                                         <div className='flex max-md:mt-4 mt-[24px] justify-between'>
                                             <div className='flex h-[138px] max-md:w-[163px] max-md:h-[171px] flex-wrap flex-col max-md:gap-x-6 gap-x-12 gap-y-[11.75px]'>
@@ -113,7 +113,7 @@ export default function Specialize() {
                                     <div className='md:pl-2'>
                                         <div className='flex mt-11 max-md:mt-6 items-center'>
                                             <p className='text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]'>日韩</p>
-                                            <div style={{ border: '1px solid #000000' }} className='ml-[25px] md:w-[483px] opacity-10'></div>
+                                            <div style={{ border: '0.5px solid #000000' }} className='ml-[25px] md:w-[483px] opacity-10'></div>
                                         </div>
                                         <div className='flex max-md:mt-4 mt-[24px]'>
                                             <div className='flex flex-col max-md:h-[97px] h-[138px] gap-x-[137px] max-md:gap-x-[100px] flex-wrap gap-y-[11.75px]'>
@@ -136,7 +136,7 @@ export default function Specialize() {
                                         <Image className='max-md:w-6 max-md:h-6' src={courseArrow} alt='' />
                                     </div>
                                     <div className="flex mt-4 items-center md:h-[469px] justify-between">
-                                        <div className='flex flex-col max-md:h-[198px] h-[264px] flex-wrap md:pl-2 gap-x-[56px] max-md:gap-x-[20px] max-md:gap-y-[12px] gap-y-[28px]'>
+                                        <div className='flex flex-col max-md:h-[198px] h-[264px] flex-wrap md:pl-2 max-md:gap-x-[20px] max-md:gap-y-[12px] gap-y-[28px]'>
                                             {classicalMusicHotMajor.map((el: any, index: number) => (
                                                 <div className='max-md:w-[126px] max-md:text-center' key={`${index}-${el.englishTitle}-classicalMusicHotMajor`}>
                                                     <p className='text-[16px] max-md:text-[14px] font-normal text-[#1A1A1A] leading-[160%]'>{el.title}</p>
@@ -157,7 +157,7 @@ export default function Specialize() {
                                     <div className='md:pl-2'>
                                         <div className='flex items-center'>
                                             <p className='text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]'>英美</p>
-                                            <div style={{ border: '1px solid #000000' }} className='ml-[25px] md:w-[483px] opacity-10'></div>
+                                            <div style={{ border: '0.5px solid #000000' }} className='ml-[25px] md:w-[483px] opacity-10'></div>
                                         </div>
                                         <div className='flex mt-[24px] max-md:mt-4 md:justify-between'>
                                             <div className='flex max-md:h-[170px] h-[138px] flex-wrap flex-col max-md:gap-x-[68px] gap-x-[86px] max-md:gap-y-[11px] gap-y-[11.75px]'>
@@ -172,7 +172,7 @@ export default function Specialize() {
                                     <div className='md:pl-2'>
                                         <div className='flex max-md:mt-6 mt-11 items-center'>
                                             <p className='text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]'>欧洲</p>
-                                            <div style={{ border: '1px solid #000000' }} className='ml-[25px] md:w-[483px] opacity-10'></div>
+                                            <div style={{ border: '0.5px solid #000000' }} className='ml-[25px] md:w-[483px] opacity-10'></div>
                                         </div>
                                         <div className='flex max-md:mt-4 mt-[24px]'>
                                             <div className='flex flex-col max-md:h-[170px] h-[138px] gap-x-[47.5px] max-md:gap-x-[20px] flex-wrap max-md:gap-y-[11px] gap-y-[11.75px]'>

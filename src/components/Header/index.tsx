@@ -103,14 +103,14 @@ export default function Header({
         <div
           style={{ border: "1px solid rgba(204, 204, 204, 0.3)" }}
           onClick={() => setIsOpenCampus(1)}
-          className=" max-md:py-3 max-md:px-[23px] py-4 rounded-2xl hover:text-[#1A1A1A] hover:font-bold hover:bg-[#FFFFFF] cursor-pointer text-[14px] leading-[100%] opacity-80 px-6 hover:opacity-100 md:font-light"
+          className=" max-md:py-3 max-md:px-[23px] py-4 rounded-2xl hover:text-[#1A1A1A] hover:font-bold hover:bg-[#FFFFFF] cursor-pointer text-[14px] leading-[100%] opacity-80 md:w-[127px] md:text-center hover:opacity-100 md:font-light"
         >
           校区环境
         </div>
         <div
           style={{ border: "1px solid rgba(255, 75, 0, 0.5)" }}
           onClick={() => setIsOpenConsult(1)}
-          className="py-[15px]  max-md:py-3 cursor-pointer max-md:text-[14px] text-[16px] hover:text-[#1A1A1A] rounded-2xl leading-[100%] hover:bg-[#FF4B00] opacity-80 max-md:px-[23px] px-8 md:font-bold text-[#FF4B00]"
+          className="py-[15px] max-md:py-3 cursor-pointer max-md:text-[14px] text-[16px] hover:text-[#1A1A1A] rounded-2xl leading-[100%] hover:bg-[#FF4B00] opacity-80 max-md:px-[23px] md:w-[127px] md:text-center  md:font-bold text-[#FF4B00]"
         >
           我要咨询
         </div>

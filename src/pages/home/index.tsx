@@ -11,7 +11,9 @@ import BusinessPartner from "./BusinessPartner";
 import OurTeam from "./OurTeam";
 import Disc from "./Disc";
 import Development from "./Development";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import ShadowBg from "@/components/ShadowBg";
+import Introduction from "./Introduction";
 
 export default function Homepage() {
   const [value, setValue] = useState<number>(0);
@@ -28,6 +30,7 @@ export default function Homepage() {
 
   return (
     <div className={`relative w-screen overflow-hidden`}>
+      <ShadowBg />
       <Header
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}
@@ -35,7 +38,8 @@ export default function Homepage() {
         setIsOpenCampus={setIsOpenCampus}
         scrollToView={scrollToView}
       />
-      <Sign isOpenConsult={isOpenConsult} setIsOpenConsult={setIsOpenConsult} />
+      <Sign/>
+      <Introduction setIsOpenConsult={setIsOpenConsult}  />
       <Products value={value} setValue={setValue} />
       <SchoolRoll />
       <Specialize />
