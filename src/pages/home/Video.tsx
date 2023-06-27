@@ -61,7 +61,7 @@ export default function Video() {
           <Image src={icon_time} alt="" className=" cursor-pointer"></Image>
           <Image src={icon_share} alt="" className=" cursor-pointer"></Image>
         </div>
-        {/* <VideoStateBox
+        <VideoStateBox
           className={[
             "w-[144px] h-[80px]  absolute z-[5] cursor-pointer  flex items-center justify-center duration-500 transition-all ",
           ].join("")}
@@ -81,7 +81,7 @@ export default function Video() {
           ) : (
             <Image src={video_pause} alt="" className="w-[38px] "></Image>
           )}
-        </VideoStateBox> */}
+        </VideoStateBox>
         <video
           className="mx-auto max-md:hidden relative z-[1]"
           id="playChatVideo"
