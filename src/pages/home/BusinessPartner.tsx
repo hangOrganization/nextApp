@@ -125,7 +125,7 @@ const Partner = styled.div`
 `;
 export default function BusinessPartner() {
   return (
-    <div className="w-screen h-[1187px]  max-md:h-[646px] flex flex-col items-center pt-[220px] relative ">
+    <div className="w-screen h-[1187px]  max-md:h-[646px] flex flex-col items-center pt-[220px] max-md:pt-0 relative ">
       <MoveLeftBgBox className="w-[720px] max-md:w-[392px] h-[1187px]  max-md:h-[646px]  absolute left-0 top-0  max-md:top-[150px]"></MoveLeftBgBox>
       <MoveRightBgBox className="w-[720px] max-md:w-[392px]   h-[1187px] max-md:h-[646px]   absolute  right-0  top-0 max-md:top-[150px]  "></MoveRightBgBox>
       <p className="text-[56px] top-0 font-[300] leading-[120%] uppercase max-md:text-[28px] ">

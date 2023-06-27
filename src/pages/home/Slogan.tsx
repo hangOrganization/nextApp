@@ -31,7 +31,7 @@ const Box = styled.div`
 
 const MoveBox = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   border-radius: 24px;
   transition: all 300ms;
   cursor: pointer;
@@ -90,7 +90,7 @@ export default function Slogan() {
           因形创声 随时造曲 应物无穷
         </div>
         <div
-          className="text-[16px] max-md:text-[12px] font-[200] font-[Lexend]] leading-[180%] tracking-[0.2em] max-md:tracking-[2.4px] mb-[81px] max-md:mb-[56px] font-[Lexend]  max-md:px-[32px] "
+          className="text-[16px] max-md:text-[12px] font-[200] font-[Lexend] leading-[180%] tracking-[3.2px] max-md:tracking-[2.4px] mb-[81px] max-md:mb-[56px]   max-md:px-[32px] "
           style={{
             color: "rgba(255, 255, 255, .5)",
             fontFeatureSettings: "'liga' off",

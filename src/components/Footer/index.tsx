@@ -22,6 +22,7 @@ export default function Footer() {
               imgSrc={1}
               qrCodeSrc={bilibili_QRcode}
               id="my-anchor-element-id-bilibili_img"
+              url="https://space.bilibili.com/1195424266?spm_id_from=333.337.0.0"
             ></Tip>
             <Tip
               imgSrc={2}
@@ -32,11 +33,13 @@ export default function Footer() {
               imgSrc={3}
               qrCodeSrc={red_book_QRcode}
               id="my-anchor-element-id-red_book_img"
+              url="https://www.xiaohongshu.com/user/profile/627497ec0000000021020be7?xhsshare=WeixinSession&appuid=5d29776c0000000011018943&apptime=1687776556"
             ></Tip>
             <Tip
               imgSrc={4}
               qrCodeSrc={net_ease_cloud_QRcode}
               id="my-anchor-element-id-net_ease_cloud_img"
+              url="https://music.163.com/#/artist?id=12039058&app_version=8.0.21"
             ></Tip>
           </div>
         </div>
@@ -47,13 +50,10 @@ export default function Footer() {
           <div className="max-md:font-[300]  max-md:opacity-[0.5] ">
             联系我们
           </div>
-          <div className="flex items-center gap-[8px]">
-            <span>马老师</span>
-            +8619273829182
-          </div>
+          <div className="flex items-center gap-[8px]">15558188911</div>
           <div className="flex items-center gap-[8px]">
             <span>邮箱</span>
-            Mrxia@signart.com
+            signartedu@yeah.net
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="max-md:opacity-[0.5]   max-md:text-[14px] ">
             公司地址
           </div>
-          浙江省杭州市滨江区西兴街道江淑路260号11603室
+          浙江省杭州市滨江区UDC星光时代1008
         </div>
 
         <div
