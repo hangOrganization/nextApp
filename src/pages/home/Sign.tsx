@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import sign_logo from "@/assets/image/svg/sign-logo.svg";
 import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
@@ -8,28 +9,56 @@ import sign_bg_1 from "@/assets/image/svg/sign-bg-1.svg";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
 import {
   EchoRollBox,
-  MoireFringe,
   SignBgBox,
   SingLogo,
   TextBox,
 } from "../../utils/SignCss";
+import { useSwiper } from 'swiper/react';
+import _ from "lodash";
+import { useAppDispatch } from "@/state";
+import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { setOuterWidth, setThrottleFlag } from "@/state/application/reducer";
 
-export default function Sign() {
+
+interface SignProps {
+}
+export default function Sign({ }: SignProps) {
+  const throttleFlag = useThrottleFlag()
+  const innerWidth = useOuterWidth()
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(setOuterWidth(window.outerWidth))
+  })
+  const swiper = useSwiper()
   return (
-    <div className="relative w-screen">
-      <MoireFringe className="w-full max-md:top-[-100px] flex z-[30] justify-center items-center left-0 absolute h-[728px]">
+    <div className="relative max-md:pb-20 md:h-screen w-screen"
+      onWheel={
+        (e: any) => {
+          if (throttleFlag) return
+          if (innerWidth > 768) {
+            if (e.deltaY > 0) {
+              dispatch(setThrottleFlag(true))
+              swiper.slideNext(1000);
+              setTimeout(() => {
+                dispatch(setThrottleFlag(false))
+              }, 1000)
+            }
+          }
+        }}
+    >
+      <div className="w-screen flex z-[30] max-md:top-[150px] left-0 absolute">
+        <div style={{ border: '10px solid #1a1a1a' }} className="md:h-[727px] absolute w-screen"> </div>
         <video
           autoPlay
-          muted 
+          muted
           loop
-          className="mx-auto"
-          width={"100%"}
+          className="w-screen"
         >
           <source src="/video/moireFringe.mp4" type="video/mp4"></source>
         </video>
-      </MoireFringe>
+      </div>
       <div className="md:h-[728px] z-40 relative">
-        <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0">
+        <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0" >
           {/* <Image className='absolute  w-screen' src={sign_bg} alt='' /> */}
           <Image
             className="absolute max-md:hidden sign-bg-1"
@@ -103,7 +132,7 @@ export default function Sign() {
               </div>
             </div>
           </TextBox>
-          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px] overflow-hidden">
+          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden">
             <EchoRollBox className="md:flex">
               <div className="md:w-[780px] max-md:w-screen  text-center">
                 <p className="md:font-normal uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px]">
