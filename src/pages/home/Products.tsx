@@ -17,7 +17,7 @@ import mobile_products_bg from "@/assets/image/mobile/mobile-products-bg.png";
 
 
 
-const ProductsBox = styled.div`
+const ProductsBox = styled(`div`)`
   width: 440px;
   height: 530px;
   padding: 92px 40px;
