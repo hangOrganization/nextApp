@@ -10,6 +10,7 @@ import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
 import disc_mobile_bg from "../../assets/image/mobile/mobile-disc-bg.png";
 import cd_mask from "../../assets/image/disc-icon/CDMask.png";
+import text_bg from "../../assets/image/disc-icon/Bright.png";
 import { useState } from "react";
 import BusinessPartner from "./BusinessPartner";
 import Footer from "@/components/Footer";
@@ -100,10 +101,13 @@ const LeftDecoraton = styled.div`
   background: url(${disc_left_decoraton.src});
   margin-top: auto;
   transform: translateX(5px);
+  background-blend-mode: overlay;
+
   background-repeat: no-repeat;
 `;
 const RightDecoraton = styled.div`
   mix-blend-mode: overlay;
+  background-blend-mode: overlay;
   background: url(${disc_right_decoraton.src});
   background-repeat: no-repeat;
   top: -150px;
@@ -219,7 +223,7 @@ export default function Disc({}: DiscProps) {
     >
       <Box className="h-[1440px] max-md:h-full max-md:pb-[160px] w-screen flex  items-center justify-center max-md:justify-normal flex-col relative ">
         <FilterBox
-          className="fliter-box z-[1] max-md:hidden"
+          className="fliter-box z-[4] max-md:hidden"
           style={{
             backgroundImage:
               discImg.src != disc_acquiesce.src ? `url(${discImg.src})` : "",
@@ -229,7 +233,7 @@ export default function Disc({}: DiscProps) {
         <div className={moveFlag ? "active-move" : ""}>
           <div className=" w-[1160px] max-md:w-full flex mb-[72px] relative mx-auto">
             <div className="flex">
-              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5] max-md:hidden"></LeftDecoraton>
+              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[1] max-md:hidden"></LeftDecoraton>
               <FilmBox className=" w-[492px] h-[492px]  max-md:w-[297px] max-md:h-[246px] mx-auto  flex items-center justify-center relative max-md:mt-[160px]">
                 <div className="bg-box w-screen h-[566px]"></div>
                 <Image
@@ -314,9 +318,12 @@ export default function Disc({}: DiscProps) {
           </div>
         </div>
         <div
-          className={` w-[10089px] flex items-center gap-[16px]  duration-500 transition-all relative z-[5] max-md:hidden`}
+          className={` w-[11404PX] flex items-center gap-[16px]  duration-500 transition-all relative z-[5] max-md:hidden `}
           style={{
-            transform: `translateX(${currentPage * 1215}px)`,
+            transform:
+              currentPage == -3
+                ? "translateX(-3311px)"
+                : `translateX(${1199 * currentPage}px)`,
           }}
         >
           {discList.map((item: DiscBoxProps) => (
