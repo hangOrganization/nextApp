@@ -9,6 +9,12 @@ import video_play from "../../assets/image/png/video-play.png";
 import icon_love from "../../assets/image/png/video-icon-love.png";
 import icon_time from "../../assets/image/png/video-icon-time.png";
 import icon_share from "../../assets/image/png/video-icon-share.png";
+
+import video_setting from "../../assets/image/png/video-setting.png";
+import video_cc from "../../assets/image/png/video-cc.png";
+import video_full from "../../assets/image/png/video-full.png";
+import video_volume from "../../assets/image/png/video-volume.png";
+
 const Box = styled.div`
   :hover {
     .img-box {
@@ -48,6 +54,44 @@ export default function Video() {
             <Image src={icon_love} alt="" className=" cursor-pointer"></Image>
             <Image src={icon_time} alt="" className=" cursor-pointer"></Image>
             <Image src={icon_share} alt="" className=" cursor-pointer"></Image>
+          </div>
+        )}
+
+        {videoState && (
+          <div
+            className=" absolute bottom-[0] right-0 w-[865px] h-[32px]  flex items-center justify-between   z-[5] px-[10px]"
+            style={{
+              background: "rgba(0, 0, 0, 0.90))",
+            }}
+          >
+            <div className="w-[732px] h-[12px] bg-[#666]"></div>
+
+            <div className=" flex items-center  gap-[10px]  ">
+              <Image
+                src={video_volume}
+                alt=""
+                width={18}
+                className=" cursor-pointer"
+              ></Image>
+              <Image
+                src={video_cc}
+                width={20}
+                alt=""
+                className=" cursor-pointer"
+              ></Image>
+              <Image
+                src={video_setting}
+                width={15}
+                alt=""
+                className=" cursor-pointer"
+              ></Image>
+              <Image
+                src={video_full}
+                width={12}
+                alt=""
+                className=" cursor-pointer"
+              ></Image>
+            </div>
           </div>
         )}
         <VideoStateBox

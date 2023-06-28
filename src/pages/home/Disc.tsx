@@ -43,7 +43,6 @@ const Box = styled.div`
       }
       .film-master-map {
         opacity: 1;
-        background-color: red;
         transition: transform 450ms;
 
         transform: translateX(-20px);
@@ -52,10 +51,9 @@ const Box = styled.div`
   }
 `;
 const ImgBox = styled.div`
-  width: 300px;
-  height: 300px;
   mask-image: url(${cd_mask.src});
   mask-size: 100% 100%;
+  background-size: 100% 100%;
 `;
 
 const FilterBox = styled.div`
@@ -178,20 +176,18 @@ export default function Disc() {
     setMoveFlag(true);
   };
   const prePage = () => {
-    console.log(currentPage);
     if (currentPage <= -3) {
       return;
     }
     setCurrentPage(currentPage - 1);
   };
   const nextPage = () => {
-    console.log(currentPage);
-
     if (currentPage == 4) {
       return;
     }
     setCurrentPage(currentPage + 1);
   };
+
   return (
     <Box className="h-[1440px] max-md:h-full max-md:pb-[160px] w-screen flex  items-center justify-center max-md:justify-normal flex-col relative ">
       <FilterBox
@@ -221,16 +217,11 @@ export default function Disc() {
               ></Image>
 
               <ImgBox
+                className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden   "
                 style={{
                   backgroundImage: `url(${discImg.src})`,
                 }}
-              >
-                {/* <Image
-                  src={discImg}
-                  alt=""
-                  className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden  "
-                ></Image> */}
-              </ImgBox>
+              ></ImgBox>
             </FilmBox>
             <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
               <ChangeButton className="scale-x-[-1]" onClick={prePage}>
@@ -297,10 +288,14 @@ export default function Disc() {
           <RightDecoraton className="right-coraton  w-[329px] h-[176px] absolute transition-all duration-500  z-[5] max-md:hidden"></RightDecoraton>
         </div>
       </div>
+
       <div
-        className={` w-[10089px] flex items-center gap-[16px]  duration-500 transition-all relative z-[5] max-md:hidden`}
+        className={` w-[11404PX] flex items-center gap-[16px]  duration-500 transition-all relative z-[5] max-md:hidden `}
         style={{
-          transform: `translateX(${currentPage * 1215}px)`,
+          transform:
+            currentPage == -3
+              ? "translateX(-3311px)"
+              : `translateX(${1199 * currentPage}px)`,
         }}
       >
         {discList.map((item: DiscBoxProps) => (
