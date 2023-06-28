@@ -1,4 +1,5 @@
 
+"use client";
 import _ from "lodash";
 import Video from "./Video";
 import Image from "next/image";

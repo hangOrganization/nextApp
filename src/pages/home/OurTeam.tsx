@@ -1,4 +1,4 @@
-// import ourTeam_bg_gif from "@/assets/image/svg/ourTeam_bg.gif";
+"use client";
 import mobileOurTeam_bg from "@/assets/image/mobile/mobileOurTeam-bg.svg";
 import MentorInformation from "@/components/Modal/MentorInformation";
 import { teachers } from "@/utils/ourTeam";
@@ -48,12 +48,6 @@ const CardBox = styled.div`
   transition: all 150ms;
   background-size: contain;
   background-repeat: no-repeat;
-  @media (min-width: 768px) {
-    /* :hover {
-        height: 368px;
-        width: 237px;
-    } */
-  }
   @media not all and (min-width: 768px) {
     width: 154px;
     height: 239px;
@@ -190,7 +184,7 @@ export default function OurTeam({ }: OurTeamProps) {
                             </div>
                         </div>
                     </div>
-                    <div className="flex w-screen md:gap-[67px] max-md:pb-20 max-md:mt-10 md:my-20">
+                    <div className="flex w-screen md:gap-[67px] overflow-hidden max-md:pb-20 max-md:mt-10 md:py-20">
                         <RollBox className={`flex ${cardHover} max-md:w-screen md:w-[3581px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}>
                             {[...teachers, ...teachers, ...teachers].map(
                                 (el: any, index: number) => (

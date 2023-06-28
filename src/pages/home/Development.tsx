@@ -1,3 +1,4 @@
+"use client";
 import Development_bg from '@/assets/image/svg/development-bg.png'
 import signCharacteristic_bg from '@/assets/image/svg/signCharacteristic-bg.svg'
 import CampusEnvironment from '@/components/Modal/CampusEnvironment';
