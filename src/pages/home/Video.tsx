@@ -117,7 +117,6 @@ export default function Video() {
                   e.preventDefault();
                   e.stopPropagation();
                 }}
-                cla
                 className=" cursor-pointer"
               ></Image>
               <Image
