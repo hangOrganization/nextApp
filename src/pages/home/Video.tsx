@@ -54,7 +54,6 @@ export default function Video() {
   const videoRef = useRef<any>();
   // const [clickNumber, setClickNumber] = useState(1);
   const changeVideoState = () => {
-    console.log(1231231);
     videoRef.current.paused
       ? videoRef.current?.play()
       : videoRef.current?.pause();
@@ -117,7 +116,6 @@ export default function Video() {
                   e.preventDefault();
                   e.stopPropagation();
                 }}
-                cla
                 className=" cursor-pointer"
               ></Image>
               <Image
@@ -149,6 +147,18 @@ export default function Video() {
                   console.log(1321);
                   e.stopPropagation();
                   videoRef.current.requestFullscreen();
+
+                  if (videoRef.current.requestFullscreen) {
+                    videoRef.current.requestFullscreen();
+                  } else if (videoRef.current.mozRequestFullScreen) {
+                    videoRef.current.mozRequestFullScreen();
+                  } else if (videoRef.current.msRequestFullscreen) {
+                    videoRef.current.msRequestFullscreen();
+                  } else if (videoRef.current.oRequestFullscreen) {
+                    videoRef.current.oRequestFullscreen();
+                  } else if (videoRef.current.webkitRequestFullscreen) {
+                    videoRef.current.webkitRequestFullscreen;
+                  }
                 }}
                 className=" cursor-pointer"
               ></Image>
@@ -180,7 +190,23 @@ export default function Video() {
         </VideoStateBox>
         <video
           onClick={() => {
-            console.log(1111);
+            console.log();
+            if (window.document.fullscreenElement) {
+              !videoRef.current.paused
+                ? videoRef.current?.play()
+                : videoRef.current?.pause();
+              videoRef.current.paused
+                ? setVideoState(true)
+                : setVideoState(false);
+            } else {
+              videoRef.current.paused
+                ? videoRef.current?.play()
+                : videoRef.current?.pause();
+
+              videoRef.current.paused
+                ? setVideoState(false)
+                : setVideoState(true);
+            }
           }}
           className="mx-auto max-md:hidden relative z-[1]"
           id="playChatVideo"
