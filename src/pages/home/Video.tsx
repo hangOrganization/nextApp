@@ -51,10 +51,14 @@ const VideoStateBox = styled.div`
 
 export default function Video() {
   const [videoState, setVideoState] = useState(false);
+  const [videoEnd, setVideoEnd] = useState(false);
   const videoRef = useRef<any>();
   // const [clickNumber, setClickNumber] = useState(1);
   const changeVideoState = () => {
-    console.log(1231231);
+    if (videoEnd) {
+      videoRef.current?.pause();
+      setProgress(0);
+    }
     videoRef.current.paused
       ? videoRef.current?.play()
       : videoRef.current?.pause();
@@ -63,14 +67,14 @@ export default function Video() {
 
   const [progress, setProgress] = useState(0);
 
-  const handleSeek = (event: { target: { value: number } }) => {
+  const handleSeek = (event: { target: any }) => {
     videoRef.current.currentTime =
-      (event.target.value * videoRef.current.duration) / 100;
+      (event.target.value * videoRef.current.duration) / 100000000;
   };
 
   const handleTimeUpdate = () => {
     setProgress(
-      (videoRef.current.currentTime / videoRef.current.duration) * 100
+      (videoRef.current.currentTime / videoRef.current.duration) * 100000000
     );
   };
   return (
@@ -96,29 +100,42 @@ export default function Video() {
             }}
           >
             <input
-              className="w-[732px] h-[12px] bg-[#666]"
+              className="w-[732px] h-[12px] input-box  "
               type="range"
-              name=""
-              id=""
               value={progress}
               onChange={(e) => {
-                handleSeek;
+                handleSeek(e);
               }}
               min={0}
-              max={100}
+              max={100000000}
             />
 
             <div className=" flex items-center  gap-[10px]   ">
-              <Image
-                src={video_volume}
-                alt=""
-                width={18}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
-                className=" cursor-pointer"
-              ></Image>
+              <div className=" relative">
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  className=" absolute top-[-60px] left-[-30px] rotate-[-90deg] w-[80px]"
+                  onChange={(e: any) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log();
+                    videoRef.current.volume = e.target.value / 100;
+                  }}
+                />
+
+                <Image
+                  src={video_volume}
+                  alt=""
+                  width={18}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                  className=" cursor-pointer"
+                ></Image>
+              </div>
               <Image
                 src={video_cc}
                 width={20}
@@ -129,23 +146,54 @@ export default function Video() {
                 }}
                 className=" cursor-pointer"
               ></Image>
-              <Image
-                src={video_setting}
-                width={15}
-                alt=""
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
-                className=" cursor-pointer"
-              ></Image>
+              <div className=" relative">
+                <div className=" absolute top-[-100px] text-center left-[-5px]">
+                  <div
+                    onClick={() => {
+                      videoRef.current.playbackRate = 0.5;
+                    }}
+                  >
+                    x0.5
+                  </div>
+                  <div
+                    onClick={() => {
+                      videoRef.current.playbackRate = 1;
+                    }}
+                  >
+                    x1
+                  </div>
+                  <div
+                    onClick={() => {
+                      videoRef.current.playbackRate = 1.5;
+                    }}
+                  >
+                    x1.5
+                  </div>
+                  <div
+                    onClick={() => {
+                      videoRef.current.playbackRate = 2;
+                    }}
+                  >
+                    x2
+                  </div>
+                </div>
+                <Image
+                  src={video_setting}
+                  width={15}
+                  alt=""
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                  className=" cursor-pointer"
+                ></Image>
+              </div>
               <Image
                 src={video_full}
                 width={12}
                 alt=""
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(1321);
                   e.stopPropagation();
                   videoRef.current.requestFullscreen();
                 }}
@@ -179,7 +227,30 @@ export default function Video() {
         </VideoStateBox>
         <video
           onClick={() => {
-            console.log(1111);
+            if (videoEnd) {
+              videoRef.current?.pause();
+              setProgress(0);
+            }
+            if (window.document.fullscreenElement) {
+              !videoRef.current.paused
+                ? videoRef.current?.play()
+                : videoRef.current?.pause();
+              videoRef.current.paused
+                ? setVideoState(true)
+                : setVideoState(false);
+            } else {
+              videoRef.current.paused
+                ? videoRef.current?.play()
+                : videoRef.current?.pause();
+
+              videoRef.current.paused
+                ? setVideoState(false)
+                : setVideoState(true);
+            }
+          }}
+          onEnded={() => {
+            setVideoState(false);
+            setVideoEnd(true);
           }}
           className="mx-auto max-md:hidden relative z-[1]"
           id="playChatVideo"

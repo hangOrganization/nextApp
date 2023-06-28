@@ -233,7 +233,7 @@ export default function Disc({}: DiscProps) {
         <div className={moveFlag ? "active-move" : ""}>
           <div className=" w-[1160px] max-md:w-full flex mb-[72px] relative mx-auto">
             <div className="flex">
-              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[1] max-md:hidden"></LeftDecoraton>
+              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5] max-md:hidden"></LeftDecoraton>
               <FilmBox className=" w-[492px] h-[492px]  max-md:w-[297px] max-md:h-[246px] mx-auto  flex items-center justify-center relative max-md:mt-[160px]">
                 <div className="bg-box w-screen h-[566px]"></div>
                 <Image
