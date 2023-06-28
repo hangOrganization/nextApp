@@ -10,8 +10,8 @@ import { Provider } from "react-redux";
 import Header from "@/components/Header";
 import Introduction from "./Introduction";
 import { useEffect, useState } from "react";
-import ShadowBg from "@/components/ShadowBg";
-import { Pagination, Navigation } from "swiper";
+// import ShadowBg from "@/components/ShadowBg";
+// import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Homepage() {
@@ -32,7 +32,7 @@ export default function Homepage() {
   return (
     <Provider store={store}>
       <div className={`relative`}>
-        <ShadowBg />
+        {/* <ShadowBg /> */}
         <Header
           isOpenConsult={isOpenConsult}
           setIsOpenConsult={setIsOpenConsult}
@@ -43,13 +43,14 @@ export default function Homepage() {
         <Swiper
           id="Swiper"
           direction={"vertical"}
-          pagination={{
-            clickable: true,
-            type: "fraction",
-          }}
-          navigation={true}
-          modules={[Pagination, Navigation]}
-          className="mySwiper max-md:hidden w-screen h-screen"
+          effect='fade'
+          // pagination={{
+          //   clickable: true,
+          //   type: "fraction",
+          // }}
+          // navigation={true}
+          // modules={[Pagination, Navigation]}
+          className="mySwiper max-md:!hidden w-screen h-screen"
         >
           <SwiperSlide>
             <Sign />
