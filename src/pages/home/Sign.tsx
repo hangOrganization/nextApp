@@ -30,6 +30,7 @@ export default function Sign({ }: SignProps) {
     dispatch(setOuterWidth(window.outerWidth))
   })
   const swiper = useSwiper()
+
   return (
     <div className="relative max-md:pb-20 md:h-screen w-screen"
       onWheel={
