@@ -24,6 +24,14 @@ import Yoga from "../assets/image/disc-icon/Yoga.jpg";
 
 export default [
   {
+    title: "Yoga",
+    src: Yoga,
+    type: ["冥想氛围", "瑜伽"],
+    bg: Yoga,
+    key: 27,
+    url: "http://www.soundpic.cn/album?id=063e518aabb84faa80555bfd286fc19a",
+  },
+  {
     title: "Bright",
     src: Bright,
     type: ["轻松氛围", "明快"],
@@ -212,5 +220,14 @@ export default [
     bg: Yoga,
     key: 22,
     url: "http://www.soundpic.cn/album?id=063e518aabb84faa80555bfd286fc19a",
+  },
+
+  {
+    title: "Bright",
+    src: Bright,
+    type: ["轻松氛围", "明快"],
+    bg: Bright,
+    key: 26,
+    url: "http://www.soundpic.cn/album?id=25164c8686d54d76b451b2d5f061a30f",
   },
 ];

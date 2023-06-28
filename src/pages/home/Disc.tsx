@@ -1,4 +1,3 @@
-
 "use client";
 import styled from "styled-components";
 import disc_bg from "@/assets/image/svg/disc-bg.svg";
@@ -10,7 +9,8 @@ import disc_right_decoraton from "@/assets/image/svg/disc-right-decoration.svg";
 import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
 import disc_mobile_bg from "../../assets/image/mobile/mobile-disc-bg.png";
-
+import cd_mask from "../../assets/image/disc-icon/CDMask.png";
+import text_bg from "../../assets/image/disc-icon/Bright.png";
 import { useState } from "react";
 import BusinessPartner from "./BusinessPartner";
 import Footer from "@/components/Footer";
@@ -52,6 +52,7 @@ const Box = styled.div`
       .film-master-map {
         opacity: 1;
         transition: transform 450ms;
+
         transform: translateX(-20px);
       }
     }
@@ -100,10 +101,13 @@ const LeftDecoraton = styled.div`
   background: url(${disc_left_decoraton.src});
   margin-top: auto;
   transform: translateX(5px);
+  background-blend-mode: overlay;
+
   background-repeat: no-repeat;
 `;
 const RightDecoraton = styled.div`
   mix-blend-mode: overlay;
+  background-blend-mode: overlay;
   background: url(${disc_right_decoraton.src});
   background-repeat: no-repeat;
   top: -150px;
@@ -122,6 +126,7 @@ const FilmBox = styled.div`
       left: 0;
       transition: transform 450ms;
     }
+
     .film-mask {
       transition: opacity 600ms, transform 450ms;
       opacity: 1;
@@ -161,13 +166,18 @@ const ChangeButton = styled.div`
     }
   }
 `;
-interface DiscProps {
-}
-export default function Disc({ }: DiscProps) {
-  const swiper = useSwiper()
-  const innerWidth = useOuterWidth()
-  const dispatch = useAppDispatch()
-  const throttleFlag = useThrottleFlag()
+const ImgBox = styled.div`
+  mask-image: url(${cd_mask.src});
+  mask-size: 100% 100%;
+  background-size: 100% 100%;
+`;
+
+interface DiscProps {}
+export default function Disc({}: DiscProps) {
+  const swiper = useSwiper();
+  const innerWidth = useOuterWidth();
+  const dispatch = useAppDispatch();
+  const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
   const [currentPage, setCurrentPage] = useState(1);
@@ -183,39 +193,37 @@ export default function Disc({ }: DiscProps) {
     setMoveFlag(true);
   };
   const prePage = () => {
-    console.log(currentPage);
     if (currentPage <= -3) {
       return;
     }
     setCurrentPage(currentPage - 1);
   };
   const nextPage = () => {
-    console.log(currentPage);
-
     if (currentPage == 4) {
       return;
     }
     setCurrentPage(currentPage + 1);
   };
+
   return (
-    <div className="md:h-screen md:overflow-auto "
-      onScroll={
-        (e: any) => {
-          if(throttleFlag)return
-          if (innerWidth > 768) {
-            if (e.target.scrollTop === 0) {
-              dispatch(setThrottleFlag(true))
-              swiper.slidePrev(1000)
-              setTimeout(()=>{
-                dispatch(setThrottleFlag(false))
-              },1000)
-            }
+    <div
+      className="md:h-screen md:overflow-auto "
+      onScroll={(e: any) => {
+        if (throttleFlag) return;
+        if (innerWidth > 768) {
+          if (e.target.scrollTop === 0) {
+            dispatch(setThrottleFlag(true));
+            swiper.slidePrev(1000);
+            setTimeout(() => {
+              dispatch(setThrottleFlag(false));
+            }, 1000);
           }
-        }}
+        }
+      }}
     >
       <Box className="h-[1440px] max-md:h-full max-md:pb-[160px] w-screen flex  items-center justify-center max-md:justify-normal flex-col relative ">
         <FilterBox
-          className="fliter-box z-[1] max-md:hidden"
+          className="fliter-box z-[4] max-md:hidden"
           style={{
             backgroundImage:
               discImg.src != disc_acquiesce.src ? `url(${discImg.src})` : "",
@@ -225,10 +233,9 @@ export default function Disc({ }: DiscProps) {
         <div className={moveFlag ? "active-move" : ""}>
           <div className=" w-[1160px] max-md:w-full flex mb-[72px] relative mx-auto">
             <div className="flex">
-              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5] max-md:hidden"></LeftDecoraton>
+              <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[1] max-md:hidden"></LeftDecoraton>
               <FilmBox className=" w-[492px] h-[492px]  max-md:w-[297px] max-md:h-[246px] mx-auto  flex items-center justify-center relative max-md:mt-[160px]">
                 <div className="bg-box w-screen h-[566px]"></div>
-
                 <Image
                   src={disc_film}
                   alt=""
@@ -239,12 +246,12 @@ export default function Disc({ }: DiscProps) {
                   alt=""
                   className="film-mask   w-[492px] h-[492px] relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
                 ></Image>
-
-                <Image
-                  src={discImg}
-                  alt=""
-                  className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden  "
-                ></Image>
+                <ImgBox
+                  className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden   "
+                  style={{
+                    backgroundImage: `url(${discImg.src})`,
+                  }}
+                ></ImgBox>
               </FilmBox>
               <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
                 <ChangeButton className="scale-x-[-1]" onClick={prePage}>
@@ -311,9 +318,12 @@ export default function Disc({ }: DiscProps) {
           </div>
         </div>
         <div
-          className={` w-[10089px] flex items-center gap-[16px]  duration-500 transition-all relative z-[5] max-md:hidden`}
+          className={` w-[11404PX] flex items-center gap-[16px]  duration-500 transition-all relative z-[5] max-md:hidden `}
           style={{
-            transform: `translateX(${currentPage * 1215}px)`,
+            transform:
+              currentPage == -3
+                ? "translateX(-3311px)"
+                : `translateX(${1199 * currentPage}px)`,
           }}
         >
           {discList.map((item: DiscBoxProps) => (
