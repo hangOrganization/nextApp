@@ -130,7 +130,7 @@ export default function OurTeam({ }: OurTeamProps) {
                             dispatch(setActiveIndex(3))
                             setTimeout(() => {
                                 dispatch(setThrottleFlag(false))
-                            }, 1000)
+                            }, 1500)
                         }
                     }
                 }}

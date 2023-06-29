@@ -65,11 +65,10 @@ export default function Products({ value, setValue }: ProductsProps) {
                             if (value === 2) {
                                 dispatch(setThrottleFlag(true))
                                 swiper.slideNext(1000);
-                                // swiper.slidePrev(1000);
                                 dispatch(setActiveIndex(3))
                                 setTimeout(() => {
                                     dispatch(setThrottleFlag(false))
-                                }, 1000)
+                                }, 1500)
                             }
                         }
                     }
@@ -94,7 +93,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                 dispatch(setActiveIndex(1))
                                 setTimeout(() => {
                                     dispatch(setThrottleFlag(false))
-                                }, 1000)
+                                }, 1500)
                             }
                         } else if (value === 2) {
                             if (e.deltaY < 0) {

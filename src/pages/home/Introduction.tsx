@@ -36,7 +36,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                         swiper.slidePrev(1000)
                         setTimeout(() => {
                             dispatch(setThrottleFlag(false))
-                        }, 1000)
+                        }, 1500)
                     }
                     if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
                         dispatch(setThrottleFlag(true))
@@ -44,7 +44,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                         dispatch(setActiveIndex(2))
                         setTimeout(() => {
                             dispatch(setThrottleFlag(false))
-                        }, 1000)
+                        }, 1500)
                     }
                 }
             }}

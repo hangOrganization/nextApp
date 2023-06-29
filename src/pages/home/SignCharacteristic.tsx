@@ -175,7 +175,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                                 dispatch(setActiveIndex(4))
                                                 setTimeout(() => {
                                                     dispatch(setThrottleFlag(false))
-                                                }, 1000)
+                                                }, 1500)
                                             }
                                         }
                                     }
