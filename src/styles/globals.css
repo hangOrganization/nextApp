@@ -45,6 +45,11 @@
 }
 @font-face {
   font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-55-Regular.otf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
   src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-65-Medium.otf');
   font-weight: 500;
 }

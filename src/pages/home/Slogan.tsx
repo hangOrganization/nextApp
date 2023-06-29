@@ -68,8 +68,11 @@ const MoveBox = styled.div`
         left: 48px;
         transform: translate(0, -50%);
         transition: all 300ms;
+        font-weight: 400;
+
         p:last-child {
           opacity: 0.6;
+          font-weight: 300;
         }
       }
       .go-button {
@@ -104,7 +107,7 @@ export default function Slogan() {
         >
           <MoveBox className="w-[592px]  max-md:w-[344px] h-[128px]  max-md:h-[143px] m-auto flex justify-center  max-md:flex-col items-center relative py-[38px]  max-md:py-[16px]">
             <div className="export-text  font-[250] text-[16px] leading-[180%] uppercase tracking-[0.2em] text-[#ff4b00] max-md:text-[#CCC]  flex flex-col justify-center items-center absolute z-[2] max-md:relative">
-              <p className="mb-[8px] text-[24px]  max-md:text-[20px]  font-[400]  max-md:font-[250]   max-md:translate-[0]">
+              <p className="mb-[8px] text-[24px]  max-md:text-[20px]    max-md:font-[250]   max-md:translate-[0]">
                 探索更多声音服务
               </p>
               <p className=" max-md:text-[12px]  max-md:font-[300]  max-md:tracking-[2.4px]  max-md:mb-[24px] max-md:font[250]">
