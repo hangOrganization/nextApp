@@ -13,7 +13,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { useAppDispatch } from '@/state/hooks'
 import { useThrottleFlag } from '@/state/application/hooks'
-import { setThrottleFlag } from '@/state/application/reducer'
+import { setActiveIndex, setThrottleFlag } from '@/state/application/reducer'
 import { useSwiper } from 'swiper/react'
 import TitleBeam from '@/components/TitleBeam'
 
@@ -93,11 +93,12 @@ const ButtonBox = styled.div`
 interface SignCharacteristicProps {
     characteristicType: number
     innerWidth: number
+    setIsOpenCampus: Function
     setCharacteristicType: Function
     right: number
     setRight: Function
 }
-export default function SignCharacteristic({ innerWidth, setRight, right, characteristicType, setCharacteristicType }: SignCharacteristicProps) {
+export default function SignCharacteristic({ innerWidth, setRight, right, characteristicType, setCharacteristicType, setIsOpenCampus }: SignCharacteristicProps) {
     const swiper = useSwiper()
     const dispatch = useAppDispatch()
     const throttleFlag = useThrottleFlag()
@@ -106,9 +107,10 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
         <Box className="flex w-screen max-md:pb-[210px] z-50 md:overflow-hidden">
             <div className='flex relative'>
                 <SignBox className={`md:flex md:h-[1278px] max-md:pt-[300px] relative w-screen items-center justify-center`}
-                    onWheel={
+                    onWheelCapture={
                         (e: any) => {
                             if (throttleFlag) return
+                            if (e.deltaY > 20 || e.deltaY < -20) return
                             if (innerWidth > 768) {
                                 if (right === 0) {
                                     if (characteristicType === 0) {
@@ -117,7 +119,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setCharacteristicType(1)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         }
                                     } else if (characteristicType === 3) {
                                         if (e.deltaY < 0) {
@@ -125,14 +127,14 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setCharacteristicType(2)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         }
                                         if (e.deltaY > 0) {
                                             dispatch(setThrottleFlag(true))
                                             setRight(1)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
 
                                         }
                                     } else {
@@ -144,7 +146,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                         }
                                         setTimeout(() => {
                                             dispatch(setThrottleFlag(false))
-                                        }, 300)
+                                        }, 700)
                                     }
                                 } else {
                                     if (right === 1) {
@@ -153,13 +155,13 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setRight(0)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         } else {
                                             dispatch(setThrottleFlag(true))
                                             setRight(2)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         }
                                     } else {
                                         if (e.deltaY < 0) {
@@ -167,14 +169,15 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setRight(1)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         } else {
                                             if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1 && right === 2) {
                                                 dispatch(setThrottleFlag(true))
                                                 swiper.slideNext(1000);
+                                                dispatch(setActiveIndex(4))
                                                 setTimeout(() => {
                                                     dispatch(setThrottleFlag(false))
-                                                }, 1000)
+                                                }, 1700)
                                             }
                                         }
                                     }
@@ -295,7 +298,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                         <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2021年 十万象限教育咨询有限公司正式成立</p>
                                         <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2022年 UDC音乐艺术中心校区正式启用</p>
                                         <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2023年 西兴校区教学场地全新升级 扩建至1500平</p>
-                                        <ButtonBox className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center" onClick={() => { }}>
+                                        <ButtonBox className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center" onClick={() => setIsOpenCampus(1)}>
                                             了解校区环境
                                             <div style={{ border: '1px solid #CCC' }} className="w-6 hover ml-2 items-center justify-center flex rounded-full h-6">
                                                 <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -358,7 +361,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                     </div>
                                 </div>
                             </div>
-                            <ButtonBox className="p-4 ml-[96px] mt-[68px] text-[16px] w-[211px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]" onClick={() => { }}>
+                            <ButtonBox className="p-4 ml-[96px] mt-[68px] text-[16px] w-[211px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]" onClick={() => setIsOpenCampus(1)}>
                                 了解校区环境
                                 <div className="w-[36px] hover ml-[32px] items-center justify-center flex rounded-full h-[36px]">
                                     <svg

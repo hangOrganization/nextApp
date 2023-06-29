@@ -8,6 +8,12 @@ export function useOuterWidth() {
 export function useThrottleFlag() {
   return useAppSelector((state: AppState) => state.application.throttleFlag)
 }
+export function useActiveIndex() {
+  return useAppSelector((state: AppState) => state.application.activeIndex)
+}
+export function useIsChrome() {
+  return useAppSelector((state: AppState) => state.application.isChrome)
+}
 // export function useGrowthPoolValues() {
 //   return useAppSelector((state: AppState) => state.application.growthPoolValues)
 // }

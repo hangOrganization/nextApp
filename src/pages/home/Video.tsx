@@ -120,7 +120,6 @@ export default function Video() {
                   onChange={(e: any) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log();
                     videoRef.current.volume = e.target.value / 100;
                   }}
                 />

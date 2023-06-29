@@ -7,9 +7,9 @@ import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
-import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useIsChrome, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import { setThrottleFlag } from "@/state/application/reducer";
+import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 
 const OurTeamBox = styled.div`
   width: 100%;
@@ -106,12 +106,14 @@ const RollBox = styled.div`
   }
 `;
 interface OurTeamProps {
+    setIsOpenCampus:Function
 }
-export default function OurTeam({ }: OurTeamProps) {
+export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
     const swiper = useSwiper()
     const dispatch = useAppDispatch()
     const throttleFlag = useThrottleFlag()
     const innerWidth = useOuterWidth()
+    const isChrome = useIsChrome()
     const [right, setRight] = useState<number>(0)
     const [isOpen, setIsOpen] = useState<number>(0)
     const [textValue, setTextValue] = useState<number>(0)
@@ -126,22 +128,23 @@ export default function OurTeam({ }: OurTeamProps) {
                         if (e.target.scrollTop === 0) {
                             dispatch(setThrottleFlag(true))
                             swiper.slidePrev(1000)
+                            dispatch(setActiveIndex(3))
                             setTimeout(() => {
                                 dispatch(setThrottleFlag(false))
-                            }, 1000)
+                            }, 1700)
                         }
                     }
                 }}
         >
             <OurTeamBox>
-                <div className="absolute rounded-t-[48px] z-[-1] flex items-center justify-center overflow-hidden max-md:hidden top-[120xp] left-0 w-screen h-full">
+                <div className="absolute rounded-t-[48px] z-[-1] flex items-center justify-center overflow-hidden max-md:hidden left-0 w-screen h-full">
                     <video
                         autoPlay
                         muted
                         loop
                         className="scale-[1.6]"
                     >
-                        <source src="/video/OurTeam-bg.mp4" type="video/mp4"></source>
+                        <source src={isChrome ? '/video/OurTeam-bg.webm' : '/video/OurTeam-bg.mp4'} type={`${isChrome ? 'video/webm' : ' video/mp4'}`}></source>
                     </video>
                 </div>
                 <OurTeamBg>
@@ -224,6 +227,7 @@ export default function OurTeam({ }: OurTeamProps) {
             </OurTeamBox>
             <SignCharacteristic
                 right={right}
+                setIsOpenCampus={setIsOpenCampus}
                 setRight={setRight}
                 innerWidth={innerWidth}
                 characteristicType={characteristicType}

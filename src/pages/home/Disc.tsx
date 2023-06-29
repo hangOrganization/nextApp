@@ -19,7 +19,7 @@ import { useSwiper } from "swiper/react";
 import _ from "lodash";
 import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import { setThrottleFlag } from "@/state/application/reducer";
+import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 
 interface DiscBoxProps {
   title: string;
@@ -214,9 +214,10 @@ export default function Disc({}: DiscProps) {
           if (e.target.scrollTop === 0) {
             dispatch(setThrottleFlag(true));
             swiper.slidePrev(1000);
+            dispatch(setActiveIndex(3))
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
-            }, 1000);
+            }, 1700);
           }
         }
       }}
