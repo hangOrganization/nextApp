@@ -110,14 +110,14 @@ export default function Video() {
               max={100000000}
             />
 
-            <div className=" flex items-center  gap-[10px]   ">
+            <div className=" flex items-center  gap-[10px]">
               <div className=" relative">
                 <input
                   type="range"
                   min={0}
                   max={100}
                   className=" absolute top-[-60px] left-[-30px] rotate-[-90deg] w-[80px]"
-                  onChange={(e) => {
+                  onChange={(e: any) => {
                     e.preventDefault();
                     e.stopPropagation();
                     console.log();
