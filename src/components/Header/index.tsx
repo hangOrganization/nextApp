@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import CampusEnvironment from "../Modal/CampusEnvironment";
 import styled from "styled-components";
 import { useActiveIndex } from "@/state/application/hooks";
+import { useAppDispatch } from "@/state/hooks";
+import { setActiveIndex } from "@/state/application/reducer";
 
 interface HeaderProps {
   isOpenCampus: number;
@@ -37,6 +39,7 @@ export default function Header({
   scrollToView,
 }: HeaderProps) {
   const activeIndex = useActiveIndex()
+  const dispatch = useAppDispatch()
 
   return (
     <Box className="fixed z-[10000] w-screen pl-[48px] max-md:px-4 max-md:py-3  pr-6  py-4 left-0 flex items-center justify-between top-0">
@@ -52,22 +55,30 @@ export default function Header({
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${activeIndex === 3 ? "active-item " : ""}`}
-        >
+        onClick={()=>{
+          dispatch(setActiveIndex(3))
+        }}>
           师资团队
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 1 ? "active-item " : ""}`}
-        >
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 2 ? "active-item " : ""}`}
+          onClick={()=>{
+            dispatch(setActiveIndex(2))
+          }}>
           公司特色
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 9 ? "active-item " : ""}`}
-        >
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 99 ? "active-item " : ""}`}
+          onClick={()=>{
+            dispatch(setActiveIndex(3))
+          }}>
           关于我们
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] max-md:hidden flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 4 ? "active-item " : ""}`}
-        >
+          onClick={()=>{
+            dispatch(setActiveIndex(4))
+          }} >
           原创音乐计划
         </div>
 

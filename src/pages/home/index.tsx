@@ -45,6 +45,7 @@ export default function Homepage() {
           id="Swiper"
           direction={"vertical"}
           effect='fade'
+          threshold ={100}
           // pagination={{
           //   clickable: true,
           //   type: "fraction",

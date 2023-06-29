@@ -117,7 +117,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setCharacteristicType(1)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         }
                                     } else if (characteristicType === 3) {
                                         if (e.deltaY < 0) {
@@ -125,14 +125,14 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setCharacteristicType(2)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         }
                                         if (e.deltaY > 0) {
                                             dispatch(setThrottleFlag(true))
                                             setRight(1)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
 
                                         }
                                     } else {
@@ -144,7 +144,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                         }
                                         setTimeout(() => {
                                             dispatch(setThrottleFlag(false))
-                                        }, 300)
+                                        }, 700)
                                     }
                                 } else {
                                     if (right === 1) {
@@ -153,13 +153,13 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setRight(0)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         } else {
                                             dispatch(setThrottleFlag(true))
                                             setRight(2)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         }
                                     } else {
                                         if (e.deltaY < 0) {
@@ -167,7 +167,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             setRight(1)
                                             setTimeout(() => {
                                                 dispatch(setThrottleFlag(false))
-                                            }, 300)
+                                            }, 700)
                                         } else {
                                             if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1 && right === 2) {
                                                 dispatch(setThrottleFlag(true))

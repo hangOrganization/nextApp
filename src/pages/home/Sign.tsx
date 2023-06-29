@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import Image from "next/image";
 import sign_logo from "@/assets/image/svg/sign-logo.svg";
 import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
@@ -16,7 +16,7 @@ import {
 import { useSwiper } from 'swiper/react';
 import _ from "lodash";
 import { useAppDispatch } from "@/state";
-import { useIsChrome, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useActiveIndex, useIsChrome, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
 import { setActiveIndex, setOuterWidth, setThrottleFlag } from "@/state/application/reducer";
 
 
@@ -25,19 +25,27 @@ interface SignProps {
 export default function Sign({ }: SignProps) {
   const throttleFlag = useThrottleFlag()
   const innerWidth = useOuterWidth()
+  const activeIndex = useActiveIndex()
   const dispatch = useAppDispatch()
   const isChrome = useIsChrome()
+  const swiper = useSwiper()
   useEffect(() => {
     dispatch(setOuterWidth(window.outerWidth))
   })
-  const swiper = useSwiper()
+  useEffect(() => {
+    if (swiper) {
+      if (swiper.activeIndex !== activeIndex) {
+        swiper.slideTo(activeIndex, 1000, false);
+      }
+    }
+  }, [activeIndex])
   return (
     <div className="relative max-md:pb-20 md:h-screen w-screen"
       onWheel={
         (e: any) => {
           if (throttleFlag) return
           if (innerWidth > 768) {
-            if (e.deltaY > 0) {
+            if (e.deltaY > 20) {
               dispatch(setThrottleFlag(true))
               swiper.slideNext(1000);
               dispatch(setActiveIndex(1))

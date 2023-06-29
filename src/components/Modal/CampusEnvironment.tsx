@@ -2,10 +2,8 @@
 import "swiper/css";
 import Image from 'next/image'
 import "swiper/css/pagination";
-import { Pagination, Navigation, FreeMode, Thumbs } from "swiper";
 import styled from "styled-components"
 import { Fragment, useState } from "react"
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Dialog, Transition } from "@headlessui/react"
 import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.png"
 import campusEnvironment_2 from "@/assets/image/campusEnvironment/campusEnvironment-2.png"
@@ -105,7 +103,7 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-black bg-opacity-80" />
+                    <div className="fixed inset-0 bg-black bg-opacity-100" />
                 </Transition.Child>
                 <div className="fixed inset-0 overflow-y-auto">
                     <div className="flex min-h-full items-center justify-center p-4 text-center">
@@ -119,38 +117,56 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                             leaveTo="opacity-0 scale-95"
                         >
                             <Dialog.Panel className="text-center w-screen">
-                                <div className="w-[1200px] mx-auto flex justify-center overflow-x-hidden">
-                                    <div className="w-[694px] flex items-center h-[520px]">
-                                        <div className="flex gap-6">
+                                <div className="w-[1200px] mx-auto items-center h-[520px] flex justify-center relative overflow-x-hidden">
+                                    <div className="w-[644px] flex items-center h-[520px]">
+                                        <div style={{ transform: `translateX(-${currentPage * 668}px)` }} className={`flex transition-all duration-500 gap-6`}>
                                             {list.map((el: any) => (
-                                                <Image key={`CampusEnvironment-${el.index}`}  src={el.image} alt="" />
+                                                <Image className="w-[644px] h-[520px]" key={`CampusEnvironment-${el.index}`} src={el.image} alt="" />
                                             ))
                                             }
                                         </div>
                                     </div>
-                                </div>
-                                <p className=" font-light text-[14px] leading-[180%]">{list[currentPage].name}</p>
-                                <div className="flex mt-[40px] justify-center relative items-center gap-4">
-                                    <div className="flex relative w-[336px] justify-end items-center gap-4">
-                                        {list.slice(currentPage > 4 ? currentPage - 4 : 0, currentPage).map((el: any, index: number) => (
-                                            <Image className="w-[70px] h-[70px] cursor-pointer" key={`CampusEnvironment-${index}`} src={el.image} alt=""
-                                                onClick={() => {
-                                                    setCurrentPage(el.index)
-                                                }} />
-                                        ))}
-                                    </div>
-                                    <div style={{ border: ' 1px solid #FF4B00' }} className="p-2">
-                                        <Image className="w-[70px] h-[70px]" src={list[currentPage].image} alt="" />
-                                    </div>
-                                    <div className="flex w-[336px] justify-start items-center gap-4">
-                                        {list.slice(currentPage + 1, currentPage + 5).map((el: any, index: number) => (
-                                            <Image className="w-[70px] cursor-pointer h-[70px]" key={`CampusEnvironment-${index}`} src={el.image} alt=""
-                                                onClick={() => {
-                                                    setCurrentPage(el.index)
-                                                }} />
-                                        ))}
+                                    <div style={{ background: 'linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 1) 100%)' }} className=" w-52 h-full absolute top-0 left-0"></div>
+                                    <div style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 1) 100%)' }} className=" w-52 h-full absolute top-0 right-0"></div>
+                                    <div className="w-[1200px] mx-auto items-center h-[520px] flex justify-center absolute top-0 left-0 overflow-x-hidden">
+                                        <div className="w-[644px] flex items-center h-[520px]">
+                                            <div style={{ transform: `translateX(-${currentPage * 668}px)` }} className={`flex opacity-0 transition-all duration-500 gap-6`}>
+                                                {list.map((el: any) => (
+                                                    <Image className="w-[644px] cursor-pointer h-[520px]" key={`CampusEnvironment-${el.index}`} src={el.image} alt="" onClick={()=>setCurrentPage(el.index)} />
+                                                ))
+                                                }
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <p className=" font-light text-[14px] mt-8 leading-[180%]">{list[currentPage].name}</p>
+                                <div className="flex mt-[64px] justify-center relative w-[758px] overflow-hidden mx-auto items-center gap-4">
+                                    <div style={{ border: ' 1px solid #FF4B00' }} className="flex w-[86px] items-center h-[86px] p-2">
+                                        <div style={{ transform: `translateX(-${currentPage * 86}px)` }} className="flex transition-all duration-500 gap-4">
+                                            {list.map((el: any) => (
+                                                <Image key={`CampusEnvironment-${el.index}-min`} className="w-[70px] h-[70px]" src={el.image} alt=""
+                                                    onClick={() => {
+                                                        setCurrentPage(el.index)
+                                                    }} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div style={{ background: 'linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)' }} className=" w-[300px] h-full absolute top-0 left-0"></div>
+                                    <div style={{ background: 'linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)' }} className=" w-[300px] h-full absolute top-0 right-0"></div>
+                                    <div className="flex absolute justify-center w-[758px] overflow-hidden top-0 left-0 opacity-0 items-center gap-4">
+                                        <div style={{ border: ' 1px solid #FF4B00' }} className="flex w-[86px] items-center h-[86px] p-2">
+                                            <div style={{ transform: `translateX(-${currentPage * 86}px)` }} className="flex transition-all duration-500 gap-4">
+                                                {list.map((el: any) => (
+                                                    <Image key={`CampusEnvironment-${el.index}-min`} className="w-[70px] h-[70px]" src={el.image} alt=""
+                                                        onClick={() => {
+                                                            setCurrentPage(el.index)
+                                                        }} />
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="mt-4 font-light text-[#FF4B00] text-[14px] leading-[180%]">{currentPage + 1}/{list.length}</p>
                             </Dialog.Panel>
                         </Transition.Child>
                     </div>
