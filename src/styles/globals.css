@@ -75,4 +75,16 @@ body {
   font-style: normal;
   color: #FFFFFF;
   /* box-sizing: border-box; */
+
+
+}
+*::-webkit-scrollbar {
+	display: none;
+}
+
+* {
+	scrollbar-width: none;
+}
+* {
+	-ms-overflow-style: none;
 }

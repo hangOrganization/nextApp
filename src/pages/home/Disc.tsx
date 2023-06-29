@@ -102,6 +102,7 @@ const LeftDecoraton = styled.div`
   margin-top: auto;
   transform: translateX(5px);
   background-blend-mode: overlay;
+  opacity: 0.3;
 
   background-repeat: no-repeat;
 `;
@@ -111,6 +112,7 @@ const RightDecoraton = styled.div`
   background: url(${disc_right_decoraton.src});
   background-repeat: no-repeat;
   top: -150px;
+  opacity: 0.3;
   right: 45px;
 `;
 
@@ -214,7 +216,7 @@ export default function Disc({}: DiscProps) {
           if (e.target.scrollTop === 0) {
             dispatch(setThrottleFlag(true));
             swiper.slidePrev(1000);
-            dispatch(setActiveIndex(3))
+            dispatch(setActiveIndex(3));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
             }, 1700);
@@ -228,7 +230,7 @@ export default function Disc({}: DiscProps) {
           style={{
             backgroundImage:
               discImg.src != disc_acquiesce.src ? `url(${discImg.src})` : "",
-            opacity: discImg.src != disc_acquiesce.src ? 0.15 : 0,
+            opacity: discImg.src != disc_acquiesce.src ? 0.2 : 0,
           }}
         ></FilterBox>
         <div className={moveFlag ? "active-move" : ""}>
