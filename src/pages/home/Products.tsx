@@ -56,7 +56,7 @@ export default function Products({ value, setValue }: ProductsProps) {
     const swiper = useSwiper()
     const innerWidth = useOuterWidth()
     return (
-        <div className=" md:h-screen md:pt-[120px] md:overflow-auto"
+        <div className={`md:h-screen md:pt-[120px] ${value===2?'md:overflow-auto':'md:overflow-hidden'}`}
             onScroll={(e: any) => {
                 if (innerWidth > 768) {
                     if (throttleFlag) return
@@ -77,49 +77,49 @@ export default function Products({ value, setValue }: ProductsProps) {
             }
         >
             <div className="md:relative"
-                onWheel={(e: any) => {
-                    if (throttleFlag) return
-                    if (innerWidth > 768) {
-                        if (value === 0) {
-                            if (e.deltaY > 0) {
-                                dispatch(setThrottleFlag(true))
-                                setValue(1)
-                                setTimeout(() => {
-                                    dispatch(setThrottleFlag(false))
-                                }, 700)
-                            } else {
-                                dispatch(setThrottleFlag(true))
-                                swiper.slidePrev(1000);
-                                dispatch(setActiveIndex(1))
-                                setTimeout(() => {
-                                    dispatch(setThrottleFlag(false))
-                                }, 1500)
-                            }
-                        } else if (value === 2) {
-                            if (e.deltaY < 0) {
-                                dispatch(setThrottleFlag(true))
-                                setTimeout(() => {
-                                    dispatch(setThrottleFlag(false))
-                                }, 700)
-                                setValue(1)
-                            }
-                        } else {
-                            if (e.deltaY < 0) {
-                                setValue(0)
-                            } else {
-                                setValue(2)
-                            }
-                            dispatch(setThrottleFlag(true))
-                            setTimeout(() => {
-                                dispatch(setThrottleFlag(false))
-                            }, 700)
-                        }
-                    }
-                }}>
+            >
                 <Image className="max-md:hidden absolute left-0 top-[100px]" src={shadow_bg_3} alt="" />
                 <Image className="max-md:hidden absolute right-0 top-[80px]" src={shadow_bg_4} alt="" />
                 <div id='Products' className='flex pt-[74px] md:w-[1200px] md:mx-auto overflow-x-auto max-md:w-screen]'
-
+                    onWheel={(e: any) => {
+                        if (throttleFlag) return
+                        if (innerWidth > 768) {
+                            if (value === 0) {
+                                if (e.deltaY > 0) {
+                                    dispatch(setThrottleFlag(true))
+                                    setValue(1)
+                                    setTimeout(() => {
+                                        dispatch(setThrottleFlag(false))
+                                    }, 700)
+                                } else {
+                                    dispatch(setThrottleFlag(true))
+                                    swiper.slidePrev(1000);
+                                    dispatch(setActiveIndex(1))
+                                    setTimeout(() => {
+                                        dispatch(setThrottleFlag(false))
+                                    }, 1500)
+                                }
+                            } else if (value === 2) {
+                                if (e.deltaY < 0) {
+                                    dispatch(setThrottleFlag(true))
+                                    setTimeout(() => {
+                                        dispatch(setThrottleFlag(false))
+                                    }, 700)
+                                    setValue(1)
+                                }
+                            } else {
+                                if (e.deltaY < 0) {
+                                    setValue(0)
+                                } else {
+                                    setValue(2)
+                                }
+                                dispatch(setThrottleFlag(true))
+                                setTimeout(() => {
+                                    dispatch(setThrottleFlag(false))
+                                }, 700)
+                            }
+                        }
+                    }}
                 >
                     <div className="md:flex w-[100%] items-center justify-between">
                         <ProductsBox className="max-md:text-center max-md:!pt-[45px]">
