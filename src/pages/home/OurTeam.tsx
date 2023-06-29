@@ -131,7 +131,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
                             dispatch(setActiveIndex(3))
                             setTimeout(() => {
                                 dispatch(setThrottleFlag(false))
-                            }, 1500)
+                            }, 1700)
                         }
                     }
                 }}

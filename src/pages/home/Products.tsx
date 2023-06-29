@@ -56,19 +56,19 @@ export default function Products({ value, setValue }: ProductsProps) {
     const swiper = useSwiper()
     const innerWidth = useOuterWidth()
     return (
-        <div className={`md:h-screen md:pt-[120px] ${value===2?'md:overflow-auto':'md:overflow-hidden'}`}
+        <div className={`md:h-screen md:pt-[120px] ${value === 2 ? 'md:overflow-auto' : 'md:overflow-hidden'}`}
             onScroll={(e: any) => {
                 if (innerWidth > 768) {
                     if (throttleFlag) return
                     if (innerWidth > 768) {
-                        if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
+                        if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 10) {
                             if (value === 2) {
                                 dispatch(setThrottleFlag(true))
                                 swiper.slideNext(1000);
                                 dispatch(setActiveIndex(3))
                                 setTimeout(() => {
                                     dispatch(setThrottleFlag(false))
-                                }, 1500)
+                                }, 1000)
                             }
                         }
                     }
@@ -81,7 +81,9 @@ export default function Products({ value, setValue }: ProductsProps) {
                 <Image className="max-md:hidden absolute left-0 top-[100px]" src={shadow_bg_3} alt="" />
                 <Image className="max-md:hidden absolute right-0 top-[80px]" src={shadow_bg_4} alt="" />
                 <div id='Products' className='flex pt-[74px] md:w-[1200px] md:mx-auto overflow-x-auto max-md:w-screen]'
-                    onWheel={(e: any) => {
+                    onWheelCapture={(e: any) => {
+                        if (e.deltaY > 20 || e.deltaY < -20) return
+                        console.log("🚀 ~ file: Products.tsx:286 ~ Products ~ e:", e)
                         if (throttleFlag) return
                         if (innerWidth > 768) {
                             if (value === 0) {
@@ -97,7 +99,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                     dispatch(setActiveIndex(1))
                                     setTimeout(() => {
                                         dispatch(setThrottleFlag(false))
-                                    }, 1500)
+                                    }, 1000)
                                 }
                             } else if (value === 2) {
                                 if (e.deltaY < 0) {
@@ -119,8 +121,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                 }, 700)
                             }
                         }
-                    }}
-                >
+                    }} >
                     <div className="md:flex w-[100%] items-center justify-between">
                         <ProductsBox className="max-md:text-center max-md:!pt-[45px]">
                             <p className='font-extrabold max-md:text-[28px] text-[56px] leading-[160%] text-[#1a1a1a]'>产品体系</p>

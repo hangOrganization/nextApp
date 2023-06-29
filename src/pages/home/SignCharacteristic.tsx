@@ -107,9 +107,10 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
         <Box className="flex w-screen max-md:pb-[210px] z-50 md:overflow-hidden">
             <div className='flex relative'>
                 <SignBox className={`md:flex md:h-[1278px] max-md:pt-[300px] relative w-screen items-center justify-center`}
-                    onWheel={
+                    onWheelCapture={
                         (e: any) => {
                             if (throttleFlag) return
+                            if (e.deltaY > 20 || e.deltaY < -20) return
                             if (innerWidth > 768) {
                                 if (right === 0) {
                                     if (characteristicType === 0) {
@@ -176,7 +177,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                                 dispatch(setActiveIndex(4))
                                                 setTimeout(() => {
                                                     dispatch(setThrottleFlag(false))
-                                                }, 1500)
+                                                }, 1700)
                                             }
                                         }
                                     }

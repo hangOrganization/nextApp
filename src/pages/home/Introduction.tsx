@@ -36,15 +36,15 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                         swiper.slidePrev(1000)
                         setTimeout(() => {
                             dispatch(setThrottleFlag(false))
-                        }, 1500)
+                        }, 1000)
                     }
-                    if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
+                    if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 10) {
                         dispatch(setThrottleFlag(true))
                         dispatch(setActiveIndex(2))
                         swiper.slideNext(1000);
                         setTimeout(() => {
                             dispatch(setThrottleFlag(false))
-                        }, 1500)
+                        }, 1000)
                     }
                 }
             }}
@@ -166,7 +166,11 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                         </div>
                     </div>
                 </div>
-                <Video />
+                {/* <Video /> */}
+                <p className="mx-auto mt-[120px] max-md:hidden mb-[40px] font-[300] text-[14px] leading-[220%] uppercase text-center text-[#FFFFFF] opacity-[0.7]">
+                    - 请观看导师学生作品混剪 -
+                </p>
+                <iframe src="//player.bilibili.com/player.html?aid=314854552&bvid=BV1zP411i7RD&cid=1170792653&page=1" scrolling="no"  className=" w-[960px] relative z-50 mx-auto h-[542px]" frameBorder="no" allowFullScreen={true}> </iframe>
                 <ButtonBox className="flex mt-16 w-screen overflow-hidden items-center relative justify-center">
                     <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.1)" }}
