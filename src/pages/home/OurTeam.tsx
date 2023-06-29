@@ -106,8 +106,9 @@ const RollBox = styled.div`
   }
 `;
 interface OurTeamProps {
+    setIsOpenCampus:Function
 }
-export default function OurTeam({ }: OurTeamProps) {
+export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
     const swiper = useSwiper()
     const dispatch = useAppDispatch()
     const throttleFlag = useThrottleFlag()
@@ -226,6 +227,7 @@ export default function OurTeam({ }: OurTeamProps) {
             </OurTeamBox>
             <SignCharacteristic
                 right={right}
+                setIsOpenCampus={setIsOpenCampus}
                 setRight={setRight}
                 innerWidth={innerWidth}
                 characteristicType={characteristicType}

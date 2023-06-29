@@ -40,8 +40,8 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                     }
                     if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
                         dispatch(setThrottleFlag(true))
-                        swiper.slideNext(1000);
                         dispatch(setActiveIndex(2))
+                        swiper.slideNext(1000);
                         setTimeout(() => {
                             dispatch(setThrottleFlag(false))
                         }, 1500)

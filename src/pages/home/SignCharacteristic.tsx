@@ -93,11 +93,12 @@ const ButtonBox = styled.div`
 interface SignCharacteristicProps {
     characteristicType: number
     innerWidth: number
+    setIsOpenCampus: Function
     setCharacteristicType: Function
     right: number
     setRight: Function
 }
-export default function SignCharacteristic({ innerWidth, setRight, right, characteristicType, setCharacteristicType }: SignCharacteristicProps) {
+export default function SignCharacteristic({ innerWidth, setRight, right, characteristicType, setCharacteristicType, setIsOpenCampus }: SignCharacteristicProps) {
     const swiper = useSwiper()
     const dispatch = useAppDispatch()
     const throttleFlag = useThrottleFlag()
@@ -296,7 +297,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                         <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2021年 十万象限教育咨询有限公司正式成立</p>
                                         <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2022年 UDC音乐艺术中心校区正式启用</p>
                                         <p className='text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 font-light leading-[220%] opacity-70'>2023年 西兴校区教学场地全新升级 扩建至1500平</p>
-                                        <ButtonBox className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center" onClick={() => { }}>
+                                        <ButtonBox className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center" onClick={() => setIsOpenCampus(1)}>
                                             了解校区环境
                                             <div style={{ border: '1px solid #CCC' }} className="w-6 hover ml-2 items-center justify-center flex rounded-full h-6">
                                                 <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -359,7 +360,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                     </div>
                                 </div>
                             </div>
-                            <ButtonBox className="p-4 ml-[96px] mt-[68px] text-[16px] w-[211px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]" onClick={() => { }}>
+                            <ButtonBox className="p-4 ml-[96px] mt-[68px] text-[16px] w-[211px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]" onClick={() => setIsOpenCampus(1)}>
                                 了解校区环境
                                 <div className="w-[36px] hover ml-[32px] items-center justify-center flex rounded-full h-[36px]">
                                     <svg

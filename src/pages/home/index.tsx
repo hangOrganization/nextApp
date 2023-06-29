@@ -64,7 +64,7 @@ export default function Homepage() {
             <Products value={value} setValue={setValue} />
           </SwiperSlide>
           <SwiperSlide>
-            <OurTeam />
+            <OurTeam setIsOpenCampus={setIsOpenCampus} />
           </SwiperSlide>
           <SwiperSlide>
             <Disc />
@@ -74,7 +74,7 @@ export default function Homepage() {
           <Sign />
           <Introduction  setIsOpenConsult={setIsOpenConsult} />
           <Products  value={value} setValue={setValue} />
-          <OurTeam />
+          <OurTeam setIsOpenCampus={setIsOpenCampus}/>
           <Disc />
         </div>
         {/* <Development isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} /> */}
