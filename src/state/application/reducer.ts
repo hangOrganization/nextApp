@@ -6,8 +6,10 @@ import { createSlice } from '@reduxjs/toolkit'
 // }
 
 export interface ApplicationState {
-  readonly openModal: number,
+  readonly openModal: number
   throttleFlag:boolean
+  activeIndex:number
+  isChrome:boolean
 }
 
 export interface TokenDecimals {
@@ -18,7 +20,9 @@ export interface TokenDecimals {
 
 const initialState: ApplicationState = {
   openModal: 0,
+  activeIndex: 0,
   throttleFlag:false,
+  isChrome:false,
 }
 
 const applicationSlice = createSlice({
@@ -28,12 +32,18 @@ const applicationSlice = createSlice({
     setOuterWidth(state, action) {
       state.openModal = action.payload
     },
+    setActiveIndex(state, action) {
+      state.activeIndex = action.payload
+    },
     setThrottleFlag(state, action) {
       state.throttleFlag = action.payload
+    },
+    setIsChrome(state, action) {
+      state.isChrome = action.payload
     },
   },
 })
 
-export const { setOuterWidth ,setThrottleFlag} =
+export const { setOuterWidth ,setThrottleFlag, setIsChrome, setActiveIndex} =
   applicationSlice.actions
 export default applicationSlice.reducer

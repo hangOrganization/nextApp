@@ -9,7 +9,7 @@ import { useSwiper } from "swiper/react";
 import shadow_bg_3 from '@/assets/image/svg/shadow-bg-3.svg'
 import shadow_bg_4 from '@/assets/image/svg/shadow-bg-4.svg'
 import products_bg from "@/assets/image/svg/products-bg.png";
-import { setThrottleFlag } from "@/state/application/reducer";
+import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
 import products_right from "@/assets/image/svg/icon-products-right.svg";
 import products_right_bg from "@/assets/image/svg/products-right-bg.svg";
@@ -55,7 +55,6 @@ export default function Products({ value, setValue }: ProductsProps) {
     const throttleFlag = useThrottleFlag()
     const swiper = useSwiper()
     const innerWidth = useOuterWidth()
-    console.log("🚀 ~ file: Products.tsx:58 ~ Products ~ innerWidth:", innerWidth)
     return (
         <div className=" md:h-screen md:pt-[120px] md:overflow-auto"
             onScroll={(e: any) => {
@@ -66,6 +65,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                             if (value === 2) {
                                 dispatch(setThrottleFlag(true))
                                 swiper.slideNext(1000);
+                                dispatch(setActiveIndex(3))
                                 setTimeout(() => {
                                     dispatch(setThrottleFlag(false))
                                 }, 1000)
@@ -89,6 +89,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                     setValue(1)
                                 } else {
                                     swiper.slidePrev(1000)
+                                    dispatch(setActiveIndex(1))
                                 }
                                 setTimeout(() => {
                                     dispatch(setThrottleFlag(false))
@@ -124,7 +125,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                             <div
                                 className={` transition-all duration-300 ${value === 1 ? 'translate-y-[-530px]' : value === 2 ? 'translate-y-[-1060px]' : ''}  max-md:h-[452px] max-md:flex  max-md:px-8 justify-between max-md:gap-y-12 flex-wrap `}
                             >
-                                <ProductsRightBox className={`${value === 0 ?'opacity-100':'opacity-0'} max-md:h-[121px]`}>
+                                <ProductsRightBox className={`${value === 0 ? 'opacity-100' : 'opacity-0'} max-md:h-[121px]`}>
                                     <p className='text-[38px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]'>主体课程</p>
                                     <div className="flex gap-2 max-md:gap-1 max-md:mt-4 mt-[35px] items-center">
                                         <p className='text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]'>+</p>
@@ -140,7 +141,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                         <p className='text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light'>音乐作品集</p>
                                     </div>
                                 </ProductsRightBox>
-                                <ProductsRightBox className={`${value === 1 ?'opacity-100':'opacity-0'}  max-md:h-[121px]`}>
+                                <ProductsRightBox className={`${value === 1 ? 'opacity-100' : 'opacity-0'}  max-md:h-[121px]`}>
                                     <p className='text-[38px] max-md:hidden max-md:mb-4 mb-[35px] text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]'>主体课程综合增值服务</p>
                                     <p className='text-[38px] md:hidden max-md:mb-4 mb-[35px] text-right text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]'>综合增值服务</p>
                                     <div className='flex md:h-[404px] max-md:gap-y-2 gap-y-[30px] gap-x-12 flex-col flex-wrap'>
@@ -211,7 +212,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                         </div>
                                     </div>
                                 </ProductsRightBox>
-                                <ProductsRightBox className={`${value === 2 ?'opacity-100':'opacity-0'}`}>
+                                <ProductsRightBox className={`${value === 2 ? 'opacity-100' : 'opacity-0'}`}>
                                     <p className='text-[38px] max-md:mb-4 mb-[35px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]'>音乐艺术指导</p>
                                     <div className='flex md:h-[404px] max-md:gap-y-2 gap-y-[30px] gap-x-12 flex-col flex-wrap'>
                                         <div className="flex gap-2 max-md:gap-1  items-center">

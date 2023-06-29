@@ -13,7 +13,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { useAppDispatch } from '@/state/hooks'
 import { useThrottleFlag } from '@/state/application/hooks'
-import { setThrottleFlag } from '@/state/application/reducer'
+import { setActiveIndex, setThrottleFlag } from '@/state/application/reducer'
 import { useSwiper } from 'swiper/react'
 import TitleBeam from '@/components/TitleBeam'
 
@@ -172,6 +172,7 @@ export default function SignCharacteristic({ innerWidth, setRight, right, charac
                                             if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1 && right === 2) {
                                                 dispatch(setThrottleFlag(true))
                                                 swiper.slideNext(1000);
+                                                dispatch(setActiveIndex(4))
                                                 setTimeout(() => {
                                                     dispatch(setThrottleFlag(false))
                                                 }, 1000)

@@ -37,10 +37,10 @@ interface CampusEnvironmentProps {
     setIsOpen: Function
 }
 export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironmentProps) {
-    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
     function closeModal() {
         setIsOpen(0)
     }
+    const [currentPage, setCurrentPage] = useState<number>(0)
     const list = [
         {
             index: 0,
@@ -119,46 +119,15 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                             leaveTo="opacity-0 scale-95"
                         >
                             <Dialog.Panel className="text-center w-screen">
-                                {/* <div className="flex items-center gap-12 justify-center">
-                                    <TurningButton className={`${currentPage === 0 ? 'opacity-0' : 'cursor-pointer'} rotate-180`}
-                                        onClick={() => {
-                                            if (currentPage !== 0) {
-                                                setCurrentPage(currentPage - 1)
+                                <div className="w-[1200px] mx-auto flex justify-center overflow-x-hidden">
+                                    <div className="w-[694px] flex items-center h-[520px]">
+                                        <div className="flex gap-6">
+                                            {list.map((el: any) => (
+                                                <Image key={`CampusEnvironment-${el.index}`}  src={el.image} alt="" />
+                                            ))
                                             }
-                                        }}>
-                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g opacity="0.5" clipPath="url(#clip0_399_13042)">
-                                                <circle cx="24" cy="24" r="23.5" stroke="white" strokeOpacity="0.3" />
-                                                <path d="M24 32C24 32 27.2353 24 35 24C27.2353 24 24 16 24 16" stroke="white" />
-                                                <path d="M35 24L13 24" stroke="white" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_399_13042">
-                                                    <rect width="48" height="48" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </TurningButton>
-                                    <Image className="w-[694px] h-[520px]" src={list[currentPage].image} alt="" />
-                                    <TurningButton className={`${currentPage === list.length - 1 ? 'opacity-0' : 'cursor-pointer'}`}
-                                        onClick={() => {
-                                            if (currentPage !== list.length - 1) {
-                                                setCurrentPage(currentPage + 1)
-                                            }
-                                        }}>
-                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <g opacity="0.5" clipPath="url(#clip0_399_13042)">
-                                                <circle cx="24" cy="24" r="23.5" stroke="white" strokeOpacity="0.3" />
-                                                <path d="M24 32C24 32 27.2353 24 35 24C27.2353 24 24 16 24 16" stroke="white" />
-                                                <path d="M35 24L13 24" stroke="white" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_399_13042">
-                                                    <rect width="48" height="48" fill="white" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </TurningButton>
+                                        </div>
+                                    </div>
                                 </div>
                                 <p className=" font-light text-[14px] leading-[180%]">{list[currentPage].name}</p>
                                 <div className="flex mt-[40px] justify-center relative items-center gap-4">
@@ -182,38 +151,6 @@ export default function CampusEnvironment({ isOpen, setIsOpen }: CampusEnvironme
                                         ))}
                                     </div>
                                 </div>
-                                <p className=" font-light text-[14px] leading-[180%] text-[#FF4B00]"> {currentPage + 1}/{list.length}</p> */}
-                                <Swiper
-                                    slidesPerView={3}
-                                    spaceBetween={30}
-                                    // pagination={{
-                                    //     clickable: true,
-                                    //   }}
-                                    thumbs={{ swiper: thumbsSwiper }}
-                                    modules={[Pagination, FreeMode, Navigation, Thumbs]}
-                                    className="mySwiper"
-                                >
-                                    {list.map((el: any) => (
-                                        <SwiperSlide key={`${el.index}-CampusEnvironment`}>
-                                            <Image src={el.image} alt="" />
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                                <Swiper
-                                    onSwiper={setThumbsSwiper}
-                                    spaceBetween={10}
-                                    slidesPerView={10}
-                                    watchSlidesProgress={true}
-                                    freeMode={true}
-                                    modules={[Navigation, FreeMode, Thumbs]}
-                                    className="mySwiper w-[758px]"
-                                >
-                                        {list.map((el: any) => (
-                                            <SwiperSlide key={`${el.index}-CampusEnvironment`}>
-                                                <Image className="w-[70px] h-[70px]" src={el.image} alt="" />
-                                            </SwiperSlide>
-                                        ))}
-                                </Swiper>
                             </Dialog.Panel>
                         </Transition.Child>
                     </div>

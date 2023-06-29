@@ -3,15 +3,15 @@
 import _ from "lodash";
 import Video from "./Video";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSwiper } from "swiper/react";
 import { useAppDispatch } from "@/state/hooks";
 import shadow_bg from '@/assets/image/svg/shadow-bg.svg'
 import DreamOffer from "@/assets/image/svg/dreamOffer.gif";
 import shadow_bg_2 from '@/assets/image/svg/shadow-bg-2.svg'
-import { setThrottleFlag } from "@/state/application/reducer";
+import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
-import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useActiveIndex, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
 import { LineBox, SliderBox, RollBox, ScaleBox, ButtonBox, ButtonBorder, ShadowBox, ShadowBox2 } from "@/utils/SignCss";
 
 
@@ -22,6 +22,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
     const dispatch = useAppDispatch()
     const throttleFlag = useThrottleFlag()
     const swiper = useSwiper()
+    const ActiveIndex = useActiveIndex()
     const innerWidth = useOuterWidth()
     const [buttonHover, setButtonHover] = useState<string>('')
     return (
@@ -31,6 +32,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 if (innerWidth > 768) {
                     if (e.target.scrollTop === 0) {
                         dispatch(setThrottleFlag(true))
+                        dispatch(setActiveIndex(0))
                         swiper.slidePrev(1000)
                         setTimeout(() => {
                             dispatch(setThrottleFlag(false))
@@ -39,6 +41,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                     if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 1) {
                         dispatch(setThrottleFlag(true))
                         swiper.slideNext(1000);
+                        dispatch(setActiveIndex(2))
                         setTimeout(() => {
                             dispatch(setThrottleFlag(false))
                         }, 1000)

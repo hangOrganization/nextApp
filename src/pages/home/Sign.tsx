@@ -16,8 +16,8 @@ import {
 import { useSwiper } from 'swiper/react';
 import _ from "lodash";
 import { useAppDispatch } from "@/state";
-import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
-import { setOuterWidth, setThrottleFlag } from "@/state/application/reducer";
+import { useIsChrome, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { setActiveIndex, setOuterWidth, setThrottleFlag } from "@/state/application/reducer";
 
 
 interface SignProps {
@@ -26,11 +26,11 @@ export default function Sign({ }: SignProps) {
   const throttleFlag = useThrottleFlag()
   const innerWidth = useOuterWidth()
   const dispatch = useAppDispatch()
+  const isChrome = useIsChrome()
   useEffect(() => {
     dispatch(setOuterWidth(window.outerWidth))
   })
   const swiper = useSwiper()
-
   return (
     <div className="relative max-md:pb-20 md:h-screen w-screen"
       onWheel={
@@ -40,6 +40,7 @@ export default function Sign({ }: SignProps) {
             if (e.deltaY > 0) {
               dispatch(setThrottleFlag(true))
               swiper.slideNext(1000);
+              dispatch(setActiveIndex(1))
               setTimeout(() => {
                 dispatch(setThrottleFlag(false))
               }, 1000)
@@ -55,7 +56,7 @@ export default function Sign({ }: SignProps) {
           loop
           className="w-screen"
         >
-          <source src="/video/moireFringe.mp4" type="video/mp4"></source>
+          <source src={isChrome ? '/video/moireFringe.webm' : '/video/moireFringe.mp4'} type={`${isChrome ? 'video/webm' : ' video/mp4'}`}></source>
         </video>
       </div>
       <div className="md:h-[728px] z-40 relative">
@@ -84,7 +85,7 @@ export default function Sign({ }: SignProps) {
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[246px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">
-            <SingLogo className="h-[155px] max-md:h-[72px]">
+            {/* <SingLogo className="h-[155px] max-md:h-[72px]">
               <div className="img-box-1 max-md:h-[14.4px] h-[20px] overflow-hidden">
                 <Image
                   className="h-[155px] max-md:h-[72px] "
@@ -120,9 +121,16 @@ export default function Sign({ }: SignProps) {
                   alt=""
                 />
               </div>
-            </SingLogo>
+            </SingLogo> */}
+            <video
+              autoPlay
+              muted
+              className="h-[155px]"
+            >
+              <source src={isChrome ? '/video/sign.webm' : '/video/sign.mp4'} type={`${isChrome ? 'video/webm' : ' video/mp4'}`}></source>
+            </video>
           </div>
-          <TextBox className="mt-[70px] max-md:mt-12 max-md:h-[21px] h-[49px]">
+          {/* <TextBox className="mt-[70px] max-md:mt-12 max-md:h-[21px] h-[49px]">
             <div className="flex max-md:h-[21px] ">
               <div className="w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]">
                 <Image
@@ -132,7 +140,14 @@ export default function Sign({ }: SignProps) {
                 />
               </div>
             </div>
-          </TextBox>
+          </TextBox> */}
+          <video
+            autoPlay
+            muted
+            className="mt-[70px] max-md:mt-12 max-md:h-[21px] h-[49px]"
+          >
+            <source src={isChrome ? '/video/signBeam.webm' : '/video/signBeam.mp4'} type={`${isChrome ? 'video/webm' : ' video/mp4'}`}></source>
+          </video>
           <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden">
             <EchoRollBox className="md:flex">
               <div className="md:w-[780px] max-md:w-screen  text-center">
