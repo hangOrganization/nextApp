@@ -212,7 +212,7 @@ export default function Disc({}: DiscProps) {
 
   return (
     <div
-      className="md:h-screen md:overflow-auto "
+      className={`md:h-screen md:overflow-auto ${swiper?.activeIndex === 4 ? 'opacity-100' : 'opacity-0'} transition-all duration-1000`}
       onScroll={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {

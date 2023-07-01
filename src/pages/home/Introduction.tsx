@@ -12,7 +12,7 @@ import shadow_bg_2 from '@/assets/image/svg/shadow-bg-2.svg'
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
 import { useActiveIndex, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
-import { LineBox, SliderBox, RollBox, ScaleBox, ButtonBox, ButtonBorder, ShadowBox, ShadowBox2 } from "@/utils/SignCss";
+import { LineBox, SliderBox, RollBox, ScaleBox, ButtonBox, ButtonBorder, ShadowBox, ShadowBox2 } from "@/styles/SignCss";
 
 
 interface IntroductionProps {
@@ -22,12 +22,12 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
     const dispatch = useAppDispatch()
     const throttleFlag = useThrottleFlag()
     const swiper = useSwiper()
-    const ActiveIndex = useActiveIndex()
     const innerWidth = useOuterWidth()
     const [buttonHover, setButtonHover] = useState<string>('')
     return (
-        <div className="md:h-screen md:pb-20 md:overflow-auto"
+        <div className={`md:h-screen md:pb-20 ${swiper?.activeIndex === 1 ? 'opacity-100' : 'opacity-0'} transition-all duration-1000 md:overflow-auto`}
             onScroll={(e: any) => {
+                console.log("🚀 ~ file: Introduction.tsx:246 ~ Introduction ~ e:", e)
                 if (throttleFlag) return
                 if (innerWidth > 768) {
                     if (e.target.scrollTop === 0) {
@@ -170,7 +170,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 <p className="mx-auto mt-[120px] max-md:hidden mb-[40px] font-[300] text-[14px] leading-[220%] uppercase text-center text-[#FFFFFF] opacity-[0.7]">
                     - 请观看导师学生作品混剪 -
                 </p>
-                <iframe src="//player.bilibili.com/player.html?aid=314854552&bvid=BV1zP411i7RD&cid=1170792653&page=1" scrolling="no"  className=" w-[960px] relative z-50 mx-auto h-[542px]" frameBorder="no" allowFullScreen={true}> </iframe>
+                <iframe src="//player.bilibili.com/player.html?aid=314854552&bvid=BV1zP411i7RD&cid=1170792653&page=1" scrolling="no" className=" w-[960px] relative z-50 mx-auto h-[542px]" frameBorder="no" allowFullScreen={true}> </iframe>
                 <ButtonBox className="flex mt-16 w-screen overflow-hidden items-center relative justify-center">
                     <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.1)" }}
@@ -205,7 +205,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                                                     className={`opacity-100 md:px-[24px] ${buttonHover === 'hover' ? ' md:scale-[1.05]' : ''} transition-all duration-500 py-[6px] max-md:py-[6px] rounded-[55px]`}
                                                 >
                                                     <button
-                                                        className={`bg-[#FF4B00] ${buttonHover === 'hover' ? ' md:scale-[1.1]' : ''} max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
+                                                        className={`bg-[#FF4B00] ${buttonHover === 'hover' ? ' md:scale-[1]' : ''} max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
                                                         onClick={() => {
                                                             setIsOpenConsult(1);
                                                         }}

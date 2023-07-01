@@ -136,7 +136,7 @@ export default function Specialize() {
                                         <Image className='max-md:w-6 max-md:h-6' src={courseArrow} alt='' />
                                     </div>
                                     <div className="flex mt-4 items-center md:h-[469px] justify-between">
-                                        <div className='flex flex-col max-md:h-[198px] h-[264px] flex-wrap md:pl-2 max-md:gap-x-[20px] max-md:gap-y-[12px] gap-y-[28px]'>
+                                        <div className='flex flex-col max-md:h-[198px] h-[264px] flex-wrap md:pl-2 max-md:gap-x-[20px] md:gap-x-[65px] max-md:gap-y-[12px] gap-y-[28px]'>
                                             {classicalMusicHotMajor.map((el: any, index: number) => (
                                                 <div className='max-md:w-[126px] max-md:text-center' key={`${index}-${el.englishTitle}-classicalMusicHotMajor`}>
                                                     <p className='text-[16px] max-md:text-[14px] font-normal text-[#1A1A1A] leading-[160%]'>{el.title}</p>

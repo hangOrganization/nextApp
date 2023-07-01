@@ -92,7 +92,7 @@ export default function Header({
         <div
           style={{ border: "1px solid rgba(255, 75, 0, 0.5)" }}
           onClick={() => setIsOpenConsult(1)}
-          className="py-[15px] max-md:py-3 cursor-pointer max-md:text-[14px] text-[16px] hover:text-[#1A1A1A] rounded-2xl leading-[100%] hover:bg-[#FF4B00] opacity-80 max-md:px-[23px] md:w-[127px] md:text-center  md:font-bold text-[#FF4B00]"
+          className="py-[15px] max-md:py-3 cursor-pointer max-md:text-[14px] text-[16px] hover:text-[#1A1A1A] rounded-2xl leading-[100%] hover:bg-[#FF4B00] max-md:px-[23px] md:w-[127px] md:text-center  md:font-bold text-[#FF4B00]"
         >
           我要咨询
         </div>
