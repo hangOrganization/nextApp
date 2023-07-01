@@ -11,13 +11,17 @@ import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
 import disc_mobile_bg from "../../assets/image/mobile/mobile-disc-bg.png";
 import cd_mask from "../../assets/image/disc-icon/CDMask.png";
 import text_bg from "../../assets/image/disc-icon/Bright.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BusinessPartner from "./BusinessPartner";
 import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
-import { useActiveIndex, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import {
+  useActiveIndex,
+  useOuterWidth,
+  useThrottleFlag,
+} from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 
@@ -218,13 +222,13 @@ const ImgBox = styled.div`
   background-size: 100% 100%;
 `;
 
-interface DiscProps { }
-export default function Disc({ }: DiscProps) {
+interface DiscProps {}
+export default function Disc({}: DiscProps) {
   const swiper = useSwiper();
   const innerWidth = useOuterWidth();
   const dispatch = useAppDispatch();
   const activeIndex = useActiveIndex();
-  console.log("🚀 ~ file: Disc.tsx:186 ~ Disc ~ activeIndex:", activeIndex)
+  console.log("🚀 ~ file: Disc.tsx:186 ~ Disc ~ activeIndex:", activeIndex);
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
@@ -253,9 +257,16 @@ export default function Disc({ }: DiscProps) {
     }
     setCurrentPage(currentPage + 1);
   };
+  useEffect(() => {
+    document.querySelector("#discBox")?.scrollTo({
+      top: 2,
+      behavior: "smooth",
+    });
+  }, [swiper?.activeIndex]);
   return (
     <SwiperContent>
       <div
+        id="discBox"
         className={`md:h-screen md:overflow-auto opacity-0 transition-all duration-10000 ${
           swiper?.activeIndex === 4 ? "swiper-move-in" : "swiper-move-out"
         }`}

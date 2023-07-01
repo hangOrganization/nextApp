@@ -1,18 +1,20 @@
-
-import {  useAppSelector } from '@/state/hooks'
-import { AppState } from '../index'
+import { useAppSelector } from "@/state/hooks";
+import { AppState } from "../index";
 
 export function useOuterWidth() {
-  return useAppSelector((state: AppState) => state.application.openModal)
+  return useAppSelector((state: AppState) => state.application.openModal);
 }
 export function useThrottleFlag() {
-  return useAppSelector((state: AppState) => state.application.throttleFlag)
+  return useAppSelector((state: AppState) => state.application.throttleFlag);
 }
 export function useActiveIndex() {
-  return useAppSelector((state: AppState) => state.application.activeIndex)
+  return useAppSelector((state: AppState) => state.application.activeIndex);
 }
 export function useIsChrome() {
-  return useAppSelector((state: AppState) => state.application.isChrome)
+  return useAppSelector((state: AppState) => state.application.isChrome);
+}
+export function useComePage() {
+  return useAppSelector((state: AppState) => state.application.comePage);
 }
 // export function useGrowthPoolValues() {
 //   return useAppSelector((state: AppState) => state.application.growthPoolValues)
