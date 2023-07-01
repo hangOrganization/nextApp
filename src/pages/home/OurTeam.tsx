@@ -45,6 +45,10 @@ const OurTeamBg = styled.div`
 const CardBox = styled.div`
   position: relative;
   cursor: pointer;
+  width: 237px;
+  height: 368px;
+  display: flex;
+  align-items: end;
   transition: all 150ms;
   background-size: contain;
   background-repeat: no-repeat;
@@ -55,7 +59,7 @@ const CardBox = styled.div`
 `;
 const CardFilterBox = styled.div`
   width: 237px;
-  height: 368px;
+  height: 50%;
   background: linear-gradient(
     0deg,
     #ececec 10.27%,
@@ -120,7 +124,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
     const [cardHover, setCardHover] = useState<string>('')
     const [characteristicType, setCharacteristicType] = useState<number>(0);
     return (
-        <div className=" md:h-screen md:overflow-auto"
+        <div className={`md:h-screen ${swiper?.activeIndex === 3 ? 'opacity-100' : 'opacity-0'} transition-all duration-1000 md:overflow-auto`}
             onScroll={
                 (e: any) => {
                     if (throttleFlag) return

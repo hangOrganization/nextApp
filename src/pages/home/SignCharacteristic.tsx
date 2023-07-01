@@ -118,7 +118,7 @@ export default function SignCharacteristic({
           className={`md:flex md:h-[1278px] max-md:pt-[300px] relative w-screen items-center justify-center`}
           onWheelCapture={(e: any) => {
             if (throttleFlag) return;
-            if (e.deltaY > 20 || e.deltaY < -20) return;
+            if (e.deltaY < 20 && e.deltaY > -20) return;
             if (innerWidth > 768) {
               if (right === 0) {
                 if (characteristicType === 0) {
