@@ -15,6 +15,7 @@ import {
   setThrottleFlag,
 } from "@/state/application/reducer";
 import {
+  useActiveIndex,
   useComePage,
   useOuterWidth,
   useThrottleFlag,
@@ -68,6 +69,7 @@ export default function Products({ value, setValue }: ProductsProps) {
   const swiper = useSwiper();
   const innerWidth = useOuterWidth();
   const comePage = useComePage();
+  const activeIndex = useActiveIndex();
 
   useEffect(() => {
     document.querySelector("#productsBox")?.scrollTo({
@@ -82,7 +84,7 @@ export default function Products({ value, setValue }: ProductsProps) {
       className={`md:h-screen md:pt-[120px] ${
         value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
       }   ${
-        swiper?.activeIndex === 2 ? "swiper-move-in" : "swiper-move-out"
+        activeIndex === 2 ? "swiper-move-in" : "swiper-move-out"
       }   relative`}
       onScroll={(e: any) => {
         if (innerWidth > 768) {
@@ -126,7 +128,7 @@ export default function Products({ value, setValue }: ProductsProps) {
           onWheel={(e: any) => {
             if (e.deltaY < 10 && e.deltaY > -10) return;
             if (throttleFlag) return;
-            console.log(e.deltaY);
+            // console.log(e.deltaY);
             if (innerWidth > 768) {
               if (value === 0) {
                 if (e.deltaY > 0) {

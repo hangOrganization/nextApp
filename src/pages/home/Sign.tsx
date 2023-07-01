@@ -89,13 +89,11 @@ export default function Sign({ }: SignProps) {
             src={mobile_sign_bg_2}
             alt=""
           />
-
-          {/* <Image
-            className="absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"
+        <Image
+            className="absolute max-md:hidden w-screen sign-bg-2"
             src={sign_bg_2}
             alt=""
-          /> */}
-          <div style={{backgroundImage:`url(${sign_bg_2.src})`,backgroundPosition:'center',backgroundSize:'100%'}} className="absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"></div>
+          />
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[246px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">

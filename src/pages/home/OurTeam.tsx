@@ -8,6 +8,8 @@ import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
 import {
+  useActiveIndex,
+  useActiveType,
   useComePage,
   useIsChrome,
   useOuterWidth,
@@ -134,6 +136,8 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const [textValue, setTextValue] = useState<number>(0);
   const [cardHover, setCardHover] = useState<string>("");
   const [characteristicType, setCharacteristicType] = useState<number>(0);
+  const activeIndex = useActiveIndex();
+  const activeType = useActiveType();
 
   useEffect(() => {
     document.querySelector("#ourTeamBox")?.scrollTo({
@@ -141,14 +145,36 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       behavior: "smooth",
     });
   }, [swiper?.activeIndex]);
+
+  useEffect(() => {
+    if (activeType == 0) {
+      setRight(0);
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 2,
+        behavior: "smooth",
+      });
+    } else if (activeType == 1) {
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1350,
+        behavior: "smooth",
+      });
+      setRight(0);
+    } else if (activeType == 2) {
+      setRight(1);
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1350,
+        behavior: "smooth",
+      });
+    }
+  }, [activeType]);
+
   return (
     <div
       id="ourTeamBox"
       className={`md:h-screen ${
-        swiper?.activeIndex === 3 ? "opacity-100" : "opacity-0"
+        activeIndex === 3 ? "opacity-100" : "opacity-0"
       } transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
-        console.log(2121);
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {
@@ -166,7 +192,12 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       <div className={`${comePage === 2 ? "rocket-in" : ""}`}></div>
       <OurTeamBox>
         <div className="absolute rounded-t-[48px] z-[-1] flex items-center justify-center overflow-hidden max-md:hidden left-0 w-screen h-full">
-          <video autoPlay muted loop className="w-screen min-w-full min-h-full h-full scale-150">
+          <video
+            autoPlay
+            muted
+            loop
+            className="w-screen min-w-full min-h-full h-full scale-150"
+          >
             <source
               src={
                 isChrome ? "/video/OurTeam-bg.webm" : "/video/OurTeam-bg.mp4"
