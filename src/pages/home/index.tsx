@@ -44,7 +44,7 @@ export default function Homepage() {
         <Swiper
           id="Swiper"
           direction={"vertical"}
-          effect='fade'
+          // effect='fade'
           threshold ={100}
           // pagination={{
           //   clickable: true,

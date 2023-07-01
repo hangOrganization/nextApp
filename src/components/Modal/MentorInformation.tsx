@@ -59,7 +59,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                             leaveFrom="translate-y-[0px]"
                             leaveTo="translate-y-[1000px]"
                         >
-                            <Panel className="w-full  max-h-[951px] transform overflow-auto p-12 text-left align-middle shadow-xl transition-all">
+                            <Panel className="w-full max-h-[951px] transform overflow-auto p-12 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title
                                     as="h3"
                                     className="text-lg flex justify-end font-medium leading-6 text-gray-900"

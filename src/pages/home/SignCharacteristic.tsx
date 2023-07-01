@@ -66,13 +66,10 @@ const ButtonBox = styled.div`
     &:hover {
       color: #1a1a1a;
       background: #ffffff;
-      border: 1px solid #1a1a1a;
       mix-blend-mode: difference;
       .hover {
         border: 1px solid #1a1a1a;
         background: #ffffff;
-      }
-      .hover {
         background: #1a1a1a;
       }
       path {
@@ -122,7 +119,7 @@ export default function SignCharacteristic({
           className={`md:flex md:h-[1278px] max-md:pt-[300px] relative w-screen items-center justify-center`}
           onWheelCapture={(e: any) => {
             if (throttleFlag) return;
-            if (e.deltaY < 20 && e.deltaY > -20) return;
+            if (e.deltaY < 10 && e.deltaY > -10) return;
             if (innerWidth > 768) {
               if (right === 0) {
                 if (characteristicType === 0) {
@@ -299,11 +296,11 @@ export default function SignCharacteristic({
                           />
                         </div>
                         <div
-                          className={`md:w-[488px] ${
+                          className={`md:w-[488px] md:opacity-0 duration-1000 transition-all ${
                             characteristicType === 0
-                              ? "opacity-100"
-                              : "md:opacity-0"
-                          } mt-12`}
+                              ? "md:opacity-100"
+                              : ""
+                          } md:opacity-0 mt-12`}
                         >
                           <p className="text-[14px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70">
                             高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
@@ -335,10 +332,10 @@ export default function SignCharacteristic({
                         </div>
                       </div>
                       <div
-                        className={`md:h-[488px] md:w-[680px] max-md:mt-20 flex ${
+                        className={`md:h-[488px] duration-1000 md:opacity-0 transition-all md:w-[680px] max-md:mt-20 flex ${
                           characteristicType === 1
-                            ? "opacity-100"
-                            : "md:opacity-0"
+                            ? "md:opacity-100"
+                            : ""
                         } flex-col justify-center`}
                       >
                         <div className="flex ">
@@ -400,10 +397,10 @@ export default function SignCharacteristic({
                         </p>
                       </div>
                       <div
-                        className={`md:h-[488px] md:w-[680px] ${
+                        className={`md:h-[488px] md:opacity-0 duration-1000 transition-all md:w-[680px] ${
                           characteristicType === 2
-                            ? "opacity-100"
-                            : "md:opacity-0"
+                            ? "md:opacity-100"
+                            : ""
                         } max-md:mt-20 flex flex-col justify-center`}
                       >
                         <div className="flex">
@@ -550,7 +547,7 @@ export default function SignCharacteristic({
               </div>
             </div>
             <div
-              className={` transition-all duration-500 ${
+              className={` transition-all duration-1000 ${
                 right === 0
                   ? "left-[-650px] opacity-0"
                   : "left-[120px] opacity-100"
@@ -559,7 +556,7 @@ export default function SignCharacteristic({
               <div className=" flex items-center">
                 <div className={`h-[457px] max-md:hidden overflow-hidden`}>
                   <div
-                    className={` transition-all duration-300 ${
+                    className={` transition-all duration-1000 ${
                       right === 2 ? "translate-y-[-457px]" : "translate-y-[0px]"
                     } `}
                   >
@@ -571,15 +568,15 @@ export default function SignCharacteristic({
                 </div>
                 <div className="ml-20 h-[420px] overflow-hidden w-[599px]">
                   <div
-                    className={` transition-all duration-500 ${
+                    className={` transition-all duration-1000 ${
                       right === 2
                         ? " translate-y-[-420px]"
                         : "translate-y-[0px]"
                     }`}
                   >
                     <div
-                      className={`h-[420px] ${
-                        right === 2 ? "opacity-0" : "opacity-100"
+                      className={`h-[420px] opacity-0 transition-all duration-1000 ${
+                        right === 2 ? "" : "opacity-100"
                       }`}
                     >
                       <p className="text-[14px] font-light leading-[220%] opacity-70">
@@ -594,8 +591,8 @@ export default function SignCharacteristic({
                       </p>
                     </div>
                     <div
-                      className={`h-[420px] ${
-                        right === 1 ? "opacity-0" : "opacity-100"
+                      className={`h-[420px] opacity-0 transition-all duration-1000 ${
+                        right === 1 ? "" : "opacity-100"
                       } flex justify-center flex-col`}
                     >
                       <p className="text-[14px] font-light leading-[220%] opacity-70">
@@ -625,11 +622,11 @@ export default function SignCharacteristic({
                 </div>
               </div>
               <ButtonBox
-                className="p-4 ml-[96px] mt-[68px] text-[16px] w-[211px] leading-[120%] font-normal pl-[30px] pr-[15px] flex items-center rounded-[64px]"
+                className="p-4 ml-[96px] mt-[68px] gap-4 transition-all duration-300 hover:gap-8 text-[16px] leading-[120%] font-normal pl-[32px] pr-[16px] inline-flex items-center rounded-[64px]"
                 onClick={() => setIsOpenCampus(1)}
               >
                 了解校区环境
-                <div className="w-[36px] hover ml-[32px] items-center justify-center flex rounded-full h-[36px]">
+                <div className="w-[36px] hover items-center justify-center flex rounded-full h-[36px]">
                   <svg
                     width="19"
                     height="16"

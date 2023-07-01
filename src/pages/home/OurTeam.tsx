@@ -134,7 +134,6 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const [textValue, setTextValue] = useState<number>(0);
   const [cardHover, setCardHover] = useState<string>("");
   const [characteristicType, setCharacteristicType] = useState<number>(0);
-  console.log(comePage, "-----------------------");
 
   return (
     <div

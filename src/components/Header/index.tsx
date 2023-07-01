@@ -39,6 +39,7 @@ export default function Header({
   scrollToView,
 }: HeaderProps) {
   const activeIndex = useActiveIndex()
+  // console.log("🚀 ~ file: index.tsx:42 ~ activeIndex:", activeIndex)
   const dispatch = useAppDispatch()
 
   return (
