@@ -73,6 +73,11 @@
   src: url('../font/AlibabaPuHuiTi//AlibabaPuHuiTi-2-115-Black.otf');
   font-weight: 900;
 }
+@font-face {
+  font-family: 'Alibaba PuHuiTi 2.0';
+  src: url('../font/AlibabaPuHuiTi//AlibabaPuHuiTi-2-105-Heavy.otf');
+  font-weight: 950;
+}
 
 body {
   background: #1A1A1A;

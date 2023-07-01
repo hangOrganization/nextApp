@@ -41,7 +41,7 @@ export default function Sign({ }: SignProps) {
   }, [activeIndex]);
   return (
     <div
-      className={`relative ${swiper?.activeIndex === 0 ? 'opacity-100' : 'opacity-0'} transition-all duration-1000 max-md:pb-20 md:h-screen w-screen`}
+      className={`relative ${swiper?.activeIndex === 0 ? 'opacity-100' : ''} opacity-0 max-md:pb-20 md:h-screen w-screen`}
       onWheel={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {

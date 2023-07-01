@@ -40,12 +40,9 @@ const ProductsRightBox = styled.div`
     height: 530px;
     display: flex;
     flex-direction: column;
-    /* background-repeat: no-repeat;
-    background: url(${products_right_bg.src});
-    background-blend-mode: soft-light, overlay, normal; */
   }
 `;
-const RollBox = styled.div`
+const ProductsBg = styled.div`
   @media (min-width: 768px) {
     background-repeat: no-repeat;
     background: url(${products_right_bg.src});
@@ -64,7 +61,7 @@ export default function Products({ value, setValue }: ProductsProps) {
     return (
         <div
             className={`md:h-screen md:pt-[120px] ${value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
-                } ${swiper?.activeIndex === 2 ? 'opacity-100' : 'opacity-0'} transition-all duration-1000`}
+                } relative`}
             onScroll={(e: any) => {
                 if (innerWidth > 768) {
                     if (throttleFlag) return;
@@ -99,6 +96,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                     alt=""
                 />
                 <div
+                    className="relative z-10"
                     onWheel={(e: any) => {
                         if (e.deltaY < 10 && e.deltaY > -10) return;
                         if (throttleFlag) return;
@@ -152,9 +150,9 @@ export default function Products({ value, setValue }: ProductsProps) {
                                     System of products
                                 </p>
                             </ProductsBox>
-                            <div className="md:h-[530px] md:overflow-hidden">
-                                <RollBox
-                                    className={` transition-all  ease-[cubic-bezier(0.5, 0, 0, 1)] duration-1000 ${value === 1
+                            <ProductsBg className="md:h-[530px] md:overflow-hidden">
+                                <div
+                                    className={` transition-all ease-[cubic-bezier(0.5, 0, 0, 1)] duration-1000 ${value === 1
                                         ? "translate-y-[-530px]"
                                         : value === 2
                                             ? "translate-y-[-1060px]"
@@ -162,7 +160,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                         }  max-md:h-[452px] max-md:flex  max-md:px-8 justify-between max-md:gap-y-12 flex-wrap `}
                                 >
                                     <ProductsRightBox
-                                        className={`${value === 0 ? "opacity-100" : "opacity-0"
+                                        className={`transition-all duration-[1000ms] opacity-0 ${value === 0 ? "opacity-100" : ""
                                             } max-md:h-[121px]`}
                                     >
                                         <p className="text-[38px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]">
@@ -197,7 +195,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                         </div>
                                     </ProductsRightBox>
                                     <ProductsRightBox
-                                        className={`${value === 1 ? "opacity-100" : "opacity-0"
+                                        className={`transition-all opacity-0 duration-[1000ms] ${value === 1 ? "opacity-100" : ""
                                             }  max-md:h-[121px]`}
                                     >
                                         <p className="text-[38px] max-md:hidden max-md:mb-4 mb-[35px] text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]">
@@ -392,7 +390,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                                         </div>
                                     </ProductsRightBox>
                                     <ProductsRightBox
-                                        className={`${value === 2 ? "opacity-100" : "opacity-0"}`}
+                                        className={`transition-all opacity-0 duration-[1000ms] ${value === 2 ? "opacity-100" : ""}`}
                                     >
                                         <p className="text-[38px] max-md:mb-4 mb-[35px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]">
                                             音乐艺术指导
@@ -493,8 +491,8 @@ export default function Products({ value, setValue }: ProductsProps) {
                                             </div>
                                         </div>
                                     </ProductsRightBox>
-                                </RollBox>
-                            </div>
+                                </div>
+                            </ProductsBg>
                             <div className="h-[457px] max-md:hidden overflow-hidden">
                                 <div
                                     className={`transition-all duration-300 ${value === 1

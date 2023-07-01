@@ -17,7 +17,7 @@ import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
-import { useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
+import { useActiveIndex, useOuterWidth, useThrottleFlag } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 
@@ -177,11 +177,13 @@ const ImgBox = styled.div`
   background-size: 100% 100%;
 `;
 
-interface DiscProps {}
-export default function Disc({}: DiscProps) {
+interface DiscProps { }
+export default function Disc({ }: DiscProps) {
   const swiper = useSwiper();
   const innerWidth = useOuterWidth();
   const dispatch = useAppDispatch();
+  const activeIndex = useActiveIndex();
+  console.log("🚀 ~ file: Disc.tsx:186 ~ Disc ~ activeIndex:", activeIndex)
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
@@ -209,10 +211,9 @@ export default function Disc({}: DiscProps) {
     }
     setCurrentPage(currentPage + 1);
   };
-
   return (
     <div
-      className={`md:h-screen md:overflow-auto ${swiper?.activeIndex === 4 ? 'opacity-100' : 'opacity-0'} transition-all duration-1000`}
+    className={`md:h-screen md:overflow-auto  ${activeIndex === 4 ? 'opacity-100' : ''} opacity-0 transition-all duration-[5000]`}
       onScroll={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
