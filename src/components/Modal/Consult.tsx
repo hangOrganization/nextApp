@@ -1,11 +1,9 @@
 
 import Image from 'next/image'
 import { Fragment } from 'react'
-import logo from "@/assets/image/svg/logo.svg";
 import sign_QRcode_bg_1 from '@/assets/image/svg/sign-QRcode-bg-1.svg'
 import sign_QRcode from '@/assets/image/svg/sign-QRcode.png'
 import sign_QRcode_bg_2 from '@/assets/image/svg/sign-QRcode-bg-2.png'
-import sign_QRcode_bg_3 from '@/assets/image/svg/sign-QRcode-bg-3.svg'
 import { Dialog, Transition } from '@headlessui/react'
 import styled from 'styled-components'
 import wechat_QRcode from "../../assets/image/svg/wechat-QRcode.svg";

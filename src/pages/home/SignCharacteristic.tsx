@@ -12,9 +12,9 @@ import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.pn
 import AboutUs_bg from "@/assets/image/svg/aboutUs-bg.png";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
-import { useThrottleFlag } from "@/state/application/hooks";
+import { useActiveIndex, useThrottleFlag } from "@/state/application/hooks";
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import { useSwiper } from "swiper/react";
 import TitleBeam from "@/components/TitleBeam";
@@ -120,8 +120,15 @@ export default function SignCharacteristic({
 }: SignCharacteristicProps) {
   const swiper = useSwiper();
   const dispatch = useAppDispatch();
+  const activeIndex = useActiveIndex();
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
+  useEffect(() => {
+    if (activeIndex !== 3) {
+      setRight(0)
+      setCharacteristicType(0)
+    }
+  }, [activeIndex])
   return (
     <Box
       className={`flex w-screen max-md:pb-[210px] z-50 opacity-0 md:overflow-hidden ${swiper?.activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
@@ -214,8 +221,8 @@ export default function SignCharacteristic({
           <div
             className={`max-md:hidden absolute top-0 left-0 w-full h-full`}
           >
-            <Image src={AboutUs_bg}  className={`top-0 ${right === 0 ? "opacity-0" : "opacity-100"
-              } transition-all duration-1000 absolute left-0 w-full h-full`} alt=""/>
+            <Image src={AboutUs_bg} className={`top-0 ${right === 0 ? "opacity-0" : "opacity-100"
+              } transition-all duration-1000 absolute left-0 w-full h-full`} alt="" />
             <Image className={`absolute top-[-200px] transition-all duration-1000 max-w-[0px] min-h-full ${right !== 0 ? '' : 'max-w-[1000px]'} max-md:hidden right-0`} src={characteristic_bg_1} alt="" />
             <Image className={`absolute bottom-[-100px] transition-all duration-1000 max-w-[0px] min-h-full ${right !== 0 ? '' : 'max-w-[1000px]'}  max-md:hidden left-0`} src={characteristic_bg_2} alt="" />
             <Image className={`absolute transition-all duration-1000  bottom-[52px] ${right !== 0 ? ' right-[-350px]' : characteristicType === 1 ? ' bottom-[85px]' : characteristicType === 2 ? ' bottom-[116px]' : characteristicType === 3 ? ' bottom-[148px]' : ''}  max-md:hidden right-0 `} src={characteristic_bg_logo} alt="" />
