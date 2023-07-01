@@ -109,7 +109,11 @@ export default function SignCharacteristic({
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
-    <Box className="flex w-screen max-md:pb-[210px] z-50 md:overflow-hidden">
+    <Box
+      className={`flex w-screen max-md:pb-[210px] z-50 opacity-0 md:overflow-hidden ${
+        swiper?.activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
+      }`}
+    >
       <div className="flex relative">
         <SignBox
           className={`md:flex md:h-[1278px] max-md:pt-[300px] relative w-screen items-center justify-center`}

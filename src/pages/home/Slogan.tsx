@@ -16,7 +16,7 @@ const Box = styled.div`
     url(${slogan_bg.src}), url(${slogan_bg.src});
   background-blend-mode: normal, soft-light, color-dodge;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100%;
 
   @media not all and (min-width: 768px) {
     background: linear-gradient(
@@ -93,7 +93,7 @@ export default function Slogan() {
           因形创声 随时造曲 应物无穷
         </div>
         <div
-          className="text-[16px] max-md:text-[12px] font-[200] font-[Lexend] leading-[180%] tracking-[3.2px] max-md:tracking-[2.4px] mb-[81px] max-md:mb-[56px]   max-md:px-[32px] "
+          className="text-[16px] max-md:text-[12px] font-[100] font-[Lexend] leading-[180%] tracking-[3.2px] max-md:tracking-[2.4px] mb-[81px] max-md:mb-[56px]   max-md:px-[32px] "
           style={{
             color: "rgba(255, 255, 255, .5)",
             fontFeatureSettings: "'liga' off",
