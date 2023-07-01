@@ -39,8 +39,8 @@ const Box = styled.div`
         transform: translateX(162px) rotate(40deg);
       }
       .film-mask {
+        transition: all 450ms;
         opacity: 0;
-        transition: opacity 600ms, transform 450ms;
         transform: translateX(-20px);
       }
       .left-coraton {
@@ -51,9 +51,25 @@ const Box = styled.div`
       }
       .film-master-map {
         opacity: 1;
-        transition: transform 450ms;
+        transition: all 450ms;
 
         transform: translateX(-20px);
+      }
+    }
+    .move {
+      .film-img {
+        transform: translateX(120px) rotate(0deg);
+        transform-origin: center center;
+      }
+      .film-master-map {
+        opacity: 0;
+        transition: transform 450ms, opacity 8000ms;
+      }
+
+      .film-mask {
+        transition: transform 450ms, opacity 600ms;
+        opacity: 1;
+        /* opacity: 1; */
       }
     }
   }
@@ -73,7 +89,6 @@ const FilterBox = styled.div`
   filter: blur(100px);
   background-size: 100%;
   background-repeat: no-repeat;
-  transition: all 500ms;
 `;
 
 const DiscBox = styled.div`
@@ -115,12 +130,12 @@ const RightDecoraton = styled.div`
   background: url(${disc_right_decoraton.src});
   background-repeat: no-repeat;
   top: -150px;
-  opacity: 0.3;
+  opacity: 0.25;
   right: 45px;
 `;
 
 const FilmBox = styled.div`
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     .film-img {
       transform: translateX(120px) rotate(0deg);
       transform-origin: center center;
@@ -133,10 +148,10 @@ const FilmBox = styled.div`
     }
 
     .film-mask {
-      transition: opacity 600ms, transform 450ms;
+      transition: all 450ms;
       opacity: 1;
     }
-  }
+  } */
 
   @media not all and (min-width: 768px) {
     .bg-box {
@@ -190,13 +205,13 @@ export default function Disc({}: DiscProps) {
     window.open(url);
   };
   const mouseLeave = (bg: any) => {
-    setDiscImg(disc_acquiesce);
     setMoveFlag(false);
   };
   const mouseEnter = (bg: any) => {
     setDiscImg(bg);
     setMoveFlag(true);
   };
+
   const prePage = () => {
     if (currentPage <= -3) {
       return;
@@ -231,12 +246,12 @@ export default function Disc({}: DiscProps) {
         <FilterBox
           className="fliter-box z-[4] max-md:hidden"
           style={{
-            backgroundImage:
-              discImg.src != disc_acquiesce.src ? `url(${discImg.src})` : "",
-            opacity: discImg.src != disc_acquiesce.src ? 0.2 : 0,
+            backgroundImage: `url(${discImg.src})`,
+            opacity: moveFlag ? 0.2 : 0,
+            transition: "all 300ms",
           }}
         ></FilterBox>
-        <div className={moveFlag ? "active-move" : ""}>
+        <div className={moveFlag ? "active-move" : "move"}>
           <div className=" w-[1160px] max-md:w-full flex mb-[72px] relative mx-auto">
             <div className="flex">
               <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5] max-md:hidden"></LeftDecoraton>
