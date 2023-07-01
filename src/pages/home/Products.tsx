@@ -81,7 +81,9 @@ export default function Products({ value, setValue }: ProductsProps) {
       id="productsBox"
       className={`md:h-screen md:pt-[120px] ${
         value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
-      } relative`}
+      }   ${
+        swiper?.activeIndex === 2 ? "swiper-move-in" : "swiper-move-out"
+      }   relative`}
       onScroll={(e: any) => {
         if (innerWidth > 768) {
           if (throttleFlag) return;

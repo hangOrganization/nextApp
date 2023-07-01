@@ -81,47 +81,47 @@ export const ShadowBox2 = styled.div`
 export const ButtonBox = styled.div`
   @media (min-width: 768px) {
     button {
-    :hover {
-      .shadow {
-        margin-top: -27px;
-        margin-left: 260px;
+      :hover {
+        .shadow {
+          margin-top: -27px;
+          margin-left: 260px;
+        }
+      }
     }
-    }
-  }
   }
 `;
 export const EchoRollBox = styled.div`
   @media (min-width: 768px) {
     opacity: 0;
-  animation: move-echo 2s linear 1s forwards,
-    echoRollBox 6s cubic-bezier(0.33, 0.6, 0.81, 0.5) infinite 3s;
-  @keyframes move-echo {
-    0% {
-      opacity: 0;
-      transform: translateX(230px);
+    animation: move-echo 2s linear 1s forwards,
+      echoRollBox 6s cubic-bezier(0.33, 0.6, 0.81, 0.5) infinite 3s;
+    @keyframes move-echo {
+      0% {
+        opacity: 0;
+        transform: translateX(230px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
     }
-    100% {
-      opacity: 1;
-      transform: translateX(0px);
+    @keyframes echoRollBox {
+      0% {
+        transform: translateX(0px);
+      }
+      40% {
+        transform: translateX(0px);
+      }
+      50% {
+        transform: translateX(-780px);
+      }
+      90% {
+        transform: translateX(-780px);
+      }
+      100% {
+        transform: translateX(-1560px);
+      }
     }
-  }
-  @keyframes echoRollBox {
-    0% {
-      transform: translateX(0px);
-    }
-    40% {
-      transform: translateX(0px);
-    }
-    50% {
-      transform: translateX(-780px);
-    }
-    90% {
-      transform: translateX(-780px);
-    }
-    100% {
-      transform: translateX(-1560px);
-    }
-  }
   }
 `;
 export const ButtonBorder = styled.div`
@@ -181,6 +181,8 @@ export const LineBox = styled.div`
     transform: translateX(80px);
   }
   .before {
+    position: relative;
+    z-index: 9;
     :before {
       content: "10";
       color: #fff;
@@ -244,6 +246,7 @@ export const LineBox = styled.div`
       text-align: center;
       font-size: 40px;
       font-weight: 300;
+
       line-height: 150%;
       text-transform: uppercase;
       animation: afterMove 2s linear;
@@ -349,7 +352,8 @@ export const LineBox = styled.div`
 export const SignBgBox = styled.div`
   .sign-bg-2 {
     transform: scaleY(0);
-    animation: sign-bg-2-move 1500ms cubic-bezier(0.76, 0, 0.32, 1) 300ms forwards;
+    animation: sign-bg-2-move 1500ms cubic-bezier(0.76, 0, 0.32, 1) 300ms
+      forwards;
   }
   @keyframes sign-bg-2-move {
     0% {

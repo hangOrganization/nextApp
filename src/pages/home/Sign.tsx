@@ -5,7 +5,12 @@ import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
 import mobile_sign_bg_1 from "@/assets/image/mobile/mobile-sign-bg-1.png";
 import sign_bg_1 from "@/assets/image/svg/sign-bg-1.svg";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
-import { EchoRollBox, SignBgBox, SingLogo, TextBox } from "../../styles/SignCss";
+import {
+  EchoRollBox,
+  SignBgBox,
+  SingLogo,
+  TextBox,
+} from "../../styles/SignCss";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
 import { useAppDispatch } from "@/state";
@@ -21,8 +26,8 @@ import {
   setThrottleFlag,
 } from "@/state/application/reducer";
 
-interface SignProps { }
-export default function Sign({ }: SignProps) {
+interface SignProps {}
+export default function Sign({}: SignProps) {
   const throttleFlag = useThrottleFlag();
   const innerWidth = useOuterWidth();
   const activeIndex = useActiveIndex();
@@ -41,7 +46,9 @@ export default function Sign({ }: SignProps) {
   }, [activeIndex]);
   return (
     <div
-      className={`relative ${swiper?.activeIndex === 0 ? 'opacity-100' : ''} opacity-0 max-md:pb-20 md:h-screen w-screen`}
+      className={`relative ${
+        swiper?.activeIndex === 0 ? "swiper-move-in" : "swiper-move-out"
+      } opacity-0 max-md:pb-20 md:h-screen w-screen`}
       onWheel={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
