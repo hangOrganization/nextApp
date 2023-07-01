@@ -22,6 +22,7 @@ import {
 import products_right from "@/assets/image/svg/icon-products-right.svg";
 import products_right_bg from "@/assets/image/svg/products-right-bg.svg";
 import mobile_products_bg from "@/assets/image/mobile/mobile-products-bg.png";
+import { useEffect } from "react";
 
 const ProductsBox = styled(`div`)`
   width: 440px;
@@ -68,8 +69,16 @@ export default function Products({ value, setValue }: ProductsProps) {
   const innerWidth = useOuterWidth();
   const comePage = useComePage();
 
+  useEffect(() => {
+    document.querySelector("#productsBox")?.scrollTo({
+      top: 1,
+      behavior: "smooth",
+    });
+  }, [swiper?.activeIndex]);
+
   return (
     <div
+      id="productsBox"
       className={`md:h-screen md:pt-[120px] ${
         value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
       } relative`}

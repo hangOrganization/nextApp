@@ -2,7 +2,7 @@
 import mobileOurTeam_bg from "@/assets/image/mobile/mobileOurTeam-bg.svg";
 import MentorInformation from "@/components/Modal/MentorInformation";
 import { teachers } from "@/utils/ourTeam";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
@@ -135,12 +135,20 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const [cardHover, setCardHover] = useState<string>("");
   const [characteristicType, setCharacteristicType] = useState<number>(0);
 
+  useEffect(() => {
+    document.querySelector("#ourTeamBox")?.scrollTo({
+      top: 1,
+      behavior: "smooth",
+    });
+  }, [swiper?.activeIndex]);
   return (
     <div
+      id="ourTeamBox"
       className={`md:h-screen ${
         swiper?.activeIndex === 3 ? "opacity-100" : "opacity-0"
       } transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
+        console.log(2121);
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {
