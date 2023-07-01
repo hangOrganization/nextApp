@@ -12,7 +12,7 @@ import characteristic_bg from "@/assets/image/svg/characteristic-bg.svg";
 import styled from "styled-components";
 import { useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
-import { useThrottleFlag } from "@/state/application/hooks";
+import { useActiveIndex, useThrottleFlag } from "@/state/application/hooks";
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import { useSwiper } from "swiper/react";
 import TitleBeam from "@/components/TitleBeam";
@@ -105,13 +105,14 @@ export default function SignCharacteristic({
   setIsOpenCampus,
 }: SignCharacteristicProps) {
   const swiper = useSwiper();
+  const activeIndex = useActiveIndex();
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
     <Box
       className={`flex w-screen max-md:pb-[210px] z-50 opacity-0 md:overflow-hidden ${
-        swiper?.activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
+        activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
       }`}
     >
       <div className="flex relative">
@@ -297,9 +298,7 @@ export default function SignCharacteristic({
                         </div>
                         <div
                           className={`md:w-[488px] md:opacity-0 duration-1000 transition-all ${
-                            characteristicType === 0
-                              ? "md:opacity-100"
-                              : ""
+                            characteristicType === 0 ? "md:opacity-100" : ""
                           } md:opacity-0 mt-12`}
                         >
                           <p className="text-[14px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70">
@@ -333,9 +332,7 @@ export default function SignCharacteristic({
                       </div>
                       <div
                         className={`md:h-[488px] duration-1000 md:opacity-0 transition-all md:w-[680px] max-md:mt-20 flex ${
-                          characteristicType === 1
-                            ? "md:opacity-100"
-                            : ""
+                          characteristicType === 1 ? "md:opacity-100" : ""
                         } flex-col justify-center`}
                       >
                         <div className="flex ">
@@ -398,9 +395,7 @@ export default function SignCharacteristic({
                       </div>
                       <div
                         className={`md:h-[488px] md:opacity-0 duration-1000 transition-all md:w-[680px] ${
-                          characteristicType === 2
-                            ? "md:opacity-100"
-                            : ""
+                          characteristicType === 2 ? "md:opacity-100" : ""
                         } max-md:mt-20 flex flex-col justify-center`}
                       >
                         <div className="flex">

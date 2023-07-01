@@ -228,7 +228,7 @@ export default function Disc({}: DiscProps) {
   const innerWidth = useOuterWidth();
   const dispatch = useAppDispatch();
   const activeIndex = useActiveIndex();
-  console.log("🚀 ~ file: Disc.tsx:186 ~ Disc ~ activeIndex:", activeIndex);
+  // console.log("🚀 ~ file: Disc.tsx:186 ~ Disc ~ activeIndex:", activeIndex);
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
@@ -236,7 +236,6 @@ export default function Disc({}: DiscProps) {
   const goOtherPage = (url: any) => {
     window.open(url);
   };
-  console.log(swiper?.activeIndex);
   const mouseLeave = (bg: any) => {
     setMoveFlag(false);
   };
@@ -268,7 +267,7 @@ export default function Disc({}: DiscProps) {
       <div
         id="discBox"
         className={`md:h-screen md:overflow-auto opacity-0 transition-all duration-10000 ${
-          swiper?.activeIndex === 4 ? "swiper-move-in" : "swiper-move-out"
+          activeIndex === 4 ? "swiper-move-in" : "swiper-move-out"
         }`}
         onScroll={(e: any) => {
           if (throttleFlag) return;

@@ -39,15 +39,13 @@ export default function Sign({}: SignProps) {
   });
   useEffect(() => {
     if (swiper) {
-      if (swiper.activeIndex !== activeIndex) {
-        swiper.slideTo(activeIndex, 1000, false);
-      }
+      swiper.slideTo(activeIndex, 1000, false);
     }
   }, [activeIndex]);
   return (
     <div
       className={`relative ${
-        swiper?.activeIndex === 0 ? "swiper-move-in" : "swiper-move-out"
+        activeIndex === 0 ? "swiper-move-in" : "swiper-move-out"
       } opacity-0 max-md:pb-20 md:h-screen w-screen`}
       onWheel={(e: any) => {
         if (throttleFlag) return;

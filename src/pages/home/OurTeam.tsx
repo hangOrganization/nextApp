@@ -8,6 +8,7 @@ import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
 import {
+  useActiveIndex,
   useComePage,
   useIsChrome,
   useOuterWidth,
@@ -134,6 +135,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const [textValue, setTextValue] = useState<number>(0);
   const [cardHover, setCardHover] = useState<string>("");
   const [characteristicType, setCharacteristicType] = useState<number>(0);
+  const activeIndex = useActiveIndex();
 
   useEffect(() => {
     document.querySelector("#ourTeamBox")?.scrollTo({
@@ -145,10 +147,9 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
     <div
       id="ourTeamBox"
       className={`md:h-screen ${
-        swiper?.activeIndex === 3 ? "opacity-100" : "opacity-0"
+        activeIndex === 3 ? "opacity-100" : "opacity-0"
       } transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
-        console.log(2121);
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {

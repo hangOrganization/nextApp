@@ -34,6 +34,7 @@ interface IntroductionProps {
 export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
+  const activeIndex = useActiveIndex();
   const swiper = useSwiper();
   const innerWidth = useOuterWidth();
   const [buttonHover, setButtonHover] = useState<string>("");
@@ -47,10 +48,10 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
     <div
       id="introductionBox"
       className={`md:h-screen md:pb-20 ${
-        swiper?.activeIndex === 1 ? "swiper-move-in" : "swiper-move-out"
+        activeIndex === 1 ? "swiper-move-in" : "swiper-move-out"
       }  md:overflow-auto`}
       onScroll={(e: any) => {
-        console.log("🚀 ~ file: Introduction.tsx:246 ~ Introduction ~ e:", e);
+        // console.log("🚀 ~ file: Introduction.tsx:246 ~ Introduction ~ e:", e);
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {

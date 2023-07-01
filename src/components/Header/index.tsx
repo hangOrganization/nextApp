@@ -38,13 +38,18 @@ export default function Header({
   isOpenConsult,
   scrollToView,
 }: HeaderProps) {
-  const activeIndex = useActiveIndex()
+  const activeIndex = useActiveIndex();
   // console.log("🚀 ~ file: index.tsx:42 ~ activeIndex:", activeIndex)
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   return (
     <Box className="fixed z-[10000] w-screen pl-[48px] max-md:px-4 max-md:py-3  pr-6  py-4 left-0 flex items-center justify-between top-0">
-      <div className=" cursor-pointer">
+      <div
+        className=" cursor-pointer"
+        onClick={() => {
+          dispatch(setActiveIndex(0));
+        }}
+      >
         <Image className="max-md:hidden" src={logo} alt="" />
         <Image className="md:hidden" src={mobile_logo} alt="" />
       </div>
@@ -55,31 +60,43 @@ export default function Header({
           音乐留学
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${activeIndex === 3 ? "active-item " : ""}`}
-        onClick={()=>{
-          dispatch(setActiveIndex(3))
-        }}>
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${
+            activeIndex === 3 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            dispatch(setActiveIndex(3));
+          }}
+        >
           师资团队
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 2 ? "active-item " : ""}`}
-          onClick={()=>{
-            dispatch(setActiveIndex(2))
-          }}>
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            activeIndex === 2 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            dispatch(setActiveIndex(2));
+          }}
+        >
           公司特色
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 99 ? "active-item " : ""}`}
-          onClick={()=>{
-            dispatch(setActiveIndex(3))
-          }}>
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            activeIndex === 99 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            dispatch(setActiveIndex(3));
+          }}
+        >
           关于我们
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] max-md:hidden flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 4 ? "active-item " : ""}`}
-          onClick={()=>{
-            dispatch(setActiveIndex(4))
-          }} >
+          className={`py-4 cursor-pointer text-[14px] max-md:hidden flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            activeIndex === 4 ? "active-item " : ""
+          }`}
+          onClick={() => {
+            dispatch(setActiveIndex(4));
+          }}
+        >
           原创音乐计划
         </div>
 
