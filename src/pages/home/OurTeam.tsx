@@ -172,8 +172,8 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
     <div
       id="ourTeamBox"
       className={`md:h-screen ${
-        activeIndex === 3 ? "opacity-100" : "opacity-0"
-      } transition-all duration-1000 md:overflow-auto`}
+        activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
+      }  transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
@@ -181,7 +181,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
             dispatch(setThrottleFlag(true));
             swiper.slidePrev(0);
             dispatch(setComePage(3));
-            dispatch(setActiveIndex(3));
+            dispatch(setActiveIndex(2));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
             }, 1700);

@@ -76,7 +76,8 @@ export default function Products({ value, setValue }: ProductsProps) {
       top: 1,
       behavior: "smooth",
     });
-  }, [swiper?.activeIndex]);
+    console.log(activeIndex);
+  }, [swiper?.activeIndex, activeIndex]);
 
   return (
     <div
