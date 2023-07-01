@@ -9,6 +9,7 @@ import { useSwiper } from "swiper/react";
 import _ from "lodash";
 import {
   useActiveIndex,
+  useActiveType,
   useComePage,
   useIsChrome,
   useOuterWidth,
@@ -136,6 +137,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const [cardHover, setCardHover] = useState<string>("");
   const [characteristicType, setCharacteristicType] = useState<number>(0);
   const activeIndex = useActiveIndex();
+  const activeType = useActiveType();
 
   useEffect(() => {
     document.querySelector("#ourTeamBox")?.scrollTo({
@@ -143,6 +145,29 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       behavior: "smooth",
     });
   }, [swiper?.activeIndex]);
+
+  useEffect(() => {
+    if (activeType == 0) {
+      setRight(0);
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 2,
+        behavior: "smooth",
+      });
+    } else if (activeType == 1) {
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1350,
+        behavior: "smooth",
+      });
+      setRight(0);
+    } else if (activeType == 2) {
+      setRight(1);
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1350,
+        behavior: "smooth",
+      });
+    }
+  }, [activeType]);
+
   return (
     <div
       id="ourTeamBox"
@@ -167,7 +192,12 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       <div className={`${comePage === 2 ? "rocket-in" : ""}`}></div>
       <OurTeamBox>
         <div className="absolute rounded-t-[48px] z-[-1] flex items-center justify-center overflow-hidden max-md:hidden left-0 w-screen h-full">
-          <video autoPlay muted loop className="w-screen min-w-full min-h-full h-full scale-150">
+          <video
+            autoPlay
+            muted
+            loop
+            className="w-screen min-w-full min-h-full h-full scale-150"
+          >
             <source
               src={
                 isChrome ? "/video/OurTeam-bg.webm" : "/video/OurTeam-bg.mp4"

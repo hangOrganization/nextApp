@@ -16,6 +16,9 @@ export function useIsChrome() {
 export function useComePage() {
   return useAppSelector((state: AppState) => state.application.comePage);
 }
+export function useActiveType() {
+  return useAppSelector((state: AppState) => state.application.activeType);
+}
 // export function useGrowthPoolValues() {
 //   return useAppSelector((state: AppState) => state.application.growthPoolValues)
 // }

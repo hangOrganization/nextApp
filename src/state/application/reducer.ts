@@ -9,6 +9,7 @@ export interface ApplicationState {
   throttleFlag: boolean;
   activeIndex: number;
   isChrome: boolean;
+  activeType: number;
   comePage: number;
 }
 
@@ -24,6 +25,7 @@ const initialState: ApplicationState = {
   throttleFlag: false,
   isChrome: false,
   comePage: 0,
+  activeType: 0,
 };
 
 const applicationSlice = createSlice({
@@ -46,6 +48,9 @@ const applicationSlice = createSlice({
     setComePage(state, action) {
       state.comePage = action.payload;
     },
+    setAboutOrCorporation(state, action) {
+      state.activeType = action.payload;
+    },
   },
 });
 
@@ -53,6 +58,7 @@ export const {
   setOuterWidth,
   setThrottleFlag,
   setIsChrome,
+  setAboutOrCorporation,
   setActiveIndex,
   setComePage,
 } = applicationSlice.actions;

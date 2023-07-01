@@ -38,7 +38,9 @@ export default function Sign({}: SignProps) {
     dispatch(setOuterWidth(window.outerWidth));
   });
   useEffect(() => {
+    console.log("12313121321212132");
     if (swiper) {
+      console.log(15151);
       swiper.slideTo(activeIndex, 1000, false);
     }
   }, [activeIndex]);
@@ -65,8 +67,7 @@ export default function Sign({}: SignProps) {
         <div
           style={{ border: "10px solid #1a1a1a" }}
           className="md:h-[727px] absolute w-screen"
-        >
-        </div>
+        ></div>
         <video autoPlay muted loop className="w-[1440px] h">
           <source
             src={
@@ -94,7 +95,15 @@ export default function Sign({}: SignProps) {
             src={mobile_sign_bg_2}
             alt=""
           />
-          <div style={{backgroundImage:`url(${sign_bg_2.src})`,backgroundRepeat:"no-repeat",backgroundSize:'cover',backgroundPosition:'center'}} className=" absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"></div>
+          <div
+            style={{
+              backgroundImage: `url(${sign_bg_2.src})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            className=" absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"
+          ></div>
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[246px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">

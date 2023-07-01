@@ -8,7 +8,11 @@ import CampusEnvironment from "../Modal/CampusEnvironment";
 import styled from "styled-components";
 import { useActiveIndex } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import { setActiveIndex } from "@/state/application/reducer";
+import {
+  setAboutOrCorporation,
+  setActiveIndex,
+  setComePage,
+} from "@/state/application/reducer";
 
 interface HeaderProps {
   isOpenCampus: number;
@@ -65,6 +69,8 @@ export default function Header({
           }`}
           onClick={() => {
             dispatch(setActiveIndex(3));
+            dispatch(setAboutOrCorporation(0));
+            dispatch(setComePage(3));
           }}
         >
           师资团队
@@ -74,7 +80,10 @@ export default function Header({
             activeIndex === 2 ? "active-item " : ""
           }`}
           onClick={() => {
-            dispatch(setActiveIndex(2));
+            console.log("点击");
+
+            dispatch(setActiveIndex(3));
+            dispatch(setAboutOrCorporation(1));
           }}
         >
           公司特色
@@ -85,6 +94,7 @@ export default function Header({
           }`}
           onClick={() => {
             dispatch(setActiveIndex(3));
+            dispatch(setAboutOrCorporation(2));
           }}
         >
           关于我们
