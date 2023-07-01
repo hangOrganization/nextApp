@@ -6,7 +6,7 @@ import Consult from "../Modal/Consult";
 import { useEffect, useState } from "react";
 import CampusEnvironment from "../Modal/CampusEnvironment";
 import styled from "styled-components";
-import { useActiveIndex } from "@/state/application/hooks";
+import { useActiveIndex, useActiveType } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
 import {
   setAboutOrCorporation,
@@ -45,7 +45,7 @@ export default function Header({
   const activeIndex = useActiveIndex();
   // console.log("🚀 ~ file: index.tsx:42 ~ activeIndex:", activeIndex)
   const dispatch = useAppDispatch();
-
+  const activeType = useActiveType();
   return (
     <Box className="fixed z-[10000] w-screen pl-[48px] max-md:px-4 max-md:py-3  pr-6  py-4 left-0 flex items-center justify-between top-0">
       <div
@@ -65,23 +65,21 @@ export default function Header({
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${
-            activeIndex === 3 ? "active-item " : ""
+            activeIndex === 3 && activeType === 0 ? "active-item " : ""
           }`}
           onClick={() => {
             dispatch(setActiveIndex(3));
             dispatch(setAboutOrCorporation(0));
-            dispatch(setComePage(3));
+            dispatch(setComePage(2));
           }}
         >
           师资团队
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            activeIndex === 2 ? "active-item " : ""
+            activeIndex === 3 && activeType === 1 ? "active-item " : ""
           }`}
           onClick={() => {
-            console.log("点击");
-
             dispatch(setActiveIndex(3));
             dispatch(setAboutOrCorporation(1));
           }}
@@ -90,7 +88,7 @@ export default function Header({
         </div>
         <div
           className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
-            activeIndex === 99 ? "active-item " : ""
+            activeIndex === 3 && activeType === 2 ? "active-item " : ""
           }`}
           onClick={() => {
             dispatch(setActiveIndex(3));
