@@ -8,12 +8,17 @@ import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
 import {
+  useComePage,
   useIsChrome,
   useOuterWidth,
   useThrottleFlag,
 } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
+import {
+  setActiveIndex,
+  setThrottleFlag,
+  setComePage,
+} from "@/state/application/reducer";
 
 const OurTeamBox = styled.div`
   width: 100%;
@@ -113,7 +118,6 @@ const RollBox = styled.div`
     }
   }
 `;
-const RocketBox = styled.div``;
 
 interface OurTeamProps {
   setIsOpenCampus: Function;
@@ -123,12 +127,15 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
   const innerWidth = useOuterWidth();
+  const comePage = useComePage();
   const isChrome = useIsChrome();
   const [right, setRight] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<number>(0);
   const [textValue, setTextValue] = useState<number>(0);
   const [cardHover, setCardHover] = useState<string>("");
   const [characteristicType, setCharacteristicType] = useState<number>(0);
+  console.log(comePage, "-----------------------");
+
   return (
     <div
       className={`md:h-screen ${
@@ -139,7 +146,8 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {
             dispatch(setThrottleFlag(true));
-            swiper.slidePrev(1000);
+            swiper.slidePrev(0);
+            dispatch(setComePage(3));
             dispatch(setActiveIndex(3));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
@@ -148,9 +156,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
         }
       }}
     >
-      {/* {swiper?.activeIndex === 3 ? <RocketBox></RocketBox> : ""} */}
-
-      <div className={`${swiper?.activeIndex === 3 ? "rocket" : ""}`}></div>
+      <div className={`${comePage === 2 ? "rocket-in" : ""}`}></div>
       <OurTeamBox>
         <div className="absolute rounded-t-[48px] z-[-1] flex items-center justify-center overflow-hidden max-md:hidden left-0 w-screen h-full">
           <video autoPlay muted loop className="scale-[1.6]">
