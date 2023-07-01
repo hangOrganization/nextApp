@@ -56,11 +56,12 @@ export default function Sign({ }: SignProps) {
         }
       }}
     >
-      <div className="w-screen flex justify-center z-[30] max-md:top-[150px] left-0 absolute">
+      <div className="w-screen flex z-[30] max-md:top-[150px] justify-center left-0 absolute">
         <div
           style={{ border: "10px solid #1a1a1a" }}
           className="md:h-[727px] absolute w-screen"
         >
+          {" "}
         </div>
         <video autoPlay muted loop className="w-[1440px]">
           <source
@@ -89,11 +90,12 @@ export default function Sign({ }: SignProps) {
             src={mobile_sign_bg_2}
             alt=""
           />
-        <Image
+          {/* <Image
             className="absolute max-md:hidden w-screen sign-bg-2"
             src={sign_bg_2}
             alt=""
-          />
+          /> */}
+          <div style={{ backgroundImage: `url(${sign_bg_2.src})`, backgroundPositionY:'center', backgroundRepeat: 'repeat-y', backgroundSize: '100% auto' }} className="absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"></div>
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[246px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">
