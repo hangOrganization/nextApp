@@ -16,7 +16,7 @@ const Box = styled.div`
     url(${slogan_bg.src}), url(${slogan_bg.src});
   background-blend-mode: normal, soft-light, color-dodge;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100%;
 
   @media not all and (min-width: 768px) {
     background: linear-gradient(
