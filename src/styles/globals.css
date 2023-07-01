@@ -42,6 +42,13 @@
     /* bottom: 50%; */
     opacity: 1;
   }
+  30%{
+        background: linear-gradient(217deg, rgba(255, 75, 0, 1), rgba(204, 204, 204, 1));
+    transform: translateY(30%);
+
+  }
+
+
 
   99% {
     opacity: .8;
