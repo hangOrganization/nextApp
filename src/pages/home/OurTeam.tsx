@@ -181,7 +181,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
             dispatch(setThrottleFlag(true));
             swiper.slidePrev(0);
             dispatch(setComePage(3));
-            dispatch(setActiveIndex(3));
+            dispatch(setActiveIndex(2));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
             }, 1700);

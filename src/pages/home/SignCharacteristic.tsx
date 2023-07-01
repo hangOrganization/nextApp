@@ -124,9 +124,7 @@ export default function SignCharacteristic({
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
     <Box
-      className={`flex w-screen max-md:pb-[210px] z-50 opacity-0 md:overflow-hidden ${
-        activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
-      }`}
+      className={`flex w-screen max-md:pb-[210px] z-50  md:overflow-hidden `}
     >
       <div className="flex relative">
         <SignBox

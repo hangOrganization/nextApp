@@ -76,7 +76,8 @@ export default function Products({ value, setValue }: ProductsProps) {
       top: 1,
       behavior: "smooth",
     });
-  }, [swiper?.activeIndex]);
+    console.log(activeIndex);
+  }, [swiper?.activeIndex, activeIndex]);
 
   return (
     <div
@@ -84,7 +85,7 @@ export default function Products({ value, setValue }: ProductsProps) {
       className={`md:h-screen md:pt-[120px] ${
         value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
       }   ${
-        activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
+        activeIndex === 2 ? "swiper-move-in" : "swiper-move-out"
       }   relative`}
       onScroll={(e: any) => {
         if (innerWidth > 768) {
