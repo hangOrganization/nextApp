@@ -2,13 +2,15 @@
 import Image from "next/image";
 import _ from "lodash";
 import products_right from "@/assets/image/svg/icon-products-right.svg";
+import characteristic_bg_1 from "@/assets/image/svg/characteristic-bg-1.svg";
+import characteristic_bg_2 from "@/assets/image/svg/characteristic-bg-2.svg";
 import mobile_SignCharacteristic from "@/assets/image/mobile/mobile-SignCharacteristic.svg";
 import signCharacteristic_title from "@/assets/image/mobile/mobile-signCharacteristic-title.svg";
 import signCharacteristic_active from "@/assets/image/mobile/icon-mobile-signCharacteristic-active.svg";
 import mobile_signCharacteristic_bg from "@/assets/image/mobile/mobile-signCharacteristic-bg.svg";
+import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.png";
 import AboutUs_bg from "@/assets/image/svg/aboutUs-bg.png";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
-import characteristic_bg from "@/assets/image/svg/characteristic-bg.svg";
 import styled from "styled-components";
 import { useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
@@ -22,15 +24,26 @@ const SignBox = styled.div`
   @media (min-width: 768px) {
     width: 100vw;
     .WhySIGN {
-      background-image: url(${characteristic_bg.src});
       background-size: 100% !important;
       background-repeat: no-repeat !important;
-      animation: WhySIGN 1s linear infinite;
     }
     .ABOUT {
-      background-image: url(${AboutUs_bg.src}) !important;
+      opacity: 1;
+      /* background-image: url(${AboutUs_bg.src}) !important; */
       background-size: 100% !important;
       background-repeat: no-repeat !important;
+    }
+    animation: characteristic-bg-move 2ms;
+    @keyframes characteristic-bg-move {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 `;
@@ -117,7 +130,7 @@ export default function SignCharacteristic({
     >
       <div className="flex relative">
         <SignBox
-          className={`md:flex md:h-[1278px] max-md:pt-[300px] relative w-screen items-center justify-center`}
+          className={`md:flex md:h-[1050px] max-md:pt-[300px] relative w-screen items-center justify-center`}
           onWheelCapture={(e: any) => {
             if (throttleFlag) return;
             if (e.deltaY < 10 && e.deltaY > -10) return;
@@ -199,18 +212,51 @@ export default function SignCharacteristic({
             }
           }}
         >
-          <div
-            className={`max-md:hidden absolute ${
-              right === 0 ? "WhySIGN opacity-100" : "ABOUT opacity-100"
-            } transition-all duration-1000 opacity-0 top-0 left-0 w-full h-full`}
-          ></div>
+          <div className={`max-md:hidden absolute top-0 left-0 w-full h-full`}>
+            <Image
+              src={AboutUs_bg}
+              className={`top-0 ${
+                right === 0 ? "opacity-0" : "opacity-100"
+              } transition-all duration-1000 absolute left-0 w-full h-full`}
+              alt=""
+            />
+            <Image
+              className={`absolute top-[-200px] transition-all duration-1000 max-w-[0px] min-h-full ${
+                right !== 0 ? "" : "max-w-[1000px]"
+              } max-md:hidden right-0`}
+              src={characteristic_bg_1}
+              alt=""
+            />
+            <Image
+              className={`absolute bottom-[-100px] transition-all duration-1000 max-w-[0px] min-h-full ${
+                right !== 0 ? "" : "max-w-[1000px]"
+              }  max-md:hidden left-0`}
+              src={characteristic_bg_2}
+              alt=""
+            />
+            <Image
+              className={`absolute transition-all duration-1000  bottom-[52px] ${
+                right !== 0
+                  ? " right-[-350px]"
+                  : characteristicType === 1
+                  ? " bottom-[85px]"
+                  : characteristicType === 2
+                  ? " bottom-[116px]"
+                  : characteristicType === 3
+                  ? " bottom-[148px]"
+                  : ""
+              }  max-md:hidden right-0 `}
+              src={characteristic_bg_logo}
+              alt=""
+            />
+          </div>
           <div
             className={`md:flex relative md:w-[1200px] w-screen items-center `}
           >
             <SignCharacteristicBox
               className={`${
                 right !== 0 ? " translate-x-[908px]" : "translate-x-[0px]"
-              } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-300`}
+              } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-1000`}
             >
               <div>
                 <div className="max-md:flex justify-between">
@@ -260,7 +306,7 @@ export default function SignCharacteristic({
               </div>
             </SignCharacteristicBox>
             <div
-              className={`transition-all duration-300 md:flex items-center ${
+              className={`transition-all duration-1000 md:flex items-center ${
                 right !== 0
                   ? " flex-row-reverse translate-x-[510px] md:opacity-0"
                   : "md:opacity-100 translate-x-[0px]"

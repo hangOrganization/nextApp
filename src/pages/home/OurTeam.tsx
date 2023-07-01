@@ -167,7 +167,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       <div className={`${comePage === 2 ? "rocket-in" : ""}`}></div>
       <OurTeamBox>
         <div className="absolute rounded-t-[48px] z-[-1] flex items-center justify-center overflow-hidden max-md:hidden left-0 w-screen h-full">
-          <video autoPlay muted loop className="scale-[1.6]">
+          <video autoPlay muted loop className="w-screen min-w-full min-h-full h-full scale-150">
             <source
               src={
                 isChrome ? "/video/OurTeam-bg.webm" : "/video/OurTeam-bg.mp4"
