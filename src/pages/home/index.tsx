@@ -63,7 +63,7 @@ export default function Homepage() {
     dispatch(setIsChrome(window.navigator.userAgent.indexOf("Chrome") >= 0));
   });
   return (
-    <Box className={`relative max-md:max-w-[100vw] max-md:overflow-hidden`}>
+    <Box className={`relative h-screen overflow-auto max-md:max-w-[100vw] `}>
       <Header
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}

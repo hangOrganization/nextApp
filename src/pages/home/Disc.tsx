@@ -134,15 +134,16 @@ const DiscBox = styled.div`
   .audition-button {
     opacity: 0;
   }
-  img {
-    border-radius: 16px;
-  }
+
   @media (min-width: 768px) {
     :hover {
       transform: translateY(-5px);
       .audition-button {
         opacity: 1;
       }
+    }
+    img {
+      border-radius: 16px;
     }
   }
 `;
@@ -153,7 +154,8 @@ const LeftDecoraton = styled.div`
   margin-top: auto;
   transform: translateX(5px);
   background-blend-mode: overlay;
-  opacity: 0.3;
+  opacity: 0.2;
+  opacity: 0.18;
 
   background-repeat: no-repeat;
 `;
@@ -163,7 +165,7 @@ const RightDecoraton = styled.div`
   background: url(${disc_right_decoraton.src});
   background-repeat: no-repeat;
   top: -150px;
-  opacity: 0.25;
+  opacity: 0.06;
   right: 45px;
 `;
 
@@ -296,7 +298,7 @@ export default function Disc({}: DiscProps) {
             }}
           ></FilterBox>
           <div className={moveFlag ? "active-move" : "move"}>
-            <div className=" w-[1160px] max-md:w-full flex mb-[72px] relative mx-auto">
+            <div className=" w-[1160px] max-md:w-full flex mb-[72px] max-md:mb-[24px] relative mx-auto max-md:ml-[33px]">
               <div className="flex">
                 <LeftDecoraton className="left-coraton transition-all duration-500 w-[367px] h-[370px] absoulte  z-[5] max-md:hidden"></LeftDecoraton>
                 <FilmBox className=" w-[492px] h-[492px]  max-md:w-[297px] max-md:h-[246px] mx-auto  flex items-center justify-center relative max-md:mt-[160px]">
@@ -321,7 +323,7 @@ export default function Disc({}: DiscProps) {
                   ></ImgBox>
                 </FilmBox>
                 <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
-                  <ChangeButton className="scale-x-[-1]" onClick={nextPage}>
+                  <ChangeButton className="scale-x-[-1]" onClick={prePage}>
                     <svg
                       width="48"
                       height="48"
@@ -350,7 +352,7 @@ export default function Disc({}: DiscProps) {
                       </defs>
                     </svg>
                   </ChangeButton>
-                  <ChangeButton onClick={prePage}>
+                  <ChangeButton onClick={nextPage}>
                     <svg
                       width="48"
                       height="48"
@@ -470,12 +472,12 @@ export default function Disc({}: DiscProps) {
                     alt=""
                   ></Image>
                   <div className="ml-4 w-full">
-                    <div className="flex items-center gap-[4px]">
+                    <div className="flex items-center  mb-[12px] gap-[4px]">
                       {item.type.map((item: any) => {
                         return (
                           <div
                             key={item}
-                            className=" h-[24px] px-[8px] flex items-center justify-center mt-2 mb-[12px]  text-[12px] leading-[100%] font-[400] text-[#FF4B00] box-border "
+                            className=" h-[24px] px-[8px] flex items-center justify-center  text-[12px] leading-[100%] font-[400] text-[#FF4B00] box-border "
                             style={{
                               border: "1px solid rgba(255, 75, 0, 0.5)",
                               borderRadius: "8px",
@@ -492,18 +494,17 @@ export default function Disc({}: DiscProps) {
                         </div>
 
                         <svg
-                          className="md:hidden"
                           width="18"
                           height="18"
-                          viewBox="0 0 24 24"
+                          viewBox="0 0 18 18"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M12 20C12 20 15.2353 12 23 12C15.2353 12 12 4 12 4"
+                            d="M9 13.5C9 13.5 10.7647 9 15 9C10.7647 9 9 4.5 9 4.5"
                             stroke="#FF4B00"
                           />
-                          <path d="M23 12L1 12" stroke="#FF4B00" />
+                          <path d="M15 9L3 9" stroke="#FF4B00" />
                         </svg>
                       </div>
                     </div>

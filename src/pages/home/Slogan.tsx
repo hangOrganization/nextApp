@@ -49,6 +49,7 @@ const MoveBox = styled.div`
   }
   .go-button {
     right: 50%;
+    font-weight: 300;
     transform: translate(50%, 0);
     transition: all 300ms;
     @media not all and (min-width: 768px) {
@@ -68,7 +69,7 @@ const MoveBox = styled.div`
         left: 48px;
         transform: translate(0, -50%);
         transition: all 300ms;
-        font-weight: 400;
+        font-weight: 300;
 
         p:last-child {
           opacity: 0.6;
@@ -110,11 +111,11 @@ export default function Slogan() {
               <p className="mb-[8px] text-[24px]  max-md:text-[20px]    max-md:font-[250]   max-md:translate-[0]">
                 探索更多声音服务
               </p>
-              <p className=" max-md:text-[12px]  max-md:font-[300]  max-md:tracking-[2.4px]  max-md:mb-[24px] max-md:font[250]">
+              <p className=" max-md:text-[12px]  max-md:font-[300]  tracking-[5.9px] max-md:tracking-[2.4px]  max-md:mb-[24px]  max-md:font[250]">
                 其实，你可以听见更多
               </p>
             </div>
-            <div className="go-button font-[400]  max-md:font-[300 ] text-[14px] leading-[180%] tracking-[1.4px] text-[#1a1a1a] z-[2] absolute opacity-0 flex gap-[8px] max-md:relative max-md:opacity-[1]   max-md:text-[#FF4B00]  max-md:z-[5]">
+            <div className="go-button font-[300]  max-md:font-[300 ] text-[14px] leading-[180%] tracking-[1.4px] text-[#1a1a1a] z-[2] absolute opacity-0 flex gap-[8px] max-md:relative max-md:opacity-[1]   max-md:text-[#FF4B00]  max-md:z-[5]">
               前往万像循声
               <Image
                 src={icon_right_arrow}
@@ -138,7 +139,11 @@ export default function Slogan() {
             </div>
           </MoveBox>
         </div>
-        <Image src={slogan} alt="" className="w-[344px] h-[143px]"></Image>
+        <Image
+          src={slogan}
+          alt=""
+          className="md:hidden w-[344px] h-[143px]"
+        ></Image>
       </div>
     </Box>
   );

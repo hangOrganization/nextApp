@@ -33,21 +33,20 @@ const MoveLeftBgBox = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: lighten;
-  @media (min-width: 768) {
-    animation: bgMove 5s linear infinite alternate;
+  animation: bgMove 5s linear infinite alternate;
 
-    @keyframes bgMove {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-184px);
-      }
+  @keyframes bgMove {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-184px);
     }
   }
 
   @media not all and (min-width: 768px) {
-    transform: translateX(-184px);
+    animation: unset;
+    transform: translateX(-194px);
   }
 
   /* translate-x-[184px] */
@@ -57,19 +56,19 @@ const MoveRightBgBox = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: lighten;
-  @media (min-width: 768) {
-    animation: bgMove2 5s linear infinite alternate;
-    @keyframes bgMove2 {
-      from {
-        transform: scale(-1) translateX(0);
-      }
-      to {
-        transform: scale(-1) translateX(-184px);
-      }
+
+  animation: bgMove2 5s linear infinite alternate;
+  @keyframes bgMove2 {
+    from {
+      transform: scale(-1) translateX(0);
+    }
+    to {
+      transform: scale(-1) translateX(-184px);
     }
   }
   @media not all and (min-width: 768px) {
-    transform: scale(-1) translateX(-184px);
+    transform: scale(-1) translateX(-174px);
+    animation: unset;
   }
 `;
 
@@ -94,14 +93,22 @@ const ScrollCenterBox = styled.div`
     }
   }
 `;
+const PartnerBox = styled.div`
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0.2;
+  background-blend-mode: overlay;
+  border-radius: 24px;
+  width: 288px;
+  height: 136px;
+  position: absolute;
+`;
 const Partner = styled.div`
+  background-blend-mode: overlay;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 288px;
   height: 136px;
-  background: rgba(255, 255, 255, 0.1);
-  background-blend-mode: overlay;
   border-radius: 24px;
   img {
     width: 200px;
@@ -120,32 +127,38 @@ export default function BusinessPartner() {
     <div className="w-screen h-[1187px]  max-md:h-[646px] flex flex-col items-center pt-[220px] max-md:pt-0 relative ">
       <MoveLeftBgBox className="w-[720px] max-md:w-[392px] h-[1187px]  max-md:h-[646px]  absolute left-0 top-0  "></MoveLeftBgBox>
       <MoveRightBgBox className="w-[720px] max-md:w-[392px]   h-[1187px] max-md:h-[646px]   absolute  right-0  top-0   "></MoveRightBgBox>
-      <p className="text-[56px] top-0 font-[300] leading-[120%] uppercase max-md:text-[28px] ">
+      <p className="text-[56px] top-0 font-light leading-[120%] uppercase max-md:text-[28px] ">
         合作伙伴
       </p>
-      <p className="text-[22px] max-md:text-[14px] font-[100] leading-[160%] font-[Lexend]  uppercase tracking-[0.69em] my-4 opacity-60">
+      <p className="text-[22px] max-md:text-[14px] font-light leading-[160%] font-[Lexend]  uppercase tracking-[0.69em] my-4 opacity-60">
         our partners
       </p>
       <p className="text-[14px] max-md:text-[12px] font-[300] leading-[180%] uppercase mb-[64px] max-md:mb-[80px] opacity-50 text-center max-md:px-[45px] max-md:font-[200]">
         十万象限常年与国内外一线品牌 上星卫视等通力合作 打造优秀作品
         共筑商业价值
       </p>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden relative z-10">
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
-              <Partner key={index}>
-                <Image src={item} alt="" key={index} />
-              </Partner>
+              <div className="flex items-center justify-center w-[288px] h-[136px] relative">
+                <PartnerBox></PartnerBox>
+                <Partner key={index}>
+                  <Image src={item} alt="" key={index} />
+                </Partner>
+              </div>
             )
           )}
         </ScrollBox>
         <ScrollCenterBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] my-[16px] max-md:my-[6.4px]">
           {[...partner.second, ...partner.second, ...partner.second].map(
             (item: any, index: number) => (
-              <Partner key={index}>
-                <Image src={item} alt="" key={index} />
-              </Partner>
+              <div className="flex items-center justify-center w-[288px] h-[136px] relative">
+                <PartnerBox></PartnerBox>
+                <Partner key={index}>
+                  <Image src={item} alt="" key={index} />
+                </Partner>
+              </div>
             )
           )}
         </ScrollCenterBox>
@@ -153,9 +166,12 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
-              <Partner key={index}>
-                <Image src={item} alt="" key={index} />
-              </Partner>
+              <div className="flex items-center justify-center w-[288px] h-[136px] relative">
+                <PartnerBox></PartnerBox>
+                <Partner key={index}>
+                  <Image src={item} alt="" key={index} />
+                </Partner>
+              </div>
             )
           )}
         </ScrollBox>

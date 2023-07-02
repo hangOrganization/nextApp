@@ -22,6 +22,7 @@ import {
 } from "@/state/application/hooks";
 import {
   setActiveIndex,
+  setComePage,
   setOuterWidth,
   setThrottleFlag,
 } from "@/state/application/reducer";
@@ -54,6 +55,7 @@ export default function Sign({}: SignProps) {
         if (innerWidth > 768) {
           if (e.deltaY > 20) {
             dispatch(setThrottleFlag(true));
+
             swiper.slideNext(1000);
             dispatch(setActiveIndex(1));
             setTimeout(() => {
