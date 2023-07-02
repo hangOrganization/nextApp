@@ -122,7 +122,7 @@ background-color:  #ff9b7a;
   }
 }
 
-/* */
+ 
 .swiper-move-in {
 @media (min-width:768) {
   animation: swiper-move-in 1000ms cubic-bezier(0.69, 0, 0.37, 1) forwards;

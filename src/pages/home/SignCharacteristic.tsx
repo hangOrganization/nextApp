@@ -12,7 +12,7 @@ import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.pn
 import AboutUs_bg from "@/assets/image/svg/aboutUs-bg.png";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
 import { useActiveIndex, useThrottleFlag } from "@/state/application/hooks";
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
@@ -118,13 +118,19 @@ export default function SignCharacteristic({
   setIsOpenCampus,
 }: SignCharacteristicProps) {
   const swiper = useSwiper();
-  const activeIndex = useActiveIndex();
   const dispatch = useAppDispatch();
+  const activeIndex = useActiveIndex();
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
+  useEffect(() => {
+    if (activeIndex !== 3) {
+      setRight(0)
+      setCharacteristicType(0)
+    }
+  }, [activeIndex])
   return (
     <Box
-      className={`flex w-screen max-md:pb-[210px] z-50  md:overflow-hidden `}
+      className={`flex w-screen max-md:pb-[210px] z-50 md:overflow-hidden`}
     >
       <div className="flex relative">
         <SignBox
