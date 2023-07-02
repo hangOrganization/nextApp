@@ -48,7 +48,7 @@ export default function Sign({}: SignProps) {
     <div
       className={`relative ${
         activeIndex === 0 ? "swiper-move-in" : "swiper-move-out"
-      } md:opacity-0 max-md:pb-20 md:h-screen w-screen`}
+      } max-md:pb-20 md:h-screen w-screen`}
       onWheel={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {

@@ -268,12 +268,12 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
                     } md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
-                      <div className="p-6 pr-[17px] max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
+                      <div className="p-6 pr-[0px] max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
                         <NameOur>{el.name}</NameOur>
                         <p className="font-normal text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
                           {el.position}
                         </p>
-                        <p className="font-light text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[160%] uppercase opacity-80 text-[#1a1a1a]">
+                        <p className="font-light text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
                           {el.works}
                         </p>
                       </div>

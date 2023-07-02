@@ -186,7 +186,7 @@ export const teachers = [
     {
         name: 'Hammer',
         value: 4,
-        position: '音乐制作 / 音乐混音 / 音响工程导师',
+        position: '音乐制作 /音乐/音响工程导师',
         works: '《航海王热血航线》音乐制作人，《ParaSpace》配乐，纽约Dolan Studio录音工程师',
         image: _5_HAMMER,
         participatingWorks: [],
@@ -439,7 +439,7 @@ export const teachers = [
     {
         name: 'WANG',
         value: 14,
-        position: '流行键盘 / 作曲 / 实用音乐导师',
+        position: '流行键盘/作曲/实用音乐导师',
         works: '汉阳大学实用音乐作曲系，International Piano协会会员，英皇认证导师',
         image: _15_WANG,
         participatingWorks: [],
@@ -477,7 +477,7 @@ export const teachers = [
     {
         name: 'YE',
         value: 16,
-        position: '吉他演奏 / 指弹吉他 / 唱作人导师',
+        position:'吉他演奏/指弹吉他/唱作人导师',
         works: '多次斩获全国吉他大赛冠军，青年吉他演奏家，知名吉他手，唱作人',
         image: _17_YE,
         participatingWorks: [],
