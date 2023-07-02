@@ -32,25 +32,22 @@ const MoveLeftBgBox = styled.div`
   background: url(${businesspartner_bg.src});
   background-repeat: no-repeat;
   background-size: cover;
-  animation: bgMove 5s linear infinite alternate;
   mix-blend-mode: lighten;
-  @keyframes bgMove {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-184px);
-    }
-  }
-  @media not all and (min-width: 768px) {
+  @media (min-width: 768) {
+    animation: bgMove 5s linear infinite alternate;
+
     @keyframes bgMove {
       from {
-        transform: translateX(-160px);
+        transform: translateX(0);
       }
       to {
-        transform: translateX(-250px);
+        transform: translateX(-184px);
       }
     }
+  }
+
+  @media not all and (min-width: 768px) {
+    transform: translateX(-184px);
   }
 
   /* translate-x-[184px] */
@@ -60,24 +57,19 @@ const MoveRightBgBox = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: lighten;
-  animation: bgMove2 5s linear infinite alternate;
-  @keyframes bgMove2 {
-    from {
-      transform: scale(-1) translateX(0);
-    }
-    to {
-      transform: scale(-1) translateX(-184px);
+  @media (min-width: 768) {
+    animation: bgMove2 5s linear infinite alternate;
+    @keyframes bgMove2 {
+      from {
+        transform: scale(-1) translateX(0);
+      }
+      to {
+        transform: scale(-1) translateX(-184px);
+      }
     }
   }
   @media not all and (min-width: 768px) {
-    @keyframes bgMove2 {
-      from {
-        transform: scale(-1) translateX(-160px);
-      }
-      to {
-        transform: scale(-1) translateX(-250px);
-      }
-    }
+    transform: scale(-1) translateX(-184px);
   }
 `;
 
@@ -126,15 +118,15 @@ const Partner = styled.div`
 export default function BusinessPartner() {
   return (
     <div className="w-screen h-[1187px]  max-md:h-[646px] flex flex-col items-center pt-[220px] max-md:pt-0 relative ">
-      <MoveLeftBgBox className="w-[720px] max-md:w-[392px] h-[1187px]  max-md:h-[646px]  absolute left-0 top-0  max-md:top-[150px]"></MoveLeftBgBox>
-      <MoveRightBgBox className="w-[720px] max-md:w-[392px]   h-[1187px] max-md:h-[646px]   absolute  right-0  top-0 max-md:top-[150px]  "></MoveRightBgBox>
+      <MoveLeftBgBox className="w-[720px] max-md:w-[392px] h-[1187px]  max-md:h-[646px]  absolute left-0 top-0  "></MoveLeftBgBox>
+      <MoveRightBgBox className="w-[720px] max-md:w-[392px]   h-[1187px] max-md:h-[646px]   absolute  right-0  top-0   "></MoveRightBgBox>
       <p className="text-[56px] top-0 font-[300] leading-[120%] uppercase max-md:text-[28px] ">
         合作伙伴
       </p>
-      <p className="text-[22px] max-md:text-[14px] font-[200] leading-[160%] uppercase tracking-[0.69em] my-4 opacity-60">
+      <p className="text-[22px] max-md:text-[14px] font-[100] leading-[160%] font-[Lexend]  uppercase tracking-[0.69em] my-4 opacity-60">
         our partners
       </p>
-      <p className="text-[14px] max-md:text-[12px] font-[300] leading-[180%] uppercase mb-[64px] max-md:mb-[80px] opacity-50 text-center max-md:px-[45px]">
+      <p className="text-[14px] max-md:text-[12px] font-[300] leading-[180%] uppercase mb-[64px] max-md:mb-[80px] opacity-50 text-center max-md:px-[45px] max-md:font-[200]">
         十万象限常年与国内外一线品牌 上星卫视等通力合作 打造优秀作品
         共筑商业价值
       </p>

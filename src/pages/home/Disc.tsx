@@ -121,10 +121,13 @@ const FilterBox = styled.div`
   background-repeat: no-repeat;
 `;
 
+const DiscBOxFilter = styled.div`
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+`;
 const DiscBox = styled.div`
   box-sizing: border-box;
   background-blend-mode: soft-light, overlay;
-
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   cursor: pointer;
@@ -453,61 +456,63 @@ export default function Disc({}: DiscProps) {
               }}
             ></div>
             {discList.slice(0, 5).map((item: DiscBoxProps) => (
-              <DiscBox
-                key={item.key}
-                onMouseEnter={() => mouseEnter(item.bg)}
-                onMouseLeave={mouseLeave}
-                onClick={() => goOtherPage(item.url)}
-                className="w-[343px] h-[104px] relative z-10 flex transition-all duration-500 p-[12px] pr-[20px]"
-              >
-                <Image
-                  className="w-[80px] h-[80px] rounded-[12px]"
-                  src={item.src}
-                  alt=""
-                ></Image>
-                <div className="ml-4 w-full">
-                  <div className="flex items-center gap-[8px]">
-                    {item.type.map((item: any) => {
-                      return (
-                        <div
-                          key={item}
-                          className=" h-[24px] px-[8px] flex items-center justify-center mt-2 mb-[12px]  text-[12px] leading-[100%] font-[400] text-[#FF4B00] box-border "
-                          style={{
-                            border: "1px solid rgba(255, 75, 0, 0.5)",
-                            borderRadius: "8px",
-                          }}
-                        >
-                          {item}
+              <DiscBOxFilter>
+                <DiscBox
+                  key={item.key}
+                  onMouseEnter={() => mouseEnter(item.bg)}
+                  onMouseLeave={mouseLeave}
+                  onClick={() => goOtherPage(item.url)}
+                  className="w-[343px] h-[104px] relative z-10 flex transition-all duration-500 p-[12px] pr-[20px]"
+                >
+                  <Image
+                    className="w-[80px] h-[80px] rounded-[12px]"
+                    src={item.src}
+                    alt=""
+                  ></Image>
+                  <div className="ml-4 w-full">
+                    <div className="flex items-center gap-[4px]">
+                      {item.type.map((item: any) => {
+                        return (
+                          <div
+                            key={item}
+                            className=" h-[24px] px-[8px] flex items-center justify-center mt-2 mb-[12px]  text-[12px] leading-[100%] font-[400] text-[#FF4B00] box-border "
+                            style={{
+                              border: "1px solid rgba(255, 75, 0, 0.5)",
+                              borderRadius: "8px",
+                            }}
+                          >
+                            {item}
+                          </div>
+                        );
+                      })}
+
+                      <div className="flex items-center justify-centerpx-1 ml-auto py-2 gap-1    ">
+                        <div className=" font-[400] text-[12px] text-[#FF4B00] leading-[100%]">
+                          前往试听
                         </div>
-                      );
-                    })}
 
-                    <div className="flex items-center justify-centerpx-1 ml-auto py-2 gap-1    ">
-                      <div className=" font-[400] text-[12px] text-[#FF4B00] leading-[100%]">
-                        前往试听
+                        <svg
+                          className="md:hidden"
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 20C12 20 15.2353 12 23 12C15.2353 12 12 4 12 4"
+                            stroke="#FF4B00"
+                          />
+                          <path d="M23 12L1 12" stroke="#FF4B00" />
+                        </svg>
                       </div>
-
-                      <svg
-                        className="md:hidden"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 20C12 20 15.2353 12 23 12C15.2353 12 12 4 12 4"
-                          stroke="#FF4B00"
-                        />
-                        <path d="M23 12L1 12" stroke="#FF4B00" />
-                      </svg>
+                    </div>
+                    <div className="font-[300] text-[16px] leading-[100%] font-[Lexend] text-[#FFFFFF] whitespace-nowrap">
+                      {item.title}
                     </div>
                   </div>
-                  <div className="font-[300] text-[16px] leading-[100%] font-[Lexend] text-[#FFFFFF] whitespace-nowrap">
-                    {item.title}
-                  </div>
-                </div>
-              </DiscBox>
+                </DiscBox>
+              </DiscBOxFilter>
             ))}
 
             <div
@@ -525,27 +530,27 @@ export default function Disc({}: DiscProps) {
                 前往试听全部专辑
               </div>
 
-              <div
-                className="w-[24px] h-[24px] rounded-[24px]  flex items-center justify-center roun "
-                style={{
-                  border: "1px solid  #FF4B00",
-                }}
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  className="md:hidden"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <g clip-path="url(#clip0_1760_27425)">
                   <path
-                    d="M12 20C12 20 15.2353 12 23 12C15.2353 12 12 4 12 4"
+                    d="M11 18C11 18 13.3529 12 19 12C13.3529 12 11 6 11 6"
                     stroke="#FF4B00"
                   />
-                  <path d="M23 12L1 12" stroke="#FF4B00" />
-                </svg>
-              </div>
+                  <path d="M18 12L4 12" stroke="#FF4B00" />
+                  <circle cx="12" cy="12" r="11.5" stroke="#FF4B00" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1760_27425">
+                    <rect width="24" height="24" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
             </div>
           </div>
         </Box>
