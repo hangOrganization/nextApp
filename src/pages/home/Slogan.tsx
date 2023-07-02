@@ -3,7 +3,7 @@ import styled from "styled-components";
 import slogan_bg from "@/assets/image/svg/slogan-bg.svg";
 import slogan_mobile_bg from "@/assets/image/png/slogan-mobile-bg.png";
 import Image from "next/image";
-
+import slogan from "@/assets/image/png/Slogan.png";
 import icon_right_arrow from "@/assets/image/svg/icon-right-black-arrow.svg";
 
 const Box = styled.div`
@@ -105,7 +105,7 @@ export default function Slogan() {
         <div
           style={{ background: "rgb(255,255,255,.02", borderRadius: "24px" }}
         >
-          <MoveBox className="w-[592px]  max-md:w-[344px] h-[128px]  max-md:h-[143px] m-auto flex justify-center  max-md:flex-col items-center relative py-[38px]  max-md:py-[16px]">
+          <MoveBox className="w-[592px]  max-md:w-[344px] h-[128px]  max-md:h-[143px] m-auto flex justify-center  max-md:flex-col items-center relative py-[38px]  max-md:py-[16px] max-md:hidden">
             <div className="export-text  font-[250] text-[16px] leading-[180%] uppercase tracking-[0.2em] text-[#ff4b00] max-md:text-[#CCC]  flex flex-col justify-center items-center absolute z-[2] max-md:relative">
               <p className="mb-[8px] text-[24px]  max-md:text-[20px]    max-md:font-[250]   max-md:translate-[0]">
                 探索更多声音服务
@@ -138,6 +138,7 @@ export default function Slogan() {
             </div>
           </MoveBox>
         </div>
+        <Image src={slogan} alt="" className="w-[344px] h-[143px]"></Image>
       </div>
     </Box>
   );

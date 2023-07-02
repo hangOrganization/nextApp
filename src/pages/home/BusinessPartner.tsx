@@ -32,25 +32,22 @@ const MoveLeftBgBox = styled.div`
   background: url(${businesspartner_bg.src});
   background-repeat: no-repeat;
   background-size: cover;
-  animation: bgMove 5s linear infinite alternate;
   mix-blend-mode: lighten;
-  @keyframes bgMove {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-184px);
-    }
-  }
-  @media not all and (min-width: 768px) {
+  @media (min-width: 768) {
+    animation: bgMove 5s linear infinite alternate;
+
     @keyframes bgMove {
       from {
-        transform: translateX(-160px);
+        transform: translateX(0);
       }
       to {
-        transform: translateX(-250px);
+        transform: translateX(-184px);
       }
     }
+  }
+
+  @media not all and (min-width: 768px) {
+    transform: translateX(-184px);
   }
 
   /* translate-x-[184px] */
@@ -60,24 +57,19 @@ const MoveRightBgBox = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: lighten;
-  animation: bgMove2 5s linear infinite alternate;
-  @keyframes bgMove2 {
-    from {
-      transform: scale(-1) translateX(0);
-    }
-    to {
-      transform: scale(-1) translateX(-184px);
+  @media (min-width: 768) {
+    animation: bgMove2 5s linear infinite alternate;
+    @keyframes bgMove2 {
+      from {
+        transform: scale(-1) translateX(0);
+      }
+      to {
+        transform: scale(-1) translateX(-184px);
+      }
     }
   }
   @media not all and (min-width: 768px) {
-    @keyframes bgMove2 {
-      from {
-        transform: scale(-1) translateX(-160px);
-      }
-      to {
-        transform: scale(-1) translateX(-250px);
-      }
-    }
+    transform: scale(-1) translateX(-184px);
   }
 `;
 
