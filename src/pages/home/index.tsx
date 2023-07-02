@@ -73,14 +73,7 @@ export default function Homepage() {
       <Swiper
         id="Swiper"
         direction={"vertical"}
-        // effect='fade'
         threshold={100}
-        // pagination={{
-        //   clickable: true,
-        //   type: "fraction",
-        // }}
-        // navigation={true}
-        // modules={[Pagination, Navigation]}
         className="mySwiper max-md:!hidden w-screen h-screen"
       >
         <SwiperSlide>
@@ -106,7 +99,6 @@ export default function Homepage() {
         <OurTeam setIsOpenCampus={setIsOpenCampus} />
         <Disc />
       </div>
-      {/* <Development isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} /> */}
     </Box>
   );
 }

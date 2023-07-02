@@ -15,7 +15,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
 import { useActiveIndex, useThrottleFlag } from "@/state/application/hooks";
-import { setAboutOrCorporation, setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
+import { setAboutOrCorporation, setActiveIndex, setComePage, setThrottleFlag } from "@/state/application/reducer";
 import { useSwiper } from "swiper/react";
 import TitleBeam from "@/components/TitleBeam";
 
@@ -205,6 +205,7 @@ export default function SignCharacteristic({
                     ) {
                       dispatch(setThrottleFlag(true));
                       swiper.slideNext(1000);
+                      dispatch(setComePage(3))
                       dispatch(setActiveIndex(4));
                       setTimeout(() => {
                         dispatch(setThrottleFlag(false));

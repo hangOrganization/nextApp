@@ -12,9 +12,10 @@ import speed_line from "@/assets/image/gif/speed-line.gif";
 import shadow_bg_2 from "@/assets/image/svg/shadow-bg-2.svg";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
 import mobile_video from "../../assets/image/mobile/mobile-video.png";
-import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
+import { setActiveIndex, setComePage, setThrottleFlag } from "@/state/application/reducer";
 import {
   useActiveIndex,
+  useComePage,
   useOuterWidth,
   useThrottleFlag,
 } from "@/state/application/hooks";
@@ -37,15 +38,24 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const throttleFlag = useThrottleFlag();
   const activeIndex = useActiveIndex();
   const swiper = useSwiper();
+  const comePage = useComePage()
+  console.log("🚀 ~ file: Introduction.tsx:42 ~ Introduction ~ comePage:", comePage)
   const innerWidth = useOuterWidth();
   const [buttonHover, setButtonHover] = useState<string>("");
   const [play, setPlay] = useState<boolean>(false);
   useEffect(() => {
-    document.querySelector("#introductionBox")?.scrollTo({
-      top: 1,
-      behavior: "smooth",
-    });
-  }, [activeIndex]);
+    if (comePage === 2) {
+      document.querySelector("#introductionBox")?.scrollTo({
+        top: 1000,
+        behavior: "smooth",
+      });
+    } else if (comePage === 1) {
+      document.querySelector("#introductionBox")?.scrollTo({
+        top: 20,
+        behavior: "smooth",
+      });
+    }
+  }, [comePage]);
   return (
     <div
       id="introductionBox"
@@ -57,6 +67,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           if (e.target.scrollTop === 0) {
             dispatch(setThrottleFlag(true));
             dispatch(setActiveIndex(0));
+            dispatch(setComePage(1));
             swiper.slidePrev(1000);
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
@@ -69,6 +80,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           ) {
             dispatch(setThrottleFlag(true));
             dispatch(setActiveIndex(2));
+            dispatch(setComePage(1));
             swiper.slideNext(1000);
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
@@ -217,7 +229,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
             >
             </iframe>
             :
-            <Image className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]" src={video_cover} alt="" onClick={()=>setPlay(true)} />
+            <Image className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]" src={video_cover} alt="" onClick={() => setPlay(true)} />
           }
         </div>
         <div className="md:hidden mt-[96px] mb-[88px] px-4">

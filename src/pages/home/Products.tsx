@@ -138,6 +138,7 @@ export default function Products({ }: ProductsProps) {
                 } else {
                   dispatch(setThrottleFlag(true));
                   swiper.slidePrev(1000);
+                  dispatch(setComePage(2))
                   dispatch(setActiveIndex(1));
                   setTimeout(() => {
                     dispatch(setThrottleFlag(false));

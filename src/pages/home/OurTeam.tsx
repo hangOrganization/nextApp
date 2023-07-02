@@ -148,35 +148,33 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   }, []);
 
   useEffect(() => {
-    console.log("🚀 ~ file: OurTeam.tsx:152 ~ useEffect ~ activeType:", activeType)
-
+    if (activeIndex !== 3) return
     if (activeType == 0) {
       setRight(0);
       document.querySelector("#ourTeamBox")?.scrollTo({
         top: 1,
         behavior: "smooth",
       });
-    } else if (activeType == 1) {
-      document.querySelector("#ourTeamBox")?.scrollTo({
-        top: 1350,
-        behavior: "smooth",
-      });
-      setRight(0);
-    } else if (activeType == 2) {
-      setRight(1);
-      document.querySelector("#ourTeamBox")?.scrollTo({
-        top: 1350,
-        behavior: "smooth",
-      });
+    // } else if (activeType == 1) {
+    //   document.querySelector("#ourTeamBox")?.scrollTo({
+    //     top: 1350,
+    //     behavior: "smooth",
+    //   });
+    //   setRight(0);
+    // } else if (activeType == 2) {
+    //   setRight(1);
+    //   document.querySelector("#ourTeamBox")?.scrollTo({
+    //     top: 1350,
+    //     behavior: "smooth",
+    //   });
     }
-  }, [activeType]);
+  }, [activeType, activeIndex]);
 
   return (
     <div
       id="ourTeamBox"
       className={`md:h-screen  transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
-        console.log("🚀 ~ file: OurTeam.tsx:179 ~ OurTeam ~ right:", right)
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {

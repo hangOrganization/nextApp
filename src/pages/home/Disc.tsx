@@ -23,7 +23,7 @@ import {
   useThrottleFlag,
 } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
+import { setActiveIndex, setComePage, setThrottleFlag } from "@/state/application/reducer";
 
 interface DiscBoxProps {
   title: string;
@@ -278,6 +278,7 @@ export default function Disc({}: DiscProps) {
             if (e.target.scrollTop === 0) {
               dispatch(setThrottleFlag(true));
               swiper.slidePrev(1000);
+              dispatch(setComePage(4))
               dispatch(setActiveIndex(3));
               setTimeout(() => {
                 dispatch(setThrottleFlag(false));

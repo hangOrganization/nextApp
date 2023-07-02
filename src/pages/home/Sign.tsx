@@ -8,8 +8,6 @@ import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
 import {
   EchoRollBox,
   SignBgBox,
-  SingLogo,
-  TextBox,
 } from "../../styles/SignCss";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
@@ -22,6 +20,7 @@ import {
 } from "@/state/application/hooks";
 import {
   setActiveIndex,
+  setComePage,
   setOuterWidth,
   setThrottleFlag,
 } from "@/state/application/reducer";
@@ -55,6 +54,7 @@ export default function Sign({}: SignProps) {
           if (e.deltaY > 20) {
             dispatch(setThrottleFlag(true));
             swiper.slideNext(1000);
+            dispatch(setComePage(0))
             dispatch(setActiveIndex(1));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
