@@ -20,6 +20,7 @@ import {
   setActiveIndex,
   setThrottleFlag,
   setComePage,
+  setAboutOrCorporation,
 } from "@/state/application/reducer";
 
 const OurTeamBox = styled.div`
@@ -144,13 +145,15 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       top: 1,
       behavior: "smooth",
     });
-  }, [swiper?.activeIndex]);
+  }, []);
 
   useEffect(() => {
+    console.log("🚀 ~ file: OurTeam.tsx:152 ~ useEffect ~ activeType:", activeType)
+
     if (activeType == 0) {
       setRight(0);
       document.querySelector("#ourTeamBox")?.scrollTo({
-        top: 2,
+        top: 1,
         behavior: "smooth",
       });
     } else if (activeType == 1) {
@@ -173,6 +176,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       id="ourTeamBox"
       className={`md:h-screen  transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
+        console.log("🚀 ~ file: OurTeam.tsx:179 ~ OurTeam ~ right:", right)
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {
@@ -182,7 +186,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
             dispatch(setActiveIndex(2));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
-            }, 1700);
+            }, 1200);
           }
         }
       }}
@@ -263,9 +267,8 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
                     }}
                     style={{ backgroundImage: `url(${el.image.src})` }}
                     key={`${el.name}-${index}-teachers`}
-                    className={`${
-                      index > 5 ? "max-md:hidden" : ""
-                    } md:hover:translate-y-[-16px]`}
+                    className={`${index > 5 ? "max-md:hidden" : ""
+                      } md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
                       <div className="p-6 pr-[0px] max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">

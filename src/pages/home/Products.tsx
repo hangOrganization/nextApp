@@ -103,7 +103,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                 dispatch(setActiveIndex(3));
                 setTimeout(() => {
                   dispatch(setThrottleFlag(false));
-                }, 1000);
+                }, 1200);
               }
             }
           }
@@ -144,7 +144,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                   dispatch(setActiveIndex(1));
                   setTimeout(() => {
                     dispatch(setThrottleFlag(false));
-                  }, 1000);
+                  }, 1200);
                 }
               } else if (value === 2) {
                 if (e.deltaY < 0) {

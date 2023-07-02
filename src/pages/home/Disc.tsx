@@ -278,7 +278,7 @@ export default function Disc({}: DiscProps) {
               dispatch(setActiveIndex(3));
               setTimeout(() => {
                 dispatch(setThrottleFlag(false));
-              }, 1700);
+              }, 1200);
             }
           }
         }}

@@ -29,7 +29,6 @@ import {
 interface SignProps {}
 export default function Sign({}: SignProps) {
   const throttleFlag = useThrottleFlag();
-  console.log("🚀 ~ file: Sign.tsx:32 ~ Sign ~ throttleFlag:", throttleFlag)
   const innerWidth = useOuterWidth();
   const activeIndex = useActiveIndex();
   const dispatch = useAppDispatch();
@@ -59,7 +58,7 @@ export default function Sign({}: SignProps) {
             dispatch(setActiveIndex(1));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
-            }, 2000);
+            }, 1000);
           }
         }
       }}
