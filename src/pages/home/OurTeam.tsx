@@ -171,9 +171,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   return (
     <div
       id="ourTeamBox"
-      className={`md:h-screen ${
-        activeIndex === 3 ? "swiper-move-in" : "swiper-move-out"
-      }  transition-all duration-1000 md:overflow-auto`}
+      className={`md:h-screen  transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
