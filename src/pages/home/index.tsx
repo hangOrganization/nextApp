@@ -13,7 +13,38 @@ import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useAppDispatch } from "@/state/hooks";
 import { setIsChrome } from "@/state/application/reducer";
+import styled from "styled-components";
+const Box = styled.div`
+  .swiper-move-in {
+    @media (min-width: 768px) {
+      animation: swiper-move-in 1000ms cubic-bezier(0.69, 0, 0.37, 1) forwards;
+    }
+  }
+  .swiper-move-out {
+    @media (min-width: 768px) {
+      animation: swiper-move-out 800ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+  }
+  @keyframes swiper-move-in {
+    from {
+      opacity: 0;
+    }
 
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes swiper-move-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+`;
 export default function Homepage() {
   const [value, setValue] = useState<number>(0);
   const dispatch = useAppDispatch();
@@ -32,7 +63,7 @@ export default function Homepage() {
     dispatch(setIsChrome(window.navigator.userAgent.indexOf("Chrome") >= 0));
   });
   return (
-    <div className={`relative max-md:max-w-[100vw] max-md:overflow-hidden`}>
+    <Box className={`relative max-md:max-w-[100vw] max-md:overflow-hidden`}>
       <Header
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}
@@ -77,6 +108,6 @@ export default function Homepage() {
         <Disc />
       </div>
       {/* <Development isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} /> */}
-    </div>
+    </Box>
   );
 }
