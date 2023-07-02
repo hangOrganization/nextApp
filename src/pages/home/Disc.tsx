@@ -261,7 +261,7 @@ export default function Disc({}: DiscProps) {
   };
   useEffect(() => {
     document.querySelector("#discBox")?.scrollTo({
-      top: 2,
+      top: 20,
       behavior: "smooth",
     });
   }, [swiper?.activeIndex]);

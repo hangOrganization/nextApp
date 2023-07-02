@@ -122,12 +122,6 @@ export default function SignCharacteristic({
   const activeIndex = useActiveIndex();
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
-  useEffect(() => {
-    if (activeIndex !== 3) {
-      setRight(0)
-      setCharacteristicType(0)
-    }
-  }, [activeIndex])
   return (
     <Box
       className={`flex w-screen max-md:pb-[210px] z-50 md:overflow-hidden`}

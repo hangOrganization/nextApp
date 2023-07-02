@@ -39,17 +39,16 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const activeIndex = useActiveIndex();
   const swiper = useSwiper();
   const comePage = useComePage()
-  console.log("🚀 ~ file: Introduction.tsx:42 ~ Introduction ~ comePage:", comePage)
   const innerWidth = useOuterWidth();
   const [buttonHover, setButtonHover] = useState<string>("");
   const [play, setPlay] = useState<boolean>(false);
   useEffect(() => {
-    if (comePage === 2) {
+    if (comePage === 8) {
       document.querySelector("#introductionBox")?.scrollTo({
         top: 1000,
         behavior: "smooth",
       });
-    } else if (comePage === 1) {
+    } else if (comePage === 0) {
       document.querySelector("#introductionBox")?.scrollTo({
         top: 20,
         behavior: "smooth",
@@ -89,7 +88,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         }
       }}
     >
-      <div className="md:relative pb-[350px] z-[50]">
+      <div className="md:relative pb-[300px] z-[50]">
         <Image
           className=" max-md:hidden absolute left-0 top-[-100px]"
           src={shadow_bg}

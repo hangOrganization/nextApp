@@ -141,39 +141,55 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const activeType = useActiveType();
 
   useEffect(() => {
-    document.querySelector("#ourTeamBox")?.scrollTo({
-      top: 1,
-      behavior: "smooth",
-    });
-  }, []);
+    if (activeIndex === 3) {
+      if (comePage === 2) {
+        document.querySelector("#ourTeamBox")?.scrollTo({
+          top: 20,
+          behavior: "smooth",
+        });
+      } else {
+        document.querySelector("#ourTeamBox")?.scrollTo({
+          top: 1500,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [comePage]);
 
   useEffect(() => {
-    if (activeIndex !== 3) return
     if (activeType == 0) {
       setRight(0);
       document.querySelector("#ourTeamBox")?.scrollTo({
         top: 1,
         behavior: "smooth",
       });
-    // } else if (activeType == 1) {
-    //   document.querySelector("#ourTeamBox")?.scrollTo({
-    //     top: 1350,
-    //     behavior: "smooth",
-    //   });
-    //   setRight(0);
-    // } else if (activeType == 2) {
-    //   setRight(1);
-    //   document.querySelector("#ourTeamBox")?.scrollTo({
-    //     top: 1350,
-    //     behavior: "smooth",
-    //   });
+    } else if (activeType == 1) {
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1350,
+        behavior: "smooth",
+      });
+      setRight(0);
+    } else if (activeType == 2) {
+      setRight(1);
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1350,
+        behavior: "smooth",
+      });
     }
-  }, [activeType, activeIndex]);
+  }, [activeType]);
 
+  useEffect(() => {
+    if (characteristicType !== 0) {
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1350,
+        behavior: "smooth",
+      });
+    }
+  }, [characteristicType])
   return (
     <div
       id="ourTeamBox"
-      className={`md:h-screen  transition-all duration-1000 md:overflow-auto`}
+      className={`md:h-screen ${characteristicType === 0 ? 'md:overflow-auto' : 'md:overflow-hidden'}  transition-all duration-1000 `}
       onScroll={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {

@@ -71,11 +71,19 @@ export default function Products({ }: ProductsProps) {
   const activeIndex = useActiveIndex();
 
   useEffect(() => {
-    document.querySelector("#productsBox")?.scrollTo({
-      top: 1,
-      behavior: "smooth",
-    });
-    console.log(activeIndex);
+    if (activeIndex === 2) {
+      if (comePage === 1) {
+        document.querySelector("#productsBox")?.scrollTo({
+          top: 20,
+          behavior: "smooth",
+        });
+      } else {
+        document.querySelector("#productsBox")?.scrollTo({
+          top: 1000,
+          behavior: "smooth",
+        });
+      }
+    }
   }, [swiper?.activeIndex, activeIndex]);
 
   return (
@@ -138,7 +146,7 @@ export default function Products({ }: ProductsProps) {
                 } else {
                   dispatch(setThrottleFlag(true));
                   swiper.slidePrev(1000);
-                  dispatch(setComePage(2))
+                  dispatch(setComePage(8))
                   dispatch(setActiveIndex(1));
                   setTimeout(() => {
                     dispatch(setThrottleFlag(false));
