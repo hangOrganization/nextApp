@@ -1,5 +1,5 @@
 "use client";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
 import mobile_sign_bg_1 from "@/assets/image/mobile/mobile-sign-bg-1.png";
@@ -88,12 +88,12 @@ export default function Sign({}: SignProps) {
             alt=""
           />
           <Image
-            className="absolute md:hidden mt-10 sign-bg-1"
+            className="absolute md:hidden mt-10"
             src={mobile_sign_bg_1}
             alt=""
           />
           <Image
-            className="absolute md:hidden w-screen sign-bg-2"
+            className="absolute md:hidden mt-0 left-0 w-screen"
             src={mobile_sign_bg_2}
             alt=""
           />
@@ -112,7 +112,7 @@ export default function Sign({}: SignProps) {
             className="absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"
           ></div>
         </SignBgBox>
-        <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[246px] pt-[302px] ">
+        <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[226px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">
             {/* <SingLogo className="h-[155px] max-md:h-[72px]">
               <div className="img-box-1 max-md:h-[14.4px] h-[20px] overflow-hidden">
@@ -151,7 +151,7 @@ export default function Sign({}: SignProps) {
                 />
               </div>
             </SingLogo> */}
-            <video autoPlay muted className="h-[155px]">
+            <video autoPlay muted className="h-[155px] max-md:h-[82px]">
               <source
                 src={isChrome ? "/video/sign.webm" : "/video/sign.mp4"}
                 type={`${isChrome ? "video/webm" : " video/mp4"}`}
@@ -181,13 +181,13 @@ export default function Sign({}: SignProps) {
           </video>
           <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden">
             <EchoRollBox className="md:flex">
-              <div className="md:w-[780px] max-md:w-screen  text-center">
-                <p className="md:font-normal uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px]">
+              <div className="md:w-[780px] max-md:w-screen text-center">
+                <p className="md:font-normal max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px]">
                   听见世界的回响
                 </p>
               </div>
               <div className="md:w-[780px] max-md:mt-4 text-center">
-                <p className=" font-[300] uppercase max-md:tracking-[3.84px] max-md:text-[12px] max-md:font-thin tracking-[0.51em] font-[Lexend] text-[26px]">
+                <p className=" font-[300] uppercase max-md:tracking-[3.84px] max-md:text-[12px] max-md:font-[100] tracking-[0.51em] font-[Lexend] text-[26px]">
                   Echo of the World
                 </p>
               </div>

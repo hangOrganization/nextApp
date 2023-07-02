@@ -352,7 +352,7 @@ export const LineBox = styled.div`
 export const SignBgBox = styled.div`
   .sign-bg-2 {
     transform: scaleY(1);
-    animation: sign-bg-2-move 7000ms cubic-bezier(0.76, 0, 0.32, 1) 300ms;
+    animation: sign-bg-2-move 3900ms cubic-bezier(0.76, 0, 0.32, 1) 300ms;
   }
   @keyframes sign-bg-2-move {
     0% {
@@ -366,7 +366,7 @@ export const SignBgBox = styled.div`
   .sign-bg-1 {
     opacity: 0;
     animation: sign-bg-1-move 2000ms cubic-bezier(0.47, 0, 0.06, 1) 800ms,
-      sign-bg-1-move-2 3000ms cubic-bezier(0.42, 0, 0.58, 1) infinite 3800ms;
+      sign-bg-1-move-2 6000ms cubic-bezier(0.42, 0, 0.58, 1) infinite 3800ms;
   }
   @keyframes sign-bg-1-move {
     0% {

@@ -15,7 +15,6 @@ import { useAppDispatch } from "@/state/hooks";
 import { setIsChrome } from "@/state/application/reducer";
 
 export default function Homepage() {
-  const [value, setValue] = useState<number>(0);
   const dispatch = useAppDispatch();
   const [isOpenConsult, setIsOpenConsult] = useState<number>(0);
   const [isOpenCampus, setIsOpenCampus] = useState<number>(0);
@@ -60,7 +59,7 @@ export default function Homepage() {
           <Introduction setIsOpenConsult={setIsOpenConsult} />
         </SwiperSlide>
         <SwiperSlide>
-          <Products value={value} setValue={setValue} />
+          <Products/>
         </SwiperSlide>
         <SwiperSlide>
           <OurTeam setIsOpenCampus={setIsOpenCampus} />
@@ -72,7 +71,7 @@ export default function Homepage() {
       <div className="md:hidden">
         <Sign />
         <Introduction setIsOpenConsult={setIsOpenConsult} />
-        <Products value={value} setValue={setValue} />
+        <Products />
         <OurTeam setIsOpenCampus={setIsOpenCampus} />
         <Disc />
       </div>

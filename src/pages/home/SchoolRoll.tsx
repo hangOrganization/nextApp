@@ -45,7 +45,7 @@ const text = [
 ]
 export default function SchoolRoll() {
     return (
-        <div className="flex mt-[214px] w-full justify-center">
+        <div className="flex max-md:mt-[96px] mt-[214px] w-full justify-center">
             <div className="w-screen overflow-hidden">
                 <Roll className="w-[7152px]">
                     {[...text,...text].map((el: any, index: number) => (

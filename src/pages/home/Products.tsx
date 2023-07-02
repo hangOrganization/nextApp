@@ -23,7 +23,7 @@ import {
 import products_right from "@/assets/image/svg/icon-products-right.svg";
 import products_right_bg from "@/assets/image/svg/products-right-bg.svg";
 import mobile_products_bg from "@/assets/image/mobile/mobile-products-bg.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ProductsBox = styled(`div`)`
   width: 440px;
@@ -60,10 +60,9 @@ const ProductsBg = styled.div`
   }
 `;
 interface ProductsProps {
-  value: number;
-  setValue: Function;
 }
-export default function Products({ value, setValue }: ProductsProps) {
+export default function Products({ }: ProductsProps) {
+  const [value, setValue] = useState<number>(0);
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
   const swiper = useSwiper();
@@ -82,18 +81,16 @@ export default function Products({ value, setValue }: ProductsProps) {
   return (
     <div
       id="productsBox"
-      className={`md:h-screen md:pt-[120px] ${
-        value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
-      }   ${
-        activeIndex === 2 ? "swiper-move-in" : "swiper-move-out"
-      }   relative`}
+      className={`md:h-screen md:pt-[120px] ${value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
+        }   ${activeIndex === 2 ? "swiper-move-in" : "swiper-move-out"
+        }`}
       onScroll={(e: any) => {
         if (innerWidth > 768) {
           if (throttleFlag) return;
           if (innerWidth > 768) {
             if (
               e.target.scrollHeight -
-                (e.target.scrollTop + e.target.clientHeight) <
+              (e.target.scrollTop + e.target.clientHeight) <
               10
             ) {
               if (value === 2) {
@@ -170,31 +167,29 @@ export default function Products({ value, setValue }: ProductsProps) {
         >
           <div
             id="Products"
-            className="flex pt-[74px] md:w-[1200px] md:mx-auto overflow-x-auto max-md:w-screen]"
+            className="flex pt-[104px] md:w-[1200px] md:mx-auto overflow-x-auto max-md:w-screen]"
           >
             <div className="md:flex w-[100%] items-center justify-between">
               <ProductsBox className="max-md:text-center max-md:!pt-[45px]">
                 <p className="font-extrabold max-md:text-[28px] text-[56px] leading-[160%] text-[#1a1a1a]">
                   产品体系
                 </p>
-                <p className="font-medium mt-4 max-md:mt-2 max-md:text-[14px] text-[24px] uppercase font-[Lexend] leading-[160%] text-[#1a1a1a]">
+                <p className="font-medium mt-4 max-md:mt-2 max-md:text-[14px] max-md:font-light text-[24px] uppercase font-[Lexend] leading-[160%] text-[#1a1a1a]">
                   System of products
                 </p>
               </ProductsBox>
               <ProductsBg className="md:h-[530px] md:overflow-hidden">
                 <div
-                  className={` transition-all ease-[cubic-bezier(0.5, 0, 0, 1)] duration-1000 ${
-                    value === 1
-                      ? "translate-y-[-530px]"
-                      : value === 2
+                  className={` transition-all ease-[cubic-bezier(0.5, 0, 0, 1)] duration-1000 ${value === 1
+                    ? "translate-y-[-530px]"
+                    : value === 2
                       ? "translate-y-[-1060px]"
                       : ""
-                  }  max-md:h-[452px] max-md:flex  max-md:px-8 justify-between max-md:gap-y-12 flex-wrap `}
+                    }  max-md:h-[452px] max-md:flex  max-md:px-8 justify-between max-md:gap-y-12 flex-wrap `}
                 >
                   <ProductsRightBox
-                    className={`transition-all duration-[1000ms] opacity-0 ${
-                      value === 0 ? "opacity-100" : ""
-                    } max-md:h-[121px]`}
+                    className={`transition-all duration-[1000ms] opacity-0 max-md:opacity-100  ${value === 0 ? "opacity-100" : ""
+                      } max-md:h-[121px]`}
                   >
                     <p className="text-[38px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]">
                       主体课程
@@ -228,9 +223,8 @@ export default function Products({ value, setValue }: ProductsProps) {
                     </div>
                   </ProductsRightBox>
                   <ProductsRightBox
-                    className={`transition-all opacity-0 duration-[1000ms] ${
-                      value === 1 ? "opacity-100" : ""
-                    }  max-md:h-[121px]`}
+                    className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${value === 1 ? "opacity-100" : ""
+                      }  max-md:h-[121px]`}
                   >
                     <p className="text-[38px] max-md:hidden max-md:mb-4 mb-[35px] text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]">
                       主体课程综合增值服务
@@ -424,9 +418,8 @@ export default function Products({ value, setValue }: ProductsProps) {
                     </div>
                   </ProductsRightBox>
                   <ProductsRightBox
-                    className={`transition-all opacity-0 duration-[1000ms] ${
-                      value === 2 ? "opacity-100" : ""
-                    }`}
+                    className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${value === 2 ? "opacity-100" : ""
+                      }`}
                   >
                     <p className="text-[38px] max-md:mb-4 mb-[35px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]">
                       音乐艺术指导
@@ -531,13 +524,12 @@ export default function Products({ value, setValue }: ProductsProps) {
               </ProductsBg>
               <div className="h-[457px] max-md:hidden overflow-hidden">
                 <div
-                  className={`transition-all duration-300 ${
-                    value === 1
-                      ? "translate-y-[-457px]"
-                      : value === 2
+                  className={`transition-all duration-300 ${value === 1
+                    ? "translate-y-[-457px]"
+                    : value === 2
                       ? "translate-y-[-914px]"
                       : ""
-                  }`}
+                    }`}
                 >
                   <Image src={products_right} alt="" />
                   <Image src={products_right} alt="" />
@@ -548,13 +540,12 @@ export default function Products({ value, setValue }: ProductsProps) {
           </div>
         </div>
 
-        {innerWidth < 768 ||
-          (value === 2 && (
-            <>
-              <SchoolRoll />
-              <Specialize />
-            </>
-          ))}
+        {(innerWidth < 768 || value === 2) &&
+          <>
+            <SchoolRoll />
+            <Specialize />
+          </>
+        }
       </div>
     </div>
   );
