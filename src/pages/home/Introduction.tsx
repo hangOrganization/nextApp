@@ -43,15 +43,14 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
       top: 1,
       behavior: "smooth",
     });
-  }, [swiper?.activeIndex]);
+  }, [activeIndex]);
   return (
     <div
       id="introductionBox"
       className={`md:h-screen md:pb-20 ${
         activeIndex === 1 ? "swiper-move-in" : "swiper-move-out"
-      }  md:overflow-auto`}
+      }  md:overflow-auto relative`}
       onScroll={(e: any) => {
-        // console.log("🚀 ~ file: Introduction.tsx:246 ~ Introduction ~ e:", e);
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {
@@ -60,7 +59,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
             swiper.slidePrev(1000);
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
-            }, 1000);
+            }, 1200);
           }
           if (
             e.target.scrollHeight -
@@ -72,12 +71,12 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
             swiper.slideNext(1000);
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
-            }, 1000);
+            }, 1200);
           }
         }
       }}
     >
-      <div className="md:relative">
+      <div className="md:relative z-[-50]">
         <Image
           className=" max-md:hidden absolute left-0 top-[-100px]"
           src={shadow_bg}

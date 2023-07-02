@@ -20,6 +20,7 @@ import {
   setActiveIndex,
   setThrottleFlag,
   setComePage,
+  setAboutOrCorporation,
 } from "@/state/application/reducer";
 
 const OurTeamBox = styled.div`
@@ -106,7 +107,7 @@ const NameOur = styled.p`
 `;
 const RollBox = styled.div`
   @media (min-width: 768px) {
-    animation: teachersRoll 20s linear infinite;
+    animation: teachersRoll 40s linear infinite;
     &.hover {
       animation-play-state: paused;
     }
@@ -115,7 +116,7 @@ const RollBox = styled.div`
         transform: translateX(0px);
       }
       to {
-        transform: translateX(-1824px);
+        transform: translateX(-7600px);
       }
     }
   }
@@ -144,13 +145,15 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       top: 1,
       behavior: "smooth",
     });
-  }, [swiper?.activeIndex]);
+  }, []);
 
   useEffect(() => {
+    console.log("🚀 ~ file: OurTeam.tsx:152 ~ useEffect ~ activeType:", activeType)
+
     if (activeType == 0) {
       setRight(0);
       document.querySelector("#ourTeamBox")?.scrollTo({
-        top: 2,
+        top: 1,
         behavior: "smooth",
       });
     } else if (activeType == 1) {
@@ -173,6 +176,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       id="ourTeamBox"
       className={`md:h-screen  transition-all duration-1000 md:overflow-auto`}
       onScroll={(e: any) => {
+        console.log("🚀 ~ file: OurTeam.tsx:179 ~ OurTeam ~ right:", right)
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.target.scrollTop === 0) {
@@ -182,7 +186,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
             dispatch(setActiveIndex(2));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
-            }, 1700);
+            }, 1200);
           }
         }
       }}
@@ -246,9 +250,9 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
           </div>
           <div className="flex w-screen md:gap-[67px] overflow-hidden max-md:pb-20 max-md:mt-10 md:py-20">
             <RollBox
-              className={`flex ${cardHover} max-md:w-screen md:w-[3581px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}
+              className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}
             >
-              {[...teachers, ...teachers, ...teachers].map(
+              {[...teachers, ...teachers].map(
                 (el: any, index: number) => (
                   <CardBox
                     onMouseEnter={() => {
@@ -263,12 +267,11 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
                     }}
                     style={{ backgroundImage: `url(${el.image.src})` }}
                     key={`${el.name}-${index}-teachers`}
-                    className={`${
-                      index > 5 ? "max-md:hidden" : ""
-                    } md:hover:translate-y-[-16px]`}
+                    className={`${index > 5 ? "max-md:hidden" : ""
+                      } md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
-                      <div className="p-6 pr-[17px] max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
+                      <div className="p-6 pr-[0px] max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
                         <NameOur>{el.name}</NameOur>
                         <p className="font-normal text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
                           {el.position}

@@ -14,7 +14,11 @@ import {
 } from "@/utils/specializeText";
 import { useState } from "react";
 
-const SpecializeBox = styled.div`
+const SpecializeBox = styled.div``;
+const SpecializeBg = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: -1000;
   background: linear-gradient(
       180deg,
       #1a1a1a 0%,
@@ -23,7 +27,7 @@ const SpecializeBox = styled.div`
     ),
     url(${specialize_bg.src});
   width: 100vw;
-  padding-top: 460px;
+  height: 1309px;
   background-size: cover;
   background-repeat: no-repeat !important;
   background-blend-mode: normal, soft-light, color-dodge;
@@ -64,7 +68,8 @@ const CourseBox = styled.div`
 export default function Specialize() {
   const [musicGenre, setMusicGenre] = useState<number>(1);
   return (
-    <SpecializeBox className="flex justify-center h-[1309px] relative z-[-111111] w-screen overflow-hidden mt-[-190px] flex-col items-center">
+    <SpecializeBox className="flex justify-center h-[1309px] relative pt-[470px] w-screen overflow-hidden mt-[-190px] flex-col items-center">
+      <SpecializeBg></SpecializeBg>
       <div className="">
         <div
           style={{
@@ -81,7 +86,7 @@ export default function Specialize() {
               MUSIC MAJOR
             </p>
           </div>
-          <div className="flex flex-col max-md:px-[31px] max-md:w-screen max-md:mt-8 md:justify-end md:items-end">
+          <div className="flex flex-col max-md:px-[31px] max-md:w-screen relative max-md:mt-8 md:justify-end md:items-end">
             <div className="flex gap-4 max-md:justify-between items-end">
               <div
                 className={`md:w-[200px] ${

@@ -48,7 +48,7 @@ export default function Sign({}: SignProps) {
     <div
       className={`relative ${
         activeIndex === 0 ? "swiper-move-in" : "swiper-move-out"
-      }  max-md:pb-20 md:h-screen w-screen`}
+      } max-md:pb-20 md:h-screen w-screen`}
       onWheel={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
@@ -58,7 +58,7 @@ export default function Sign({}: SignProps) {
             dispatch(setActiveIndex(1));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
-            }, 1000);
+            }, 1200);
           }
         }
       }}
