@@ -106,7 +106,7 @@ const NameOur = styled.p`
 `;
 const RollBox = styled.div`
   @media (min-width: 768px) {
-    animation: teachersRoll 20s linear infinite;
+    animation: teachersRoll 40s linear infinite;
     &.hover {
       animation-play-state: paused;
     }
@@ -115,7 +115,7 @@ const RollBox = styled.div`
         transform: translateX(0px);
       }
       to {
-        transform: translateX(-1824px);
+        transform: translateX(-7600px);
       }
     }
   }
@@ -248,9 +248,9 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
           </div>
           <div className="flex w-screen md:gap-[67px] overflow-hidden max-md:pb-20 max-md:mt-10 md:py-20">
             <RollBox
-              className={`flex ${cardHover} max-md:w-screen md:w-[3581px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}
+              className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}
             >
-              {[...teachers, ...teachers, ...teachers].map(
+              {[...teachers, ...teachers].map(
                 (el: any, index: number) => (
                   <CardBox
                     onMouseEnter={() => {
@@ -275,7 +275,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
                         <p className="font-normal text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
                           {el.position}
                         </p>
-                        <p className="font-light text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
+                        <p className="font-light text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[160%] uppercase opacity-80 text-[#1a1a1a]">
                           {el.works}
                         </p>
                       </div>
