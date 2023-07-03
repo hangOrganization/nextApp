@@ -176,16 +176,16 @@ export default function Sign({}: SignProps) {
             ></source>
           </video>
           <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden relative">
-            <EchoRollBox className="md:flex justify-center ">
-              <div className="md:w-[780px] max-md:w-screen text-center text-box">
-                <p className="md:font-[300] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px] md:mt-[-3px] md:ml-[228px]  absolute md:w-[100%]">
+            <EchoRollBox className="md:flex justify-center  ">
+              <div className="md:w-[780px] md:h-[39px] max-md:w-screen  text-box relative ">
+                <p className="md:font-[200] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px] absolute z-10 left-[228px] top-[-2px] md:w-[780px]">
                   听见世界的回响
                 </p>
               </div>
               <video
-                autoPlay
                 muted
                 loop
+                autoPlay
                 className="EchoRollBoxVidoeMove
 "
               >

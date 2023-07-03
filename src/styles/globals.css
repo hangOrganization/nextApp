@@ -10,7 +10,7 @@
 .EchoRollBoxVidoeMove{
   opacity: 0;
 
-animation: EchoRollBoxVidoeMove 1ms linear 3500ms forwards ;
+animation: EchoRollBoxVidoeMove 1ms linear 8000ms forwards ;
 }
 @keyframes EchoRollBoxVidoeMove {
 0%{
