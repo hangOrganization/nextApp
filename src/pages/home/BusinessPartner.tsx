@@ -57,15 +57,13 @@ const MoveRightBgBox = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   mix-blend-mode: lighten;
-  @media (min-width: 768) {
-    animation: bgMove2 5s linear infinite alternate;
-    @keyframes bgMove2 {
-      from {
-        transform: scale(-1) translateX(0);
-      }
-      to {
-        transform: scale(-1) translateX(-184px);
-      }
+  animation: bgMove2 5s linear infinite alternate;
+  @keyframes bgMove2 {
+    from {
+      transform: scale(-1) translateX(0);
+    }
+    to {
+      transform: scale(-1) translateX(-184px);
     }
   }
   @media not all and (min-width: 768px) {
@@ -94,13 +92,21 @@ const ScrollCenterBox = styled.div`
     }
   }
 `;
+const PartnerFilterBox = styled.div`
+  width: 288px;
+  height: 136px;
+  position: absolute;
+  background: rgba(000, 000, 000, 0.5);
+  border-radius: 24px;
+  opacity: 0.2;
+  background-blend-mode: overlay;
+`;
 const Partner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 288px;
   height: 136px;
-  background: rgba(255, 255, 255, 0.1);
   background-blend-mode: overlay;
   border-radius: 24px;
   img {
@@ -134,18 +140,24 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
-              <Partner key={index}>
-                <Image src={item} alt="" key={index} />
-              </Partner>
+              <div className="flex items-center justify-center relative z-[10]">
+                <PartnerFilterBox></PartnerFilterBox>
+                <Partner key={index}>
+                  <Image src={item} alt="" key={index} />
+                </Partner>
+              </div>
             )
           )}
         </ScrollBox>
         <ScrollCenterBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] my-[16px] max-md:my-[6.4px]">
           {[...partner.second, ...partner.second, ...partner.second].map(
             (item: any, index: number) => (
-              <Partner key={index}>
-                <Image src={item} alt="" key={index} />
-              </Partner>
+              <div className="flex items-center justify-center relative z-[10]">
+                <PartnerFilterBox></PartnerFilterBox>
+                <Partner key={index}>
+                  <Image src={item} alt="" key={index} />
+                </Partner>
+              </div>
             )
           )}
         </ScrollCenterBox>
@@ -153,9 +165,12 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
-              <Partner key={index}>
-                <Image src={item} alt="" key={index} />
-              </Partner>
+              <div className="flex items-center justify-center relative z-[10]">
+                <PartnerFilterBox></PartnerFilterBox>
+                <Partner key={index}>
+                  <Image src={item} alt="" key={index} />
+                </Partner>
+              </div>
             )
           )}
         </ScrollBox>
