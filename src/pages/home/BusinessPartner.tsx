@@ -126,7 +126,7 @@ export default function BusinessPartner() {
     <div className="w-screen h-[1187px]  max-md:h-[646px] flex flex-col items-center pt-[220px] max-md:pt-0 relative ">
       <MoveLeftBgBox className="w-[720px] max-md:w-[392px] h-[1187px]  max-md:h-[646px]  absolute left-0 top-0  "></MoveLeftBgBox>
       <MoveRightBgBox className="w-[720px] max-md:w-[392px]   h-[1187px] max-md:h-[646px]   absolute  right-0  top-0   "></MoveRightBgBox>
-      <p className="text-[56px] top-0 font-[300] leading-[120%] uppercase max-md:text-[28px] ">
+      <p className="text-[56px] top-0 font-[200] leading-[120%] uppercase max-md:text-[28px] ">
         合作伙伴
       </p>
       <p className="text-[22px] max-md:text-[14px] font-[100] leading-[160%] font-[Lexend]  uppercase tracking-[0.69em] my-4 opacity-60">
