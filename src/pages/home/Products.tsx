@@ -87,6 +87,8 @@ export default function Products({}: ProductsProps) {
   const comePage = useComePage();
   const activeIndex = useActiveIndex();
 
+  const [flag, setFlag] = useState(true);
+
   useEffect(() => {
     if (activeIndex === 2) {
       if (comePage === 1) {
@@ -127,7 +129,7 @@ export default function Products({}: ProductsProps) {
               ) {
                 if (value === 2) {
                   dispatch(setThrottleFlag(true));
-                  swiper.slideNext(1000);
+                  swiper.slideTo(3, 1000);
                   dispatch(setComePage(2));
                   dispatch(setActiveIndex(3));
                   setTimeout(() => {
@@ -157,41 +159,63 @@ export default function Products({}: ProductsProps) {
             onWheelCapture={(e: any) => {
               if (e.deltaY < 10 && e.deltaY > -10) return;
               if (throttleFlag) return;
+
               if (innerWidth > 768) {
-                if (value === 0) {
+                if (value === 0 && flag) {
                   if (e.deltaY > 0) {
                     dispatch(setThrottleFlag(true));
+                    console.log("及时开始，第一页");
+
+                    setFlag(false);
                     setValue(1);
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                    }, 1200);
+                      console.log("计时结束，第一页");
+                      setFlag(true);
+                    }, 1000);
                   } else {
                     dispatch(setThrottleFlag(true));
-                    swiper.slidePrev(1000);
+                    setFlag(false);
+                    swiper.slideTo(1, 1000);
                     dispatch(setComePage(8));
                     dispatch(setActiveIndex(1));
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                    }, 1200);
+                      setFlag(true);
+                    }, 1000);
                   }
-                } else if (value === 2) {
+                } else if (value === 2 && flag) {
                   if (e.deltaY < 0) {
                     dispatch(setThrottleFlag(true));
-                    setValue(1);
+                    setFlag(false);
+                    console.log("及时开始，第二页");
+
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                    }, 1200);
+                      console.log("计时结束，第二页");
+
+                      setFlag(true);
+                    }, 1000);
+                    setValue(1);
                   }
-                } else {
+                } else if (flag) {
                   if (e.deltaY < 0) {
                     setValue(0);
+                    setFlag(false);
                   } else {
+                    setFlag(false);
+
                     setValue(2);
                   }
+                  console.log("计时开始，第三页");
+
                   dispatch(setThrottleFlag(true));
                   setTimeout(() => {
                     dispatch(setThrottleFlag(false));
-                  }, 1200);
+                    console.log("计时结束，第三页");
+
+                    setFlag(true);
+                  }, 1000);
                 }
               }
             }}
