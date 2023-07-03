@@ -77,8 +77,8 @@ const ProductsBg = styled.div`
     background-blend-mode: soft-light, overlay, normal;
   }
 `;
-interface ProductsProps {}
-export default function Products({}: ProductsProps) {
+interface ProductsProps { }
+export default function Products({ }: ProductsProps) {
   const [value, setValue] = useState<number>(0);
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
@@ -86,7 +86,7 @@ export default function Products({}: ProductsProps) {
   const innerWidth = useOuterWidth();
   const comePage = useComePage();
   const activeIndex = useActiveIndex();
-
+  let time: any = ''
   useEffect(() => {
     if (activeIndex === 2) {
       if (comePage === 1) {
@@ -102,38 +102,33 @@ export default function Products({}: ProductsProps) {
       }
     }
   }, [activeIndex]);
-
   return (
     <Box>
       <div
         id="productsBox"
-        className={`md:h-screen md:pt-[120px] md:opacity-0 ${
-          value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
-        }   ${
-          activeIndex === 2
+        className={`md:h-screen md:pt-[120px] md:opacity-0 ${value === 2 ? "md:overflow-auto" : "md:overflow-hidden"
+          }   ${activeIndex === 2
             ? comePage === 3
               ? "swiper-move-in-self"
               : "swiper-move-in"
             : "swiper-move-out"
-        }`}
+          }`}
         onScroll={(e: any) => {
           if (innerWidth > 768) {
             if (throttleFlag) return;
             if (innerWidth > 768) {
               if (
                 e.target.scrollHeight -
-                  (e.target.scrollTop + e.target.clientHeight) <
-                10
+                (e.target.scrollTop + e.target.clientHeight) <
+                10 && value === 2
               ) {
-                if (value === 2) {
-                  dispatch(setThrottleFlag(true));
-                  swiper.slideTo(3, 1000);
-                  dispatch(setComePage(2));
-                  dispatch(setActiveIndex(3));
-                  setTimeout(() => {
-                    dispatch(setThrottleFlag(false));
-                  }, 1200);
-                }
+                dispatch(setThrottleFlag(true));
+                swiper.slideTo(3, 1000);
+                dispatch(setComePage(2));
+                dispatch(setActiveIndex(3));
+                setTimeout(() => {
+                  dispatch(setThrottleFlag(false));
+                }, 1200);
               }
             }
           }
@@ -146,54 +141,49 @@ export default function Products({}: ProductsProps) {
             alt=""
           />
           <Image
-            className={`max-md:hidden transition-all duration-1000 top-0 ${
-              value === 1 ? "top-10" : value === 2 ? "top-20" : ""
-            } absolute right-0 z-[-1]`}
+            className={`max-md:hidden transition-all duration-1000 top-0 ${value === 1 ? "top-10" : value === 2 ? "top-20" : ""
+              } absolute right-0 z-[-1]`}
             src={shadow_bg_4}
             alt=""
           />
           <div
             className="relative z-10"
-            onWheelCapture={(e: any) => {
-              if (e.deltaY < 10 && e.deltaY > -10) return;
-              if (throttleFlag) return;
-              if (innerWidth > 768) {
-                if (value === 0) {
-                  if (e.deltaY > 0) {
-                    dispatch(setThrottleFlag(true));
-
-                    setValue(1);
-                    setTimeout(() => {
-                      dispatch(setThrottleFlag(false));
-                    }, 1200);
-                  } else {
-                    dispatch(setThrottleFlag(true));
-                    swiper.slideTo(1, 1000);
-                    dispatch(setComePage(8));
-                    dispatch(setActiveIndex(1));
-                    setTimeout(() => {
-                      dispatch(setThrottleFlag(false));
-                    }, 1200);
-                  }
-                } else if (value === 2) {
-                  if (e.deltaY < 0) {
-                    dispatch(setThrottleFlag(true));
-                    setTimeout(() => {
-                      dispatch(setThrottleFlag(false));
-                    }, 1200);
-                    setValue(1);
-                  }
-                } else {
-                  if (e.deltaY < 0) {
-                    setValue(0);
-                  } else {
-                    setValue(2);
-                  }
-                  dispatch(setThrottleFlag(true));
-                  setTimeout(() => {
-                    dispatch(setThrottleFlag(false));
-                  }, 1200);
+            onWheel={(e: any) => {
+              if (throttleFlag) {
+                dispatch(setThrottleFlag(true));
+                for (let i = 0; i < 10000; i++) {
+                  clearTimeout(i)
                 }
+                time = setTimeout(() => {
+                  dispatch(setThrottleFlag(false));
+                }, 50)
+              }
+              else {
+                dispatch(setThrottleFlag(true));
+                if (innerWidth > 768) {
+                  if (value === 0) {
+                    if (e.deltaY > 0) {
+                      setValue(1);
+                    } else {
+                      swiper.slideTo(1, 1000);
+                      dispatch(setComePage(8));
+                      dispatch(setActiveIndex(1));
+                    }
+                  } else if (value === 2) {
+                    if (e.deltaY < 0) {
+                      setValue(1);
+                    }
+                  } else {
+                    if (e.deltaY < 0) {
+                      setValue(0);
+                    } else {
+                      setValue(2);
+                    }
+                  }
+                }
+                time = setTimeout(() => {
+                  dispatch(setThrottleFlag(false));
+                }, 50)
               }
             }}
           >
@@ -212,18 +202,16 @@ export default function Products({}: ProductsProps) {
                 </ProductsBox>
                 <ProductsBg className="md:h-[530px] md:overflow-hidden">
                   <div
-                    className={` transition-all ease-[cubic-bezier(0.5, 0, 0, 1)] duration-1000 ${
-                      value === 1
-                        ? "translate-y-[-530px]"
-                        : value === 2
+                    className={` transition-all ease-[cubic-bezier(0.5, 0, 0, 1)] duration-1000 ${value === 1
+                      ? "translate-y-[-530px]"
+                      : value === 2
                         ? "translate-y-[-1060px]"
                         : ""
-                    }  max-md:h-[452px] max-md:flex  max-md:px-8 justify-between max-md:gap-y-12 flex-wrap `}
+                      }  max-md:h-[452px] max-md:flex  max-md:px-8 justify-between max-md:gap-y-12 flex-wrap `}
                   >
                     <ProductsRightBox
-                      className={`transition-all duration-[1000ms] opacity-0 max-md:opacity-100  ${
-                        value === 0 ? "opacity-100" : ""
-                      } max-md:h-[121px]`}
+                      className={`transition-all duration-[1000ms] opacity-0 max-md:opacity-100  ${value === 0 ? "opacity-100" : ""
+                        } max-md:h-[121px]`}
                     >
                       <p className="text-[38px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]">
                         主体课程
@@ -257,9 +245,8 @@ export default function Products({}: ProductsProps) {
                       </div>
                     </ProductsRightBox>
                     <ProductsRightBox
-                      className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${
-                        value === 1 ? "opacity-100" : ""
-                      }  max-md:h-[121px]`}
+                      className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${value === 1 ? "opacity-100" : ""
+                        }  max-md:h-[121px]`}
                     >
                       <p className="text-[38px] max-md:hidden max-md:mb-4 mb-[35px] text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]">
                         主体课程综合增值服务
@@ -453,9 +440,8 @@ export default function Products({}: ProductsProps) {
                       </div>
                     </ProductsRightBox>
                     <ProductsRightBox
-                      className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${
-                        value === 2 ? "opacity-100" : ""
-                      }`}
+                      className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${value === 2 ? "opacity-100" : ""
+                        }`}
                     >
                       <p className="text-[38px] max-md:mb-4 mb-[35px] max-md:text-[20px] text-[#FF4B00] font-medium leading-[160%]">
                         音乐艺术指导
@@ -560,13 +546,12 @@ export default function Products({}: ProductsProps) {
                 </ProductsBg>
                 <div className="h-[457px] max-md:hidden overflow-hidden">
                   <div
-                    className={`transition-all duration-300 ${
-                      value === 1
-                        ? "translate-y-[-457px]"
-                        : value === 2
+                    className={`transition-all duration-300 ${value === 1
+                      ? "translate-y-[-457px]"
+                      : value === 2
                         ? "translate-y-[-914px]"
                         : ""
-                    }`}
+                      }`}
                   >
                     <Image src={products_right} alt="" />
                     <Image src={products_right} alt="" />
