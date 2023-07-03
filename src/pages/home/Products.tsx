@@ -87,8 +87,6 @@ export default function Products({}: ProductsProps) {
   const comePage = useComePage();
   const activeIndex = useActiveIndex();
 
-  const [flag, setFlag] = useState(true);
-
   useEffect(() => {
     if (activeIndex === 2) {
       if (comePage === 1) {
@@ -159,63 +157,42 @@ export default function Products({}: ProductsProps) {
             onWheelCapture={(e: any) => {
               if (e.deltaY < 10 && e.deltaY > -10) return;
               if (throttleFlag) return;
-
               if (innerWidth > 768) {
-                if (value === 0 && flag) {
+                if (value === 0) {
                   if (e.deltaY > 0) {
                     dispatch(setThrottleFlag(true));
-                    console.log("及时开始，第一页");
 
-                    setFlag(false);
                     setValue(1);
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                      console.log("计时结束，第一页");
-                      setFlag(true);
-                    }, 1000);
+                    }, 1200);
                   } else {
                     dispatch(setThrottleFlag(true));
-                    setFlag(false);
                     swiper.slideTo(1, 1000);
                     dispatch(setComePage(8));
                     dispatch(setActiveIndex(1));
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                      setFlag(true);
-                    }, 1000);
+                    }, 1200);
                   }
-                } else if (value === 2 && flag) {
+                } else if (value === 2) {
                   if (e.deltaY < 0) {
                     dispatch(setThrottleFlag(true));
-                    setFlag(false);
-                    console.log("及时开始，第二页");
-
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                      console.log("计时结束，第二页");
-
-                      setFlag(true);
-                    }, 1000);
+                    }, 1200);
                     setValue(1);
                   }
-                } else if (flag) {
+                } else {
                   if (e.deltaY < 0) {
                     setValue(0);
-                    setFlag(false);
                   } else {
-                    setFlag(false);
-
                     setValue(2);
                   }
-                  console.log("计时开始，第三页");
-
                   dispatch(setThrottleFlag(true));
                   setTimeout(() => {
                     dispatch(setThrottleFlag(false));
-                    console.log("计时结束，第三页");
-
-                    setFlag(true);
-                  }, 1000);
+                  }, 1200);
                 }
               }
             }}

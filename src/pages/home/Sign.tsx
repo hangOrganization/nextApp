@@ -175,23 +175,29 @@ export default function Sign({}: SignProps) {
               type={`${isChrome ? "video/webm" : " video/mp4"}`}
             ></source>
           </video>
-          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden">
-            <EchoRollBox className="md:flex">
-              <div className="md:w-[780px] max-md:w-screen text-center">
-                <p className="md:font-normal max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px]">
+          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden relative">
+            <EchoRollBox className="md:flex justify-center ">
+              <div className="md:w-[780px] max-md:w-screen text-center text-box">
+                <p className="md:font-[300] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px] md:mt-[-3px] md:ml-[228px]  absolute md:w-[100%]">
                   听见世界的回响
                 </p>
               </div>
-              <div className="md:w-[780px] max-md:mt-4 text-center">
-                <p className=" font-[300] uppercase max-md:tracking-[3.84px] max-md:text-[12px] max-md:font-[100] tracking-[0.51em] font-[Lexend] text-[26px]">
-                  Echo of the World
-                </p>
-              </div>
-              <div className="md:w-[780px] max-md:hidden text-center">
-                <p className=" font-normal uppercase tracking-[1em] text-[26px]">
-                  听见世界的回响
-                </p>
-              </div>
+              <video
+                autoPlay
+                muted
+                loop
+                className="EchoRollBoxVidoeMove
+"
+              >
+                <source
+                  src={
+                    isChrome
+                      ? "/video/Slogan-loop.webm"
+                      : "/video/Slogan-loop.mp4"
+                  }
+                  type={`${isChrome ? "video/webm" : " video/mp4"}`}
+                ></source>
+              </video>
             </EchoRollBox>
           </div>
         </div>

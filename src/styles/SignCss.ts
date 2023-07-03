@@ -92,13 +92,14 @@ export const ButtonBox = styled.div`
 `;
 export const EchoRollBox = styled.div`
   @media (min-width: 768px) {
-    opacity: 0;
-    animation: move-echo 2s linear 1s forwards,
-      echoRollBox 6s cubic-bezier(0.33, 0.6, 0.81, 0.5) infinite 3s;
+    .text-box {
+      animation: move-echo 1s linear 1600ms,
+        echoRollBox 1ms linear 3500ms forwards;
+    }
     @keyframes move-echo {
       0% {
         opacity: 0;
-        transform: translateX(230px);
+        transform: translateX(120px);
       }
       100% {
         opacity: 1;
@@ -107,6 +108,14 @@ export const EchoRollBox = styled.div`
     }
     @keyframes echoRollBox {
       0% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+
+      /* 0% {
         transform: translateX(0px);
       }
       40% {
@@ -120,7 +129,7 @@ export const EchoRollBox = styled.div`
       }
       100% {
         transform: translateX(-1560px);
-      }
+      } */
     }
   }
 `;
@@ -365,8 +374,10 @@ export const SignBgBox = styled.div`
 
   .sign-bg-1 {
     opacity: 0;
+    transform: scale(1.1);
+
     animation: sign-bg-1-move 2000ms cubic-bezier(0.47, 0, 0.06, 1) 800ms,
-      sign-bg-1-move-2 6000ms cubic-bezier(0.42, 0, 0.58, 1) infinite 3800ms;
+      sign-bg-1-move-2 6000ms cubic-bezier(0.42, 0, 0.58, 1) infinite 2800ms;
   }
   @keyframes sign-bg-1-move {
     0% {
