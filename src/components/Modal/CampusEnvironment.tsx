@@ -323,20 +323,20 @@ export default function CampusEnvironment({
                       ))}
                     </div>
                   </div>
-                  <div
+                  {currentPage !== 0 && <div
                     style={{
                       background:
                         "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
                     }}
                     className=" w-52 h-full absolute top-0 left-0"
-                  ></div>
-                  <div
+                  ></div>}
+                  {currentPage !== list.length-1 &&<div
                     style={{
                       background:
                         "linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
                     }}
                     className=" w-52 h-full absolute top-0 right-0"
-                  ></div>
+                  ></div>}
                   <div className="w-[1200px] mx-auto items-center h-[520px] flex justify-center absolute top-0 left-0 overflow-x-hidden">
                     <div className="w-[644px] flex items-center h-[520px]">
                       <div
@@ -404,13 +404,13 @@ export default function CampusEnvironment({
                     className="flex w-[86px] absolute items-center h-[86px] p-2"
                   >
                   </div>
-                  <div
+                  {<div
                     style={{
                       background:
                         "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
                     }}
                     className=" w-[300px] h-full absolute top-0 left-0"
-                  ></div>
+                  ></div>}
                   <div
                     style={{
                       background:

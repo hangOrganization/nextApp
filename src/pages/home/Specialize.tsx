@@ -68,7 +68,7 @@ const CourseBox = styled.div`
 export default function Specialize() {
   const [musicGenre, setMusicGenre] = useState<number>(1);
   return (
-    <SpecializeBox className="flex justify-center h-[1309px] relative pt-[470px] w-screen overflow-hidden mt-[-190px] flex-col items-center">
+    <SpecializeBox className="flex justify-center h-[1309px] relative  pt-[470px] max-md:pt-[100px] w-screen overflow-hidden md:mt-[-190px] flex-col items-center">
       <SpecializeBg></SpecializeBg>
       <div className="">
         <div
@@ -89,73 +89,65 @@ export default function Specialize() {
           <div className="flex flex-col max-md:px-[31px] max-md:w-screen relative max-md:mt-8 md:justify-end md:items-end">
             <div className="flex gap-4 max-md:justify-between items-end">
               <div
-                className={`md:w-[200px] ${
-                  musicGenre === 1 ? "md:mb-2" : ""
-                } transition-all duration-300 cursor-pointer text-center`}
+                className={`md:w-[200px] ${musicGenre === 1 ? "md:mb-2" : ""
+                  } transition-all duration-300 cursor-pointer text-center`}
                 onClick={() => setMusicGenre(1)}
               >
                 <p
-                  className={`text-[24px] ${
-                    musicGenre === 1
+                  className={`text-[24px] ${musicGenre === 1
                       ? "font-[200]"
                       : "font-[100] max-md:font-light"
-                  } max-md:text-[14px] font-[200] leading-[160%]`}
+                    } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   现代音乐类
                 </p>
               </div>
               <div
-                className={`md:w-[200px] ${
-                  musicGenre === 2 ? "md:mb-2" : ""
-                } transition-all duration-300 cursor-pointer text-center`}
+                className={`md:w-[200px] ${musicGenre === 2 ? "md:mb-2" : ""
+                  } transition-all duration-300 cursor-pointer text-center`}
                 onClick={() => setMusicGenre(2)}
               >
                 <p
-                  className={`text-[24px] ${
-                    musicGenre === 2
+                  className={`text-[24px] ${musicGenre === 2
                       ? "font-[200]"
                       : "font-[100] max-md:font-light"
-                  } max-md:text-[14px] font-[200] leading-[160%]`}
+                    } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   古典音乐类
                 </p>
               </div>
               <div
-                className={`md:w-[200px] ${
-                  musicGenre === 3 ? "md:mb-2" : ""
-                } transition-all duration-300 cursor-pointer text-center`}
+                className={`md:w-[200px] ${musicGenre === 3 ? "md:mb-2" : ""
+                  } transition-all duration-300 cursor-pointer text-center`}
                 onClick={() => setMusicGenre(3)}
               >
                 <p
-                  className={`text-[24px] ${
-                    musicGenre === 3
+                  className={`text-[24px] ${musicGenre === 3
                       ? "font-[200]"
                       : "font-[100] max-md:font-light"
-                  } max-md:text-[14px] font-[200] leading-[160%]`}
+                    } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   音乐理论及应用类
                 </p>
               </div>
             </div>
             <div
-              className={`w-[86px] transition-all max-md:hidden duration-500 ${
-                musicGenre === 1
+              className={`w-[86px] transition-all max-md:hidden duration-500 ${musicGenre === 1
                   ? "translate-x-[-488.5px]"
                   : musicGenre === 2
-                  ? "translate-x-[-272.5px]"
-                  : "translate-x-[-56.5px]"
-              } `}
+                    ? "translate-x-[-272.5px]"
+                    : "translate-x-[-56.5px]"
+                } `}
               style={{ border: "0.5px solid #FFFFFF" }}
             ></div>
             <div className="mt-[16px] md:hidden h-[1px] relative w-full">
               <div
-                className={`w-12 transition-all absolute duration-500  ${
-                  musicGenre === 1
+                className={`w-12 transition-all absolute duration-500  ${musicGenre === 1
                     ? "left-[0%] translate-x-[10px]"
                     : musicGenre === 2
-                    ? "left-[50%] translate-x-[-45px]"
-                    : "left-[100%] translate-x-[-82px]"
-                }`}
+                      ? "left-[50%] translate-x-[-45px]"
+                      : "left-[100%] translate-x-[-82px]"
+                  }`}
                 style={{ border: "0.25px solid #FFFFFF" }}
               ></div>
             </div>
@@ -163,30 +155,27 @@ export default function Specialize() {
         </div>
         <div className="relative pb-[168px] w-screen md:w-[1440px]">
           <Image
-            className={`absolute max-md:hidden bottom-[0px] transition-all duration-500 ${
-              musicGenre === 1
+            className={`absolute max-md:hidden bottom-[0px] transition-all duration-500 ${musicGenre === 1
                 ? "rotate-0"
                 : musicGenre === 2
-                ? "rotate-[90deg]"
-                : "rotate-[180deg]"
-            } right-[-50px]`}
+                  ? "rotate-[90deg]"
+                  : "rotate-[180deg]"
+              } right-[-50px]`}
             src={specialize_Star}
             alt=""
           />
           <div className="flex mt-12 md:w-[1440px] md:px-[120px] overflow-hidden justify-between">
             <div
-              className={`flex gap-[120px] transition-all duration-500 ${
-                musicGenre === 1
+              className={`flex gap-[120px] transition-all duration-500 ${musicGenre === 1
                   ? "translate-x-[0px]"
                   : musicGenre === 2
-                  ? "translate-x-[-1320px] max-md:translate-x-[-494px]"
-                  : "translate-x-[-2640px] max-md:translate-x-[-988px]"
-              } w-[3880px]`}
+                    ? "translate-x-[-1320px] max-md:translate-x-[-494px]"
+                    : "translate-x-[-2640px] max-md:translate-x-[-988px]"
+                } w-[3880px]`}
             >
               <div
-                className={`flex md:w-[1200px] transition-all duration-500 ${
-                  musicGenre === 1 ? " opacity-100" : "opacity-0"
-                } max-md:flex-col justify-between`}
+                className={`flex md:w-[1200px] transition-all duration-500 ${musicGenre === 1 ? " opacity-100" : "opacity-0"
+                  } max-md:flex-col justify-between`}
               >
                 <CourseBox>
                   <div className="flex max-md:justify-center items-center">
@@ -243,7 +232,7 @@ export default function Specialize() {
                         {modernMusicSchool[0].map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool`}
-                            className="text-[13px] max-md:w-[163px] max-md:text-ellipsis max-md:overflow-hidden max-md:line-clamp-1 max-md:font-light max-md:text-[12px] max-md:leading-[14.3px] leading-[140%] text-[#3E3E3E] font-[400] "
+                            className="text-[13px] max-md:w-[163px] max-md:text-ellipsis max-md:overflow-hidden max-md:line-clamp-1 max-md:font-light max-md:text-[12px] max-md:leading-[14.3px] leading-[140%] text-[#3E3E3E] font-[300] "
                           >
                             {el}
                           </p>
@@ -266,7 +255,7 @@ export default function Specialize() {
                         {modernMusicSchool[1].map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool-Japan and South Korea`}
-                            className="text-[13px] max-md:text-[11px] max-md:leading-[15.4px] leading-[140%] max-md:font-light text-[#3E3E3E] font-[400] "
+                            className="text-[13px] max-md:text-[11px] max-md:leading-[15.4px] leading-[140%] max-md:font-light text-[#3E3E3E] font-[300] "
                           >
                             {el}
                           </p>
@@ -277,9 +266,8 @@ export default function Specialize() {
                 </CourseBox>
               </div>
               <div
-                className={`flex md:w-[1200px]  transition-all duration-500 ${
-                  musicGenre === 2 ? " opacity-100" : "opacity-0"
-                } max-md:flex-col  md:justify-between`}
+                className={`flex md:w-[1200px]  transition-all duration-500 ${musicGenre === 2 ? " opacity-100" : "opacity-0"
+                  } max-md:flex-col  md:justify-between`}
               >
                 <CourseBox className="max-md:!h-[285px]">
                   <div className="flex max-md:justify-center items-center">
@@ -337,7 +325,7 @@ export default function Specialize() {
                           (el: any, index: number) => (
                             <p
                               key={`${index}-classicalMusicSchool`}
-                              className="text-[13px] leading-[140%] text-[#3E3E3E]  max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[400] "
+                              className="text-[13px] leading-[140%] text-[#3E3E3E]  max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[300] "
                             >
                               {el}
                             </p>
@@ -362,7 +350,7 @@ export default function Specialize() {
                           (el: any, index: number) => (
                             <p
                               key={`${index}-classicalMusicSchool-Japan and South Korea`}
-                              className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[400]"
+                              className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
                             >
                               {el}
                             </p>
@@ -374,9 +362,8 @@ export default function Specialize() {
                 </CourseBox>
               </div>
               <div
-                className={`flex w-[1200px]  transition-all duration-500 ${
-                  musicGenre === 3 ? " opacity-100" : "opacity-0"
-                } max-md:flex-col md:justify-between`}
+                className={`flex w-[1200px]  transition-all duration-500 ${musicGenre === 3 ? " opacity-100" : "opacity-0"
+                  } max-md:flex-col md:justify-between`}
               >
                 <CourseBox className="max-md:!h-[225px]">
                   <div className="flex max-md:justify-center items-center">
@@ -424,7 +411,7 @@ export default function Specialize() {
                         {musicalTheorySchool.map((el: any, index: number) => (
                           <p
                             key={`${index}-musicalTheorySchool`}
-                            className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[400]"
+                            className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
                           >
                             {el}
                           </p>

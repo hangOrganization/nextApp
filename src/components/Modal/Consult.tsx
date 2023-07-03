@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { Fragment } from 'react'
 import sign_QRcode_bg_1 from '@/assets/image/svg/sign-QRcode-bg-1.svg'
-import sign_QRcode from '@/assets/image/svg/sign-QRcode.png'
+import sign_QRcode from '@/assets/image/svg/sign-QRcode.svg'
 import sign_QRcode_bg_2 from '@/assets/image/svg/sign-QRcode-bg-2.png'
 import { Dialog, Transition } from '@headlessui/react'
 import styled from 'styled-components'

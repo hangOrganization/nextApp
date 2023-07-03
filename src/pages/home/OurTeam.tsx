@@ -83,6 +83,7 @@ const CardFilterBox = styled.div`
   }
 `;
 const NameOur = styled.p`
+  margin-left: 4px;
   @media (min-width: 768px) {
     font-family: "General Sans";
     font-style: italic;
@@ -107,7 +108,7 @@ const NameOur = styled.p`
 `;
 const RollBox = styled.div`
   @media (min-width: 768px) {
-    animation: teachersRoll 40s linear infinite;
+    animation: teachersRoll 80s linear infinite;
     &.hover {
       animation-play-state: paused;
     }
@@ -122,14 +123,13 @@ const RollBox = styled.div`
   }
 `;
 const Box = styled.div`
-  .swiper-move-in {
+  .swiper-move-in-self {
     @media (min-width: 768px) {
-      animation: swiper-move-in 1000ms cubic-bezier(0.69, 0, 0.37, 1) 1000ms
+      animation: swiper-move-in-self 1000ms cubic-bezier(0.69, 0, 0.37, 1) 800ms
         forwards;
     }
   }
-
-  @keyframes swiper-move-in {
+  @keyframes swiper-move-in-self {
     from {
       opacity: 0;
     }
@@ -139,7 +139,6 @@ const Box = styled.div`
     }
   }
 `;
-
 interface OurTeamProps {
   setIsOpenCampus: Function;
 }
@@ -159,18 +158,22 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const activeType = useActiveType();
 
   useEffect(() => {
-    document.querySelector("#ourTeamBox")?.scrollTo({
-      top: 1,
-      behavior: "smooth",
-    });
-  }, []);
+    if (activeIndex === 3) {
+      if (comePage === 2) {
+        document.querySelector("#ourTeamBox")?.scrollTo({
+          top: 20,
+          behavior: "smooth",
+        });
+      } else {
+        document.querySelector("#ourTeamBox")?.scrollTo({
+          top: 1400,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [activeIndex]);
 
   useEffect(() => {
-    console.log(
-      "🚀 ~ file: OurTeam.tsx:152 ~ useEffect ~ activeType:",
-      activeType
-    );
-
     if (activeType == 0) {
       setRight(0);
       document.querySelector("#ourTeamBox")?.scrollTo({
@@ -179,28 +182,35 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
       });
     } else if (activeType == 1) {
       document.querySelector("#ourTeamBox")?.scrollTo({
-        top: 1350,
+        top: 1400,
         behavior: "smooth",
       });
       setRight(0);
     } else if (activeType == 2) {
       setRight(1);
       document.querySelector("#ourTeamBox")?.scrollTo({
-        top: 1350,
+        top: 1400,
         behavior: "smooth",
       });
     }
   }, [activeType]);
 
+  useEffect(() => {
+    if (characteristicType !== 0) {
+      document.querySelector("#ourTeamBox")?.scrollTo({
+        top: 1400,
+        behavior: "smooth",
+      });
+    }
+  }, [characteristicType]);
   return (
-    <div>
-      <Box
+    <Box>
+      <div
         id="ourTeamBox"
-        className={`md:h-screen md:opacity-0  transition-all duration-1000 md:overflow-auto ${
-          comePage === 2 ? "swiper-move-in" : ""
-        }  `}
+        className={`md:h-screen md:pt-32 md:opacity-0 ${
+          characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
+        }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
-          console.log("🚀 ~ file: OurTeam.tsx:179 ~ OurTeam ~ right:", right);
           if (throttleFlag) return;
           if (innerWidth > 768) {
             if (e.target.scrollTop === 0) {
@@ -232,7 +242,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
             </video>
           </div>
           <OurTeamBg>
-            <div className="md:flex md:pt-[120px] max-md:pt-6 md:ml-[144px] md:mr-[120px] justify-between items-center">
+            <div className="md:flex md:pt-[120px] md:w-[1200px] ma max-md:pt-6  md:mx-auto justify-between items-center">
               <div className="max-md:text-center">
                 <p className=" font-extrabold max-md:text-[28px] text-[56px] leading-[120%] text-[#1a1a1a]">
                   师资团队
@@ -294,12 +304,12 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
                     } md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
-                      <div className="p-6 pr-[0px] max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
+                      <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
                         <NameOur>{el.name}</NameOur>
-                        <p className="font-normal text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
+                        <p className="font-normal ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
                           {el.position}
                         </p>
-                        <p className="font-light text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
+                        <p className="font-light ml-1 text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
                           {el.works}
                         </p>
                       </div>
@@ -330,9 +340,8 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
           characteristicType={characteristicType}
           setCharacteristicType={setCharacteristicType}
         />
-      </Box>
-
+      </div>
       <div className={`${comePage === 2 ? "rocket-in" : ""}`}></div>
-    </div>
+    </Box>
   );
 }

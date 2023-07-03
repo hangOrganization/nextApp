@@ -23,8 +23,24 @@ import {
 import products_right from "@/assets/image/svg/icon-products-right.svg";
 import products_right_bg from "@/assets/image/svg/products-right-bg.svg";
 import mobile_products_bg from "@/assets/image/mobile/mobile-products-bg.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+const Box = styled.div`
+  .swiper-move-in-self {
+    @media (min-width: 768px) {
+      animation: swiper-move-in-self 1000ms cubic-bezier(0.69, 0, 0.37, 1) 800ms
+        forwards;
+    }
+  }
+  @keyframes swiper-move-in-self {
+    from {
+      opacity: 0;
+    }
 
+    to {
+      opacity: 1;
+    }
+  }
+`;
 const ProductsBox = styled(`div`)`
   width: 440px;
   height: 530px;
@@ -44,6 +60,7 @@ const ProductsBox = styled(`div`)`
 `;
 const ProductsRightBox = styled.div`
   @media (min-width: 768px) {
+    justify-content: center;
     width: 621px;
     padding-left: 136px;
     margin-right: 76px;
@@ -56,32 +73,13 @@ const ProductsBg = styled.div`
   @media (min-width: 768px) {
     background-repeat: no-repeat;
     background: url(${products_right_bg.src});
+    background-position: 0px 48px;
     background-blend-mode: soft-light, overlay, normal;
   }
 `;
-const Box = styled.div`
-  .swiper-move-in-self {
-    @media (min-width: 768px) {
-      animation: swiper-move-in-self 1000ms cubic-bezier(0.69, 0, 0.37, 1)
-        1000ms forwards;
-    }
-  }
-
-  @keyframes swiper-move-in-self {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-`;
-interface ProductsProps {
-  value: number;
-  setValue: Function;
-}
-export default function Products({ value, setValue }: ProductsProps) {
+interface ProductsProps {}
+export default function Products({}: ProductsProps) {
+  const [value, setValue] = useState<number>(0);
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
   const swiper = useSwiper();
@@ -90,12 +88,20 @@ export default function Products({ value, setValue }: ProductsProps) {
   const activeIndex = useActiveIndex();
 
   useEffect(() => {
-    document.querySelector("#productsBox")?.scrollTo({
-      top: 1,
-      behavior: "smooth",
-    });
-    console.log(activeIndex);
-  }, [swiper?.activeIndex, activeIndex]);
+    if (activeIndex === 2) {
+      if (comePage === 1) {
+        document.querySelector("#productsBox")?.scrollTo({
+          top: 20,
+          behavior: "smooth",
+        });
+      } else {
+        document.querySelector("#productsBox")?.scrollTo({
+          top: 1000,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [activeIndex]);
 
   return (
     <Box>
@@ -109,7 +115,7 @@ export default function Products({ value, setValue }: ProductsProps) {
               ? "swiper-move-in-self"
               : "swiper-move-in"
             : "swiper-move-out"
-        }   relative`}
+        }`}
         onScroll={(e: any) => {
           if (innerWidth > 768) {
             if (throttleFlag) return;
@@ -140,16 +146,17 @@ export default function Products({ value, setValue }: ProductsProps) {
             alt=""
           />
           <Image
-            className="max-md:hidden absolute right-0 top-[80px] z-[-1]"
+            className={`max-md:hidden transition-all duration-1000 top-0 ${
+              value === 1 ? "top-10" : value === 2 ? "top-20" : ""
+            } absolute right-0 z-[-1]`}
             src={shadow_bg_4}
             alt=""
           />
           <div
             className="relative z-10"
-            onWheel={(e: any) => {
+            onWheelCapture={(e: any) => {
               if (e.deltaY < 10 && e.deltaY > -10) return;
               if (throttleFlag) return;
-              // console.log(e.deltaY);
               if (innerWidth > 768) {
                 if (value === 0) {
                   if (e.deltaY > 0) {
@@ -157,12 +164,11 @@ export default function Products({ value, setValue }: ProductsProps) {
                     setValue(1);
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                    }, 700);
+                    }, 1200);
                   } else {
                     dispatch(setThrottleFlag(true));
-                    dispatch(setComePage(0));
-
                     swiper.slidePrev(1000);
+                    dispatch(setComePage(8));
                     dispatch(setActiveIndex(1));
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
@@ -171,10 +177,10 @@ export default function Products({ value, setValue }: ProductsProps) {
                 } else if (value === 2) {
                   if (e.deltaY < 0) {
                     dispatch(setThrottleFlag(true));
+                    setValue(1);
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
-                    }, 700);
-                    setValue(1);
+                    }, 1200);
                   }
                 } else {
                   if (e.deltaY < 0) {
@@ -185,21 +191,21 @@ export default function Products({ value, setValue }: ProductsProps) {
                   dispatch(setThrottleFlag(true));
                   setTimeout(() => {
                     dispatch(setThrottleFlag(false));
-                  }, 700);
+                  }, 1200);
                 }
               }
             }}
           >
             <div
               id="Products"
-              className="flex pt-[74px] md:w-[1200px] md:mx-auto overflow-x-auto max-md:w-screen]"
+              className="flex pt-[104px] md:w-[1200px] md:mx-auto overflow-x-auto max-md:w-screen]"
             >
               <div className="md:flex w-[100%] items-center justify-between">
                 <ProductsBox className="max-md:text-center max-md:!pt-[45px]">
                   <p className="font-extrabold max-md:text-[28px] text-[56px] leading-[160%] text-[#1a1a1a]">
                     产品体系
                   </p>
-                  <p className="font-medium mt-4 max-md:mt-2 max-md:text-[14px] text-[24px] uppercase font-[Lexend] leading-[160%] text-[#1a1a1a]">
+                  <p className="font-medium mt-4 max-md:mt-2 max-md:text-[14px] max-md:font-light text-[24px] uppercase font-[Lexend] leading-[160%] text-[#1a1a1a]">
                     System of products
                   </p>
                 </ProductsBox>
@@ -214,7 +220,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                     }  max-md:h-[452px] max-md:flex  max-md:px-8 justify-between max-md:gap-y-12 flex-wrap `}
                   >
                     <ProductsRightBox
-                      className={`transition-all duration-[1000ms] opacity-0 ${
+                      className={`transition-all duration-[1000ms] opacity-0 max-md:opacity-100  ${
                         value === 0 ? "opacity-100" : ""
                       } max-md:h-[121px]`}
                     >
@@ -250,7 +256,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                       </div>
                     </ProductsRightBox>
                     <ProductsRightBox
-                      className={`transition-all opacity-0 duration-[1000ms] ${
+                      className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${
                         value === 1 ? "opacity-100" : ""
                       }  max-md:h-[121px]`}
                     >
@@ -446,7 +452,7 @@ export default function Products({ value, setValue }: ProductsProps) {
                       </div>
                     </ProductsRightBox>
                     <ProductsRightBox
-                      className={`transition-all opacity-0 duration-[1000ms] ${
+                      className={`transition-all opacity-0 max-md:opacity-100  duration-[1000ms] ${
                         value === 2 ? "opacity-100" : ""
                       }`}
                     >
@@ -569,14 +575,12 @@ export default function Products({ value, setValue }: ProductsProps) {
               </div>
             </div>
           </div>
-
-          {innerWidth < 768 ||
-            (value === 2 && (
-              <>
-                <SchoolRoll />
-                <Specialize />
-              </>
-            ))}
+          <SchoolRoll value={value} />
+          {(innerWidth < 768 || value === 2) && (
+            <>
+              <Specialize />
+            </>
+          )}
         </div>
       </div>
       <div className={`!absolute ${comePage === 3 ? "rocket-out" : ""}`}></div>

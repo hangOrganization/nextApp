@@ -46,7 +46,6 @@ const Box = styled.div`
   }
 `;
 export default function Homepage() {
-  const [value, setValue] = useState<number>(0);
   const dispatch = useAppDispatch();
   const [isOpenConsult, setIsOpenConsult] = useState<number>(0);
   const [isOpenCampus, setIsOpenCampus] = useState<number>(0);
@@ -74,14 +73,7 @@ export default function Homepage() {
       <Swiper
         id="Swiper"
         direction={"vertical"}
-        // effect='fade'
         threshold={100}
-        // pagination={{
-        //   clickable: true,
-        //   type: "fraction",
-        // }}
-        // navigation={true}
-        // modules={[Pagination, Navigation]}
         className="mySwiper max-md:!hidden w-screen h-screen"
       >
         <SwiperSlide>
@@ -91,7 +83,7 @@ export default function Homepage() {
           <Introduction setIsOpenConsult={setIsOpenConsult} />
         </SwiperSlide>
         <SwiperSlide>
-          <Products value={value} setValue={setValue} />
+          <Products/>
         </SwiperSlide>
         <SwiperSlide>
           <OurTeam setIsOpenCampus={setIsOpenCampus} />
@@ -103,11 +95,10 @@ export default function Homepage() {
       <div className="md:hidden">
         <Sign />
         <Introduction setIsOpenConsult={setIsOpenConsult} />
-        <Products value={value} setValue={setValue} />
+        <Products />
         <OurTeam setIsOpenCampus={setIsOpenCampus} />
         <Disc />
       </div>
-      {/* <Development isOpenCampus={isOpenCampus} setIsOpenCampus={setIsOpenCampus} /> */}
     </Box>
   );
 }

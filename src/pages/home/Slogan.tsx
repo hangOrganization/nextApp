@@ -79,6 +79,8 @@ const MoveBox = styled.div`
       .go-button {
         transition: all 300ms;
         right: 48px;
+        font-weight: 300;
+
         opacity: 1;
         transform: translate(0, 0);
       }
@@ -111,7 +113,7 @@ export default function Slogan() {
               <p className="mb-[8px] text-[24px]  max-md:text-[20px]    max-md:font-[250]   max-md:translate-[0]">
                 探索更多声音服务
               </p>
-              <p className=" max-md:text-[12px]  max-md:font-[300]  tracking-[5.9px] max-md:tracking-[2.4px]  max-md:mb-[24px]  max-md:font[250]">
+              <p className=" max-md:text-[12px]  max-md:font-[300]  tracking-[5.9px] max-md:tracking-[2.4px]  max-md:mb-[24px] max-md:font[250]">
                 其实，你可以听见更多
               </p>
             </div>
@@ -142,7 +144,7 @@ export default function Slogan() {
         <Image
           src={slogan}
           alt=""
-          className="md:hidden w-[344px] h-[143px]"
+          className="w-[344px] h-[143px] md:hidden"
         ></Image>
       </div>
     </Box>

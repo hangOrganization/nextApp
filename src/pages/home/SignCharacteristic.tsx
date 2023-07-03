@@ -12,12 +12,13 @@ import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.pn
 import AboutUs_bg from "@/assets/image/svg/aboutUs-bg.png";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
 import { useActiveIndex, useThrottleFlag } from "@/state/application/hooks";
 import {
   setAboutOrCorporation,
   setActiveIndex,
+  setComePage,
   setThrottleFlag,
 } from "@/state/application/reducer";
 import { useSwiper } from "swiper/react";
@@ -25,32 +26,11 @@ import TitleBeam from "@/components/TitleBeam";
 
 const SignBox = styled.div`
   z-index: 2;
-  @media (min-width: 768px) {
-    width: 100vw;
-    .WhySIGN {
-      background-size: 100% !important;
-      background-repeat: no-repeat !important;
-    }
-    .ABOUT {
-      opacity: 1;
-      /* background-image: url(${AboutUs_bg.src}) !important; */
-      background-size: 100% !important;
-      background-repeat: no-repeat !important;
-    }
-    animation: characteristic-bg-move 2ms;
-    @keyframes characteristic-bg-move {
-      0% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  }
+  width: 100vw;
 `;
+// ? ""
+// : "发展历程"
+// : "公司特色"
 const Box = styled.div`
   @media not all and (min-width: 768px) {
     width: 100vw;
@@ -126,12 +106,6 @@ export default function SignCharacteristic({
   const activeIndex = useActiveIndex();
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
-  useEffect(() => {
-    if (activeIndex !== 3) {
-      setRight(0);
-      setCharacteristicType(0);
-    }
-  }, [activeIndex]);
   return (
     <Box className={`flex w-screen max-md:pb-[210px] z-50 md:overflow-hidden`}>
       <div className="flex relative">
@@ -207,6 +181,7 @@ export default function SignCharacteristic({
                     ) {
                       dispatch(setThrottleFlag(true));
                       swiper.slideNext(1000);
+                      dispatch(setComePage(3));
                       dispatch(setActiveIndex(4));
                       setTimeout(() => {
                         dispatch(setThrottleFlag(false));
@@ -224,17 +199,38 @@ export default function SignCharacteristic({
           }}
         >
           <div className={`max-md:hidden absolute top-0 left-0 w-full h-full`}>
+            <div className="absolute top-0 left-0 flex justify-center items-center w-full h-full">
+              <Image
+                src={AboutUs_bg}
+                className={`${
+                  right === 0 ? "opacity-0 w-0" : "opacity-100 w-full"
+                } transition-all ease-[cubic-bezier(0.24,0,0.58,1)] duration-1000  w-0`}
+                alt=""
+              />
+            </div>
+
             <Image
-              src={AboutUs_bg}
-              className={`top-0 ${
-                right === 0 ? "opacity-0" : "opacity-100"
-              } transition-all duration-1000 absolute left-0 w-full h-full`}
+              className={`absolute top-[-200px]
+              ${
+                characteristicType === 1
+                  ? " top-[-220px]"
+                  : characteristicType === 2
+                  ? " top-[-240px]"
+                  : characteristicType === 3
+                  ? " top-[-260px]"
+                  : ""
+              }
+               transition-all duration-1000 max-w-[0px] min-h-full ${
+                 right !== 0 ? "" : "max-w-[1000px]"
+               } max-md:hidden right-0`}
+              src={characteristic_bg_1}
               alt=""
             />
             <Image
-              className={`absolute top-[-200px] transition-all duration-1000 max-w-[0px] min-h-full ${
-                right !== 0 ? "" : "max-w-[1000px]"
-              } max-md:hidden right-0`}
+              className={`absolute top-[-200px]
+               transition-all duration-1000 max-w-[0px] min-h-full ${
+                 right === 0 ? "" : "max-w-[1000px]"
+               } max-md:hidden right-0`}
               src={characteristic_bg_1}
               alt=""
             />
@@ -246,7 +242,7 @@ export default function SignCharacteristic({
               alt=""
             />
             <Image
-              className={`absolute transition-all duration-1000  bottom-[52px] ${
+              className={`absolute transition-all  bottom-[52px] duration-1000  ${
                 right !== 0
                   ? " right-[-350px]"
                   : characteristicType === 1
@@ -255,7 +251,7 @@ export default function SignCharacteristic({
                   ? " bottom-[116px]"
                   : characteristicType === 3
                   ? " bottom-[148px]"
-                  : ""
+                  : " bottom-[52px]"
               }  max-md:hidden right-0 `}
               src={characteristic_bg_logo}
               alt=""
@@ -271,16 +267,35 @@ export default function SignCharacteristic({
             >
               <div>
                 <div className="max-md:flex justify-between">
+                  <div className="w-[221px] relative max-md:hidden h-[67px]">
+                    <p
+                      className={`${
+                        right === 0 ? "opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                    >
+                      公司特色
+                    </p>
+                    <p
+                      className={`${
+                        right === 1 ? " opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                    >
+                      关于我们
+                    </p>
+                    <p
+                      className={`${
+                        right === 2 ? " opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                    >
+                      发展历程
+                    </p>
+                  </div>
                   <p
-                    className=" font-light text-[56px] max-md:text-[24px] leading-[120%]"
+                    className=" font-light text-[56px] max-md:text-[24px] md:hidden leading-[120%]"
                     onClick={() => setMobileRight(0)}
-                  >{`${
-                    right !== 0
-                      ? right === 1
-                        ? "关于我们"
-                        : "发展历程"
-                      : "公司特色"
-                  }`}</p>
+                  >
+                    公司特色
+                  </p>
                   <p
                     className=" font-light text-[56px] max-md:text-[24px] md:hidden leading-[120%]"
                     onClick={() => setMobileRight(1)}
@@ -299,21 +314,42 @@ export default function SignCharacteristic({
                     alt=""
                   />
                 </div>
-                <p
-                  className={`font-extralight max-md:hidden font-[Lexend] text-[22px] ${
-                    right !== 0
-                      ? right === 1
-                        ? "tracking-[15.18px]"
-                        : "tracking-[2.2px]"
-                      : "tracking-[0.53em]"
-                  } mt-4 opacity-60 uppercase leading-[160%]`}
-                >{`${
-                  right !== 0
+                {/* <p
+                  className={` max-md:hidden uppercase leading-[160%] font-extralight font-[Lexend] text-[22px] ${right !== 0
                     ? right === 1
-                      ? "ABOUT US"
-                      : "Development Path"
-                    : "Why SIGN?"
-                }`}</p>
+                      ? "tracking-[15.18px]"
+                      : "tracking-[2.2px]"
+                    : "tracking-[0.53em]"
+                    }  opacity-60 `}
+                >{`${right !== 0
+                  ? right === 1
+                    ? "ABOUT US"
+                    : "Development Path"
+                  : "Why SIGN?"
+                  }`}</p> */}
+                <div className="w-[222px] mt-4 text-center relative max-md:hidden h-[35px]">
+                  <p
+                    className={`${
+                      right === 0 ? "opacity-60" : ""
+                    } tracking-[11px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                  >
+                    Why SIGN?
+                  </p>
+                  <p
+                    className={`${
+                      right === 1 ? " opacity-60" : ""
+                    } tracking-[15px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                  >
+                    ABOUT US
+                  </p>
+                  <p
+                    className={`${
+                      right === 2 ? " opacity-60" : ""
+                    } tracking-[2px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                  >
+                    Development Path
+                  </p>
+                </div>
               </div>
             </SignCharacteristicBox>
             <div

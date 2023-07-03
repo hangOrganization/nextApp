@@ -1,0 +1,180 @@
+.forTheTopLine1{
+    animation-name: forTheTopLine1identifier;
+    width: 250px;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes forTheTopLine1identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 250px;
+        }
+        100%{
+            width: 432px;
+            transform: translateX(1500px);
+        }
+}
+.forTheTopLine2{
+    animation-name: forTheTopLine2identifier;
+    width: 200px;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes forTheTopLine2identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 130px;
+        }
+        100%{
+            width: 300px;
+            transform: translateX(1500px);
+        }
+}
+.forTheTopLine3{
+    animation-name: forTheTopLine3identifier;
+    width: 600px;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes forTheTopLine3identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 600px;
+        }
+        100%{
+            width: 600px;
+            transform: translateX(1500px);
+        }
+}
+.forTheBottomLine1{
+    animation-name: forTheBottomLine1identifier;
+    width: 240px;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes forTheBottomLine1identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 180px;
+        }
+        100%{
+            width: 400px;
+            transform: translateX(1500px);
+        }
+}
+.forTheBottomLine2{
+    animation-name: forTheBottomLine2identifier;
+    width: 300px;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes forTheBottomLine2identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 300px;
+        }
+        100%{
+            width: 450px;
+            transform: translateX(1500px);
+        }
+}
+.forTheBottomLine3{
+    animation-name: forTheBottomLine3identifier;
+    width: 350px;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes forTheBottomLine3identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 500px;
+        }
+        100%{
+            width: 600px;
+            transform: translateX(1500px);
+        }
+}
+.LetIsROCKLine1{
+    animation-name: LetIsROCKLine1identifier;
+    width: 150px;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes LetIsROCKLine1identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 300px;
+        }
+        100%{
+            width: 400px;
+            transform: translateX(1500px);
+        }
+}
+.LetIsROCKLine2{
+    animation-name: LetIsROCKLine2identifier;
+    width: 250px;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes LetIsROCKLine2identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 150px;
+        }
+        100%{
+            width: 400px;
+            transform: translateX(1500px);
+        }
+}
+.LetIsROCKLine3{
+    animation-name: LetIsROCKLine3identifier;
+    width: 220px;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes LetIsROCKLine3identifier {
+        0%{
+            transform: translateX(0px);
+        }
+        50%{
+            transform: translateX(750);
+            width: 300;
+        }
+        100%{
+            width: 400px;
+            transform: translateX(1500px);
+        }
+}

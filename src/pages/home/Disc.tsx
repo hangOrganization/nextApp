@@ -23,7 +23,11 @@ import {
   useThrottleFlag,
 } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
+import {
+  setActiveIndex,
+  setComePage,
+  setThrottleFlag,
+} from "@/state/application/reducer";
 
 interface DiscBoxProps {
   title: string;
@@ -154,8 +158,7 @@ const LeftDecoraton = styled.div`
   margin-top: auto;
   transform: translateX(5px);
   background-blend-mode: overlay;
-  opacity: 0.2;
-  opacity: 0.18;
+  opacity: 0.25;
 
   background-repeat: no-repeat;
 `;
@@ -165,7 +168,7 @@ const RightDecoraton = styled.div`
   background: url(${disc_right_decoraton.src});
   background-repeat: no-repeat;
   top: -150px;
-  opacity: 0.06;
+  opacity: 0.13;
   right: 45px;
 `;
 
@@ -233,7 +236,6 @@ export default function Disc({}: DiscProps) {
   const innerWidth = useOuterWidth();
   const dispatch = useAppDispatch();
   const activeIndex = useActiveIndex();
-  // console.log("🚀 ~ file: Disc.tsx:186 ~ Disc ~ activeIndex:", activeIndex);
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
@@ -263,7 +265,7 @@ export default function Disc({}: DiscProps) {
   };
   useEffect(() => {
     document.querySelector("#discBox")?.scrollTo({
-      top: 2,
+      top: 20,
       behavior: "smooth",
     });
   }, [swiper?.activeIndex]);
@@ -279,7 +281,7 @@ export default function Disc({}: DiscProps) {
           if (innerWidth > 768) {
             if (e.target.scrollTop === 0) {
               dispatch(setThrottleFlag(true));
-              swiper.slidePrev(1000);
+              swiper.slideTo(3, 1000);
               dispatch(setActiveIndex(3));
               setTimeout(() => {
                 dispatch(setThrottleFlag(false));
@@ -538,7 +540,7 @@ export default function Disc({}: DiscProps) {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_1760_27425)">
+                <g clipPath="url(#clip0_1760_27425)">
                   <path
                     d="M11 18C11 18 13.3529 12 19 12C13.3529 12 11 6 11 6"
                     stroke="#FF4B00"
