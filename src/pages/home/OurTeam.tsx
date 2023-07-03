@@ -149,7 +149,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
         });
       } else {
         document.querySelector("#ourTeamBox")?.scrollTo({
-          top: 1500,
+          top: 1350,
           behavior: "smooth",
         });
       }

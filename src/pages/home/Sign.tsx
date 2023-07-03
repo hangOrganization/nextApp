@@ -57,7 +57,7 @@ export default function Sign({}: SignProps) {
             dispatch(setComePage(0))
             dispatch(setActiveIndex(1));
             setTimeout(() => {
-              dispatch(setThrottleFlag(false));
+              dispatch(setThrottleFlag(false))
             }, 1200);
           }
         }
