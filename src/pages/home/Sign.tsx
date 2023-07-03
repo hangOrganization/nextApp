@@ -4,7 +4,7 @@ import Image from "next/image";
 import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
 import mobile_sign_bg_1 from "@/assets/image/mobile/mobile-sign-bg-1.png";
 import sign_bg_1 from "@/assets/image/svg/sign-bg-1.svg";
-import sign_bg_2 from "@/assets/image/svg/sign-bg-2.svg";
+import sign_bg_2 from "@/assets/image/svg/sign-bg-2.png";
 import { EchoRollBox, SignBgBox } from "../../styles/SignCss";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
@@ -94,7 +94,7 @@ export default function Sign({}: SignProps) {
             alt=""
           />
           <Image
-            className="absolute h-[728px] max-md:hidden sign-bg-2"
+            className="absolute w-screen max-md:hidden sign-bg-2"
             src={sign_bg_2}
             alt=""
           />

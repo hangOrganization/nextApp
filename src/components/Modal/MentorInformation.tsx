@@ -72,7 +72,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                 <div className=" mx-auto h-full pt-10 w-[1200px]">
                                     <div className=" flex justify-between">
                                         <div className=''>
-                                            <Image className='w-[389px] mb-6 h-[519px]' src={teachers[textValue].image} alt='' />
+                                            <Image className='w-[389px] mb-6 object-contain h-[519px]' src={teachers[textValue].image} alt='' />
                                             <NameOur>{teachers[textValue].name}</NameOur>
                                             <p className=' font-normal mt-6 mb-4 text-[24px] leading-[120%] text-[#1A1A1A]'>{teachers[textValue].position}</p>
                                             <p className=' font-normal text-[14px] w-[235px] leading-[180%] text-[#1A1A1A]'>{teachers[textValue].works}</p>
