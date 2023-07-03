@@ -93,8 +93,9 @@ export const ButtonBox = styled.div`
 export const EchoRollBox = styled.div`
   @media (min-width: 768px) {
     .text-box {
-      animation: move-echo 1s linear 1600ms,
-        echoRollBox 1ms linear 3500ms forwards;
+      opacity: 0;
+      animation: move-echo 1s linear 1600ms, echoRollBox 6400ms linear 2600ms,
+        move-out 1ms linear 7990ms forwards;
     }
     @keyframes move-echo {
       0% {
@@ -106,13 +107,20 @@ export const EchoRollBox = styled.div`
         transform: translateX(0px);
       }
     }
+    @keyframes move-out {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
     @keyframes echoRollBox {
       0% {
         opacity: 1;
       }
-
       100% {
-        opacity: 0;
+        opacity: 1;
       }
 
       /* 0% {
