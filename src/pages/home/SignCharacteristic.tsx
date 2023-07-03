@@ -118,7 +118,7 @@ export default function SignCharacteristic({
                 }
                 time = setTimeout(() => {
                   dispatch(setThrottleFlag(false));
-                }, 50)
+                }, 100)
               }
               else {
                 dispatch(setThrottleFlag(true));
@@ -163,7 +163,7 @@ export default function SignCharacteristic({
                   }
                 time = setTimeout(() => {
                   dispatch(setThrottleFlag(false));
-                }, 50)
+                }, 100)
               }
             }
           }

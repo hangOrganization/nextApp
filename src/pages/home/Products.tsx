@@ -156,7 +156,7 @@ export default function Products({ }: ProductsProps) {
                 }
                 time = setTimeout(() => {
                   dispatch(setThrottleFlag(false));
-                }, 50)
+                }, 100)
               }
               else {
                 dispatch(setThrottleFlag(true));
@@ -183,7 +183,7 @@ export default function Products({ }: ProductsProps) {
                 }
                 time = setTimeout(() => {
                   dispatch(setThrottleFlag(false));
-                }, 50)
+                }, 100)
               }
             }}
           >
