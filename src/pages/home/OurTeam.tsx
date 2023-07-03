@@ -214,7 +214,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
           if (innerWidth > 768) {
             if (e.target.scrollTop === 0) {
               dispatch(setThrottleFlag(true));
-              swiper.slidePrev(0);
+              swiper.slideTo(2, 0);
               dispatch(setComePage(3));
               dispatch(setActiveIndex(2));
               setTimeout(() => {

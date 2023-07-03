@@ -125,7 +125,7 @@ export default function Products({ }: ProductsProps) {
               ) {
                 if (value === 2) {
                   dispatch(setThrottleFlag(true));
-                  swiper.slideNext(1000);
+                  swiper.slideTo(3,1000);
                   dispatch(setComePage(2));
                   dispatch(setActiveIndex(3));
                   setTimeout(() => {
@@ -163,7 +163,7 @@ export default function Products({ }: ProductsProps) {
                     }, 1200);
                   } else {
                     dispatch(setThrottleFlag(true));
-                    swiper.slidePrev(1000);
+                    swiper.slideTo(1,1000);
                     dispatch(setComePage(8));
                     dispatch(setActiveIndex(1));
                     setTimeout(() => {
@@ -173,10 +173,10 @@ export default function Products({ }: ProductsProps) {
                 } else if (value === 2) {
                   if (e.deltaY < 0) {
                     dispatch(setThrottleFlag(true));
-                    setValue(1);
                     setTimeout(() => {
                       dispatch(setThrottleFlag(false));
                     }, 1200);
+                    setValue(1);
                   }
                 } else {
                   if (e.deltaY < 0) {

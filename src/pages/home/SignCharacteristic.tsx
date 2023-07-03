@@ -98,7 +98,6 @@ export default function SignCharacteristic({
 }: SignCharacteristicProps) {
   const swiper = useSwiper();
   const dispatch = useAppDispatch();
-  const activeIndex = useActiveIndex();
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
@@ -177,7 +176,7 @@ export default function SignCharacteristic({
                       right === 2
                     ) {
                       dispatch(setThrottleFlag(true));
-                      swiper.slideNext(1000);
+                      swiper.slideTo(4,1000);
                       dispatch(setComePage(3))
                       dispatch(setActiveIndex(4));
                       setTimeout(() => {
