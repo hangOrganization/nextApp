@@ -23,7 +23,11 @@ import {
   useThrottleFlag,
 } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import { setActiveIndex, setComePage, setThrottleFlag } from "@/state/application/reducer";
+import {
+  setActiveIndex,
+  setComePage,
+  setThrottleFlag,
+} from "@/state/application/reducer";
 
 interface DiscBoxProps {
   title: string;
@@ -153,7 +157,7 @@ const LeftDecoraton = styled.div`
   margin-top: auto;
   transform: translateX(5px);
   background-blend-mode: overlay;
-  opacity: 0.3;
+  opacity: 0.25;
 
   background-repeat: no-repeat;
 `;
@@ -163,7 +167,7 @@ const RightDecoraton = styled.div`
   background: url(${disc_right_decoraton.src});
   background-repeat: no-repeat;
   top: -150px;
-  opacity: 0.25;
+  opacity: 0.13;
   right: 45px;
 `;
 
@@ -278,7 +282,7 @@ export default function Disc({}: DiscProps) {
             if (e.target.scrollTop === 0) {
               dispatch(setThrottleFlag(true));
               swiper.slidePrev(1000);
-              dispatch(setComePage(4))
+              dispatch(setComePage(4));
               dispatch(setActiveIndex(3));
               setTimeout(() => {
                 dispatch(setThrottleFlag(false));
