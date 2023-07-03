@@ -232,7 +232,7 @@ export default function Specialize() {
                         {modernMusicSchool[0].map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool`}
-                            className="text-[13px] max-md:w-[163px] max-md:text-ellipsis max-md:overflow-hidden max-md:line-clamp-1 max-md:font-light max-md:text-[12px] max-md:leading-[14.3px] leading-[140%] text-[#3E3E3E] font-[400] "
+                            className="text-[13px] max-md:w-[163px] max-md:text-ellipsis max-md:overflow-hidden max-md:line-clamp-1 max-md:font-light max-md:text-[12px] max-md:leading-[14.3px] leading-[140%] text-[#3E3E3E] font-[300] "
                           >
                             {el}
                           </p>
@@ -255,7 +255,7 @@ export default function Specialize() {
                         {modernMusicSchool[1].map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool-Japan and South Korea`}
-                            className="text-[13px] max-md:text-[11px] max-md:leading-[15.4px] leading-[140%] max-md:font-light text-[#3E3E3E] font-[400] "
+                            className="text-[13px] max-md:text-[11px] max-md:leading-[15.4px] leading-[140%] max-md:font-light text-[#3E3E3E] font-[300] "
                           >
                             {el}
                           </p>
@@ -325,7 +325,7 @@ export default function Specialize() {
                           (el: any, index: number) => (
                             <p
                               key={`${index}-classicalMusicSchool`}
-                              className="text-[13px] leading-[140%] text-[#3E3E3E]  max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[400] "
+                              className="text-[13px] leading-[140%] text-[#3E3E3E]  max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[300] "
                             >
                               {el}
                             </p>
@@ -350,7 +350,7 @@ export default function Specialize() {
                           (el: any, index: number) => (
                             <p
                               key={`${index}-classicalMusicSchool-Japan and South Korea`}
-                              className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[400]"
+                              className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
                             >
                               {el}
                             </p>
@@ -411,7 +411,7 @@ export default function Specialize() {
                         {musicalTheorySchool.map((el: any, index: number) => (
                           <p
                             key={`${index}-musicalTheorySchool`}
-                            className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[400]"
+                            className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
                           >
                             {el}
                           </p>

@@ -25,8 +25,8 @@ import {
   setThrottleFlag,
 } from "@/state/application/reducer";
 
-interface SignProps {}
-export default function Sign({}: SignProps) {
+interface SignProps { }
+export default function Sign({ }: SignProps) {
   const throttleFlag = useThrottleFlag();
   const innerWidth = useOuterWidth();
   const activeIndex = useActiveIndex();
@@ -45,16 +45,14 @@ export default function Sign({}: SignProps) {
   }, [activeIndex]);
   return (
     <div
-      className={`relative ${
-        activeIndex === 0 ? "swiper-move-in" : "swiper-move-out"
-      } max-md:pb-20 md:h-screen w-screen`}
+      className={`relative ${activeIndex === 0 ? "swiper-move-in" : "swiper-move-out"
+        } max-md:pb-20 md:h-screen w-screen`}
       onWheel={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
           if (e.deltaY > 20) {
             dispatch(setThrottleFlag(true));
-            swiper.slideNext(1000);
-            dispatch(setComePage(0))
+            swiper.slideTo(1, 1000);
             dispatch(setActiveIndex(1));
             setTimeout(() => {
               dispatch(setThrottleFlag(false))
@@ -97,12 +95,12 @@ export default function Sign({}: SignProps) {
             src={mobile_sign_bg_2}
             alt=""
           />
-          {/* <Image
-            className="absolute max-md:hidden w-screen sign-bg-2"
+          <Image
+            className="absolute h-[728px] max-md:hidden sign-bg-2"
             src={sign_bg_2}
             alt=""
-          /> */}
-          <div
+          />
+          {/* <div
             style={{
               backgroundImage: `url(${sign_bg_2.src})`,
               backgroundPositionY: "center",
@@ -110,7 +108,7 @@ export default function Sign({}: SignProps) {
               backgroundSize: "100% auto",
             }}
             className="absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"
-          ></div>
+          ></div> */}
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[226px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">

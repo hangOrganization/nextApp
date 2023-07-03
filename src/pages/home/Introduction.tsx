@@ -43,18 +43,20 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const [buttonHover, setButtonHover] = useState<string>("");
   const [play, setPlay] = useState<boolean>(false);
   useEffect(() => {
-    if (comePage === 8) {
-      document.querySelector("#introductionBox")?.scrollTo({
-        top: 1000,
-        behavior: "smooth",
-      });
-    } else if (comePage === 0) {
-      document.querySelector("#introductionBox")?.scrollTo({
-        top: 20,
-        behavior: "smooth",
-      });
+    if (activeIndex === 1) {
+      if (comePage === 8) {
+        document.querySelector("#introductionBox")?.scrollTo({
+          top: 900,
+          behavior: "smooth",
+        });
+      } else {
+        document.querySelector("#introductionBox")?.scrollTo({
+          top: 20,
+          behavior: "smooth",
+        });
+      }
     }
-  }, [comePage]);
+  }, [activeIndex]);
   return (
     <div
       id="introductionBox"
@@ -66,17 +68,13 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           if (e.target.scrollTop === 0) {
             dispatch(setThrottleFlag(true));
             dispatch(setActiveIndex(0));
-            dispatch(setComePage(1));
             swiper.slidePrev(1000);
+            dispatch(setComePage(1));
             setTimeout(() => {
               dispatch(setThrottleFlag(false));
             }, 1200);
           }
-          if (
-            e.target.scrollHeight -
-            (e.target.scrollTop + e.target.clientHeight) <
-            10
-          ) {
+          if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 3) {
             dispatch(setThrottleFlag(true));
             dispatch(setActiveIndex(2));
             dispatch(setComePage(1));

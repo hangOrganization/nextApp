@@ -3,7 +3,6 @@ import Image from "next/image";
 import logo from "@/assets/image/svg/logo.svg";
 import mobile_logo from "@/assets/image/mobile/mobile-logo.svg";
 import Consult from "../Modal/Consult";
-import { useEffect, useState } from "react";
 import CampusEnvironment from "../Modal/CampusEnvironment";
 import styled from "styled-components";
 import { useActiveIndex, useActiveType } from "@/state/application/hooks";
@@ -68,6 +67,7 @@ export default function Header({
           className={`py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 max-md:hidden font-light `}
           onClick={() => {
             dispatch(setActiveIndex(2));
+            dispatch(setComePage(1));
           }}
         >
           音乐留学
@@ -89,6 +89,7 @@ export default function Header({
           onClick={() => {
             dispatch(setActiveIndex(3));
             dispatch(setAboutOrCorporation(1));
+            dispatch(setComePage(2));
           }}
         >
           公司特色
@@ -99,6 +100,7 @@ export default function Header({
           onClick={() => {
             dispatch(setActiveIndex(3));
             dispatch(setAboutOrCorporation(2));
+            dispatch(setComePage(2));
           }}
         >
           关于我们
@@ -108,6 +110,7 @@ export default function Header({
             }`}
           onClick={() => {
             dispatch(setActiveIndex(4));
+            dispatch(setComePage(3));
           }}
         >
           原创音乐计划

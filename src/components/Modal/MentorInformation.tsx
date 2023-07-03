@@ -46,16 +46,16 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-black bg-opacity-25" />
+                    <div className="fixed inset-0 bg-black bg-opacity-70" />
                 </Transition.Child>
                 <div className="fixed inset-0 overflow-y-auto">
                     <div className="flex min-h-screen h-screen items-end pt-20 justify-center text-center">
                         <Transition.Child
                             as={Fragment}
-                            enter="ease-out duration-1000"
+                            enter="ease-out duration-600"
                             enterFrom="translate-y-[1000px]"
                             enterTo="translate-y-[0px]"
-                            leave="ease-in duration-1000"
+                            leave="ease-in duration-600"
                             leaveFrom="translate-y-[0px]"
                             leaveTo="translate-y-[1000px]"
                         >

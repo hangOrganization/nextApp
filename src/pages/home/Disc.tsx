@@ -235,7 +235,6 @@ export default function Disc({}: DiscProps) {
   const innerWidth = useOuterWidth();
   const dispatch = useAppDispatch();
   const activeIndex = useActiveIndex();
-  // console.log("🚀 ~ file: Disc.tsx:186 ~ Disc ~ activeIndex:", activeIndex);
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
@@ -281,8 +280,7 @@ export default function Disc({}: DiscProps) {
           if (innerWidth > 768) {
             if (e.target.scrollTop === 0) {
               dispatch(setThrottleFlag(true));
-              swiper.slidePrev(1000);
-              dispatch(setComePage(4));
+              swiper.slideTo(3,1000);
               dispatch(setActiveIndex(3));
               setTimeout(() => {
                 dispatch(setThrottleFlag(false));
@@ -542,7 +540,7 @@ export default function Disc({}: DiscProps) {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_1760_27425)">
+                <g clipPath="url(#clip0_1760_27425)">
                   <path
                     d="M11 18C11 18 13.3529 12 19 12C13.3529 12 11 6 11 6"
                     stroke="#FF4B00"
