@@ -141,10 +141,13 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
-              <div className="flex items-center justify-center w-[288px] h-[136px] relative">
+              <div
+                className="flex items-center justify-center w-[288px] h-[136px] relative"
+                key={index}
+              >
                 <PartnerBox></PartnerBox>
-                <Partner key={index}>
-                  <Image src={item} alt="" key={index} />
+                <Partner>
+                  <Image src={item} alt="" />
                 </Partner>
               </div>
             )
@@ -153,10 +156,13 @@ export default function BusinessPartner() {
         <ScrollCenterBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] my-[16px] max-md:my-[6.4px]">
           {[...partner.second, ...partner.second, ...partner.second].map(
             (item: any, index: number) => (
-              <div className="flex items-center justify-center w-[288px] h-[136px] relative">
+              <div
+                className="flex items-center justify-center w-[288px] h-[136px] relative"
+                key={index}
+              >
                 <PartnerBox></PartnerBox>
-                <Partner key={index}>
-                  <Image src={item} alt="" key={index} />
+                <Partner>
+                  <Image src={item} alt="" />
                 </Partner>
               </div>
             )
@@ -166,10 +172,13 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
-              <div className="flex items-center justify-center w-[288px] h-[136px] relative">
+              <div
+                className="flex items-center justify-center w-[288px] h-[136px] relative"
+                key={index}
+              >
                 <PartnerBox></PartnerBox>
-                <Partner key={index}>
-                  <Image src={item} alt="" key={index} />
+                <Partner>
+                  <Image src={item} alt="" />
                 </Partner>
               </div>
             )

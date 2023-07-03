@@ -103,7 +103,8 @@ export default [
     src: DOCUMENTARY_II,
     type: ["纪录片"],
     bg: DOCUMENTARY_II,
-    key: 9,
+    key: 8,
+
     url: "http://www.soundpic.cn/album?id=c3cd6070cf89455db1b434c5e81063cd",
   },
 
@@ -112,7 +113,8 @@ export default [
     src: DOCUMENTARY_I,
     type: ["纪录片"],
     bg: DOCUMENTARY_I,
-    key: 8,
+    key: 9,
+
     url: "http://www.soundpic.cn/album?id=4350c33772af4dfca5bf7ac7beca6b44",
   },
   {

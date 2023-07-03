@@ -411,17 +411,17 @@ export default function Disc({}: DiscProps) {
                 ></Image>
                 <div className="ml-4 w-full">
                   <div className="flex items-center gap-[8px]">
-                    {item.type.map((item: any) => {
+                    {item.type.map((items: any) => {
                       return (
                         <div
-                          key={item}
+                          key={item.key + items}
                           className=" h-[30px] px-[12px] flex items-center justify-center mt-1 mb-[16px]  text-[14px] leading-[100%] font-[400] text-[#FF4B00] box-border "
                           style={{
                             border: "1px solid rgba(255, 75, 0, 0.5)",
                             borderRadius: "12px",
                           }}
                         >
-                          {item}
+                          {items}
                         </div>
                       );
                     })}
@@ -460,7 +460,7 @@ export default function Disc({}: DiscProps) {
               }}
             ></div>
             {discList.slice(0, 5).map((item: DiscBoxProps) => (
-              <DiscBOxFilter>
+              <DiscBOxFilter key={item.key}>
                 <DiscBox
                   key={item.key}
                   onMouseEnter={() => mouseEnter(item.bg)}
@@ -475,17 +475,17 @@ export default function Disc({}: DiscProps) {
                   ></Image>
                   <div className="ml-4 w-full">
                     <div className="flex items-center  mb-[12px] gap-[4px]">
-                      {item.type.map((item: any) => {
+                      {item.type.map((items: any) => {
                         return (
                           <div
-                            key={item}
+                            key={item.key + items}
                             className=" h-[24px] px-[8px] flex items-center justify-center  text-[12px] leading-[100%] font-[400] text-[#FF4B00] box-border "
                             style={{
                               border: "1px solid rgba(255, 75, 0, 0.5)",
                               borderRadius: "8px",
                             }}
                           >
-                            {item}
+                            {items}
                           </div>
                         );
                       })}
