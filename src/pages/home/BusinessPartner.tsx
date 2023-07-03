@@ -94,13 +94,13 @@ const ScrollCenterBox = styled.div`
   }
 `;
 const PartnerBox = styled.div`
-  background: rgba(255, 255, 255, 0.2);
-  opacity: 0.2;
-  background-blend-mode: overlay;
-  border-radius: 24px;
   width: 288px;
   height: 136px;
   position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  opacity: 0.2;
+  background-blend-mode: overlay;
 `;
 const Partner = styled.div`
   background-blend-mode: overlay;
