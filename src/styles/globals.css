@@ -7,7 +7,19 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+.EchoRollBoxVidoeMove{
+  opacity: 0;
 
+animation: EchoRollBoxVidoeMove 1ms linear 3500ms forwards ;
+}
+@keyframes EchoRollBoxVidoeMove {
+0%{
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+}
 .rocket-out {
   position: absolute !important;
   left: 0;

@@ -14,7 +14,7 @@ import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg"
 import styled from "styled-components";
 import { useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
-import { useActiveIndex, useThrottleFlag } from "@/state/application/hooks";
+import { useThrottleFlag } from "@/state/application/hooks";
 import {
   setAboutOrCorporation,
   setActiveIndex,
@@ -28,9 +28,7 @@ const SignBox = styled.div`
   z-index: 2;
   width: 100vw;
 `;
-// ? ""
-// : "发展历程"
-// : "公司特色"
+
 const Box = styled.div`
   @media not all and (min-width: 768px) {
     width: 100vw;
@@ -101,9 +99,9 @@ export default function SignCharacteristic({
   setCharacteristicType,
   setIsOpenCampus,
 }: SignCharacteristicProps) {
-  const swiper = useSwiper();
   const dispatch = useAppDispatch();
   let time: any = ''
+  const swiper = useSwiper()
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
@@ -111,9 +109,8 @@ export default function SignCharacteristic({
       <div className="flex relative">
         <SignBox
           className={`md:flex md:h-[1050px] max-md:pt-[300px] relative w-screen items-center justify-center`}
-          onWheelCapture={(e: any) => {
+          onWheel={(e: any) => {
             if (innerWidth > 768) {
-              if (e.deltaY < 10 && e.deltaY > -10) return;
               if (throttleFlag) {
                 dispatch(setThrottleFlag(true));
                 for (let i = 0; i < 10000; i++) {
@@ -125,53 +122,45 @@ export default function SignCharacteristic({
               }
               else {
                 dispatch(setThrottleFlag(true));
-                if (right === 0) {
-                  if (characteristicType === 0) {
-                    if (e.deltaY > 0) {
-                      setCharacteristicType(1);
-                    }
-                  } else if (characteristicType === 3) {
-                    if (e.deltaY < 0) {
-                      setCharacteristicType(2);
-                    }
-                    if (e.deltaY > 0) {
-                      setRight(1);
-                      dispatch(setAboutOrCorporation(2));
+                  if (right === 0) {
+                    if (characteristicType === 0) {
+                      if (e.deltaY > 0) {
+                        setCharacteristicType(1);
+                      }
+                    } else if (characteristicType === 3) {
+                      if (e.deltaY < 0) {
+                        setCharacteristicType(2);
+                      } else {
+                        setRight(1);
+                        dispatch(setAboutOrCorporation(2));
+                      }
+                    } else {
+                      if (e.deltaY < 0) {
+                        setCharacteristicType(characteristicType - 1);
+                      } else {
+                        setCharacteristicType(characteristicType + 1);
+                      }
                     }
                   } else {
-                    if (e.deltaY < 0) {
-                      setCharacteristicType(characteristicType - 1);
+                    if (right === 1) {
+                      if (e.deltaY < 0) {
+                        setRight(0);
+                        dispatch(setAboutOrCorporation(1));
+                      } else {
+                        setRight(2);
+                        dispatch(setAboutOrCorporation(2));
+                      }
                     } else {
-                      setCharacteristicType(characteristicType + 1);
-                    }
-                  }
-                } else {
-                  if (right === 1) {
-                    if (e.deltaY < 0) {
-                      setRight(0);
-                      dispatch(setAboutOrCorporation(1));
-                    } else {
-                      setRight(2);
-                      dispatch(setAboutOrCorporation(2));
-                    }
-                  } else {
-                    if (e.deltaY < 0) {
-                      setRight(1);
-                      dispatch(setAboutOrCorporation(2));
-                    } else {
-                      if (
-                        e.target.scrollHeight -
-                        (e.target.scrollTop + e.target.clientHeight) <
-                        1 &&
-                        right === 2
-                      ) {
+                      if (e.deltaY < 0) {
+                        setRight(1);
+                        dispatch(setAboutOrCorporation(2));
+                      } else {
                         swiper.slideTo(4, 1000);
                         dispatch(setComePage(3));
                         dispatch(setActiveIndex(4));
                       }
                     }
                   }
-                }
                 time = setTimeout(() => {
                   dispatch(setThrottleFlag(false));
                 }, 50)

@@ -83,11 +83,10 @@ export default function Products({ }: ProductsProps) {
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
   const swiper = useSwiper();
-  let time: any = ''
-
   const innerWidth = useOuterWidth();
   const comePage = useComePage();
   const activeIndex = useActiveIndex();
+  let time: any = ''
   useEffect(() => {
     if (activeIndex === 2) {
       if (comePage === 1) {
@@ -103,7 +102,6 @@ export default function Products({ }: ProductsProps) {
       }
     }
   }, [activeIndex]);
-  function wheel() { }
   return (
     <Box>
       <div
@@ -150,7 +148,7 @@ export default function Products({ }: ProductsProps) {
           />
           <div
             className="relative z-10"
-            onWheel={(e: any,) => {
+            onWheel={(e: any) => {
               if (throttleFlag) {
                 dispatch(setThrottleFlag(true));
                 for (let i = 0; i < 10000; i++) {
