@@ -222,7 +222,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               scrolling="no"
               className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]"
               frameBorder="no"
-              allowFullScreen={true}
+              allowFullScreen={false}
             >
             </iframe>
             :

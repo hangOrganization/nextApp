@@ -9,7 +9,8 @@ import signCharacteristic_title from "@/assets/image/mobile/mobile-signCharacter
 import signCharacteristic_active from "@/assets/image/mobile/icon-mobile-signCharacteristic-active.svg";
 import mobile_signCharacteristic_bg from "@/assets/image/mobile/mobile-signCharacteristic-bg.svg";
 import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.png";
-import AboutUs_bg from "@/assets/image/svg/aboutUs-bg.png";
+import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.png";
+import { CampusEnvironmentBg } from "@/utils/campusEnvironmentList";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
 import styled from "styled-components";
 import { useState } from "react";
@@ -86,6 +87,7 @@ const ButtonBox = styled.div`
 interface SignCharacteristicProps {
   characteristicType: number;
   innerWidth: number;
+  scrollTop: number;
   setIsOpenCampus: Function;
   setCharacteristicType: Function;
   right: number;
@@ -94,6 +96,7 @@ interface SignCharacteristicProps {
 export default function SignCharacteristic({
   innerWidth,
   setRight,
+  scrollTop,
   right,
   characteristicType,
   setCharacteristicType,
@@ -105,23 +108,24 @@ export default function SignCharacteristic({
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
-    <Box className={`flex w-screen max-md:pb-[210px] z-50 md:overflow-hidden`}>
+    <Box className={`flex w-screen max-md:pb-[210px] md:pb-[300px] z-50 md:overflow-hidden`}>
       <div className="flex relative">
         <SignBox
           className={`md:flex md:h-[1050px] max-md:pt-[300px] relative w-screen items-center justify-center`}
           onWheel={(e: any) => {
-            if (innerWidth > 768) {
-              if (throttleFlag) {
-                dispatch(setThrottleFlag(true));
-                for (let i = 0; i < 10000; i++) {
-                  clearTimeout(i)
+            if (scrollTop > 1250) {
+              if (innerWidth > 768) {
+                if (throttleFlag) {
+                  dispatch(setThrottleFlag(true));
+                  for (let i = 0; i < 10000; i++) {
+                    clearTimeout(i)
+                  }
+                  time = setTimeout(() => {
+                    dispatch(setThrottleFlag(false));
+                  }, 100)
                 }
-                time = setTimeout(() => {
-                  dispatch(setThrottleFlag(false));
-                }, 100)
-              }
-              else {
-                dispatch(setThrottleFlag(true));
+                else {
+                  dispatch(setThrottleFlag(true));
                   if (right === 0) {
                     if (characteristicType === 0) {
                       if (e.deltaY > 0) {
@@ -161,22 +165,25 @@ export default function SignCharacteristic({
                       }
                     }
                   }
-                time = setTimeout(() => {
-                  dispatch(setThrottleFlag(false));
-                }, 100)
+                  time = setTimeout(() => {
+                    dispatch(setThrottleFlag(false));
+                  }, 100)
+                }
               }
             }
           }
           }
         >
           <div className={`max-md:hidden absolute top-0 left-0 w-full h-full`}>
-            <div className="absolute top-0 left-0 flex justify-center items-center w-full h-full">
-              <Image
-                src={AboutUs_bg}
-                className={`${right === 0 ? "opacity-0 w-0" : "opacity-100 w-full"
-                  } transition-all ease-[cubic-bezier(0.24,0,0.58,1)] duration-1000  w-0`}
-                alt=""
-              />
+            <div className="absolute top-0 left-0 flex justify-center overflow-hidden items-center w-full h-full">
+              <CampusEnvironmentBg
+                className={`${right === 0 ? "h-0 opacity-0 w-0" : "opacity-100 w-full h-full"
+                  } transition-all !bg-no-repeat ease-[cubic-bezier(0.24,0,0.58,1)] duration-1000`}>
+              </CampusEnvironmentBg>
+              <div style={{
+                background: 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.90) 51.71%, #1A1A1A 100%), radial-gradient(50% 50.00% at 50% 50.00%, rgba(26, 26, 26, 0.00) 0%, rgba(26, 26, 26, 0.50) 100%)',
+                boxShadow: '0px 0px 200px 40px #1A1A1A inset'
+              }} className="absolute top-0 left-0 w-full h-full"></div>
             </div>
 
             <Image

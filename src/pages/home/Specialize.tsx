@@ -68,7 +68,7 @@ const CourseBox = styled.div`
 export default function Specialize() {
   const [musicGenre, setMusicGenre] = useState<number>(1);
   return (
-    <SpecializeBox className="flex justify-center h-[1309px] relative  pt-[470px] max-md:pt-[100px] w-screen overflow-hidden md:mt-[-190px] flex-col items-center">
+    <SpecializeBox className="flex justify-center h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen overflow-hidden md:mt-[-190px] flex-col items-center">
       <SpecializeBg></SpecializeBg>
       <div className="">
         <div
