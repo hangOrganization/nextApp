@@ -244,8 +244,7 @@ export const list = [
 
   export const CampusEnvironmentBg = styled.div`
   background-size: 100% 100%;
-  opacity: 0.1;
-  background-image: url(${campusEnvironment_1.src});
+  /* background-image: url(${campusEnvironment_1.src}); */
   animation: CampusEnvironmentBg_move 200s linear infinite;
   @keyframes CampusEnvironmentBg_move {
     0%{
@@ -261,12 +260,12 @@ export const list = [
     2.5%{
       background-image: url(${list[0].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     2.5%{
       background-image: url(${list[1].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     3%{
       background-image: url(${list[1].image.src});
@@ -281,12 +280,12 @@ export const list = [
     5%{
       background-image: url(${list[1].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     5%{
       background-image: url(${list[2].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     5.5%{
       background-image: url(${list[2].image.src});
@@ -301,12 +300,12 @@ export const list = [
     7.5%{
       background-image: url(${list[2].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     7.5%{
       background-image: url(${list[3].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     8%{
       background-image: url(${list[3].image.src});
@@ -321,12 +320,12 @@ export const list = [
     10%{
       background-image: url(${list[3].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     10%{
       background-image: url(${list[4].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     10.5%{
       background-image: url(${list[4].image.src});
@@ -341,12 +340,12 @@ export const list = [
     12.5%{
       background-image: url(${list[4].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     12.5%{
       background-image: url(${list[5].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     13%{
       background-image: url(${list[5].image.src});
@@ -361,12 +360,12 @@ export const list = [
     15%{
       background-image: url(${list[5].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     15%{
       background-image: url(${list[6].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     15.5%{
       background-image: url(${list[6].image.src});
@@ -381,12 +380,12 @@ export const list = [
     17.5%{
       background-image: url(${list[6].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     17.5%{
       background-image: url(${list[7].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     18%{
       background-image: url(${list[7].image.src});
@@ -401,12 +400,12 @@ export const list = [
     20%{
       background-image: url(${list[7].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     20%{
       background-image: url(${list[8].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     20.5%{
       background-image: url(${list[8].image.src});
@@ -421,12 +420,12 @@ export const list = [
     22.5%{
       background-image: url(${list[8].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     22.5%{
       background-image: url(${list[9].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     23%{
       background-image: url(${list[9].image.src});
@@ -441,12 +440,12 @@ export const list = [
     25%{
       background-image: url(${list[9].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     25%{
       background-image: url(${list[10].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     25.5%{
       background-image: url(${list[10].image.src});
@@ -461,12 +460,12 @@ export const list = [
     27.5%{
       background-image: url(${list[10].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     27.5%{
       background-image: url(${list[11].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     28%{
       background-image: url(${list[11].image.src});
@@ -481,12 +480,12 @@ export const list = [
     30%{
       background-image: url(${list[11].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     30%{
       background-image: url(${list[12].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     30.5%{
       background-image: url(${list[12].image.src});
@@ -501,12 +500,12 @@ export const list = [
     32.5%{
       background-image: url(${list[12].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     32.5%{
       background-image: url(${list[13].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     33%{
       background-image: url(${list[13].image.src});
@@ -521,12 +520,12 @@ export const list = [
     35%{
       background-image: url(${list[13].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     35%{
       background-image: url(${list[14].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     35.5%{
       background-image: url(${list[14].image.src});
@@ -541,12 +540,12 @@ export const list = [
     37.5%{
       background-image: url(${list[14].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     37.5%{
       background-image: url(${list[15].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     38%{
       background-image: url(${list[15].image.src});
@@ -561,12 +560,12 @@ export const list = [
     40%{
       background-image: url(${list[15].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     40%{
       background-image: url(${list[16].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     40.5%{
       background-image: url(${list[16].image.src});
@@ -581,12 +580,12 @@ export const list = [
     42.5%{
       background-image: url(${list[16].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     42.5%{
       background-image: url(${list[17].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     43%{
       background-image: url(${list[17].image.src});
@@ -601,12 +600,12 @@ export const list = [
     45%{
       background-image: url(${list[17].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     45%{
       background-image: url(${list[18].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     45.5%{
       background-image: url(${list[18].image.src});
@@ -621,12 +620,12 @@ export const list = [
     47.5%{
       background-image: url(${list[18].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     47.5%{
       background-image: url(${list[19].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     48%{
       background-image: url(${list[19].image.src});
@@ -641,12 +640,12 @@ export const list = [
     50%{
       background-image: url(${list[19].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     50%{
       background-image: url(${list[20].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     50.5%{
       background-image: url(${list[20].image.src});
@@ -661,12 +660,12 @@ export const list = [
     52.5%{
       background-image: url(${list[20].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     52.5%{
       background-image: url(${list[21].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     53%{
       background-image: url(${list[21].image.src});
@@ -681,12 +680,12 @@ export const list = [
     55%{
       background-image: url(${list[21].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     55%{
       background-image: url(${list[22].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     55.5%{
       background-image: url(${list[22].image.src});
@@ -701,12 +700,12 @@ export const list = [
     57.5%{
       background-image: url(${list[22].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     57.5%{
       background-image: url(${list[23].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     58%{
       background-image: url(${list[23].image.src});
@@ -721,12 +720,12 @@ export const list = [
     60%{
       background-image: url(${list[23].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     60%{
       background-image: url(${list[24].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     60.5%{
       background-image: url(${list[24].image.src});
@@ -741,12 +740,12 @@ export const list = [
     62.5%{
       background-image: url(${list[24].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     62.5%{
       background-image: url(${list[25].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     63%{
       background-image: url(${list[25].image.src});
@@ -761,12 +760,12 @@ export const list = [
     65%{
       background-image: url(${list[25].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     65%{
       background-image: url(${list[26].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     65.5%{
       background-image: url(${list[26].image.src});
@@ -781,12 +780,12 @@ export const list = [
     67.5%{
       background-image: url(${list[26].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     67.5%{
       background-image: url(${list[27].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     68%{
       background-image: url(${list[27].image.src});
@@ -801,12 +800,12 @@ export const list = [
     70%{
       background-image: url(${list[27].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     70%{
       background-image: url(${list[28].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     70.5%{
       background-image: url(${list[28].image.src});
@@ -821,12 +820,12 @@ export const list = [
     72.5%{
       background-image: url(${list[28].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     72.5%{
       background-image: url(${list[29].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     73%{
       background-image: url(${list[29].image.src});
@@ -841,12 +840,12 @@ export const list = [
     75%{
       background-image: url(${list[29].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     75%{
       background-image: url(${list[30].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     75.5%{
       background-image: url(${list[30].image.src});
@@ -861,12 +860,12 @@ export const list = [
     77.5%{
       background-image: url(${list[30].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     77.5%{
       background-image: url(${list[31].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     78%{
       background-image: url(${list[31].image.src});
@@ -881,12 +880,12 @@ export const list = [
     80%{
       background-image: url(${list[31].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     80%{
       background-image: url(${list[32].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     80.5%{
       background-image: url(${list[32].image.src});
@@ -901,12 +900,12 @@ export const list = [
     82.5%{
       background-image: url(${list[32].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     82.5%{
       background-image: url(${list[33].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     83%{
       background-image: url(${list[33].image.src});
@@ -921,12 +920,12 @@ export const list = [
     85%{
       background-image: url(${list[33].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     85%{
       background-image: url(${list[34].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     85.5%{
       background-image: url(${list[34].image.src});
@@ -941,12 +940,12 @@ export const list = [
     87.5%{
       background-image: url(${list[34].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     87.5%{
       background-image: url(${list[35].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     88%{
       background-image: url(${list[35].image.src});
@@ -961,12 +960,12 @@ export const list = [
     80%{
       background-image: url(${list[35].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     90%{
       background-image: url(${list[36].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     90.5%{
       background-image: url(${list[36].image.src});
@@ -981,12 +980,12 @@ export const list = [
     92.5%{
       background-image: url(${list[36].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     92.5%{
       background-image: url(${list[37].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     93%{
       background-image: url(${list[37].image.src});
@@ -1001,12 +1000,12 @@ export const list = [
     95%{
       background-image: url(${list[37].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     95%{
       background-image: url(${list[38].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     95.5%{
       background-image: url(${list[38].image.src});
@@ -1021,12 +1020,12 @@ export const list = [
     97.5%{
       background-image: url(${list[38].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
     97.5%{
       background-image: url(${list[39].image.src});
       transform:scale(1);
-      opacity: 0.1;
+      opacity: 0;
     }
     98%{
       background-image: url(${list[39].image.src});
@@ -1041,7 +1040,7 @@ export const list = [
     100%{
       background-image: url(${list[39].image.src});
       transform:scale(1.1);
-      opacity: 0.1;
+      opacity: 0;
     }
   }
 `;
