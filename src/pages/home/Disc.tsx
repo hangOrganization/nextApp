@@ -325,7 +325,7 @@ export default function Disc({}: DiscProps) {
                   ></ImgBox>
                 </FilmBox>
                 <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
-                  <ChangeButton className="scale-x-[-1]" onClick={prePage}>
+                  <ChangeButton className="scale-x-[-1]" onClick={nextPage}>
                     <svg
                       width="48"
                       height="48"
@@ -354,7 +354,7 @@ export default function Disc({}: DiscProps) {
                       </defs>
                     </svg>
                   </ChangeButton>
-                  <ChangeButton onClick={nextPage}>
+                  <ChangeButton onClick={prePage}>
                     <svg
                       width="48"
                       height="48"

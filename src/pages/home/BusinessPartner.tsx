@@ -97,7 +97,7 @@ const PartnerBox = styled.div`
   width: 288px;
   height: 136px;
   position: absolute;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   opacity: 0.2;
   background-blend-mode: overlay;
@@ -141,7 +141,10 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
-              <div key={`${index}-1-partner.first`} className="flex items-center justify-center w-[288px] h-[136px] relative">
+              <div
+                key={`${index}-1-partner.first`}
+                className="flex items-center justify-center w-[288px] h-[136px] relative"
+              >
                 <PartnerBox></PartnerBox>
                 <Partner>
                   <Image src={item} alt="" />
@@ -169,7 +172,10 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
-              <div key={`${index}-3-partner.first`} className="flex items-center justify-center w-[288px] h-[136px] relative">
+              <div
+                key={`${index}-3-partner.first`}
+                className="flex items-center justify-center w-[288px] h-[136px] relative"
+              >
                 <PartnerBox></PartnerBox>
                 <Partner>
                   <Image src={item} alt="" />
