@@ -45,15 +45,6 @@ const OurTeamBg = styled.div`
     background: rgba(238, 238, 238, 0.01);
   }
 `;
-// const OurTeamBlur = styled.div`
-//   width: 100%;
-//   height: 100%;
-//   @media (min-width: 768px) {
-//     padding-bottom: 80px;
-//     backdrop-filter: blur(250px);
-//     border-radius: 48px;
-//   }
-// `;
 const CardBox = styled.div`
   position: relative;
   cursor: pointer;
@@ -158,6 +149,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const comePage = useComePage();
   const isChrome = useIsChrome();
   const [right, setRight] = useState<number>(0);
+  const [scrollTop, setScrollTop] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<number>(0);
   const [textValue, setTextValue] = useState<number>(0);
   const [cardHover, setCardHover] = useState<string>("");
@@ -215,10 +207,10 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
     <Box>
       <div
         id="ourTeamBox"
-        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${
-          characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
-        }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
+        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
+          }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
+          setScrollTop(e.target.scrollTop)
           if (throttleFlag) return;
           if (innerWidth > 768) {
             if (e.target.scrollTop === 0) {
@@ -307,9 +299,8 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
                     }}
                     style={{ backgroundImage: `url(${el.image.src})` }}
                     key={`${el.name}-${index}-teachers`}
-                    className={`${
-                      index > 5 ? "max-md:hidden" : ""
-                    } md:hover:translate-y-[-16px]`}
+                    className={`${index > 5 ? "max-md:hidden" : ""
+                      } md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
                       <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
@@ -342,6 +333,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
         </OurTeamBox>
         <SignCharacteristic
           right={right}
+          scrollTop={scrollTop}
           setIsOpenCampus={setIsOpenCampus}
           setRight={setRight}
           innerWidth={innerWidth}
