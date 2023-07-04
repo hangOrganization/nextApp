@@ -126,7 +126,7 @@ export default function Sign({}: SignProps) {
                   听 见 世 界 的 回 响
                 </p>
               </div>
-              <video
+              {/* <video
                 muted
                 loop
                 autoPlay
@@ -141,7 +141,7 @@ export default function Sign({}: SignProps) {
                   }
                   type={`${isChrome ? "video/webm" : " video/mp4"}`}
                 ></source>
-              </video>
+              </video> */}
             </EchoRollBox>
           </div>
         </div>
