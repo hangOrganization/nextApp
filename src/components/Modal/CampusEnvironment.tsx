@@ -271,7 +271,6 @@ export default function CampusEnvironment({
       name: "YAMAHA C7B 演奏级三角钢琴",
       image: campusEnvironment_40,
     },
-
   ];
   return (
     <Transition appear show={isOpen === 1 ? true : false} as={Fragment}>
@@ -298,7 +297,12 @@ export default function CampusEnvironment({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="text-center w-screen">
+              <Dialog.Panel
+                className="text-center w-screen"
+                onClick={() => {
+                  closeModal()
+                }}
+              >
                 <div className="w-[1200px] mx-auto items-center h-[520px] flex justify-center relative overflow-x-hidden">
                   <div className="w-[644px] flex items-center h-[520px]">
                     <div
@@ -314,29 +318,31 @@ export default function CampusEnvironment({
                         >
                           <Image
                             className="w-[644px] h-[520px]"
-
                             src={el.image}
                             alt=""
                           />
                         </div>
-
                       ))}
                     </div>
                   </div>
-                  {currentPage !== 0 && <div
-                    style={{
-                      background:
-                        "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
-                    }}
-                    className=" w-52 h-full absolute top-0 left-0"
-                  ></div>}
-                  {currentPage !== list.length-1 &&<div
-                    style={{
-                      background:
-                        "linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
-                    }}
-                    className=" w-52 h-full absolute top-0 right-0"
-                  ></div>}
+                  {currentPage !== 0 && (
+                    <div
+                      style={{
+                        background:
+                          "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                      }}
+                      className=" w-52 h-full absolute top-0 left-0"
+                    ></div>
+                  )}
+                  {currentPage !== list.length - 1 && (
+                    <div
+                      style={{
+                        background:
+                          "linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                      }}
+                      className=" w-52 h-full absolute top-0 right-0"
+                    ></div>
+                  )}
                   <div className="w-[1200px] mx-auto items-center h-[520px] flex justify-center absolute top-0 left-0 overflow-x-hidden">
                     <div className="w-[644px] flex items-center h-[520px]">
                       <div
@@ -347,13 +353,15 @@ export default function CampusEnvironment({
                       >
                         {list.map((el: any) => (
                           <div
-                            onClick={() => setCurrentPage(el.index)}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              setCurrentPage(el.index);
+                            }}
                             key={`CampusEnvironment-${el.index}--`}
                             className=" cursor-pointer w-[644px] h-[520px]"
                           >
                             <Image
                               className="w-[644px] h-[520px]"
-
                               src={el.image}
                               alt=""
                             />
@@ -364,17 +372,20 @@ export default function CampusEnvironment({
                   </div>
                 </div>
                 <div className="relative flex justify-center">
-                  <p className={`font-light absolute transition-all duration-300 opacity-0 text-[14px] mr-2 mt-8 leading-[180%]`}>
+                  <p
+                    onClick={(event) => event.stopPropagation()}
+                    className={`font-light absolute transition-all duration-300 opacity-0 text-[14px] mr-2 mt-8 leading-[180%]`}
+                  >
                     {list[oldCurrentPage].name}
                   </p>
-                  <p className={`font-light text-[14px] transition-all duration-300 opacity-100 mt-8 leading-[180%]`}>
+                  <p
+                    className={`font-light text-[14px] transition-all duration-300 opacity-100 mt-8 leading-[180%]`}
+                  >
                     {list[currentPage].name}
                   </p>
                 </div>
                 <div className="flex mt-[64px] justify-center relative w-[758px] overflow-hidden mx-auto items-center gap-4">
-                  <div
-                    className="flex w-[86px] items-center h-[86px] p-2"
-                  >
+                  <div className="flex w-[86px] items-center h-[86px] p-2">
                     <div
                       style={{
                         transform: `translateX(-${currentPage * 86}px)`,
@@ -382,15 +393,17 @@ export default function CampusEnvironment({
                       className="flex transition-all duration-500 gap-4"
                     >
                       {list.map((el: any) => (
-                        <div key={`CampusEnvironment-${el.index}-min`}
-                          className="w-[70px] h-[70px]">
+                        <div
+                          key={`CampusEnvironment-${el.index}-min`}
+                          className="w-[70px] h-[70px]"
+                        >
                           <Image
                             className="w-[70px] h-[70px]"
                             src={el.image}
                             alt=""
                             onClick={() => {
                               if (currentPage !== oldCurrentPage) {
-                                setOldCurrentPage(currentPage)
+                                setOldCurrentPage(currentPage);
                               }
                               setCurrentPage(el.index);
                             }}
@@ -402,15 +415,16 @@ export default function CampusEnvironment({
                   <div
                     style={{ border: " 1px solid #FF4B00" }}
                     className="flex w-[86px] absolute items-center h-[86px] p-2"
-                  >
-                  </div>
-                  {<div
-                    style={{
-                      background:
-                        "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
-                    }}
-                    className=" w-[300px] h-full absolute top-0 left-0"
-                  ></div>}
+                  ></div>
+                  {
+                    <div
+                      style={{
+                        background:
+                          "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                      }}
+                      className=" w-[300px] h-full absolute top-0 left-0"
+                    ></div>
+                  }
                   <div
                     style={{
                       background:
@@ -428,22 +442,27 @@ export default function CampusEnvironment({
                           transform: `translateX(-${currentPage * 86}px)`,
                         }}
                         className="flex cursor-pointer transition-all duration-500 gap-4"
-                      > {list.map((el: any) => (
-                        <div key={`CampusEnvironment-${el.index}-min---`}
-                          className="w-[70px] h-[70px]">
-                          <Image
+                      >
+                        {" "}
+                        {list.map((el: any) => (
+                          <div
+                            key={`CampusEnvironment-${el.index}-min---`}
                             className="w-[70px] h-[70px]"
-                            src={el.image}
-                            alt=""
-                            onClick={() => {
-                              if (currentPage !== oldCurrentPage) {
-                                setOldCurrentPage(currentPage)
-                              }
-                              setCurrentPage(el.index);
-                            }}
-                          />
-                        </div>
-                      ))}
+                          >
+                            <Image
+                              className="w-[70px] h-[70px]"
+                              src={el.image}
+                              alt=""
+                              onClick={(event) => {
+                                event.stopPropagation()
+                                if (currentPage !== oldCurrentPage) {
+                                  setOldCurrentPage(currentPage);
+                                }
+                                setCurrentPage(el.index);
+                              }}
+                            />
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>

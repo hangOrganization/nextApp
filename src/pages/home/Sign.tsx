@@ -66,7 +66,7 @@ export default function Sign({}: SignProps) {
         >
           {" "}
         </div>
-        <video autoPlay muted loop className="w-[1440px]">
+        <video autoPlay muted loop className="w-[1440px] md:min-w-[1440px]">
           <source
             src={
               isChrome ? "/video/moireFringe.webm" : "/video/moireFringe.mp4"
@@ -94,7 +94,7 @@ export default function Sign({}: SignProps) {
             alt=""
           />
           <Image
-            className="absolute w-screen max-md:hidden sign-bg-2"
+            className="absolute w-screen max-md:hidden sign-bg-2 md:h-[730px]"
             src={sign_bg_2}
             alt=""
           />
@@ -147,7 +147,7 @@ export default function Sign({}: SignProps) {
                 />
               </div>
             </SingLogo> */}
-            <video autoPlay muted className="h-[155px] max-md:h-[82px]">
+            <video autoPlay muted className="w-[612px] max-md:h-[82px]">
               <source
                 src={isChrome ? "/video/sign.webm" : "/video/sign.mp4"}
                 type={`${isChrome ? "video/webm" : " video/mp4"}`}
@@ -175,10 +175,10 @@ export default function Sign({}: SignProps) {
               type={`${isChrome ? "video/webm" : " video/mp4"}`}
             ></source>
           </video>
-          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[780px]  overflow-hidden relative">
+          <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[600px] overflow-hidden relative">
             <EchoRollBox className="md:flex justify-center  ">
-              <div className="md:w-[780px] md:h-[39px] max-md:w-screen  text-box relative ">
-                <p className="md:font-[250] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[26px] absolute z-10 left-[228px] top-[-2px] md:w-[780px]">
+              <div className="md:w-[600px] md:h-[30px] max-md:w-screen  text-box relative ">
+                <p className="md:font-[250] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[18px] absolute z-10 left-[228px] top-[-2px] md:w-[780px]">
                   听见世界的回响
                 </p>
               </div>

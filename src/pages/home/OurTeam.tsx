@@ -64,6 +64,19 @@ const CardBox = styled.div`
   transition: all 150ms;
   background-size: contain;
   background-repeat: no-repeat;
+  ::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      0deg,
+      #ececec 0%,
+      rgba(236, 236, 236, 0) 100%
+    );
+  }
   @media not all and (min-width: 768px) {
     width: 154px;
     height: 239px;
@@ -72,11 +85,6 @@ const CardBox = styled.div`
 const CardFilterBox = styled.div`
   width: 237px;
   height: 50%;
-  background: linear-gradient(
-    0deg,
-    #ececec 10.27%,
-    rgba(236, 236, 236, 0) 100%
-  );
   @media not all and (min-width: 768px) {
     width: 154px;
     height: 239px;
@@ -207,7 +215,7 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
     <Box>
       <div
         id="ourTeamBox"
-        className={`md:h-screen md:pt-32 md:opacity-0 ${
+        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${
           characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
         }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {

@@ -8,6 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 .EchoRollBoxVidoeMove{
+  height: 30px;
   opacity: 0;
 
 animation: EchoRollBoxVidoeMove 1ms linear 8000ms forwards ;
