@@ -27,6 +27,7 @@ export default function Sign({}: SignProps) {
   const throttleFlag = useThrottleFlag();
   const innerWidth = useOuterWidth();
   const activeIndex = useActiveIndex();
+  console.log("🚀 ~ file: Sign.tsx:30 ~ Sign ~ activeIndex:", activeIndex)
   const dispatch = useAppDispatch();
   const isChrome = useIsChrome();
   const swiper = useSwiper();
@@ -36,7 +37,7 @@ export default function Sign({}: SignProps) {
   useEffect(() => {
     if (swiper) {
       if (swiper.activeIndex !== activeIndex) {
-        swiper.slideTo(activeIndex, 1000, false);
+        swiper.slideTo(activeIndex, 1000);
       }
     }
   }, [activeIndex]);
@@ -98,55 +99,9 @@ export default function Sign({}: SignProps) {
             src={sign_bg_2}
             alt=""
           />
-          {/* <div
-            style={{
-              backgroundImage: `url(${sign_bg_2.src})`,
-              backgroundPositionY: "center",
-              backgroundRepeat: "repeat-y",
-              backgroundSize: "100% auto",
-            }}
-            className="absolute !h-[637px] !max-h-[637px] !min-w-[100vw] !w-screen max-md:hidden sign-bg-2"
-          ></div> */}
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[226px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">
-            {/* <SingLogo className="h-[155px] max-md:h-[72px]">
-              <div className="img-box-1 max-md:h-[14.4px] h-[20px] overflow-hidden">
-                <Image
-                  className="h-[155px] max-md:h-[72px] "
-                  src={sign_logo}
-                  alt=""
-                />
-              </div>
-              <div className="img-box-2 max-md:h-[14.4px] h-[50px] overflow-hidden">
-                <Image
-                  className="h-[155px] max-md:mt-[-14.4px] max-md:h-[72px] mt-[-20px] "
-                  src={sign_logo}
-                  alt=""
-                />
-              </div>
-              <div className="img-box-3 max-md:h-[14.4px] h-[30px] overflow-hidden">
-                <Image
-                  className="h-[155px] max-md:h-[72px] max-md:mt-[-28.8px] mt-[-70px] "
-                  src={sign_logo}
-                  alt=""
-                />
-              </div>
-              <div className="img-box-4 max-md:h-[14.4px]  h-[10px] overflow-hidden">
-                <Image
-                  className="h-[155px] max-md:h-[72px] max-md:mt-[-43.2px] mt-[-100px] "
-                  src={sign_logo}
-                  alt=""
-                />
-              </div>
-              <div className="img-box-5 max-md:h-[14.4px] h-[45px] overflow-hidden">
-                <Image
-                  className="h-[155px] max-md:h-[72px] max-md:mt-[-57.6px] mt-[-110px] "
-                  src={sign_logo}
-                  alt=""
-                />
-              </div>
-            </SingLogo> */}
             <video autoPlay muted className="w-[612px] max-md:h-[82px]">
               <source
                 src={isChrome ? "/video/sign.webm" : "/video/sign.mp4"}
@@ -154,17 +109,6 @@ export default function Sign({}: SignProps) {
               ></source>
             </video>
           </div>
-          {/* <TextBox className="mt-[70px] max-md:mt-12 max-md:h-[21px] h-[49px]">
-            <div className="flex max-md:h-[21px] ">
-              <div className="w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]">
-                <Image
-                  className=" w-[818px] max-md:w-[343px] max-md:h-[21px] h-[49px]"
-                  src={sign_text}
-                  alt=""
-                />
-              </div>
-            </div>
-          </TextBox> */}
           <video
             autoPlay
             muted

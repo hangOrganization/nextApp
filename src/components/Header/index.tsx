@@ -64,7 +64,7 @@ export default function Header({
       </div>
       <div className="flex gap-4 max-md:gap-2 items-center">
         <div
-          className={`py-4 cursor-pointer text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 max-md:hidden font-light `}
+          className={`py-4 ${activeIndex === 2 ? "active-item " : "" } cursor-pointer flex justify-center relative text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 max-md:hidden font-light `}
           onClick={() => {
             dispatch(setActiveIndex(2));
             dispatch(setComePage(1));

@@ -96,7 +96,7 @@ export default function Products({ }: ProductsProps) {
         });
       } else {
         document.querySelector("#productsBox")?.scrollTo({
-          top: 1000,
+          top: 1300,
           behavior: "smooth",
         });
       }
@@ -120,7 +120,7 @@ export default function Products({ }: ProductsProps) {
               if (
                 e.target.scrollHeight -
                 (e.target.scrollTop + e.target.clientHeight) <
-                10 && value === 2
+                2 && value === 2
               ) {
                 dispatch(setThrottleFlag(true));
                 swiper.slideTo(3, 1000);
@@ -159,7 +159,6 @@ export default function Products({ }: ProductsProps) {
                 }, 100)
               }
               else {
-                dispatch(setThrottleFlag(true));
                 if (innerWidth > 768) {
                   if (value === 0) {
                     if (e.deltaY > 0) {
@@ -181,6 +180,7 @@ export default function Products({ }: ProductsProps) {
                     }
                   }
                 }
+                dispatch(setThrottleFlag(true));
                 time = setTimeout(() => {
                   dispatch(setThrottleFlag(false));
                 }, 100)

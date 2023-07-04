@@ -235,40 +235,40 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         <ButtonBox className="flex mt-[160px] w-screen overflow-hidden items-center relative justify-center">
           <ButtonBorder
             style={{ borderColor: "rgb(157, 54, 11,0.1)" }}
-            className=" opacity-100 z-20 max-md:py-2 py-[10px] rounded-[32px] px-[73px]"
+            className=" opacity-100 z-20 max-md:py-2 py-[10px] max-md:rounded-[32px] rounded-[55px] px-[73px]"
           >
             <ButtonBorder
               style={{ borderColor: "rgb(157, 54, 11,0.2)" }}
-              className=" opacity-100 max-md:py-2 py-[10px] rounded-[32px] px-[76px]"
+              className=" opacity-100 max-md:py-2 py-[10px] max-md:rounded-[32px] rounded-[55px] px-[76px]"
             >
               <ButtonBorder
                 style={{ borderColor: "rgb(157, 54, 11,0.3)" }}
-                className=" opacity-100 max-md:py-[7px] py-[9px] rounded-[32px] px-[61px]"
+                className=" opacity-100 max-md:py-[7px] py-[9px] max-md:rounded-[32px] rounded-[55px] px-[61px]"
               >
                 <ButtonBorder
                   style={{ borderColor: "rgb(157, 54, 11,0.4)" }}
                   className={`${buttonHover === "hover" ? " md:scale-[1.01]" : ""
-                    } transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] rounded-[32px] px-[49px]`}
+                    } transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] px-[49px]`}
                 >
                   <ButtonBorder
                     style={{ borderColor: "rgb(157, 54, 11,0.5)" }}
-                    className={`opacity-100 max-md:py-[6px] py-[8px] rounded-[32px] max-md:px-[17px] px-[34px] transition-all duration-500 ${buttonHover === "hover" ? " md:scale-[1.02]" : ""
+                    className={`opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-500 ${buttonHover === "hover" ? " md:scale-[1.02]" : ""
                       }`}
                   >
                     <ButtonBorder
                       style={{ borderColor: "rgb(157, 54, 11,0.6)" }}
                       className={`opacity-100 max-md:py-[6px] ${buttonHover === "hover" ? " md:scale-[1.03]" : ""
-                        } transition-all duration-500 py-[9px] rounded-[32px] max-md:px-[15px] px-[27px]`}
+                        } transition-all duration-500 py-[9px] max-md:rounded-[32px] rounded-[55px] max-md:px-[15px] px-[27px]`}
                     >
                       <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.7)" }}
                         className={`opacity-100 max-md:py-[6px] ${buttonHover === "hover" ? " md:scale-[1.04]" : ""
-                          } transition-all duration-500 py-[8px] rounded-[32px] max-md:px-[13px] px-[23px]`}
+                          } transition-all duration-500 py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[13px] px-[23px]`}
                       >
                         <ButtonBorder
                           style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
                           className={`opacity-100 md:px-[24px] ${buttonHover === "hover" ? " md:scale-[1.05]" : ""
-                            } transition-all duration-500 py-[6px] max-md:py-[6px] rounded-[32px]`}
+                            } transition-all duration-500 py-[6px] max-md:py-[6px] max-md:rounded-[32px] rounded-[55px]`}
                         >
                           <button
                             className={`bg-[#FF4B00] ${buttonHover === "hover" ? " md:scale-[1]" : ""

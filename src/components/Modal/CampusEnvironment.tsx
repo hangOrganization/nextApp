@@ -325,24 +325,20 @@ export default function CampusEnvironment({
                       ))}
                     </div>
                   </div>
-                  {currentPage !== 0 && (
-                    <div
-                      style={{
-                        background:
-                          "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
-                      }}
-                      className=" w-52 h-full absolute top-0 left-0"
-                    ></div>
-                  )}
-                  {currentPage !== list.length - 1 && (
-                    <div
-                      style={{
-                        background:
-                          "linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
-                      }}
-                      className=" w-52 h-full absolute top-0 right-0"
-                    ></div>
-                  )}
+                  {currentPage !== 0 && <div
+                    style={{
+                      background:
+                        "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                    }}
+                    className=" w-52 h-full absolute top-0 left-0"
+                  ></div>}
+                  {currentPage !== list.length - 1 && <div
+                    style={{
+                      background:
+                        "linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                    }}
+                    className=" w-52 h-full absolute top-0 right-[-2px]"
+                  ></div>}
                   <div className="w-[1200px] mx-auto items-center h-[520px] flex justify-center absolute top-0 left-0 overflow-x-hidden">
                     <div className="w-[644px] flex items-center h-[520px]">
                       <div
@@ -372,17 +368,13 @@ export default function CampusEnvironment({
                   </div>
                 </div>
                 <div className="relative flex justify-center">
-                  <p
-                    onClick={(event) => event.stopPropagation()}
-                    className={`font-light absolute transition-all duration-300 opacity-0 text-[14px] mr-2 mt-8 leading-[180%]`}
-                  >
-                    {list[oldCurrentPage].name}
-                  </p>
-                  <p
-                    className={`font-light text-[14px] transition-all duration-300 opacity-100 mt-8 leading-[180%]`}
-                  >
-                    {list[currentPage].name}
-                  </p>
+                  <div className=" relative flex justify-center items-center w-full">
+                    {list.map((el: any) => (
+                      <p key={`${el.index}-el.name-campusEnvironment`} className={`font-light absolute text-[14px] transition-all ${el.index===currentPage?'opacity-100':''} duration-1000 opacity-0 mt-8 leading-[180%]`}>
+                        {el.name}
+                      </p>
+                    ))}
+                  </div>
                 </div>
                 <div className="flex mt-[64px] justify-center relative w-[758px] overflow-hidden mx-auto items-center gap-4">
                   <div className="flex w-[86px] items-center h-[86px] p-2">

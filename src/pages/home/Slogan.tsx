@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import slogan_bg from "@/assets/image/svg/slogan-bg.svg";
+import slogan_bg from "@/assets/image/svg/slogan-bg.png";
 import slogan_mobile_bg from "@/assets/image/png/slogan-mobile-bg.png";
 import Image from "next/image";
 import slogan from "@/assets/image/png/Slogan.png";

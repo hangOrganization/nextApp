@@ -141,10 +141,7 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
-              <div
-                className="flex items-center justify-center w-[288px] h-[136px] relative"
-                key={index}
-              >
+              <div key={`${index}-1-partner.first`} className="flex items-center justify-center w-[288px] h-[136px] relative">
                 <PartnerBox></PartnerBox>
                 <Partner>
                   <Image src={item} alt="" />
@@ -172,10 +169,7 @@ export default function BusinessPartner() {
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
-              <div
-                className="flex items-center justify-center w-[288px] h-[136px] relative"
-                key={index}
-              >
+              <div key={`${index}-3-partner.first`} className="flex items-center justify-center w-[288px] h-[136px] relative">
                 <PartnerBox></PartnerBox>
                 <Partner>
                   <Image src={item} alt="" />

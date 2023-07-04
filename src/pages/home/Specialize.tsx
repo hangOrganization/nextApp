@@ -1,7 +1,7 @@
 "use client";
 import styled from "styled-components";
 import Image from "next/image";
-import specialize_bg from "@/assets/image/svg/specialize-bg.svg";
+import specialize_bg from "@/assets/image/svg/specialize-bg.png";
 import specialize_Star from "@/assets/image/svg/specialize-Star.svg";
 import courseArrow from "@/assets/image/svg/icon-courseArrow.svg";
 import {
