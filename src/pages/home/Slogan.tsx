@@ -117,7 +117,12 @@ export default function Slogan() {
                 其实，你可以听见更多
               </p>
             </div>
-            <div className="go-button font-[300]  max-md:font-[300 ] text-[14px] leading-[180%] tracking-[1.4px] text-[#1a1a1a] z-[2] absolute opacity-0 flex gap-[8px] max-md:relative max-md:opacity-[1]   max-md:text-[#FF4B00]  max-md:z-[5]">
+            <div
+              className="go-button font-[300]  max-md:font-[300 ] text-[14px] leading-[180%] tracking-[1.4px] text-[#1a1a1a] z-[2] absolute opacity-0 flex gap-[8px] max-md:relative max-md:opacity-[1]   max-md:text-[#FF4B00]  max-md:z-[5]"
+              onClick={() => {
+                window.open("http://www.soundpic.cn/");
+              }}
+            >
               前往万像循声
               <Image
                 src={icon_right_arrow}
@@ -145,6 +150,9 @@ export default function Slogan() {
           src={slogan}
           alt=""
           className="w-[344px] h-[143px] md:hidden"
+          onClick={() => {
+            window.open("http://www.soundpic.cn/");
+          }}
         ></Image>
       </div>
     </Box>
