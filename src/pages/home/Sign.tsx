@@ -27,7 +27,7 @@ export default function Sign({}: SignProps) {
   const throttleFlag = useThrottleFlag();
   const innerWidth = useOuterWidth();
   const activeIndex = useActiveIndex();
-  console.log("🚀 ~ file: Sign.tsx:30 ~ Sign ~ activeIndex:", activeIndex)
+  console.log("🚀 ~ file: Sign.tsx:30 ~ Sign ~ activeIndex:", activeIndex);
   const dispatch = useAppDispatch();
   const isChrome = useIsChrome();
   const swiper = useSwiper();
@@ -121,16 +121,16 @@ export default function Sign({}: SignProps) {
           </video>
           <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[600px] overflow-hidden relative">
             <EchoRollBox className="md:flex justify-center  ">
-              <div className="md:w-[600px] md:h-[30px] max-md:w-screen  text-box relative ">
-                <p className="md:font-[250] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] tracking-[1em] text-[18px] absolute z-10 left-[228px] top-[-2px] md:w-[780px]">
-                  听见世界的回响
+              <div className="md:w-[600px] md:h-[30px] max-md:w-screen relative text-center">
+                <p className="md:font-[250] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] text-[18px] absolute z-10 top-[0px] left-[9px] md:tracking-[8.72px]  text-center md:w-[600px]  text-box">
+                  听 见 世 界 的 回 响
                 </p>
               </div>
               <video
                 muted
                 loop
                 autoPlay
-                className="EchoRollBoxVidoeMove
+                className="EchoRollBoxVidoeMove md:w-[600px]
 "
               >
                 <source
