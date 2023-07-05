@@ -267,7 +267,7 @@ export default function Disc({}: DiscProps) {
   const goOtherPage = (url: any) => {
     window.open(url);
   };
-  const mouseLeave = (bg: any) => {
+  const mouseLeave = () => {
     setMoveFlag(false);
   };
   const mouseEnter = (bg: any, key: any) => {
@@ -500,7 +500,7 @@ export default function Disc({}: DiscProps) {
               <DiscBOxFilter key={item.key}>
                 <DiscBox
                   key={item.key}
-                  onMouseEnter={() => mouseEnter(item.bg)}
+                  onMouseEnter={() => mouseEnter(item.bg, item.key)}
                   onMouseLeave={mouseLeave}
                   onClick={() => goOtherPage(item.url)}
                   className="w-[343px] h-[104px] relative z-10 flex transition-all duration-500 p-[12px] pr-[20px]"
