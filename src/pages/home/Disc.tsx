@@ -106,7 +106,7 @@ const Box = styled.div`
       .right-coraton {
         right: -15px;
       }
-      .film-master-map {
+      .film-master-map-active {
         opacity: 1;
         transition: all 450ms;
 
@@ -262,6 +262,7 @@ export default function Disc({}: DiscProps) {
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
+  const [activeKey, setactiveKey] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const goOtherPage = (url: any) => {
     window.open(url);
@@ -269,9 +270,10 @@ export default function Disc({}: DiscProps) {
   const mouseLeave = (bg: any) => {
     setMoveFlag(false);
   };
-  const mouseEnter = (bg: any) => {
+  const mouseEnter = (bg: any, key: any) => {
     setDiscImg(bg);
     setMoveFlag(true);
+    setactiveKey(key);
   };
 
   const prePage = () => {
@@ -340,12 +342,24 @@ export default function Disc({}: DiscProps) {
                     alt=""
                     className="film-mask   w-[492px] h-[492px] relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
                   ></Image>
-                  <ImgBox
-                    className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden   "
-                    style={{
-                      backgroundImage: `url(${discImg.src})`,
-                    }}
-                  ></ImgBox>
+
+                  {discList.map((item: DiscBoxProps) => {
+                    return (
+                      <ImgBox
+                        key={item.key}
+                        className={` w-[492px] h-[492px] absolute z-[4] max-md:hidden  opacity-0  ${
+                          activeKey === item.key
+                            ? "film-master-map-active"
+                            : "film-master-map"
+                        }`}
+                        style={{
+                          backgroundImage: `url(${item.bg.src})`,
+                        }}
+                      >
+                        item.bg
+                      </ImgBox>
+                    );
+                  })}
                 </FilmBox>
                 <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
                   <ChangeButton className="scale-x-[-1]" onClick={nextPage}>
@@ -423,7 +437,7 @@ export default function Disc({}: DiscProps) {
             {discList.map((item: DiscBoxProps) => (
               <DiscBox
                 key={item.key}
-                onMouseEnter={() => mouseEnter(item.bg)}
+                onMouseEnter={() => mouseEnter(item.bg, item.key)}
                 onMouseLeave={mouseLeave}
                 className="w-[389px] h-[168px] flex transition-all duration-500 p-[16px]"
               >
