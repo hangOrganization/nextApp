@@ -18,7 +18,6 @@ const ScrollBox = styled.div`
   }
   @media not all and (min-width: 768px) {
     animation: bg 25s linear infinite;
-
     @keyframes bg {
       from {
       }
