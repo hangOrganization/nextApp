@@ -46,7 +46,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
     if (activeIndex === 1) {
       if (comePage === 8) {
         document.querySelector("#introductionBox")?.scrollTo({
-          top: 900,
+          top: 800,
           behavior: "smooth",
         });
       } else {
@@ -56,7 +56,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         });
       }
     }
-  }, [activeIndex]);
+  }, [activeIndex, comePage]);
   return (
     <div
       id="introductionBox"
