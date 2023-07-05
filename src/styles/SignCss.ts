@@ -94,10 +94,6 @@ export const EchoRollBox = styled.div`
   @media (min-width: 768px) {
     .text-box {
       text-align: center;
-      /* left: 50%;
-      transform: translateX(-50%); */
-      /* margin: auto; */
-      /* left: 0; */
       opacity: 0;
       animation: move-echo 1s linear 1600ms, echoRollBox 6400ms linear 2600ms,
         move-out 1ms linear 7990ms forwards;
@@ -143,6 +139,40 @@ export const EchoRollBox = styled.div`
       100% {
         transform: translateX(-1560px);
       } */
+    }
+  }
+
+  @media not all and (min-width: 768px) {
+    .text-box {
+      text-align: center;
+      /* animation: move-echo 1s linear 1600ms, echoRollBox 6400ms linear 2600ms,
+        move-out 1ms linear 7990ms forwards; */
+    }
+    @keyframes move-echo {
+      0% {
+        opacity: 0;
+        transform: translateX(120px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes move-out {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes echoRollBox {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
 `;

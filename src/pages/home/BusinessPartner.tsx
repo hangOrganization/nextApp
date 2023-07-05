@@ -93,23 +93,27 @@ const ScrollCenterBox = styled.div`
     }
   }
 `;
-const PartnerBox = styled.div`
-  width: 288px;
-  height: 136px;
+const PartnerFilter = styled.div`
+  width: 100%;
+  height: 100%;
   position: absolute;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   opacity: 0.2;
   background-blend-mode: overlay;
+  @media not all and (min-width: 768px) {
+    width: 115.2px;
+    height: 54.4px;
+    border-radius: 9.6px;
+  }
 `;
 const Partner = styled.div`
   background-blend-mode: overlay;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 288px;
-  height: 136px;
   border-radius: 24px;
+
   img {
     width: 200px;
   }
@@ -143,9 +147,9 @@ export default function BusinessPartner() {
             (item: any, index: number) => (
               <div
                 key={`${index}-1-partner.first`}
-                className="flex items-center justify-center w-[288px] h-[136px] relative"
+                className="flex items-center justify-center w-[288px] h-[136px] max-md:w-[115.2px] max-md:h-[54.4px]  relative"
               >
-                <PartnerBox></PartnerBox>
+                <PartnerFilter></PartnerFilter>
                 <Partner>
                   <Image src={item} alt="" />
                 </Partner>
@@ -157,10 +161,10 @@ export default function BusinessPartner() {
           {[...partner.second, ...partner.second, ...partner.second].map(
             (item: any, index: number) => (
               <div
-                className="flex items-center justify-center w-[288px] h-[136px] relative"
+                className="flex items-center justify-center w-[288px]  max-md:w-[115.2px] max-md:h-[54.4px]   h-[136px]  relative"
                 key={index}
               >
-                <PartnerBox></PartnerBox>
+                <PartnerFilter></PartnerFilter>
                 <Partner>
                   <Image src={item} alt="" />
                 </Partner>
@@ -174,9 +178,9 @@ export default function BusinessPartner() {
             (item: any, index: number) => (
               <div
                 key={`${index}-3-partner.first`}
-                className="flex items-center justify-center w-[288px] h-[136px] relative"
+                className="flex items-center justify-center w-[288px] h-[136px]  max-md:w-[115.2px] max-md:h-[54.4px]  relative"
               >
-                <PartnerBox></PartnerBox>
+                <PartnerFilter></PartnerFilter>
                 <Partner>
                   <Image src={item} alt="" />
                 </Partner>
