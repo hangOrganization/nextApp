@@ -47,6 +47,7 @@ const Box = styled.div`
 `;
 export default function Homepage() {
   const dispatch = useAppDispatch();
+  const [ourTeamScrollTop, setOurTeamScrollTop] = useState<number>(0);
   const [characteristicType, setCharacteristicType] = useState<number>(0);
   const [right, setRight] = useState<number>(0);
   const [isOpenConsult, setIsOpenConsult] = useState<number>(0);
@@ -68,6 +69,7 @@ export default function Homepage() {
       <Header
         setCharacteristicType={setCharacteristicType}
         setRight={setRight}
+        scrollTop={ourTeamScrollTop}
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}
         isOpenCampus={isOpenCampus}
@@ -90,7 +92,7 @@ export default function Homepage() {
           <Products />
         </SwiperSlide>
         <SwiperSlide>
-          <OurTeam setRight={setRight} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+          <OurTeam setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
         </SwiperSlide>
         <SwiperSlide>
           <Disc />
@@ -100,7 +102,7 @@ export default function Homepage() {
         <Sign />
         <Introduction setIsOpenConsult={setIsOpenConsult} />
         <Products />
-        <OurTeam setRight={setRight} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+        <OurTeam setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
         <Disc />
       </div>
     </Box>

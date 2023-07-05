@@ -40,18 +40,21 @@ interface HeaderProps {
   setIsOpenCampus: Function;
   setCharacteristicType: Function;
   isOpenConsult: number;
+  scrollTop: number;
   setIsOpenConsult: Function;
   scrollToView: any;
 }
 export default function Header({
   isOpenCampus,
   setRight,
+  scrollTop,
   setIsOpenCampus,
   setCharacteristicType,
   setIsOpenConsult,
   isOpenConsult,
   scrollToView,
 }: HeaderProps) {
+  console.log("🚀 ~ file: index.tsx:57 ~ scrollTop:", scrollTop)
   const activeIndex = useActiveIndex();
   const dispatch = useAppDispatch();
   const activeType = useActiveType();
@@ -81,7 +84,7 @@ export default function Header({
           音乐留学
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${activeIndex === 3 && activeType === 0 ? "active-item " : ""
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${activeIndex === 3 && activeType === 0 && scrollTop < 1200 ? "active-item " : ""
             }`}
           onClick={() => {
             setCharacteristicType(0)
@@ -94,7 +97,7 @@ export default function Header({
           师资团队
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 3 && activeType === 1 ? "active-item " : ""
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 3 && (activeType === 0 || activeType === 1) && scrollTop > 1200 ? "active-item " : ""
             }`}
           onClick={() => {
             dispatch(setActiveIndex(3));
