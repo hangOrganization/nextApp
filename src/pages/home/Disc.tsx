@@ -16,6 +16,29 @@ import BusinessPartner from "./BusinessPartner";
 import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
 import { useSwiper } from "swiper/react";
+// import Bright from "../assets/image/disc-icon/Bright.jpg";
+// import CHINA_I from "../assets/image/disc-icon/CHINA-I.jpg";
+// import CHINA_II from "../assets/image/disc-icon/CHINA-II.jpg";
+// import CHINA_III from "../assets/image/disc-icon/CHINA-III.png";
+// import China_IV from "../assets/image/disc-icon/China-IV.png";
+// import China_V_Spring from "../assets/image/disc-icon/China-V-Spring.jpg";
+// import Comedy_I from "../assets/image/disc-icon/Comedy-I.png";
+// import Comedy_II from "../assets/image/disc-icon/Comedy-II.jpg";
+// import DOCUMENTARY_I from "../assets/image/disc-icon/DOCUMENTARY-I.jpg";
+// import DOCUMENTARY_II from "../assets/image/disc-icon/DOCUMENTARY-II.jpg";
+// import DOCUMENTARY_III from "../assets/image/disc-icon/DOCUMENTARY-III.png";
+// import DOCUMENTARY_IV from "../assets/image/disc-icon/DOCUMENTARY-IV.png";
+// import DOCUMENTARY_V from "../assets/image/disc-icon/DOCUMENTARY-V.png";
+// import EMOTIONAL from "../assets/image/disc-icon/EMOTIONAL.png";
+// import FASHION from "../assets/image/disc-icon/FASHION.png";
+// import HOPEFUL from "../assets/image/disc-icon/HOPEFUL.jpg";
+// import Horror_I from "../assets/image/disc-icon/Horror-I.png";
+// import Horror_II from "../assets/image/disc-icon/Horror-II.jpg";
+// import RYHTHM from "../assets/image/disc-icon/RYHTHM.jpg";
+// import SCI_TECH from "../assets/image/disc-icon/SCI_TECH.jpg";
+// import Suspense from "../assets/image/disc-icon/Suspense.jpg";
+// import Warm from "../assets/image/disc-icon/Warm.jpg";
+// import Yoga from "../assets/image/disc-icon/Yoga.jpg";
 import _ from "lodash";
 import {
   useActiveIndex,
@@ -83,7 +106,7 @@ const Box = styled.div`
       .right-coraton {
         right: -15px;
       }
-      .film-master-map {
+      .film-master-map-active {
         opacity: 1;
         transition: all 450ms;
 
@@ -239,16 +262,18 @@ export default function Disc({}: DiscProps) {
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
   const [discImg, setDiscImg] = useState(disc_acquiesce);
+  const [activeKey, setactiveKey] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const goOtherPage = (url: any) => {
     window.open(url);
   };
-  const mouseLeave = (bg: any) => {
+  const mouseLeave = () => {
     setMoveFlag(false);
   };
-  const mouseEnter = (bg: any) => {
+  const mouseEnter = (bg: any, key: any) => {
     setDiscImg(bg);
     setMoveFlag(true);
+    setactiveKey(key);
   };
 
   const prePage = () => {
@@ -317,12 +342,24 @@ export default function Disc({}: DiscProps) {
                     alt=""
                     className="film-mask   w-[492px] h-[492px] relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
                   ></Image>
-                  <ImgBox
-                    className="film-master-map w-[492px] h-[492px] absolute z-[4] max-md:hidden   "
-                    style={{
-                      backgroundImage: `url(${discImg.src})`,
-                    }}
-                  ></ImgBox>
+
+                  {discList.map((item: DiscBoxProps) => {
+                    return (
+                      <ImgBox
+                        key={item.key}
+                        className={` w-[492px] h-[492px] absolute z-[4] max-md:hidden  opacity-0  ${
+                          activeKey === item.key
+                            ? "film-master-map-active"
+                            : "film-master-map"
+                        }`}
+                        style={{
+                          backgroundImage: `url(${item.bg.src})`,
+                        }}
+                      >
+                        item.bg
+                      </ImgBox>
+                    );
+                  })}
                 </FilmBox>
                 <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
                   <ChangeButton className="scale-x-[-1]" onClick={nextPage}>
@@ -400,7 +437,7 @@ export default function Disc({}: DiscProps) {
             {discList.map((item: DiscBoxProps) => (
               <DiscBox
                 key={item.key}
-                onMouseEnter={() => mouseEnter(item.bg)}
+                onMouseEnter={() => mouseEnter(item.bg, item.key)}
                 onMouseLeave={mouseLeave}
                 className="w-[389px] h-[168px] flex transition-all duration-500 p-[16px]"
               >
@@ -463,7 +500,7 @@ export default function Disc({}: DiscProps) {
               <DiscBOxFilter key={item.key}>
                 <DiscBox
                   key={item.key}
-                  onMouseEnter={() => mouseEnter(item.bg)}
+                  onMouseEnter={() => mouseEnter(item.bg, item.key)}
                   onMouseLeave={mouseLeave}
                   onClick={() => goOtherPage(item.url)}
                   className="w-[343px] h-[104px] relative z-10 flex transition-all duration-500 p-[12px] pr-[20px]"

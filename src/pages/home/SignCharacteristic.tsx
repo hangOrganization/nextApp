@@ -44,6 +44,7 @@ const SignCharacteristicBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: url(${signCharacteristic_bg.src});
   }
   @media not all and (min-width: 768px) {
@@ -102,12 +103,14 @@ export default function SignCharacteristic({
   setIsOpenCampus,
 }: SignCharacteristicProps) {
   const dispatch = useAppDispatch();
-  let time: any = ''
-  const swiper = useSwiper()
+  let time: any = "";
+  const swiper = useSwiper();
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
-    <Box className={`flex w-screen max-md:pb-[210px] md:pb-[300px] z-50 md:overflow-hidden`}>
+    <Box
+      className={`flex w-screen max-md:pb-[210px] md:pb-[300px] z-50 md:overflow-hidden`}
+    >
       <div className="flex relative">
         <SignBox
           className={`md:flex md:h-[1050px] max-md:pt-[300px] relative w-screen items-center justify-center`}
@@ -117,13 +120,12 @@ export default function SignCharacteristic({
                 if (throttleFlag) {
                   dispatch(setThrottleFlag(true));
                   for (let i = 0; i < 10000; i++) {
-                    clearTimeout(i)
+                    clearTimeout(i);
                   }
                   time = setTimeout(() => {
                     dispatch(setThrottleFlag(false));
-                  }, 100)
-                }
-                else {
+                  }, 100);
+                } else {
                   dispatch(setThrottleFlag(true));
                   if (right === 0) {
                     if (characteristicType === 0) {
@@ -166,12 +168,11 @@ export default function SignCharacteristic({
                   }
                   time = setTimeout(() => {
                     dispatch(setThrottleFlag(false));
-                  }, 100)
+                  }, 100);
                 }
               }
             }
-          }
-          }
+          }}
         >
           <div className={`max-md:hidden absolute top-0 left-0 w-full h-full`}>
             <div className="absolute top-0 left-0 flex justify-center overflow-hidden items-center w-full h-full">
@@ -186,43 +187,48 @@ export default function SignCharacteristic({
             </div>
             <Image
               className={`absolute top-[-200px]
-              ${characteristicType === 1
+              ${
+                characteristicType === 1
                   ? " top-[-220px]"
                   : characteristicType === 2
-                    ? " top-[-240px]"
-                    : characteristicType === 3
-                      ? " top-[-260px]"
-                      : ""
-                }
-               transition-all duration-1000 max-w-[0px] min-h-full ${right !== 0 ? "" : "max-w-[1000px]"
-                } max-md:hidden right-0`}
+                  ? " top-[-240px]"
+                  : characteristicType === 3
+                  ? " top-[-260px]"
+                  : ""
+              }
+               transition-all duration-1000 max-w-[0px] min-h-full ${
+                 right !== 0 ? "" : "max-w-[1000px]"
+               } max-md:hidden right-0`}
               src={characteristic_bg_1}
               alt=""
             />
             <Image
               className={`absolute top-[-200px]
-               transition-all duration-1000 max-w-[0px] min-h-full ${right === 0 ? "" : "max-w-[1000px]"
-                } max-md:hidden right-0`}
+               transition-all duration-1000 max-w-[0px] min-h-full ${
+                 right === 0 ? "" : "max-w-[1000px]"
+               } max-md:hidden right-0`}
               src={characteristic_bg_1}
               alt=""
             />
             <Image
-              className={`absolute bottom-[-100px] transition-all duration-1000 max-w-[0px] min-h-full ${right !== 0 ? "" : "max-w-[1000px]"
-                }  max-md:hidden left-0`}
+              className={`absolute bottom-[-100px] transition-all duration-1000 max-w-[0px] min-h-full ${
+                right !== 0 ? "" : "max-w-[1000px]"
+              }  max-md:hidden left-0`}
               src={characteristic_bg_2}
               alt=""
             />
             <Image
-              className={`absolute transition-all  bottom-[52px] duration-1000  ${right !== 0
-                ? " right-[-350px]"
-                : characteristicType === 1
+              className={`absolute transition-all  bottom-[52px] duration-1000  ${
+                right !== 0
+                  ? " right-[-350px]"
+                  : characteristicType === 1
                   ? " bottom-[85px]"
                   : characteristicType === 2
-                    ? " bottom-[116px]"
-                    : characteristicType === 3
-                      ? " bottom-[148px]"
-                      : " bottom-[52px]"
-                }  max-md:hidden right-0 `}
+                  ? " bottom-[116px]"
+                  : characteristicType === 3
+                  ? " bottom-[148px]"
+                  : " bottom-[52px]"
+              }  max-md:hidden right-0 `}
               src={characteristic_bg_logo}
               alt=""
             />
@@ -231,27 +237,31 @@ export default function SignCharacteristic({
             className={`md:flex relative md:w-[1200px] w-screen items-center `}
           >
             <SignCharacteristicBox
-              className={`${right !== 0 ? " translate-x-[908px]" : "translate-x-[0px]"
-                } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-1000`}
+              className={`${
+                right !== 0 ? " translate-x-[908px]" : "translate-x-[0px]"
+              } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-1000`}
             >
               <div>
                 <div className="max-md:flex justify-between">
                   <div className="w-[221px] relative max-md:hidden h-[67px]">
                     <p
-                      className={`${right === 0 ? "opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                      className={`${
+                        right === 0 ? "opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       公司特色
                     </p>
                     <p
-                      className={`${right === 1 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                      className={`${
+                        right === 1 ? " opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       关于我们
                     </p>
                     <p
-                      className={`${right === 2 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                      className={`${
+                        right === 2 ? " opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       发展历程
                     </p>
@@ -271,10 +281,11 @@ export default function SignCharacteristic({
                 </div>
                 <div className="mt-[18px] md:hidden relative h-2 w-full">
                   <Image
-                    className={`absolute transition-all ${mobileRight === 0
-                      ? "translate-x-[16px] left-0"
-                      : "translate-x-[-125%] left-[100%]"
-                      }`}
+                    className={`absolute transition-all ${
+                      mobileRight === 0
+                        ? "translate-x-[16px] left-0"
+                        : "translate-x-[-125%] left-[100%]"
+                    }`}
                     src={signCharacteristic_active}
                     alt=""
                   />
@@ -294,20 +305,23 @@ export default function SignCharacteristic({
                   }`}</p> */}
                 <div className="w-[222px] mt-4 text-center relative max-md:hidden h-[35px]">
                   <p
-                    className={`${right === 0 ? "opacity-60" : ""
-                      } tracking-[11px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                    className={`${
+                      right === 0 ? "opacity-60" : ""
+                    } tracking-[11px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
                   >
                     Why SIGN?
                   </p>
                   <p
-                    className={`${right === 1 ? " opacity-60" : ""
-                      } tracking-[15px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                    className={`${
+                      right === 1 ? " opacity-60" : ""
+                    } tracking-[15px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
                   >
                     ABOUT US
                   </p>
                   <p
-                    className={`${right === 2 ? " opacity-60" : ""
-                      } tracking-[2px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                    className={`${
+                      right === 2 ? " opacity-60" : ""
+                    } tracking-[2px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
                   >
                     Development Path
                   </p>
@@ -315,23 +329,25 @@ export default function SignCharacteristic({
               </div>
             </SignCharacteristicBox>
             <div
-              className={`transition-all duration-1000 md:flex items-center ${right !== 0
-                ? " flex-row-reverse translate-x-[510px] md:opacity-0"
-                : "md:opacity-100 translate-x-[0px]"
-                }`}
+              className={`transition-all duration-1000 md:flex items-center ${
+                right !== 0
+                  ? " flex-row-reverse translate-x-[510px] md:opacity-0"
+                  : "md:opacity-100 translate-x-[0px]"
+              }`}
             >
               <div className={`md:ml-[202px]`}>
                 {mobileRight === 0 ? (
                   <div className="md:h-[488px] max-md:px-6 overflow-hidden">
                     <div
-                      className={`transition-all duration-1000 ${characteristicType === 1
-                        ? "translate-y-[-488px]"
-                        : characteristicType === 2
+                      className={`transition-all duration-1000 ${
+                        characteristicType === 1
+                          ? "translate-y-[-488px]"
+                          : characteristicType === 2
                           ? "translate-y-[-976px]"
                           : characteristicType === 3
-                            ? "translate-y-[-1464px]"
-                            : ""
-                        } `}
+                          ? "translate-y-[-1464px]"
+                          : ""
+                      } `}
                     >
                       <div className="md:h-[488px] md:w-[680px] max-md:mt-11 flex flex-col justify-center">
                         <div className="flex">
@@ -344,13 +360,15 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 0 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 0 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <div
-                          className={`md:w-[488px] md:opacity-0 duration-1000 transition-all ${characteristicType === 0 ? "md:opacity-100" : ""
-                            } md:opacity-0 mt-12`}
+                          className={`md:w-[488px] md:opacity-0 duration-1000 transition-all ${
+                            characteristicType === 0 ? "md:opacity-100" : ""
+                          } md:opacity-0 mt-12`}
                         >
                           <p className="text-[14px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70">
                             高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
@@ -382,8 +400,9 @@ export default function SignCharacteristic({
                         </div>
                       </div>
                       <div
-                        className={`md:h-[488px] duration-1000 md:opacity-0 transition-all md:w-[680px] max-md:mt-20 flex ${characteristicType === 1 ? "md:opacity-100" : ""
-                          } flex-col justify-center`}
+                        className={`md:h-[488px] duration-1000 md:opacity-0 transition-all md:w-[680px] max-md:mt-20 flex ${
+                          characteristicType === 1 ? "md:opacity-100" : ""
+                        } flex-col justify-center`}
                       >
                         <div className="flex ">
                           <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
@@ -395,8 +414,9 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 1 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 1 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <p className="text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70">
@@ -443,8 +463,9 @@ export default function SignCharacteristic({
                         </p>
                       </div>
                       <div
-                        className={`md:h-[488px] md:opacity-0 duration-1000 transition-all md:w-[680px] ${characteristicType === 2 ? "md:opacity-100" : ""
-                          } max-md:mt-20 flex flex-col justify-center`}
+                        className={`md:h-[488px] md:opacity-0 duration-1000 transition-all md:w-[680px] ${
+                          characteristicType === 2 ? "md:opacity-100" : ""
+                        } max-md:mt-20 flex flex-col justify-center`}
                       >
                         <div className="flex">
                           <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
@@ -456,8 +477,9 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 2 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 2 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <p className="text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70">
@@ -499,10 +521,11 @@ export default function SignCharacteristic({
                         </p>
                       </div>
                       <div
-                        className={`md:h-[488px] ${characteristicType === 3
-                          ? "opacity-100"
-                          : "md:opacity-0"
-                          } md:w-[680px] max-md:mt-20 flex flex-col justify-center`}
+                        className={`md:h-[488px] ${
+                          characteristicType === 3
+                            ? "opacity-100"
+                            : "md:opacity-0"
+                        } md:w-[680px] max-md:mt-20 flex flex-col justify-center`}
                       >
                         <div className="flex">
                           <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
@@ -514,8 +537,9 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 3 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 3 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <p className="text-[14px] md:w-[488px] max-md:text-[13px] max-md:leading-[200%]  mt-12 font-light leading-[220%] opacity-70">
@@ -587,16 +611,18 @@ export default function SignCharacteristic({
               </div>
             </div>
             <div
-              className={` transition-all duration-1000 ${right === 0
-                ? "left-[-650px] opacity-0"
-                : "left-[120px] opacity-100"
-                } absolute left-[-650px] max-md:hidden mt-12`}
+              className={` transition-all duration-1000 ${
+                right === 0
+                  ? "left-[-650px] opacity-0"
+                  : "left-[120px] opacity-100"
+              } absolute left-[-650px] max-md:hidden mt-12`}
             >
               <div className=" flex items-center">
                 <div className={`h-[457px] max-md:hidden overflow-hidden`}>
                   <div
-                    className={` transition-all duration-1000 ${right === 2 ? "translate-y-[-457px]" : "translate-y-[0px]"
-                      } `}
+                    className={` transition-all duration-1000 ${
+                      right === 2 ? "translate-y-[-457px]" : "translate-y-[0px]"
+                    } `}
                   >
                     <Image className="rotate-180" src={products_right} alt="" />
                     <Image className="rotate-180" src={products_right} alt="" />
@@ -606,14 +632,16 @@ export default function SignCharacteristic({
                 </div>
                 <div className="ml-20 h-[420px] overflow-hidden w-[599px]">
                   <div
-                    className={` transition-all duration-1000 ${right === 2
-                      ? " translate-y-[-420px]"
-                      : "translate-y-[0px]"
-                      }`}
+                    className={` transition-all duration-1000 ${
+                      right === 2
+                        ? " translate-y-[-420px]"
+                        : "translate-y-[0px]"
+                    }`}
                   >
                     <div
-                      className={`h-[420px] opacity-0 transition-all duration-1000 ${right === 2 ? "" : "opacity-100"
-                        }`}
+                      className={`h-[420px] opacity-0 transition-all duration-1000 ${
+                        right === 2 ? "" : "opacity-100"
+                      }`}
                     >
                       <p className="text-[14px] font-light leading-[220%] opacity-70">
                         SIGNART
@@ -627,8 +655,9 @@ export default function SignCharacteristic({
                       </p>
                     </div>
                     <div
-                      className={`h-[420px] opacity-0 transition-all duration-1000 ${right === 1 ? "" : "opacity-100"
-                        } flex justify-center flex-col`}
+                      className={`h-[420px] opacity-0 transition-all duration-1000 ${
+                        right === 1 ? "" : "opacity-100"
+                      } flex justify-center flex-col`}
                     >
                       <p className="text-[14px] font-light leading-[220%] opacity-70">
                         2012年 初始音乐团队创办SOUNDPIC工作室
@@ -680,18 +709,20 @@ export default function SignCharacteristic({
               </ButtonBox>
             </div>
             <div
-              className={`h-[457px] ${right === 0 ? "" : "md:hidden"
-                } max-md:hidden overflow-hidden`}
+              className={`h-[457px] ${
+                right === 0 ? "" : "md:hidden"
+              } max-md:hidden overflow-hidden`}
             >
               <div
-                className={` transition-all duration-300 ${characteristicType === 1
-                  ? "translate-y-[-457px]"
-                  : characteristicType === 2
+                className={` transition-all duration-300 ${
+                  characteristicType === 1
+                    ? "translate-y-[-457px]"
+                    : characteristicType === 2
                     ? "translate-y-[-914px]"
                     : characteristicType === 3
-                      ? "translate-y-[-1371px]"
-                      : ""
-                  } `}
+                    ? "translate-y-[-1371px]"
+                    : ""
+                } `}
               >
                 <Image src={products_right} alt="" />
                 <Image src={products_right} alt="" />
