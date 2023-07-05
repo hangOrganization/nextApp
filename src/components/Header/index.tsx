@@ -54,7 +54,6 @@ export default function Header({
   isOpenConsult,
   scrollToView,
 }: HeaderProps) {
-  console.log("🚀 ~ file: index.tsx:57 ~ scrollTop:", scrollTop)
   const activeIndex = useActiveIndex();
   const dispatch = useAppDispatch();
   const activeType = useActiveType();

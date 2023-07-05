@@ -101,7 +101,6 @@ export default function SignCharacteristic({
   setCharacteristicType,
   setIsOpenCampus,
 }: SignCharacteristicProps) {
-  console.log("🚀 ~ file: SignCharacteristic.tsx:105 ~ characteristicType:", characteristicType)
   const dispatch = useAppDispatch();
   let time: any = ''
   const swiper = useSwiper()
@@ -178,7 +177,7 @@ export default function SignCharacteristic({
             <div className="absolute top-0 left-0 flex justify-center overflow-hidden items-center w-full h-full">
               <CampusEnvironmentBg
                 className={`${right === 0 ? "h-0 rounded-full w-0" : " opacity-100 rounded-[0] w-full h-full"
-                  } transition-all !bg-no-repeat opacity-0 bg-blend-lighten ease-[cubic-bezier(0.24,0,0.58,1)] duration-1000`}>
+                  } transition-all !bg-no-repeat opacity-0 bg-blend-lighten ease-[cubic-bezier(0.24,0,0.58,1)] duration-2000`}>
               </CampusEnvironmentBg>
               <div style={{
                 background: 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.90) 51.71%, #1A1A1A 100%), radial-gradient(50% 50.00% at 50% 50.00%, rgba(26, 26, 26, 0.00) 0%, rgba(26, 26, 26, 0.50) 100%)',
