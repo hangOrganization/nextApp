@@ -145,13 +145,13 @@ export const EchoRollBox = styled.div`
   @media not all and (min-width: 768px) {
     .text-box {
       text-align: center;
-      /* animation: move-echo 1s linear 1600ms, echoRollBox 6400ms linear 2600ms,
-        move-out 1ms linear 7990ms forwards; */
+      animation: move-echo 1s linear 1600ms, echoRollBox 6400ms linear 2600ms,
+        move-out 1ms linear 7990ms forwards;
     }
     @keyframes move-echo {
       0% {
         opacity: 0;
-        transform: translateX(120px);
+        transform: translateX(0px);
       }
       100% {
         opacity: 1;

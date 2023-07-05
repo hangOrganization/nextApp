@@ -113,7 +113,7 @@ export default function SignCharacteristic({
         <SignBox
           className={`md:flex md:h-[1050px] max-md:pt-[300px] relative w-screen items-center justify-center`}
           onWheel={(e: any) => {
-            if (scrollTop > 1250) {
+            if (scrollTop > 1350) {
               if (innerWidth > 768) {
                 if (throttleFlag) {
                   dispatch(setThrottleFlag(true));

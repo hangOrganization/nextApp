@@ -135,7 +135,7 @@ export default function Sign({}: SignProps) {
                 muted
                 loop
                 autoPlay
-                className="EchoRollBoxVidoeMove md:w-[600px]"
+                className="EchoRollBoxVidoeMove max-md:hidden md:w-[600px]"
               >
                 <source
                   src={
