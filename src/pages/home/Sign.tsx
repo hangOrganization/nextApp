@@ -126,12 +126,16 @@ export default function Sign({}: SignProps) {
                   听 见 世 界 的 回 响
                 </p>
               </div>
+              <div className="md:w-[780px] md:hidden max-md:mt-4 text-center">
+                <p className=" font-[300] uppercase max-md:tracking-[3.84px] max-md:text-[12px] max-md:font-thin tracking-[0.51em] font-[Lexend] text-[26px]">
+                  Echo of the World
+                </p>
+              </div>
               <video
                 muted
                 loop
                 autoPlay
-                className="EchoRollBoxVidoeMove md:w-[600px]
-"
+                className="EchoRollBoxVidoeMove md:w-[600px]"
               >
                 <source
                   src={

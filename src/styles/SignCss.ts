@@ -105,7 +105,7 @@ export const EchoRollBox = styled.div`
     @keyframes move-echo {
       0% {
         opacity: 0;
-        transform: translateX(120px);
+        transform: translateX(0px);
       }
       100% {
         opacity: 1;

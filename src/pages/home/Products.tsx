@@ -96,7 +96,7 @@ export default function Products({ }: ProductsProps) {
         });
       } else {
         document.querySelector("#productsBox")?.scrollTo({
-          top: 1300,
+          top: 1250,
           behavior: "smooth",
         });
       }

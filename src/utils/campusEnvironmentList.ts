@@ -662,7 +662,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    52.5%{
+    52.51%{
       background-image: url(${list[21].image.src});
       transform:scale(1);
       opacity: 0;
@@ -682,7 +682,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    55%{
+    55.01%{
       background-image: url(${list[22].image.src});
       transform:scale(1);
       opacity: 0;
@@ -702,7 +702,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    57.5%{
+    57.51%{
       background-image: url(${list[23].image.src});
       transform:scale(1);
       opacity: 0;
@@ -722,7 +722,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    60%{
+    60.01%{
       background-image: url(${list[24].image.src});
       transform:scale(1);
       opacity: 0;
@@ -742,7 +742,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    62.5%{
+    62.51%{
       background-image: url(${list[25].image.src});
       transform:scale(1);
       opacity: 0;
@@ -762,7 +762,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    65%{
+    65.01%{
       background-image: url(${list[26].image.src});
       transform:scale(1);
       opacity: 0;
@@ -782,7 +782,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    67.5%{
+    67.51%{
       background-image: url(${list[27].image.src});
       transform:scale(1);
       opacity: 0;
@@ -802,7 +802,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    70%{
+    70.01%{
       background-image: url(${list[28].image.src});
       transform:scale(1);
       opacity: 0;
@@ -822,7 +822,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    72.5%{
+    72.51%{
       background-image: url(${list[29].image.src});
       transform:scale(1);
       opacity: 0;
@@ -842,7 +842,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    75%{
+    75.01%{
       background-image: url(${list[30].image.src});
       transform:scale(1);
       opacity: 0;
@@ -862,7 +862,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    77.5%{
+    77.51%{
       background-image: url(${list[31].image.src});
       transform:scale(1);
       opacity: 0;
@@ -882,7 +882,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    80%{
+    80.01%{
       background-image: url(${list[32].image.src});
       transform:scale(1);
       opacity: 0;
@@ -902,7 +902,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    82.5%{
+    82.51%{
       background-image: url(${list[33].image.src});
       transform:scale(1);
       opacity: 0;
@@ -922,7 +922,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    85%{
+    85.01%{
       background-image: url(${list[34].image.src});
       transform:scale(1);
       opacity: 0;
@@ -942,7 +942,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    87.5%{
+    87.51%{
       background-image: url(${list[35].image.src});
       transform:scale(1);
       opacity: 0;
@@ -957,12 +957,12 @@ export const list = [
       transform:scale(1);
       opacity: 1;
     }
-    80%{
+    90%{
       background-image: url(${list[35].image.src});
       transform:scale(1.1);
       opacity: 0;
     }
-    90%{
+    90.01%{
       background-image: url(${list[36].image.src});
       transform:scale(1);
       opacity: 0;
@@ -982,7 +982,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    92.5%{
+    92.51%{
       background-image: url(${list[37].image.src});
       transform:scale(1);
       opacity: 0;
@@ -1002,7 +1002,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    95%{
+    95.01%{
       background-image: url(${list[38].image.src});
       transform:scale(1);
       opacity: 0;
@@ -1022,7 +1022,7 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    97.5%{
+    97.51%{
       background-image: url(${list[39].image.src});
       transform:scale(1);
       opacity: 0;
