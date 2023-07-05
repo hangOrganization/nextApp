@@ -49,8 +49,8 @@ interface SchoolRollProps {
 }
 export default function SchoolRoll({ value }: SchoolRollProps) {
     return (
-        <div className={`flex max-md:mt-[96px] transition-all duration-1000 ${value === 2 ? ' opacity-100' : ''} opacity-0 mt-[214px] w-full flex-col justify-center`}>
-            <div className="max-md:hidden pt-[10px] h-[35.43px]">
+        <div className={`flex max-md:mt-[96px] transition-all duration-1000 ${value === 2 ? ' opacity-100' : ''} opacity-0 max-md:opacity-100 mt-[214px] w-full flex-col justify-center`}>
+            <div className="pt-[10px] h-[35.43px]">
                 <div className=" LetIsROCKLine1 border-[0.5px] border-[#FF4B00] border-solid"></div>
                 <div className=" LetIsROCKLine2 my-2 border-[0.5px] border-[#FF4B00] border-solid"></div>
                 <div className=" LetIsROCKLine3 border-[0.5px] border-[#FF4B00] border-solid"></div>
@@ -62,7 +62,7 @@ export default function SchoolRoll({ value }: SchoolRollProps) {
                     ))}
                 </Roll>
             </div>
-            <div className='max-md:hidden mt-3 w-[35.43px]'>
+            <div className='mt-3 w-[35.43px]'>
                 <div className=" LetIsROCKLine3 border-[0.5px]  border-[#FF4B00] border-solid"></div>
                 <div className=" LetIsROCKLine2 my-2 border-[0.5px] border-[#FF4B00] border-solid"></div>
                 <div className=" LetIsROCKLine1 border-[0.5px] border-[#FF4B00] border-solid"></div>

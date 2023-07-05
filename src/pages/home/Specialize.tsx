@@ -2,8 +2,10 @@
 import styled from "styled-components";
 import Image from "next/image";
 import specialize_bg from "@/assets/image/svg/specialize-bg.png";
+import mobileSpecialize_bg from "@/assets/image/mobile/mobileSpecialize-bg.png";
 import specialize_Star from "@/assets/image/svg/specialize-Star.svg";
 import courseArrow from "@/assets/image/svg/icon-courseArrow.svg";
+import mobile_courseArrow from "@/assets/image/mobile/mobile-courseArrow.svg";
 import {
   modernMusicHotMajor,
   classicalMusicHotMajor,
@@ -38,9 +40,9 @@ const SpecializeBg = styled.div`
         rgba(26, 26, 26, 0.46) 48.22%,
         #1a1a1a 100%
       ),
-      url(${specialize_bg.src}),
-      lightgray 0% 0% / 94.09090876579285px 94.09090876579285px repeat,
-      url(${specialize_bg.src}), lightgray 50% / cover no-repeat !important;
+    url(${mobileSpecialize_bg.src});
+    background-size: contain;
+    background-repeat: no-repeat !important;
     background-blend-mode: normal, soft-light, color-dodge;
   }
 `;
@@ -62,13 +64,14 @@ const CourseBox = styled.div`
     width: calc(100vw - 32px);
     margin: 0 16px;
     height: 486px;
+    border-radius: 32px;
     padding: 24px 36px;
   }
 `;
 export default function Specialize() {
   const [musicGenre, setMusicGenre] = useState<number>(1);
   return (
-    <SpecializeBox className="flex justify-center h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen overflow-hidden md:mt-[-190px] flex-col items-center">
+    <SpecializeBox className="flex justify-center md:h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen overflow-hidden md:mt-[-190px] flex-col items-center">
       <SpecializeBg></SpecializeBg>
       <div className="">
         <div
@@ -95,8 +98,8 @@ export default function Specialize() {
               >
                 <p
                   className={`text-[24px] ${musicGenre === 1
-                      ? "font-[200]"
-                      : "font-[100] max-md:font-light"
+                    ? "font-[200]"
+                    : "font-[100] max-md:font-light"
                     } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   现代音乐类
@@ -109,8 +112,8 @@ export default function Specialize() {
               >
                 <p
                   className={`text-[24px] ${musicGenre === 2
-                      ? "font-[200]"
-                      : "font-[100] max-md:font-light"
+                    ? "font-[200]"
+                    : "font-[100] max-md:font-light"
                     } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   古典音乐类
@@ -123,8 +126,8 @@ export default function Specialize() {
               >
                 <p
                   className={`text-[24px] ${musicGenre === 3
-                      ? "font-[200]"
-                      : "font-[100] max-md:font-light"
+                    ? "font-[200]"
+                    : "font-[100] max-md:font-light"
                     } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   音乐理论及应用类
@@ -133,44 +136,44 @@ export default function Specialize() {
             </div>
             <div
               className={`w-[86px] transition-all max-md:hidden duration-500 ${musicGenre === 1
-                  ? "translate-x-[-488.5px]"
-                  : musicGenre === 2
-                    ? "translate-x-[-272.5px]"
-                    : "translate-x-[-56.5px]"
+                ? "translate-x-[-488.5px]"
+                : musicGenre === 2
+                  ? "translate-x-[-272.5px]"
+                  : "translate-x-[-56.5px]"
                 } `}
               style={{ border: "0.5px solid #FFFFFF" }}
             ></div>
             <div className="mt-[16px] md:hidden h-[1px] relative w-full">
               <div
                 className={`w-12 transition-all absolute duration-500  ${musicGenre === 1
-                    ? "left-[0%] translate-x-[10px]"
-                    : musicGenre === 2
-                      ? "left-[50%] translate-x-[-45px]"
-                      : "left-[100%] translate-x-[-82px]"
+                  ? "left-[0%] translate-x-[10px]"
+                  : musicGenre === 2
+                    ? "left-[50%] translate-x-[-45px]"
+                    : "left-[100%] translate-x-[-82px]"
                   }`}
                 style={{ border: "0.25px solid #FFFFFF" }}
               ></div>
             </div>
           </div>
         </div>
-        <div className="relative pb-[168px] w-screen md:w-[1440px]">
+        <div className={`relative ${musicGenre === 2 ? 'max-md:h-[1118px]' : musicGenre === 3 ? ' max-md:h-[695px] ' : 'max-md:h-[1248px]'} md:pb-[168px] w-screen md:w-[1440px]`}>
           <Image
             className={`absolute max-md:hidden bottom-[0px] transition-all duration-500 ${musicGenre === 1
-                ? "rotate-0"
-                : musicGenre === 2
-                  ? "rotate-[90deg]"
-                  : "rotate-[180deg]"
+              ? "rotate-0"
+              : musicGenre === 2
+                ? "rotate-[90deg]"
+                : "rotate-[180deg]"
               } right-[-50px]`}
             src={specialize_Star}
             alt=""
           />
-          <div className="flex mt-12 md:w-[1440px] md:px-[120px] overflow-hidden justify-between">
+          <div className={`flex max-md:mt-5 mt-12 md:w-[1440px]  md:px-[120px] overflow-hidden justify-between`}>
             <div
               className={`flex gap-[120px] transition-all duration-500 ${musicGenre === 1
-                  ? "translate-x-[0px]"
-                  : musicGenre === 2
-                    ? "translate-x-[-1320px] max-md:translate-x-[-494px]"
-                    : "translate-x-[-2640px] max-md:translate-x-[-988px]"
+                ? "translate-x-[0px]"
+                : musicGenre === 2
+                  ? "translate-x-[-1320px] max-md:translate-x-[-494px]"
+                  : "translate-x-[-2640px] max-md:translate-x-[-988px]"
                 } w-[3880px]`}
             >
               <div
@@ -183,8 +186,13 @@ export default function Specialize() {
                       热门专业
                     </p>
                     <Image
-                      className="max-md:w-6 max-md:h-6"
+                      className="max-md:w-6 max-md:hidden max-md:h-6"
                       src={courseArrow}
+                      alt=""
+                    />
+                    <Image
+                      className="max-md:w-6 md:hidden max-md:h-6"
+                      src={mobile_courseArrow}
                       alt=""
                     />
                   </div>
@@ -198,7 +206,7 @@ export default function Specialize() {
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
                             {el.title}
                           </p>
-                          <p className="text-[10px] max-md:leading-[13px] text-ellipsis overflow-hidden line-clamp-2 font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
+                          <p className="text-[10px] max-md:scale-[0.83333] max-md:leading-[13px] text-ellipsis overflow-hidden  font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
                             {el.englishTitle}
                           </p>
                         </div>
@@ -212,14 +220,19 @@ export default function Specialize() {
                       热门院校
                     </p>
                     <Image
-                      className="max-md:w-6 max-md:h-6"
+                      className="max-md:w-6 max-md:hidden max-md:h-6"
                       src={courseArrow}
+                      alt=""
+                    />
+                    <Image
+                      className="max-md:w-6 md:hidden max-md:h-6"
+                      src={mobile_courseArrow}
                       alt=""
                     />
                   </div>
                   <div className="md:pl-2">
                     <div className="flex items-center">
-                      <p className="text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]">
+                      <p className="text-[18px] max-md:text-[14px] font-[400] leading-[160%] text-[#1A1A1A]">
                         英美
                       </p>
                       <div
@@ -232,7 +245,7 @@ export default function Specialize() {
                         {modernMusicSchool[0].map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool`}
-                            className="text-[13px] max-md:w-[163px] max-md:text-ellipsis max-md:overflow-hidden max-md:line-clamp-1 max-md:font-light max-md:text-[12px] max-md:leading-[14.3px] leading-[140%] text-[#3E3E3E] font-[300] "
+                            className="text-[13px] max-md:w-[163px] max-md:scale-[0.916666] max-md:text-ellipsis max-md:overflow-hidden max-md:line-clamp-1 max-md:font-light max-md:text-[12px] max-md:leading-[14.3px] leading-[140%] text-[#3E3E3E] font-[300] "
                           >
                             {el}
                           </p>
@@ -242,7 +255,7 @@ export default function Specialize() {
                   </div>
                   <div className="md:pl-2">
                     <div className="flex mt-11 max-md:mt-6 items-center">
-                      <p className="text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]">
+                      <p className="text-[18px] max-md:text-[14px] font-[400] leading-[160%] text-[#1A1A1A]">
                         日韩
                       </p>
                       <div
@@ -255,7 +268,7 @@ export default function Specialize() {
                         {modernMusicSchool[1].map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool-Japan and South Korea`}
-                            className="text-[13px] max-md:text-[11px] max-md:leading-[15.4px] leading-[140%] max-md:font-light text-[#3E3E3E] font-[300] "
+                            className="text-[13px] max-md:text-[11px] max-md:scale-[0.916666] max-md:leading-[15.4px] leading-[140%] max-md:font-light text-[#3E3E3E] font-[300] "
                           >
                             {el}
                           </p>
@@ -275,8 +288,13 @@ export default function Specialize() {
                       热门专业
                     </p>
                     <Image
-                      className="max-md:w-6 max-md:h-6"
+                      className="max-md:w-6 max-md:hidden max-md:h-6"
                       src={courseArrow}
+                      alt=""
+                    />
+                    <Image
+                      className="max-md:w-6 md:hidden max-md:h-6"
+                      src={mobile_courseArrow}
                       alt=""
                     />
                   </div>
@@ -290,7 +308,7 @@ export default function Specialize() {
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
                             {el.title}
                           </p>
-                          <p className="text-[12px] text-ellipsis overflow-hidden line-clamp-2 max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
+                          <p className="text-[12px] text-ellipsis max-md:scale-[0.83333] overflow-hidden  max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
                             {el.englishTitle}
                           </p>
                         </div>
@@ -304,14 +322,19 @@ export default function Specialize() {
                       热门院校
                     </p>
                     <Image
-                      className="max-md:h-6 max-md:w-6"
+                      className="max-md:w-6 max-md:hidden max-md:h-6"
                       src={courseArrow}
+                      alt=""
+                    />
+                    <Image
+                      className="max-md:w-6 md:hidden max-md:h-6"
+                      src={mobile_courseArrow}
                       alt=""
                     />
                   </div>
                   <div className="md:pl-2">
                     <div className="flex items-center">
-                      <p className="text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]">
+                      <p className="text-[18px] max-md:text-[14px] font-[400] leading-[160%] text-[#1A1A1A]">
                         英美
                       </p>
                       <div
@@ -325,7 +348,7 @@ export default function Specialize() {
                           (el: any, index: number) => (
                             <p
                               key={`${index}-classicalMusicSchool`}
-                              className="text-[13px] leading-[140%] text-[#3E3E3E]  max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[300] "
+                              className="text-[13px] leading-[140%] text-[#3E3E3E] max-md:scale-[0.916666] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[300] "
                             >
                               {el}
                             </p>
@@ -336,7 +359,7 @@ export default function Specialize() {
                   </div>
                   <div className="md:pl-2">
                     <div className="flex max-md:mt-6 mt-11 items-center">
-                      <p className="text-[18px] max-md:text-[14px] font-medium leading-[160%] text-[#1A1A1A]">
+                      <p className="text-[18px] max-md:text-[14px] font-[400] leading-[160%] text-[#1A1A1A]">
                         欧洲
                       </p>
                       <div
@@ -350,7 +373,7 @@ export default function Specialize() {
                           (el: any, index: number) => (
                             <p
                               key={`${index}-classicalMusicSchool-Japan and South Korea`}
-                              className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
+                              className="text-[13px] max-md:text-[11px] max-md:scale-[0.916666] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
                             >
                               {el}
                             </p>
@@ -371,8 +394,13 @@ export default function Specialize() {
                       热门专业
                     </p>
                     <Image
-                      className="max-md:h-6 max-md:w-6"
+                      className="max-md:w-6 max-md:hidden max-md:h-6"
                       src={courseArrow}
+                      alt=""
+                    />
+                    <Image
+                      className="max-md:w-6 md:hidden max-md:h-6"
+                      src={mobile_courseArrow}
                       alt=""
                     />
                   </div>
@@ -386,7 +414,7 @@ export default function Specialize() {
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
                             {el.title}
                           </p>
-                          <p className="text-[12px] text-ellipsis overflow-hidden line-clamp-2 max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
+                          <p className="text-[12px] text-ellipsis overflow-hidden max-md:scale-[0.83333] max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
                             {el.englishTitle}
                           </p>
                         </div>
@@ -400,8 +428,13 @@ export default function Specialize() {
                       热门院校
                     </p>
                     <Image
-                      className="max-md:h-6 max-md:w-6"
+                      className="max-md:w-6 max-md:hidden max-md:h-6"
                       src={courseArrow}
+                      alt=""
+                    />
+                    <Image
+                      className="max-md:w-6 md:hidden max-md:h-6"
+                      src={mobile_courseArrow}
                       alt=""
                     />
                   </div>
@@ -411,7 +444,7 @@ export default function Specialize() {
                         {musicalTheorySchool.map((el: any, index: number) => (
                           <p
                             key={`${index}-musicalTheorySchool`}
-                            className="text-[13px] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
+                            className="text-[13px] max-md:text-[11px] max-md:scale-[0.916666] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
                           >
                             {el}
                           </p>

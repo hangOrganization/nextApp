@@ -102,6 +102,7 @@ export default function SignCharacteristic({
   setCharacteristicType,
   setIsOpenCampus,
 }: SignCharacteristicProps) {
+  console.log("🚀 ~ file: SignCharacteristic.tsx:105 ~ characteristicType:", characteristicType)
   const dispatch = useAppDispatch();
   let time: any = ''
   const swiper = useSwiper()

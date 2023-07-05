@@ -75,13 +75,13 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                 </Dialog.Title>
                                 <div  className=" mx-auto h-full pt-10 w-[1200px]">
                                     <div className="flex justify-between">
-                                        <div style={{maxHeight:`${innerHeight-280}px`}}  className='overflow-auto'>
+                                        <div style={{maxHeight:`${innerHeight-200}px`}}  className='overflow-auto'>
                                             <Image className='w-[389px] mb-6 object-contain h-[519px]' src={teachers[textValue].image} alt='' />
                                             <NameOur>{teachers[textValue].name}</NameOur>
                                             <p className=' font-[300] mt-6 mb-4 text-[24px] leading-[120%] text-[#1A1A1A]'>{teachers[textValue].position}</p>
                                             <p className=' font-[300] text-[14px] w-[235px] leading-[180%] text-[#1A1A1A]'>{teachers[textValue].works}</p>
                                         </div>
-                                        <div style={{maxHeight:`${innerHeight-200}px`}} className='flex flex-col overflow-auto  gap-y-4 h-full pb-6'>
+                                        <div style={{maxHeight:`${innerHeight-200}px`}} className='flex flex-col overflow-auto  gap-y-4 h-full'>
                                             {teachers[textValue].detailed.map((el: any) => (
                                                 <div key={`${teachers[textValue].value}-${teachers[textValue].name}-1-MentorInformation`} className='text-[#1A1A1A] w-[642px] text-[14px] leading-[180%] font-light text-justify'>
                                                     {el}

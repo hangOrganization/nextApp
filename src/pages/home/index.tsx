@@ -47,6 +47,7 @@ const Box = styled.div`
 `;
 export default function Homepage() {
   const dispatch = useAppDispatch();
+  const [characteristicType, setCharacteristicType] = useState<number>(0);
   const [isOpenConsult, setIsOpenConsult] = useState<number>(0);
   const [isOpenCampus, setIsOpenCampus] = useState<number>(0);
   const scrollToView = (number: any) => {
@@ -62,8 +63,9 @@ export default function Homepage() {
     dispatch(setIsChrome(window.navigator.userAgent.indexOf("Chrome") >= 0));
   });
   return (
-    <Box className={`relative h-screen overflow-auto max-md:max-w-[100vw] `}>
+    <Box className={`relative h-screen overflow-auto max-md:overflow-x-hidden max-md:max-w-[100vw] `}>
       <Header
+        setCharacteristicType={setCharacteristicType}
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}
         isOpenCampus={isOpenCampus}
@@ -83,10 +85,10 @@ export default function Homepage() {
           <Introduction setIsOpenConsult={setIsOpenConsult} />
         </SwiperSlide>
         <SwiperSlide>
-          <Products/>
+          <Products />
         </SwiperSlide>
         <SwiperSlide>
-          <OurTeam setIsOpenCampus={setIsOpenCampus} />
+          <OurTeam characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
         </SwiperSlide>
         <SwiperSlide>
           <Disc />
@@ -96,7 +98,7 @@ export default function Homepage() {
         <Sign />
         <Introduction setIsOpenConsult={setIsOpenConsult} />
         <Products />
-        <OurTeam setIsOpenCampus={setIsOpenCampus} />
+        <OurTeam characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
         <Disc />
       </div>
     </Box>

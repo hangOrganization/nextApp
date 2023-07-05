@@ -13,13 +13,6 @@ import {
   setComePage,
 } from "@/state/application/reducer";
 
-interface HeaderProps {
-  isOpenCampus: number;
-  setIsOpenCampus: Function;
-  isOpenConsult: number;
-  setIsOpenConsult: Function;
-  scrollToView: any;
-}
 const Box = styled.div`
   .active-item {
     :before {
@@ -41,9 +34,18 @@ const CampusBox = styled.div`
   }
 `;
 
+interface HeaderProps {
+  isOpenCampus: number;
+  setIsOpenCampus: Function;
+  setCharacteristicType: Function;
+  isOpenConsult: number;
+  setIsOpenConsult: Function;
+  scrollToView: any;
+}
 export default function Header({
   isOpenCampus,
   setIsOpenCampus,
+  setCharacteristicType,
   setIsOpenConsult,
   isOpenConsult,
   scrollToView,
@@ -56,6 +58,7 @@ export default function Header({
       <div
         className=" cursor-pointer"
         onClick={() => {
+          setCharacteristicType(0)
           dispatch(setActiveIndex(0));
         }}
       >
@@ -64,10 +67,11 @@ export default function Header({
       </div>
       <div className="flex gap-4 max-md:gap-2 items-center">
         <div
-          className={`py-4 ${activeIndex === 2 ? "active-item " : "" } cursor-pointer flex justify-center relative text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 max-md:hidden font-light `}
+          className={`py-4 ${activeIndex === 2 ? "active-item " : ""} cursor-pointer flex justify-center relative text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 max-md:hidden font-light `}
           onClick={() => {
             dispatch(setActiveIndex(2));
             dispatch(setComePage(1));
+            setCharacteristicType(0)
           }}
         >
           音乐留学
@@ -76,6 +80,7 @@ export default function Header({
           className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${activeIndex === 3 && activeType === 0 ? "active-item " : ""
             }`}
           onClick={() => {
+            setCharacteristicType(0)
             dispatch(setActiveIndex(3));
             dispatch(setAboutOrCorporation(0));
             dispatch(setComePage(2));

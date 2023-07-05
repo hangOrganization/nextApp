@@ -122,7 +122,7 @@ export default function Sign({}: SignProps) {
           <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[600px] overflow-hidden relative">
             <EchoRollBox className="md:flex justify-center  ">
               <div className="md:w-[600px] md:h-[30px] max-md:w-screen relative text-center">
-                <p className="md:font-[250] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] text-[18px] absolute z-10 top-[0px] left-[9px] md:tracking-[8.72px]  text-center md:w-[600px]  text-box">
+                <p className="md:font-[250] max-md:font-[400] uppercase max-md:tracking-[6.72px] max-md:text-[14px] text-[18px] md:absolute z-10 top-[0px] left-[9px] md:tracking-[8.72px]  text-center md:w-[600px]  text-box">
                   听 见 世 界 的 回 响
                 </p>
               </div>

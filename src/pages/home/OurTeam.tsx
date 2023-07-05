@@ -140,8 +140,10 @@ const Box = styled.div`
 `;
 interface OurTeamProps {
   setIsOpenCampus: Function;
+  characteristicType: number;
+  setCharacteristicType: Function;
 }
-export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
+export default function OurTeam({ setIsOpenCampus, characteristicType, setCharacteristicType }: OurTeamProps) {
   const swiper = useSwiper();
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
@@ -153,7 +155,6 @@ export default function OurTeam({ setIsOpenCampus }: OurTeamProps) {
   const [isOpen, setIsOpen] = useState<number>(0);
   const [textValue, setTextValue] = useState<number>(0);
   const [cardHover, setCardHover] = useState<string>("");
-  const [characteristicType, setCharacteristicType] = useState<number>(0);
   const activeIndex = useActiveIndex();
   const activeType = useActiveType();
 

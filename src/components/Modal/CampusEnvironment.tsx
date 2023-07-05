@@ -76,7 +76,7 @@ export default function CampusEnvironment({
                           className="w-[644px] h-[520px]"
                         >
                           <Image
-                            className="w-[644px] h-[520px]"
+                            className="w-[644px] object-contain h-[520px]"
                             src={el.image}
                             alt=""
                           />
@@ -116,7 +116,7 @@ export default function CampusEnvironment({
                             className=" cursor-pointer w-[644px] h-[520px]"
                           >
                             <Image
-                              className="w-[644px] h-[520px]"
+                              className="w-[644px] object-contain h-[520px]"
                               src={el.image}
                               alt=""
                             />
