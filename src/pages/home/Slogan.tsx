@@ -108,7 +108,10 @@ export default function Slogan() {
         <div
           style={{ background: "rgb(255,255,255,.02", borderRadius: "24px" }}
         >
-          <MoveBox className="w-[592px]  max-md:w-[344px] h-[128px]  max-md:h-[143px] m-auto flex justify-center  max-md:flex-col items-center relative py-[38px]  max-md:py-[16px] max-md:hidden">
+          <MoveBox className="w-[592px]  max-md:w-[344px] h-[128px]  max-md:h-[143px] m-auto flex justify-center  max-md:flex-col items-center relative py-[38px]  max-md:py-[16px] max-md:hidden"
+            onClick={() => {
+              window.open("http://www.soundpic.cn/");
+            }}>
             <div className="export-text  font-[250] text-[16px] leading-[180%] uppercase tracking-[0.2em] text-[#ff4b00] max-md:text-[#CCC]  flex flex-col justify-center items-center absolute z-[2] max-md:relative">
               <p className="mb-[8px] text-[24px]  max-md:text-[20px]    max-md:font-[250]   max-md:translate-[0]">
                 探索更多声音服务
@@ -119,9 +122,6 @@ export default function Slogan() {
             </div>
             <div
               className="go-button font-[300]  max-md:font-[300 ] text-[14px] leading-[180%] tracking-[1.4px] text-[#1a1a1a] z-[2] absolute opacity-0 flex gap-[8px] max-md:relative max-md:opacity-[1]   max-md:text-[#FF4B00]  max-md:z-[5]"
-              onClick={() => {
-                window.open("http://www.soundpic.cn/");
-              }}
             >
               前往万像循声
               <Image

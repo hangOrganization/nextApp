@@ -48,6 +48,7 @@ const Box = styled.div`
 export default function Homepage() {
   const dispatch = useAppDispatch();
   const [characteristicType, setCharacteristicType] = useState<number>(0);
+  const [right, setRight] = useState<number>(0);
   const [isOpenConsult, setIsOpenConsult] = useState<number>(0);
   const [isOpenCampus, setIsOpenCampus] = useState<number>(0);
   const scrollToView = (number: any) => {
@@ -66,6 +67,7 @@ export default function Homepage() {
     <Box className={`relative h-screen overflow-auto max-md:overflow-x-hidden max-md:max-w-[100vw] `}>
       <Header
         setCharacteristicType={setCharacteristicType}
+        setRight={setRight}
         isOpenConsult={isOpenConsult}
         setIsOpenConsult={setIsOpenConsult}
         isOpenCampus={isOpenCampus}
@@ -88,7 +90,7 @@ export default function Homepage() {
           <Products />
         </SwiperSlide>
         <SwiperSlide>
-          <OurTeam characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+          <OurTeam setRight={setRight} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
         </SwiperSlide>
         <SwiperSlide>
           <Disc />
@@ -98,7 +100,7 @@ export default function Homepage() {
         <Sign />
         <Introduction setIsOpenConsult={setIsOpenConsult} />
         <Products />
-        <OurTeam characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+        <OurTeam setRight={setRight} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
         <Disc />
       </div>
     </Box>

@@ -40,212 +40,212 @@ import campusEnvironment_39 from "@/assets/image/campusEnvironment/campusEnviron
 import campusEnvironment_40 from "@/assets/image/campusEnvironment/campusEnvironment-40.jpg";
 import styled from "styled-components";
 export const list = [
-    {
-      index: 0,
-      name: "古典演奏录音棚及部分设备清单",
-      image: campusEnvironment_1,
-    },
-    {
-      index: 1,
-      name: "7.1.4杜比全景声电影混录棚",
-      image: campusEnvironment_2,
-    },
-    {
-      index: 2,
-      name: "5.1.4杜比全景声音乐混录棚",
-      image: campusEnvironment_3,
-    },
-    {
-      index: 3,
-      name: "西兴校区主录音室",
-      image: campusEnvironment_4,
-    },
-    {
-      index: 4,
-      name: "古典演奏录音棚",
-      image: campusEnvironment_5,
-    },
-    {
-      index: 5,
-      name: "古典演奏录音棚",
-      image: campusEnvironment_6,
-    },
-    {
-      index: 6,
-      name: "西兴校区门厅",
-      image: campusEnvironment_7,
-    },
-    {
-      index: 7,
-      name: "西兴校区7.1.4混录棚.",
-      image: campusEnvironment_8,
-    },
-    {
-      index: 8,
-      name: "西兴校区大厅",
-      image: campusEnvironment_9,
-    },
-    {
-      index: 9,
-      name: "西兴校区编曲间/声音设计实验室",
-      image: campusEnvironment_10,
-    },
-    {
-      index: 10,
-      name: "西兴校区独立编曲间",
-      image: campusEnvironment_11,
-    },
-    {
-      index: 11,
-      name: "钢琴及视唱练耳教室",
-      image: campusEnvironment_12,
-    },
-    {
-      index: 12,
-      name: "西兴校区活动",
-      image: campusEnvironment_13,
-    },
-    {
-      index: 13,
-      name: "西兴校区景观",
-      image: campusEnvironment_14,
-    },
-    {
-      index: 14,
-      name: "西兴校区原创专辑墙",
-      image: campusEnvironment_15,
-    },
-    {
-      index: 15,
-      name: "西兴校区编曲间",
-      image: campusEnvironment_16,
-    },
-    {
-      index: 16,
-      name: "西兴校区音箱墙景观",
-      image: campusEnvironment_17,
-    },
-    {
-      index: 17,
-      name: "模块合成器展示",
-      image: campusEnvironment_18,
-    },
-    {
-      index: 18,
-      name: "古典演奏录音棚",
-      image: campusEnvironment_19,
-    },
-    {
-      index: 19,
-      name: "西兴校区休息区",
-      image: campusEnvironment_20,
-    },
-    {
-      index: 20,
-      name: "现代电声乐队排练录音棚",
-      image: campusEnvironment_21,
-    },
-    {
-      index: 21,
-      name: "西兴校区古典演奏教室",
-      image: campusEnvironment_22,
-    },
-    {
-      index: 22,
-      name: "U87主话筒",
-      image: campusEnvironment_23,
-    },
-    {
-      index: 23,
-      name: "UDC校区门厅",
-      image: campusEnvironment_24,
-    },
-    {
-      index: 24,
-      name: "UDC校区Workshop区",
-      image: campusEnvironment_25,
-    },
-    {
-      index: 25,
-      name: "UDC校区音乐制作课堂",
-      image: campusEnvironment_26,
-    },
-    {
-      index: 26,
-      name: "UDC校区讲座",
-      image: campusEnvironment_27,
-    },
-    {
-      index: 27,
-      name: "UDC校区讲座",
-      image: campusEnvironment_28,
-    },
-    {
-      index: 28,
-      name: "UDC校区音乐自习室",
-      image: campusEnvironment_29,
-    },
-    {
-      index: 29,
-      name: "UDC校区原创专辑墙",
-      image: campusEnvironment_30,
-    },
-    {
-      index: 30,
-      name: "UDC校区活动",
-      image: campusEnvironment_31,
-    },
-    {
-      index: 31,
-      name: "UDC校区会客休息区",
-      image: campusEnvironment_32,
-    },
-    {
-      index: 32,
-      name: "UDC校区黑胶唱片墙",
-      image: campusEnvironment_33,
-    },
-    {
-      index: 33,
-      name: "5.1.4全景声音乐混录棚",
-      image: campusEnvironment_34,
-    },
-    {
-      index: 34,
-      name: "西兴校区编曲间",
-      image: campusEnvironment_35,
-    },
-    {
-      index: 35,
-      name: "UDC校区会客休息区",
-      image: campusEnvironment_36,
-    },
-    {
-      index: 36,
-      name: "7.1.4全景声电影混录棚",
-      image: campusEnvironment_37,
-    },
-    {
-      index: 37,
-      name: "西兴校区休息区",
-      image: campusEnvironment_38,
-    },
-    {
-      index: 38,
-      name: "YAMAHA C7B 演奏级三角钢琴",
-      image: campusEnvironment_39,
-    },
-    {
-      index: 39,
-      name: "YAMAHA C7B 演奏级三角钢琴",
-      image: campusEnvironment_40,
-    },
-  ];
+  {
+    index: 0,
+    name: "古典演奏录音棚及部分设备清单",
+    image: campusEnvironment_1,
+  },
+  {
+    index: 1,
+    name: "7.1.4杜比全景声电影混录棚",
+    image: campusEnvironment_2,
+  },
+  {
+    index: 2,
+    name: "5.1.4杜比全景声音乐混录棚",
+    image: campusEnvironment_3,
+  },
+  {
+    index: 3,
+    name: "西兴校区主录音室",
+    image: campusEnvironment_4,
+  },
+  {
+    index: 4,
+    name: "古典演奏录音棚",
+    image: campusEnvironment_5,
+  },
+  {
+    index: 5,
+    name: "古典演奏录音棚",
+    image: campusEnvironment_6,
+  },
+  {
+    index: 6,
+    name: "西兴校区门厅",
+    image: campusEnvironment_7,
+  },
+  {
+    index: 7,
+    name: "西兴校区7.1.4混录棚.",
+    image: campusEnvironment_8,
+  },
+  {
+    index: 8,
+    name: "西兴校区大厅",
+    image: campusEnvironment_9,
+  },
+  {
+    index: 9,
+    name: "西兴校区编曲间/声音设计实验室",
+    image: campusEnvironment_10,
+  },
+  {
+    index: 10,
+    name: "西兴校区独立编曲间",
+    image: campusEnvironment_11,
+  },
+  {
+    index: 11,
+    name: "钢琴及视唱练耳教室",
+    image: campusEnvironment_12,
+  },
+  {
+    index: 12,
+    name: "西兴校区活动",
+    image: campusEnvironment_13,
+  },
+  {
+    index: 13,
+    name: "西兴校区景观",
+    image: campusEnvironment_14,
+  },
+  {
+    index: 14,
+    name: "西兴校区原创专辑墙",
+    image: campusEnvironment_15,
+  },
+  {
+    index: 15,
+    name: "西兴校区编曲间",
+    image: campusEnvironment_16,
+  },
+  {
+    index: 16,
+    name: "西兴校区音箱墙景观",
+    image: campusEnvironment_17,
+  },
+  {
+    index: 17,
+    name: "模块合成器展示",
+    image: campusEnvironment_18,
+  },
+  {
+    index: 18,
+    name: "古典演奏录音棚",
+    image: campusEnvironment_19,
+  },
+  {
+    index: 19,
+    name: "西兴校区休息区",
+    image: campusEnvironment_20,
+  },
+  {
+    index: 20,
+    name: "现代电声乐队排练录音棚",
+    image: campusEnvironment_21,
+  },
+  {
+    index: 21,
+    name: "西兴校区古典演奏教室",
+    image: campusEnvironment_22,
+  },
+  {
+    index: 22,
+    name: "U87主话筒",
+    image: campusEnvironment_23,
+  },
+  {
+    index: 23,
+    name: "UDC校区门厅",
+    image: campusEnvironment_24,
+  },
+  {
+    index: 24,
+    name: "UDC校区Workshop区",
+    image: campusEnvironment_25,
+  },
+  {
+    index: 25,
+    name: "UDC校区音乐制作课堂",
+    image: campusEnvironment_26,
+  },
+  {
+    index: 26,
+    name: "UDC校区讲座",
+    image: campusEnvironment_27,
+  },
+  {
+    index: 27,
+    name: "UDC校区讲座",
+    image: campusEnvironment_28,
+  },
+  {
+    index: 28,
+    name: "UDC校区音乐自习室",
+    image: campusEnvironment_29,
+  },
+  {
+    index: 29,
+    name: "UDC校区原创专辑墙",
+    image: campusEnvironment_30,
+  },
+  {
+    index: 30,
+    name: "UDC校区活动",
+    image: campusEnvironment_31,
+  },
+  {
+    index: 31,
+    name: "UDC校区会客休息区",
+    image: campusEnvironment_32,
+  },
+  {
+    index: 32,
+    name: "UDC校区黑胶唱片墙",
+    image: campusEnvironment_33,
+  },
+  {
+    index: 33,
+    name: "5.1.4全景声音乐混录棚",
+    image: campusEnvironment_34,
+  },
+  {
+    index: 34,
+    name: "西兴校区编曲间",
+    image: campusEnvironment_35,
+  },
+  {
+    index: 35,
+    name: "UDC校区会客休息区",
+    image: campusEnvironment_36,
+  },
+  {
+    index: 36,
+    name: "7.1.4全景声电影混录棚",
+    image: campusEnvironment_37,
+  },
+  {
+    index: 37,
+    name: "西兴校区休息区",
+    image: campusEnvironment_38,
+  },
+  {
+    index: 38,
+    name: "YAMAHA C7B 演奏级三角钢琴",
+    image: campusEnvironment_39,
+  },
+  {
+    index: 39,
+    name: "YAMAHA C7B 演奏级三角钢琴",
+    image: campusEnvironment_40,
+  },
+];
 
-  export const CampusEnvironmentBg = styled.div`
+export const CampusEnvironmentBg = styled.div`
   background-size: 100% 100%;
   /* background-image: url(${campusEnvironment_1.src}); */
-  animation: CampusEnvironmentBg_move 200s linear infinite;
+  animation: CampusEnvironmentBg_move 400s linear infinite;
   @keyframes CampusEnvironmentBg_move {
     0%{
       background-image: url(${list[0].image.src});
@@ -262,10 +262,10 @@ export const list = [
       transform:scale(1.1);
       opacity: 0;
     }
-    2.5%{
+    2.51%{
       background-image: url(${list[1].image.src});
       transform:scale(1);
-      opacity: 0;
+      opacity: 0 !important;
     }
     3%{
       background-image: url(${list[1].image.src});
@@ -285,7 +285,7 @@ export const list = [
     5.01%{
       background-image: url(${list[2].image.src});
       transform:scale(1);
-      opacity: 0;
+      opacity: 0 !important;
     }
     5.5%{
       background-image: url(${list[2].image.src});
@@ -305,7 +305,7 @@ export const list = [
     7.51%{
       background-image: url(${list[3].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     8%{
       background-image: url(${list[3].image.src});
@@ -325,7 +325,7 @@ export const list = [
     10.01%{
       background-image: url(${list[4].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     10.5%{
       background-image: url(${list[4].image.src});
@@ -345,7 +345,7 @@ export const list = [
     12.51%{
       background-image: url(${list[5].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     13%{
       background-image: url(${list[5].image.src});
@@ -365,7 +365,7 @@ export const list = [
     15.01%{
       background-image: url(${list[6].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     15.5%{
       background-image: url(${list[6].image.src});
@@ -385,7 +385,7 @@ export const list = [
     17.51%{
       background-image: url(${list[7].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     18%{
       background-image: url(${list[7].image.src});
@@ -405,7 +405,7 @@ export const list = [
     20.01%{
       background-image: url(${list[8].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     20.5%{
       background-image: url(${list[8].image.src});
@@ -425,7 +425,7 @@ export const list = [
     22.51%{
       background-image: url(${list[9].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     23%{
       background-image: url(${list[9].image.src});
@@ -445,7 +445,7 @@ export const list = [
     25.01%{
       background-image: url(${list[10].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     25.5%{
       background-image: url(${list[10].image.src});
@@ -465,7 +465,7 @@ export const list = [
     27.51%{
       background-image: url(${list[11].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     28%{
       background-image: url(${list[11].image.src});
@@ -485,7 +485,7 @@ export const list = [
     30.01%{
       background-image: url(${list[12].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     30.5%{
       background-image: url(${list[12].image.src});
@@ -505,7 +505,7 @@ export const list = [
     32.51%{
       background-image: url(${list[13].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     33%{
       background-image: url(${list[13].image.src});
@@ -525,7 +525,7 @@ export const list = [
     35.01%{
       background-image: url(${list[14].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     35.5%{
       background-image: url(${list[14].image.src});
@@ -545,7 +545,7 @@ export const list = [
     37.51%{
       background-image: url(${list[15].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     38%{
       background-image: url(${list[15].image.src});
@@ -565,7 +565,7 @@ export const list = [
     40.01%{
       background-image: url(${list[16].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     40.5%{
       background-image: url(${list[16].image.src});
@@ -585,7 +585,7 @@ export const list = [
     42.51%{
       background-image: url(${list[17].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     43%{
       background-image: url(${list[17].image.src});
@@ -605,7 +605,7 @@ export const list = [
     45.01%{
       background-image: url(${list[18].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     45.5%{
       background-image: url(${list[18].image.src});
@@ -625,7 +625,7 @@ export const list = [
     47.51%{
       background-image: url(${list[19].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     48%{
       background-image: url(${list[19].image.src});
@@ -645,7 +645,7 @@ export const list = [
     50.01%{
       background-image: url(${list[20].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     50.5%{
       background-image: url(${list[20].image.src});
@@ -665,7 +665,7 @@ export const list = [
     52.51%{
       background-image: url(${list[21].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     53%{
       background-image: url(${list[21].image.src});
@@ -685,7 +685,7 @@ export const list = [
     55.01%{
       background-image: url(${list[22].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     55.5%{
       background-image: url(${list[22].image.src});
@@ -705,7 +705,7 @@ export const list = [
     57.51%{
       background-image: url(${list[23].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     58%{
       background-image: url(${list[23].image.src});
@@ -725,7 +725,7 @@ export const list = [
     60.01%{
       background-image: url(${list[24].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     60.5%{
       background-image: url(${list[24].image.src});
@@ -745,7 +745,7 @@ export const list = [
     62.51%{
       background-image: url(${list[25].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     63%{
       background-image: url(${list[25].image.src});
@@ -765,7 +765,7 @@ export const list = [
     65.01%{
       background-image: url(${list[26].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     65.5%{
       background-image: url(${list[26].image.src});
@@ -785,7 +785,7 @@ export const list = [
     67.51%{
       background-image: url(${list[27].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     68%{
       background-image: url(${list[27].image.src});
@@ -805,7 +805,7 @@ export const list = [
     70.01%{
       background-image: url(${list[28].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     70.5%{
       background-image: url(${list[28].image.src});
@@ -825,7 +825,7 @@ export const list = [
     72.51%{
       background-image: url(${list[29].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     73%{
       background-image: url(${list[29].image.src});
@@ -845,7 +845,7 @@ export const list = [
     75.01%{
       background-image: url(${list[30].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     75.5%{
       background-image: url(${list[30].image.src});
@@ -865,7 +865,7 @@ export const list = [
     77.51%{
       background-image: url(${list[31].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     78%{
       background-image: url(${list[31].image.src});
@@ -885,7 +885,7 @@ export const list = [
     80.01%{
       background-image: url(${list[32].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     80.5%{
       background-image: url(${list[32].image.src});
@@ -905,7 +905,7 @@ export const list = [
     82.51%{
       background-image: url(${list[33].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     83%{
       background-image: url(${list[33].image.src});
@@ -925,7 +925,7 @@ export const list = [
     85.01%{
       background-image: url(${list[34].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     85.5%{
       background-image: url(${list[34].image.src});
@@ -945,7 +945,7 @@ export const list = [
     87.51%{
       background-image: url(${list[35].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     88%{
       background-image: url(${list[35].image.src});
@@ -965,7 +965,7 @@ export const list = [
     90.01%{
       background-image: url(${list[36].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     90.5%{
       background-image: url(${list[36].image.src});
@@ -985,7 +985,7 @@ export const list = [
     92.51%{
       background-image: url(${list[37].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     93%{
       background-image: url(${list[37].image.src});
@@ -1005,7 +1005,7 @@ export const list = [
     95.01%{
       background-image: url(${list[38].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     95.5%{
       background-image: url(${list[38].image.src});
@@ -1025,7 +1025,7 @@ export const list = [
     97.51%{
       background-image: url(${list[39].image.src});
       transform:scale(1);
-      opacity: 0;
+opacity: 0 !important;
     }
     98%{
       background-image: url(${list[39].image.src});

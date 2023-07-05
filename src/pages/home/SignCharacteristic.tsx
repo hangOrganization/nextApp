@@ -9,7 +9,6 @@ import signCharacteristic_title from "@/assets/image/mobile/mobile-signCharacter
 import signCharacteristic_active from "@/assets/image/mobile/icon-mobile-signCharacteristic-active.svg";
 import mobile_signCharacteristic_bg from "@/assets/image/mobile/mobile-signCharacteristic-bg.svg";
 import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.png";
-import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.png";
 import { CampusEnvironmentBg } from "@/utils/campusEnvironmentList";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
 import styled from "styled-components";
@@ -178,15 +177,14 @@ export default function SignCharacteristic({
           <div className={`max-md:hidden absolute top-0 left-0 w-full h-full`}>
             <div className="absolute top-0 left-0 flex justify-center overflow-hidden items-center w-full h-full">
               <CampusEnvironmentBg
-                className={`${right === 0 ? "h-0 opacity-0 w-0" : "opacity-100 w-full h-full"
-                  } transition-all !bg-no-repeat ease-[cubic-bezier(0.24,0,0.58,1)] duration-1000`}>
+                className={`${right === 0 ? "h-0 rounded-full w-0" : " opacity-100 rounded-[0] w-full h-full"
+                  } transition-all !bg-no-repeat opacity-0 bg-blend-lighten ease-[cubic-bezier(0.24,0,0.58,1)] duration-1000`}>
               </CampusEnvironmentBg>
               <div style={{
                 background: 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.90) 51.71%, #1A1A1A 100%), radial-gradient(50% 50.00% at 50% 50.00%, rgba(26, 26, 26, 0.00) 0%, rgba(26, 26, 26, 0.50) 100%)',
                 boxShadow: '0px 0px 200px 40px #1A1A1A inset'
               }} className="absolute top-0 left-0 w-full h-full"></div>
             </div>
-
             <Image
               className={`absolute top-[-200px]
               ${characteristicType === 1

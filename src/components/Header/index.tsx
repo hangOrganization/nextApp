@@ -36,6 +36,7 @@ const CampusBox = styled.div`
 
 interface HeaderProps {
   isOpenCampus: number;
+  setRight: Function;
   setIsOpenCampus: Function;
   setCharacteristicType: Function;
   isOpenConsult: number;
@@ -44,6 +45,7 @@ interface HeaderProps {
 }
 export default function Header({
   isOpenCampus,
+  setRight,
   setIsOpenCampus,
   setCharacteristicType,
   setIsOpenConsult,
@@ -59,6 +61,7 @@ export default function Header({
         className=" cursor-pointer"
         onClick={() => {
           setCharacteristicType(0)
+          setRight(0)
           dispatch(setActiveIndex(0));
         }}
       >
@@ -71,6 +74,7 @@ export default function Header({
           onClick={() => {
             dispatch(setActiveIndex(2));
             dispatch(setComePage(1));
+            setRight(0)
             setCharacteristicType(0)
           }}
         >
@@ -82,6 +86,7 @@ export default function Header({
           onClick={() => {
             setCharacteristicType(0)
             dispatch(setActiveIndex(3));
+            setRight(0)
             dispatch(setAboutOrCorporation(0));
             dispatch(setComePage(2));
           }}

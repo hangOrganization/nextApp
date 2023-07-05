@@ -141,16 +141,17 @@ const Box = styled.div`
 interface OurTeamProps {
   setIsOpenCampus: Function;
   characteristicType: number;
+  right: number,
+  setRight: Function,
   setCharacteristicType: Function;
 }
-export default function OurTeam({ setIsOpenCampus, characteristicType, setCharacteristicType }: OurTeamProps) {
+export default function OurTeam({ setIsOpenCampus, right, setRight, characteristicType, setCharacteristicType }: OurTeamProps) {
   const swiper = useSwiper();
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
   const innerWidth = useOuterWidth();
   const comePage = useComePage();
   const isChrome = useIsChrome();
-  const [right, setRight] = useState<number>(0);
   const [scrollTop, setScrollTop] = useState<number>(0);
   const [isOpen, setIsOpen] = useState<number>(0);
   const [textValue, setTextValue] = useState<number>(0);

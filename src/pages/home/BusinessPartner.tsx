@@ -96,7 +96,7 @@ const PartnerFilter = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   opacity: 0.2;
   background-blend-mode: overlay;
@@ -171,7 +171,6 @@ export default function BusinessPartner() {
             )
           )}
         </ScrollCenterBox>
-
         <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
