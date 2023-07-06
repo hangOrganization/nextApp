@@ -40,8 +40,6 @@ animation: EchoRollBoxVidoeMove 1ms linear 8000ms forwards ;
     background-color: white;
     opacity: 0;
   }
-
-
   100% {
     background-color: white;
 
@@ -52,8 +50,6 @@ animation: EchoRollBoxVidoeMove 1ms linear 8000ms forwards ;
 @keyframes rocket-move-out2 {
   0% {
     background-color: white;
-
-
     /* bottom: 50%; */
     opacity: 1;
   }
@@ -64,9 +60,6 @@ animation: EchoRollBoxVidoeMove 1ms linear 8000ms forwards ;
     background-color: #ff9b7a;
 
   }
-
-
-
   99% {
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
