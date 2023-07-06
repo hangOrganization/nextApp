@@ -593,7 +593,6 @@ export default function SignCharacteristic({
                       </div>
                     </div>
                   </div>
-
                   <div
                     className={`${
                       mobileRight == 1

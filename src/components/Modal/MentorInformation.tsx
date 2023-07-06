@@ -12,6 +12,9 @@ const Panel = styled(Dialog.Panel)`
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 48px 48px 0px 0px;
+    @media not all and (min-width: 768px) {
+        border-radius: 16px 16px 0px 0px;
+    }
 `
 const NameOur = styled.p`
     font-family: "General Sans";
@@ -24,6 +27,18 @@ const NameOur = styled.p`
     color: #e8e8e8;
     -webkit-text-stroke: 1px #0000ff;
     text-shadow: 4px 0px 0px #0000ff;
+    @media not all and (min-width: 768px) {
+        color: #00F;
+        font-family: General Sans;
+        font-size: 32px;
+        font-style: italic;
+        font-weight: 700;
+        line-height: 120%;
+        letter-spacing: 1.6px;
+        text-transform: uppercase; 
+        -webkit-text-stroke: 0px #0000ff;
+        text-shadow: 0px 0px 0px #0000ff;
+    }
 `;
 interface MentorInformationProps {
     isOpen: number
@@ -31,13 +46,22 @@ interface MentorInformationProps {
     setIsOpen: Function
 }
 export default function MentorInformation({ isOpen, setIsOpen, textValue }: MentorInformationProps) {
-    const [innerHeight , setInnerHeight] = useState<number>(0)
+    const [innerHeight, setInnerHeight] = useState<number>(0)
     function closeModal() {
         setIsOpen(0)
     }
     useEffect(() => {
         setInnerHeight(window.innerHeight)
-      },[]);
+    }, []);
+    const Box = styled.div`
+      @media (min-width: 768px) {
+        max-height:${innerHeight - 200}px;
+      }
+      @media not all and (min-width: 768px) {
+        max-height:${innerHeight - 341}px;
+        
+      }
+  `
     return (
         <Transition appear show={isOpen === 1 ? true : false} as={Fragment}>
             <Dialog as="div" className="relative z-[1000000]" onClose={closeModal}>
@@ -53,7 +77,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                     <div className="fixed inset-0 bg-black bg-opacity-70" />
                 </Transition.Child>
                 <div className="fixed inset-0 overflow-y-auto">
-                    <div className="flex min-h-screen h-screen items-end pt-20 justify-center text-center">
+                    <div className="flex min-h-screen h-screen items-end max-md:pt-[64px] pt-20 justify-center text-center">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-600"
@@ -63,7 +87,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                             leaveFrom="translate-y-[0px]"
                             leaveTo="translate-y-[1000px]"
                         >
-                            <Panel className="w-full min-h-full h-full overflow-hidden transform p-12 text-left align-middle shadow-xl transition-all">
+                            <Panel className="w-full min-h-full h-full overflow-hidden transform p-12 max-md:p-[12px] text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title
                                     as="h3"
                                     className="text-lg flex justify-end font-medium leading-6 text-gray-900"
@@ -73,36 +97,38 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                         <path d="M8 8L24.0012 24.0012" stroke="#1A1A1A" />
                                     </svg>
                                 </Dialog.Title>
-                                <div  className=" mx-auto h-full pt-10 w-[1200px]">
-                                    <div className="flex justify-between">
-                                        <div style={{maxHeight:`${innerHeight-200}px`}}  className='overflow-auto'>
-                                            <Image className='w-[389px] mb-6 object-contain h-[519px]' src={teachers[textValue].image} alt='' />
-                                            <NameOur>{teachers[textValue].name}</NameOur>
-                                            <p className=' font-[300] mt-6 mb-4 text-[24px] leading-[120%] text-[#1A1A1A]'>{teachers[textValue].position}</p>
-                                            <p className=' font-[300] text-[14px] w-[235px] leading-[180%] text-[#1A1A1A]'>{teachers[textValue].works}</p>
-                                        </div>
-                                        <div style={{maxHeight:`${innerHeight-200}px`}} className='flex flex-col overflow-auto  gap-y-4 h-full'>
+                                <div className=" mx-auto max-md:mx-1 h-full max-md:pt-3 pt-10 md:w-[1200px]">
+                                    <div className="md:flex justify-between">
+                                        <Box className='max-md:flex overflow-auto'>
+                                            <Image className='w-[389px] max-md:w-[148px] max-md:h-[197px] mb-6 object-contain h-[519px]' src={teachers[textValue].image} alt='' />
+                                            <div className='max-md:ml-4'>
+                                                <NameOur>{teachers[textValue].name}</NameOur>
+                                                <p className=' font-[300] max-md:font-[400] mt-6 mb-4 max-md:text-[14px] text-[24px] leading-[120%] text-[#1A1A1A]'>{teachers[textValue].position}</p>
+                                                <p className=' font-[300] max-md:text-[12px] max-md:w-[179px] text-[14px] w-[235px] max-md:opacity-70 leading-[180%] text-[#1A1A1A]'>{teachers[textValue].works}</p>
+                                            </div>
+                                        </Box>
+                                        <Box className='flex flex-col max-md:w-full overflow-auto gap-y-4 max-md:pb-8 h-full'>
                                             {teachers[textValue].detailed.map((el: any) => (
-                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-1-MentorInformation`} className='text-[#1A1A1A] w-[642px] text-[14px] leading-[180%] font-light text-justify'>
+                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-1-MentorInformation`} className='text-[#1A1A1A] md:w-[642px] text-[14px] max-md:text-[12px] max-md:font-[300] max-md:opacity-80 leading-[180%] font-light text-justify'>
                                                     {el}
                                                 </div>
                                             ))}
                                             {teachers[textValue].participatingWorks.map((el: any) => (
-                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-2-MentorInformation`} className='text-[#1A1A1A] w-[642px] text-[14px] leading-[180%] font-light text-justify'>
+                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-2-MentorInformation`} className='text-[#1A1A1A] md:w-[642px] text-[14px] max-md:text-[12px] max-md:font-[300] max-md:opacity-80 leading-[180%] font-light text-justify'>
                                                     {el}
                                                 </div>
                                             ))}
                                             {teachers[textValue].personalWorks.map((el: any) => (
-                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-3-MentorInformation`} className='text-[#1A1A1A] w-[642px] text-[14px] leading-[180%] font-light text-justify'>
+                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-3-MentorInformation`} className='text-[#1A1A1A] md:w-[642px] text-[14px] max-md:text-[12px] max-md:font-[300] max-md:opacity-80 leading-[180%] font-light text-justify'>
                                                     {el}
                                                 </div>
                                             ))}
                                             {teachers[textValue].personalWorks.map((el: any) => (
-                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-4-MentorInformation`} className='text-[#1A1A1A] w-[642px] text-[14px] leading-[180%] font-light text-justify'>
+                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-4-MentorInformation`} className='text-[#1A1A1A] md:w-[642px] text-[14px] max-md:text-[12px] max-md:font-[300] max-md:opacity-80 leading-[180%] font-light text-justify'>
                                                     {el}
                                                 </div>
                                             ))}
-                                        </div>
+                                        </Box>
                                     </div>
                                 </div>
                             </Panel>
