@@ -21,13 +21,11 @@ import {
   setOuterWidth,
   setThrottleFlag,
 } from "@/state/application/reducer";
-
 interface SignProps {}
 export default function Sign({}: SignProps) {
   const throttleFlag = useThrottleFlag();
   const innerWidth = useOuterWidth();
   const activeIndex = useActiveIndex();
-  console.log("🚀 ~ file: Sign.tsx:30 ~ Sign ~ activeIndex:", activeIndex);
   const dispatch = useAppDispatch();
   const isChrome = useIsChrome();
   const swiper = useSwiper();

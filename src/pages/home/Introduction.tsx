@@ -12,6 +12,9 @@ import speed_line from "@/assets/image/gif/speed-line.gif";
 import shadow_bg_2 from "@/assets/image/svg/shadow-bg-2.svg";
 import lEtsRock_button from "@/assets/image/svg/lEt’s-Rock-button.svg";
 import mobile_video from "../../assets/image/mobile/mobile-video.png";
+import mobile_shadow from "../../assets/image/mobile-shadow/mobile-shadow.svg";
+import mobile_shadow_1 from "../../assets/image/mobile-shadow/mobile-shadow-1.svg";
+import mobile_shadow_2 from "../../assets/image/mobile-shadow/mobile-shadow-2.svg";
 import { setActiveIndex, setComePage, setThrottleFlag } from "@/state/application/reducer";
 import {
   useActiveIndex,
@@ -46,7 +49,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
     if (activeIndex === 1) {
       if (comePage === 8) {
         document.querySelector("#introductionBox")?.scrollTo({
-          top: 900,
+          top: 800,
           behavior: "smooth",
         });
       } else {
@@ -56,7 +59,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         });
       }
     }
-  }, [activeIndex]);
+  }, [activeIndex, comePage]);
   return (
     <div
       id="introductionBox"
@@ -86,7 +89,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         }
       }}
     >
-      <div className="md:relative pb-[300px] z-[50]">
+      <div className="md:relative md:pb-[300px] z-[50]">
         <Image
           className=" max-md:hidden absolute left-0 top-[-100px]"
           src={shadow_bg}
@@ -97,6 +100,23 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           src={shadow_bg_2}
           alt=""
         />
+        <Image
+          className=" md:hidden absolute left-0 top-[-30px]"
+          src={mobile_shadow}
+          alt=""
+        />
+        <Image
+          className=" md:hidden absolute right-0 top-[230px]"
+          src={mobile_shadow_1}
+          alt=""
+        />
+        <Image
+          className=" md:hidden absolute left-0 !bottom-[250px]"
+          src={mobile_shadow_2}
+          alt=""
+        />
+
+
         <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:mx-auto gap-x-[192px] md:justify-center justify-between">
           <div className="w-[224px] flex-col flex items-center">
             <div
@@ -123,56 +143,6 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 className="w-[220px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
                 style={{ backgroundImage: `url(${apply_gif.src})` }}
               ></div>
-              {/* <SliderBox className="relative flex justify-center">
-                <div className="absolute top-[0%] slider w-4 h-1 bg-[#CCCCCC]"></div>
-                <div
-                  style={{ border: "0.5px solid #CCCCCC" }}
-                  className="h-20"
-                ></div>
-              </SliderBox>
-              <RollBox className=" h-[102px] overflow-hidden">
-                <div className="text-center roll h-[408px]">
-                  <div className="text-center">
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      音乐艺术
-                    </p>
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      作品集
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      留学申请
-                    </p>
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      规划
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      跨界艺术
-                    </p>
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      联动
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      音乐艺术
-                    </p>
-                    <p className="text-[32px] leading-[160%] font-[300]">
-                      作品集
-                    </p>
-                  </div>
-                </div>
-              </RollBox>
-              <SliderBox className="relative rotate-180 flex justify-center">
-                <div className="absolute top-[0%] slider w-4 h-1 bg-[#CCCCCC]"></div>
-                <div
-                  style={{ border: "0.5px solid #CCCCCC" }}
-                  className="h-20"
-                ></div>
-              </SliderBox> */}
             </div>
             <div className="mt-6 py-[31px] h-[124px]">
               <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">

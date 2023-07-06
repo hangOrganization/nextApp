@@ -30,7 +30,6 @@ const CampusBox = styled.div`
   border: 1px solid rgba(204, 204, 204, 0.5);
   @media (min-width: 768px) {
   border: 1px solid rgba(204, 204, 204, 0.3);
-    
   }
 `;
 
@@ -54,7 +53,6 @@ export default function Header({
   isOpenConsult,
   scrollToView,
 }: HeaderProps) {
-  console.log("🚀 ~ file: index.tsx:57 ~ scrollTop:", scrollTop)
   const activeIndex = useActiveIndex();
   const dispatch = useAppDispatch();
   const activeType = useActiveType();

@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useAppDispatch } from "@/state/hooks";
 import { setIsChrome } from "@/state/application/reducer";
 import styled from "styled-components";
+import Specialize from "./Specialize";
 const Box = styled.div`
   .swiper-move-in {
     @media (min-width: 768px) {
@@ -65,46 +66,49 @@ export default function Homepage() {
     dispatch(setIsChrome(window.navigator.userAgent.indexOf("Chrome") >= 0));
   });
   return (
-    <Box className={`relative h-screen overflow-auto max-md:overflow-x-hidden max-md:max-w-[100vw] `}>
-      <Header
-        setCharacteristicType={setCharacteristicType}
-        setRight={setRight}
-        scrollTop={ourTeamScrollTop}
-        isOpenConsult={isOpenConsult}
-        setIsOpenConsult={setIsOpenConsult}
-        isOpenCampus={isOpenCampus}
-        setIsOpenCampus={setIsOpenCampus}
-        scrollToView={scrollToView}
-      />
-      <Swiper
-        id="Swiper"
-        direction={"vertical"}
-        threshold={100}
-        className="mySwiper max-md:!hidden w-screen h-screen"
+      <Box
+        className={`relative  md:h-screen max-md:h-full md:overflow-auto  max-md:max-w-[100vw]`}
       >
-        <SwiperSlide>
+        <Header
+          setCharacteristicType={setCharacteristicType}
+          setRight={setRight}
+          scrollTop={ourTeamScrollTop}
+          isOpenConsult={isOpenConsult}
+          setIsOpenConsult={setIsOpenConsult}
+          isOpenCampus={isOpenCampus}
+          setIsOpenCampus={setIsOpenCampus}
+          scrollToView={scrollToView}
+        />
+        <Swiper
+          id="Swiper"
+          direction={"vertical"}
+          threshold={100}
+          className="mySwiper max-md:!hidden w-screen h-screen"
+        >
+          <SwiperSlide>
+            <Sign />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Introduction setIsOpenConsult={setIsOpenConsult} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Products />
+          </SwiperSlide>
+          <SwiperSlide>
+            <OurTeam setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Disc />
+          </SwiperSlide>
+        </Swiper>
+        <div className="md:hidden">
           <Sign />
-        </SwiperSlide>
-        <SwiperSlide>
           <Introduction setIsOpenConsult={setIsOpenConsult} />
-        </SwiperSlide>
-        <SwiperSlide>
           <Products />
-        </SwiperSlide>
-        <SwiperSlide>
+          <Specialize />
           <OurTeam setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
-        </SwiperSlide>
-        <SwiperSlide>
           <Disc />
-        </SwiperSlide>
-      </Swiper>
-      <div className="md:hidden">
-        <Sign />
-        <Introduction setIsOpenConsult={setIsOpenConsult} />
-        <Products />
-        <OurTeam setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
-        <Disc />
-      </div>
-    </Box>
+        </div>
+      </Box>
   );
 }

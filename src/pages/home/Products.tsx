@@ -6,6 +6,7 @@ import Specialize from "./Specialize";
 import styled from "styled-components";
 import { useAppDispatch } from "@/state";
 import { useSwiper } from "swiper/react";
+import mobile_shadow_3 from "@/assets/image/mobile-shadow/mobile-shadow-3.svg";
 import shadow_bg_3 from "@/assets/image/svg/shadow-bg-3.svg";
 import shadow_bg_4 from "@/assets/image/svg/shadow-bg-4.svg";
 import products_bg from "@/assets/image/svg/products-bg.png";
@@ -134,7 +135,7 @@ export default function Products({ }: ProductsProps) {
           }
         }}
       >
-        <div className="md:relative">
+        <div className="max-md:relative md:relative">
           <Image
             className="max-md:hidden absolute left-0 top-[100px] z-[-1]"
             src={shadow_bg_3}
@@ -144,6 +145,11 @@ export default function Products({ }: ProductsProps) {
             className={`max-md:hidden transition-all duration-1000 top-0 ${value === 1 ? "top-10" : value === 2 ? "top-20" : ""
               } absolute right-0 z-[-1]`}
             src={shadow_bg_4}
+            alt=""
+          />
+          <Image
+            className="md:hidden absolute right-0 top-[320px] z-[-1]"
+            src={mobile_shadow_3}
             alt=""
           />
           <div
@@ -562,7 +568,7 @@ export default function Products({ }: ProductsProps) {
             </div>
           </div>
           <SchoolRoll value={value} />
-          {(innerWidth < 768 || value === 2) && (
+          {(value === 2) && (
             <>
               <Specialize />
             </>
