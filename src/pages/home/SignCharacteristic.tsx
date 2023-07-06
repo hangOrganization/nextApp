@@ -39,6 +39,18 @@ const Box = styled.div`
       linear-gradient(180deg, rgba(26, 26, 26, 0) 0%, #1a1a1a 9.17%) !important; */
     background-size: cover !important;
   }
+
+  @media not all and (min-width: 768px) {
+    .transfrom-mobile1 {
+      transition: all 500ms;
+      transform: translateX(-100%);
+    }
+    .transfrom-mobile2 {
+      transform: translateX(0);
+
+      transition: all 500ms;
+    }
+  }
 `;
 const SignCharacteristicBox = styled.div`
   @media (min-width: 768px) {
@@ -110,9 +122,7 @@ export default function SignCharacteristic({
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
-    <Box
-      className={`flex w-screen md:pb-[300px] z-50 md:overflow-hidden`}
-    >
+    <Box className={`flex w-screen md:pb-[300px] z-50 md:overflow-hidden`}>
       <div className="flex relative">
         <SignBox
           className={`md:flex md:h-[1050px] max-md:pt-[300px] relative w-screen items-center justify-center`}
@@ -179,53 +189,65 @@ export default function SignCharacteristic({
           <div className={`max-md:hidden absolute  top-0 left-0 w-full h-full`}>
             <div className="absolute top-0 left-0 flex justify-center overflow-hidden items-center w-full h-full">
               <CampusEnvironmentBg
-                className={`${right === 0 ? "h-0 rounded-full w-0" : " opacity-100 rounded-[0] w-full h-full"
-                  } transition-all !bg-no-repeat opacity-0 bg-blend-lighten ease-[cubic-bezier(0.24,0,0.58,1)] duration-2000`}>
-              </CampusEnvironmentBg>
-              <div style={{
-                background: 'linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.90) 51.71%, #1A1A1A 100%), radial-gradient(50% 50.00% at 50% 50.00%, rgba(26, 26, 26, 0.00) 0%, rgba(26, 26, 26, 0.50) 100%)',
-                boxShadow: '0px 0px 200px 40px #1A1A1A inset'
-              }} className="absolute top-0 left-0 w-full h-full"></div>
+                className={`${
+                  right === 0
+                    ? "h-0 rounded-full w-0"
+                    : " opacity-100 rounded-[0] w-full h-full"
+                } transition-all !bg-no-repeat opacity-0 bg-blend-lighten ease-[cubic-bezier(0.24,0,0.58,1)] duration-2000`}
+              ></CampusEnvironmentBg>
+              <div
+                style={{
+                  background:
+                    "linear-gradient(180deg, #1A1A1A 0%, rgba(26, 26, 26, 0.90) 51.71%, #1A1A1A 100%), radial-gradient(50% 50.00% at 50% 50.00%, rgba(26, 26, 26, 0.00) 0%, rgba(26, 26, 26, 0.50) 100%)",
+                  boxShadow: "0px 0px 200px 40px #1A1A1A inset",
+                }}
+                className="absolute top-0 left-0 w-full h-full"
+              ></div>
             </div>
             <Image
               className={`absolute top-[-200px]
-              ${characteristicType === 1
+              ${
+                characteristicType === 1
                   ? " top-[-220px]"
                   : characteristicType === 2
-                    ? " top-[-240px]"
-                    : characteristicType === 3
-                      ? " top-[-260px]"
-                      : ""
-                }
-               transition-all duration-1000 max-w-[0px] min-h-full ${right !== 0 ? "" : "max-w-[1000px]"
-                } max-md:hidden right-0`}
+                  ? " top-[-240px]"
+                  : characteristicType === 3
+                  ? " top-[-260px]"
+                  : ""
+              }
+               transition-all duration-1000 max-w-[0px] min-h-full ${
+                 right !== 0 ? "" : "max-w-[1000px]"
+               } max-md:hidden right-0`}
               src={characteristic_bg_1}
               alt=""
             />
             <Image
               className={`absolute top-[-200px]
-               transition-all duration-1000 max-w-[0px] min-h-full ${right === 0 ? "" : "max-w-[1000px]"
-                } max-md:hidden right-0`}
+               transition-all duration-1000 max-w-[0px] min-h-full ${
+                 right === 0 ? "" : "max-w-[1000px]"
+               } max-md:hidden right-0`}
               src={characteristic_bg_1}
               alt=""
             />
             <Image
-              className={`absolute bottom-[-100px] transition-all duration-1000 max-w-[0px] min-h-full ${right !== 0 ? "" : "max-w-[1000px]"
-                }  max-md:hidden left-0`}
+              className={`absolute bottom-[-100px] transition-all duration-1000 max-w-[0px] min-h-full ${
+                right !== 0 ? "" : "max-w-[1000px]"
+              }  max-md:hidden left-0`}
               src={characteristic_bg_2}
               alt=""
             />
             <Image
-              className={`absolute transition-all  bottom-[52px] duration-1000  ${right !== 0
+              className={`absolute transition-all  bottom-[52px] duration-1000  ${
+                right !== 0
                   ? " right-[-350px]"
                   : characteristicType === 1
-                    ? " bottom-[85px]"
-                    : characteristicType === 2
-                      ? " bottom-[116px]"
-                      : characteristicType === 3
-                        ? " bottom-[148px]"
-                        : " bottom-[52px]"
-                }  max-md:hidden right-0 `}
+                  ? " bottom-[85px]"
+                  : characteristicType === 2
+                  ? " bottom-[116px]"
+                  : characteristicType === 3
+                  ? " bottom-[148px]"
+                  : " bottom-[52px]"
+              }  max-md:hidden right-0 `}
               src={characteristic_bg_logo}
               alt=""
             />
@@ -234,32 +256,48 @@ export default function SignCharacteristic({
             className={`md:flex relative md:w-[1200px] w-screen items-center `}
           >
             <div className=" absolute z-[-1] w-full h-full md:hidden top-0 left-0">
-              <Image className=" absolute right-0 top-[400px]" src={mobile_shadow_4} alt="" />
-              <Image className=" absolute left-0 top-[1200px]" src={mobile_shadow_5} alt="" />
-              <Image className=" absolute right-[0px] w-[150px] top-[1780px]" src={mobile_shadow_4} alt="" />
+              <Image
+                className=" absolute right-0 top-[400px]"
+                src={mobile_shadow_4}
+                alt=""
+              />
+              <Image
+                className=" absolute left-0 top-[1200px]"
+                src={mobile_shadow_5}
+                alt=""
+              />
+              <Image
+                className=" absolute right-[0px] w-[150px] top-[1780px]"
+                src={mobile_shadow_4}
+                alt=""
+              />
             </div>
             <SignCharacteristicBox
-              className={` max-md:sticky z-50 max-md:top-0 ${right !== 0 ? " translate-x-[908px]" : "translate-x-[0px]"
-                } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-1000`}
+              className={` max-md:sticky z-50 max-md:top-0 ${
+                right !== 0 ? " translate-x-[908px]" : "translate-x-[0px]"
+              } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-1000`}
             >
               <div>
                 <div className="max-md:flex justify-between">
                   <div className="w-[221px] relative max-md:hidden h-[67px]">
                     <p
-                      className={`${right === 0 ? "opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                      className={`${
+                        right === 0 ? "opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       公司特色
                     </p>
                     <p
-                      className={`${right === 1 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                      className={`${
+                        right === 1 ? " opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       关于我们
                     </p>
                     <p
-                      className={`${right === 2 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                      className={`${
+                        right === 2 ? " opacity-100" : ""
+                      } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       发展历程
                     </p>
@@ -279,10 +317,11 @@ export default function SignCharacteristic({
                 </div>
                 <div className="mt-[18px] md:hidden relative h-2 w-full">
                   <Image
-                    className={`absolute transition-all ${mobileRight === 0
+                    className={`absolute transition-all ${
+                      mobileRight === 0
                         ? "translate-x-[16px] left-0"
                         : "translate-x-[-125%] left-[100%]"
-                      }`}
+                    }`}
                     src={signCharacteristic_active}
                     alt=""
                   />
@@ -302,20 +341,23 @@ export default function SignCharacteristic({
                   }`}</p> */}
                 <div className="w-[222px] mt-4 text-center relative max-md:hidden h-[35px]">
                   <p
-                    className={`${right === 0 ? "opacity-60" : ""
-                      } tracking-[11px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                    className={`${
+                      right === 0 ? "opacity-60" : ""
+                    } tracking-[11px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
                   >
                     Why SIGN?
                   </p>
                   <p
-                    className={`${right === 1 ? " opacity-60" : ""
-                      } tracking-[15px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                    className={`${
+                      right === 1 ? " opacity-60" : ""
+                    } tracking-[15px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
                   >
                     ABOUT US
                   </p>
                   <p
-                    className={`${right === 2 ? " opacity-60" : ""
-                      } tracking-[2px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
+                    className={`${
+                      right === 2 ? " opacity-60" : ""
+                    } tracking-[2px] whitespace-nowrap transition-all absolute top-0 left-0 duration-1000 opacity-0 uppercase leading-[160%] font-extralight font-[Lexend] text-[22px]`}
                   >
                     Development Path
                   </p>
@@ -323,23 +365,33 @@ export default function SignCharacteristic({
               </div>
             </SignCharacteristicBox>
             <div
-              className={`transition-all max-md:pb-[210px] duration-1000 md:flex items-center ${right !== 0
+              className={`transition-all max-md:pb-[210px] duration-1000 md:flex items-center ${
+                right !== 0
                   ? " flex-row-reverse translate-x-[510px] md:opacity-0"
                   : "md:opacity-100 translate-x-[0px]"
-                }`}
+              }`}
             >
-              <div className={`md:ml-[202px]`}>
-                {mobileRight === 0 ? (
-                  <div className="md:h-[488px] max-md:px-6 overflow-hidden">
+              <div className=" max-md:overflow-hidden  ">
+                <div
+                  className={`md:ml-[202px]  max-md:w-[750px] max-md:m-auto  max-md:flex max-md:justify-between `}
+                >
+                  <div
+                    className={`${
+                      mobileRight == 0
+                        ? "transfrom-mobile2"
+                        : "transfrom-mobile1"
+                    } md:h-[488px]  max-md:w-[100%]  max-md:px-6 overflow-hidden`}
+                  >
                     <div
-                      className={`transition-all duration-1000 ${characteristicType === 1
+                      className={`transition-all duration-1000 ${
+                        characteristicType === 1
                           ? "translate-y-[-488px]"
                           : characteristicType === 2
-                            ? "translate-y-[-976px]"
-                            : characteristicType === 3
-                              ? "translate-y-[-1464px]"
-                              : ""
-                        } `}
+                          ? "translate-y-[-976px]"
+                          : characteristicType === 3
+                          ? "translate-y-[-1464px]"
+                          : ""
+                      } `}
                     >
                       <div className="md:h-[488px] md:w-[680px] max-md:mt-11 flex flex-col justify-center">
                         <div className="flex">
@@ -352,13 +404,15 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 0 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 0 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <div
-                          className={`md:w-[488px] md:opacity-0 duration-1000 transition-all ${characteristicType === 0 ? "md:opacity-100" : ""
-                            } md:opacity-0 mt-12`}
+                          className={`md:w-[488px] md:opacity-0 duration-1000 transition-all ${
+                            characteristicType === 0 ? "md:opacity-100" : ""
+                          } md:opacity-0 mt-12`}
                         >
                           <p className="text-[14px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70">
                             高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
@@ -369,7 +423,7 @@ export default function SignCharacteristic({
                           <p className="text-[14px] max-md:hidden font-light max-md:text-[12px] max-md:leading-[200%] leading-[220%] opacity-70">
                             由SIGNART名校录取导师团队全程跟踪，各领域专业导师多对一服务，实现名校战略录取。
                           </p>
-                          <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2 max-md:mb-2 font-light leading-[220%] opacity-70">
+                          <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2  font-light leading-[220%] opacity-70">
                             资深海归音乐导师团队，全职导师8人，兼职导师150+，由一线资深从业者及专业院团演奏家及教师组成。
                           </p>
                           <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3   max-md:mb-2 font-light leading-[220%] opacity-70">
@@ -390,8 +444,9 @@ export default function SignCharacteristic({
                         </div>
                       </div>
                       <div
-                        className={`md:h-[488px] duration-1000 md:opacity-0 transition-all md:w-[680px] max-md:mt-20 flex ${characteristicType === 1 ? "md:opacity-100" : ""
-                          } flex-col justify-center`}
+                        className={`md:h-[488px] duration-1000 md:opacity-0 transition-all md:w-[680px] max-md:mt-20 flex ${
+                          characteristicType === 1 ? "md:opacity-100" : ""
+                        } flex-col justify-center`}
                       >
                         <div className="flex ">
                           <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
@@ -403,8 +458,9 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 1 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 1 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <p className="text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70">
@@ -425,7 +481,7 @@ export default function SignCharacteristic({
                           ITU标准声学环境垂直于作品全方向全流程的学习与实践
                           <br />
                         </p>
-                        <p className="text-[14px] mt-12 md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2  max-md:mb-2  font-light leading-[220%] opacity-70">
+                        <p className="text-[14px] mt-12 md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2    font-light leading-[220%] opacity-70">
                           浙江省内最大的国际音乐教育空间
                         </p>
                         <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3 font-light leading-[220%] opacity-70">
@@ -451,8 +507,9 @@ export default function SignCharacteristic({
                         </p>
                       </div>
                       <div
-                        className={`md:h-[488px] md:opacity-0 duration-1000 transition-all md:w-[680px] ${characteristicType === 2 ? "md:opacity-100" : ""
-                          } max-md:mt-20 flex flex-col justify-center`}
+                        className={`md:h-[488px] md:opacity-0 duration-1000 transition-all md:w-[680px] ${
+                          characteristicType === 2 ? "md:opacity-100" : ""
+                        } max-md:mt-20 flex flex-col justify-center`}
                       >
                         <div className="flex">
                           <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
@@ -464,8 +521,9 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 2 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 2 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <p className="text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70">
@@ -507,10 +565,11 @@ export default function SignCharacteristic({
                         </p>
                       </div>
                       <div
-                        className={`md:h-[488px] ${characteristicType === 3
+                        className={`md:h-[488px] ${
+                          characteristicType === 3
                             ? "opacity-100"
                             : "md:opacity-0"
-                          } md:w-[680px] max-md:mt-20 flex flex-col justify-center`}
+                        } md:w-[680px] max-md:mt-20 flex flex-col justify-center`}
                       >
                         <div className="flex">
                           <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
@@ -522,8 +581,9 @@ export default function SignCharacteristic({
                             alt=""
                           />
                           <TitleBeam
-                            type={`${characteristicType === 3 ? "open" : "down"
-                              }`}
+                            type={`${
+                              characteristicType === 3 ? "open" : "down"
+                            }`}
                           />
                         </div>
                         <p className="text-[14px] md:w-[488px] max-md:text-[13px] max-md:leading-[200%]  mt-12 font-light leading-[220%] opacity-70">
@@ -533,9 +593,19 @@ export default function SignCharacteristic({
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div className="md:hidden relative mt-[51px] px-6">
-                    <Image className=" absolute left-0 top-[-200px]" src={mobile_shadow_5} alt="" />
+
+                  <div
+                    className={`${
+                      mobileRight == 1
+                        ? "transfrom-mobile1"
+                        : "transfrom-mobile2"
+                    } md:hidden  max-md:w-[100%] relative mt-[51px] px-6  `}
+                  >
+                    <Image
+                      className=" absolute left-0 top-[-200px]"
+                      src={mobile_shadow_5}
+                      alt=""
+                    />
                     <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 max-md:mb-2 font-light leading-[220%] opacity-70">
                       高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
                     </p>
@@ -592,20 +662,22 @@ export default function SignCharacteristic({
                       </div>
                     </ButtonBox>
                   </div>
-                )}
+                </div>
               </div>
             </div>
             <div
-              className={` transition-all duration-1000 ${right === 0
+              className={` transition-all duration-1000 ${
+                right === 0
                   ? "left-[-650px] opacity-0"
                   : "left-[120px] opacity-100"
-                } absolute left-[-650px] max-md:hidden mt-12`}
+              } absolute left-[-650px] max-md:hidden mt-12`}
             >
               <div className=" flex items-center">
                 <div className={`h-[457px] max-md:hidden overflow-hidden`}>
                   <div
-                    className={` transition-all duration-1000 ${right === 2 ? "translate-y-[-457px]" : "translate-y-[0px]"
-                      } `}
+                    className={` transition-all duration-1000 ${
+                      right === 2 ? "translate-y-[-457px]" : "translate-y-[0px]"
+                    } `}
                   >
                     <Image className="rotate-180" src={products_right} alt="" />
                     <Image className="rotate-180" src={products_right} alt="" />
@@ -615,14 +687,16 @@ export default function SignCharacteristic({
                 </div>
                 <div className="ml-20 h-[420px] overflow-hidden w-[599px]">
                   <div
-                    className={` transition-all duration-1000 ${right === 2
+                    className={` transition-all duration-1000 ${
+                      right === 2
                         ? " translate-y-[-420px]"
                         : "translate-y-[0px]"
-                      }`}
+                    }`}
                   >
                     <div
-                      className={`h-[420px] opacity-0 transition-all duration-1000 ${right === 2 ? "" : "opacity-100"
-                        }`}
+                      className={`h-[420px] opacity-0 transition-all duration-1000 ${
+                        right === 2 ? "" : "opacity-100"
+                      }`}
                     >
                       <p className="text-[14px] font-light leading-[220%] opacity-70">
                         SIGNART
@@ -636,8 +710,9 @@ export default function SignCharacteristic({
                       </p>
                     </div>
                     <div
-                      className={`h-[420px] opacity-0 transition-all duration-1000 ${right === 1 ? "" : "opacity-100"
-                        } flex justify-center flex-col`}
+                      className={`h-[420px] opacity-0 transition-all duration-1000 ${
+                        right === 1 ? "" : "opacity-100"
+                      } flex justify-center flex-col`}
                     >
                       <p className="text-[14px] font-light leading-[220%] opacity-70">
                         2012年 初始音乐团队创办SOUNDPIC工作室
@@ -689,18 +764,20 @@ export default function SignCharacteristic({
               </ButtonBox>
             </div>
             <div
-              className={`h-[457px] ${right === 0 ? "" : "md:hidden"
-                } max-md:hidden overflow-hidden`}
+              className={`h-[457px] ${
+                right === 0 ? "" : "md:hidden"
+              } max-md:hidden overflow-hidden`}
             >
               <div
-                className={` transition-all duration-300 ${characteristicType === 1
+                className={` transition-all duration-300 ${
+                  characteristicType === 1
                     ? "translate-y-[-457px]"
                     : characteristicType === 2
-                      ? "translate-y-[-914px]"
-                      : characteristicType === 3
-                        ? "translate-y-[-1371px]"
-                        : ""
-                  } `}
+                    ? "translate-y-[-914px]"
+                    : characteristicType === 3
+                    ? "translate-y-[-1371px]"
+                    : ""
+                } `}
               >
                 <Image src={products_right} alt="" />
                 <Image src={products_right} alt="" />

@@ -66,7 +66,7 @@ const MoveRightBgBox = styled.div`
     }
   }
   @media not all and (min-width: 768px) {
-    transform: scale(-1) translateX(-174px);
+    transform: scale(-1) translateX(-169px);
     animation: unset;
   }
 `;
