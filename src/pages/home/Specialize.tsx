@@ -14,14 +14,17 @@ import {
   classicalMusicSchool,
   modernMusicSchool,
 } from "@/utils/specializeText";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const SpecializeBox = styled.div``;
+const SpecializeBox = styled.div`
+`;
 const SpecializeBg = styled.div`
   position: absolute;
   top: 0;
-  z-index: -1000;
-  background: linear-gradient(
+  z-index: -1;
+
+  @media (min-width: 768px) {
+    background: linear-gradient(
       180deg,
       #1a1a1a 0%,
       rgba(26, 26, 26, 0.46) 48.22%,
@@ -33,6 +36,7 @@ const SpecializeBg = styled.div`
   background-size: cover;
   background-repeat: no-repeat !important;
   background-blend-mode: normal, soft-light, color-dodge;
+  }
   @media not all and (min-width: 768px) {
     background: linear-gradient(
         180deg,
@@ -41,6 +45,8 @@ const SpecializeBg = styled.div`
         #1a1a1a 100%
       ),
     url(${mobileSpecialize_bg.src});
+    width: 100vw;
+    height: 100%;
     background-size: contain;
     background-repeat: no-repeat !important;
     background-blend-mode: normal, soft-light, color-dodge;
@@ -71,7 +77,7 @@ const CourseBox = styled.div`
 export default function Specialize() {
   const [musicGenre, setMusicGenre] = useState<number>(1);
   return (
-    <SpecializeBox className="flex justify-center md:h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen overflow-hidden md:mt-[-190px] flex-col items-center">
+    <SpecializeBox className="flex  Specialize justify-center md:h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen md:overflow-hidden md:mt-[-190px] flex-col items-center">
       <SpecializeBg></SpecializeBg>
       <div className="">
         <div
@@ -79,7 +85,7 @@ export default function Specialize() {
             background: "rgba(26, 26, 26, 0.90)",
             backdropFilter: "blur(40px)",
           }}
-          className="md:px-[160px] md:!backdrop-blur-none md:!bg-transparent max-md:pb-1 max-md:pt-[21px] max-md:flex-col max-md:justify-center max-md:items-center flex justify-between"
+          className="md:px-[160px] md:!backdrop-blur-none relative z-[1001] md:!bg-transparent max-md:pb-1 max-md:pt-[21px] max-md:flex-col max-md:justify-center max-md:items-center flex justify-between"
         >
           <div className="max-md:text-center">
             <p className="text-[56px] max-md:text-[28px] leading-[120%] font-light">
@@ -89,7 +95,12 @@ export default function Specialize() {
               MUSIC MAJOR
             </p>
           </div>
-          <div className="flex flex-col max-md:px-[31px] max-md:w-screen relative max-md:mt-8 md:justify-end md:items-end">
+          <div
+            style={{
+              background: "rgba(26, 26, 26, 0.90)",
+              backdropFilter: "blur(40px)",
+            }}
+            className="flex max-md:sticky md:!backdrop-blur-none max-md:hidden max-md:mt-[-64px] md:!bg-transparent  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end">
             <div className="flex gap-4 max-md:justify-between items-end">
               <div
                 className={`md:w-[200px] ${musicGenre === 1 ? "md:mb-2" : ""
@@ -154,6 +165,77 @@ export default function Specialize() {
                 style={{ border: "0.25px solid #FFFFFF" }}
               ></div>
             </div>
+          </div>
+        </div>
+        <div
+          style={{
+            background: "rgba(26, 26, 26, 0.90)",
+            backdropFilter: "blur(40px)",
+          }}
+          className="flex md:hidden max-md:sticky max-md:mt-[-64px]  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end">
+          <div className="flex gap-4 max-md:justify-between items-end">
+            <div
+              className={`md:w-[200px] ${musicGenre === 1 ? "md:mb-2" : ""
+                } transition-all duration-300 cursor-pointer text-center`}
+              onClick={() => setMusicGenre(1)}
+            >
+              <p
+                className={`text-[24px] ${musicGenre === 1
+                  ? "font-[200]"
+                  : "font-[100] max-md:font-light"
+                  } max-md:text-[14px] font-[200] leading-[160%]`}
+              >
+                现代音乐类
+              </p>
+            </div>
+            <div
+              className={`md:w-[200px] ${musicGenre === 2 ? "md:mb-2" : ""
+                } transition-all duration-300 cursor-pointer text-center`}
+              onClick={() => setMusicGenre(2)}
+            >
+              <p
+                className={`text-[24px] ${musicGenre === 2
+                  ? "font-[200]"
+                  : "font-[100] max-md:font-light"
+                  } max-md:text-[14px] font-[200] leading-[160%]`}
+              >
+                古典音乐类
+              </p>
+            </div>
+            <div
+              className={`md:w-[200px] ${musicGenre === 3 ? "md:mb-2" : ""
+                } transition-all duration-300 cursor-pointer text-center`}
+              onClick={() => setMusicGenre(3)}
+            >
+              <p
+                className={`text-[24px] ${musicGenre === 3
+                  ? "font-[200]"
+                  : "font-[100] max-md:font-light"
+                  } max-md:text-[14px] font-[200] leading-[160%]`}
+              >
+                音乐理论及应用类
+              </p>
+            </div>
+          </div>
+          <div
+            className={`w-[86px] transition-all max-md:hidden duration-500 ${musicGenre === 1
+              ? "translate-x-[-488.5px]"
+              : musicGenre === 2
+                ? "translate-x-[-272.5px]"
+                : "translate-x-[-56.5px]"
+              } `}
+            style={{ border: "0.5px solid #FFFFFF" }}
+          ></div>
+          <div className="mt-[16px] md:hidden h-[1px] relative w-full">
+            <div
+              className={`w-12 transition-all absolute duration-500  ${musicGenre === 1
+                ? "left-[0%] translate-x-[10px]"
+                : musicGenre === 2
+                  ? "left-[50%] translate-x-[-45px]"
+                  : "left-[100%] translate-x-[-82px]"
+                }`}
+              style={{ border: "0.25px solid #FFFFFF" }}
+            ></div>
           </div>
         </div>
         <div className={`relative ${musicGenre === 2 ? 'max-md:h-[1118px]' : musicGenre === 3 ? ' max-md:h-[695px] ' : 'max-md:h-[1248px]'} md:pb-[168px] w-screen md:w-[1440px]`}>

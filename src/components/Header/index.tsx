@@ -30,7 +30,6 @@ const CampusBox = styled.div`
   border: 1px solid rgba(204, 204, 204, 0.5);
   @media (min-width: 768px) {
   border: 1px solid rgba(204, 204, 204, 0.3);
-    
   }
 `;
 

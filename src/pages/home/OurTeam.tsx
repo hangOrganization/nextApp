@@ -35,6 +35,7 @@ const OurTeamBox = styled.div`
   @media not all and (min-width: 768px) {
     background: url(${mobileOurTeam_bg.src});
     background-size: cover;
+    padding-bottom: 220px;
   }
 `;
 const OurTeamBg = styled.div`
@@ -210,8 +211,7 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
     <Box>
       <div
         id="ourTeamBox"
-        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
-          }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
+        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"}  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
           setScrollTop(e.target.scrollTop)
           if (throttleFlag) return;
@@ -245,8 +245,19 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
             </video>
           </div>
           <OurTeamBg>
-            <div className="md:flex md:pt-[120px] md:w-[1200px] ma max-md:pt-6  md:mx-auto justify-between items-center">
-              <div className="max-md:text-center">
+            <div style={{
+              background: 'linear-gradient(180deg, rgba(207, 196, 219, 0.00) 0%, rgba(207, 196, 219, 0.40) 100%)',
+              backdropFilter: 'blur(40px)'
+            }} className="max-md:text-center md:hidden max-md:sticky pb-4 pt-[88px] z-50 max-md:top-0">
+              <p className=" font-extrabold max-md:text-[28px] text-[56px] leading-[120%] text-[#1a1a1a]">
+                师资团队
+              </p>
+              <p className=" tracking-[0.51em] max-md:tracking-[7.14px] max-md:mt-3 max-md:text-[14px] font-normal text-[24px] mt-3 font-[Lexend] leading-[160%] text-[#1a1a1a]">
+                OUR TEAM
+              </p>
+            </div>
+            <div className="md:flex md:pt-[120px] md:w-[1200px] md:mx-auto justify-between items-center">
+              <div className="max-md:hidden max-md:text-center">
                 <p className=" font-extrabold max-md:text-[28px] text-[56px] leading-[120%] text-[#1a1a1a]">
                   师资团队
                 </p>
@@ -256,29 +267,29 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
               </div>
               <div
                 style={{ border: "1px solid rgba(26, 26, 26, 0.5)" }}
-                className=" max-md:mx-4 gap-2 mt-8 flex p-[15px]"
+                className=" max-md:mx-4 gap-2  mt-8 max-md:mt-4 flex p-[15px]"
               >
                 <div className="w-[119px] max-md:w-[99px] text-center">
-                  <p className=" font-normal max-md:text-[24] text-[32px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
+                  <p className=" font-normal  text-[32px] max-md:text-[24px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
                     6
                   </p>
-                  <p className=" font-light text-[14px] md:mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
+                  <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     全职一线导师
                   </p>
                 </div>
                 <div className="w-[119px] max-md:w-[99px] text-center">
-                  <p className=" font-normal max-md:text-[24] text-[32px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
+                  <p className=" font-normal max-md:text-[24px] text-[32px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
                     150+
                   </p>
-                  <p className=" font-light text-[14px] md:mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
+                  <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     兼职音乐导师
                   </p>
                 </div>
                 <div className="w-[119px] max-md:w-[99px] text-center">
-                  <p className=" font-normal text-[32px] max-md:text-[24] font-[Lexend] leading-[100%] text-[#1a1a1a]">
+                  <p className=" font-normal text-[32px] max-md:text-[24px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
                     5
                   </p>
-                  <p className=" font-light text-[14px] md:mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
+                  <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     资深留学规划师
                   </p>
                 </div>
@@ -288,7 +299,7 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
               <RollBox
                 className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}
               >
-                {[...teachers, ...teachers].map((el: any, index: number) => (
+                {teachers.map((el: any, index: number) => (
                   <CardBox
                     onMouseEnter={() => {
                       setCardHover("hover");
@@ -302,8 +313,36 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
                     }}
                     style={{ backgroundImage: `url(${el.image.src})` }}
                     key={`${el.name}-${index}-teachers`}
-                    className={`${index > 5 ? "max-md:hidden" : ""
-                      } md:hover:translate-y-[-16px]`}
+                    className={`md:hover:translate-y-[-16px]`}
+                  >
+                    <CardFilterBox className="relative">
+                      <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
+                        <NameOur>{el.name}</NameOur>
+                        <p className="font-normal md:ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
+                          {el.position}
+                        </p>
+                        <p className="font-light md:ml-1 max-md:ml-[-12px] max-md:w-[156px] max-md:scale-[0.83333] text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
+                          {el.works}
+                        </p>
+                      </div>
+                    </CardFilterBox>
+                  </CardBox>
+                ))}
+                {teachers.map((el: any, index: number) => (
+                  <CardBox
+                    onMouseEnter={() => {
+                      setCardHover("hover");
+                    }}
+                    onMouseLeave={() => {
+                      setCardHover("");
+                    }}
+                    onClick={() => {
+                      setIsOpen(1);
+                      setTextValue(el.value);
+                    }}
+                    style={{ backgroundImage: `url(${el.image.src})` }}
+                    key={`${el.name}----${index}-teachers`}
+                    className={`max-md:!hidden md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
                       <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
@@ -331,7 +370,7 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
               background:
                 "linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, #1A1A1A 100%)",
             }}
-            className="w-screen z-50 absolute bottom-0 left-0  h-[228px]"
+            className="w-screen z-50 absolute bottom-0 left-0  max-md:h-[300px] h-[228px]"
           ></div>
         </OurTeamBox>
         <SignCharacteristic
