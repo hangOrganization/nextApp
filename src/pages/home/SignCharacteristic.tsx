@@ -398,7 +398,7 @@ export default function SignCharacteristic({
             >
               <div
                 className={`${
-                  mobileRight == 0 ? "h-[1665px]" : "h-[765px]"
+                  mobileRight == 0 ? "max-md:h-[1665px]" : "max-md:h-[765px]"
                 } max-md:overflow-hidden  relative `}
               >
                 <div

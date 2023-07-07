@@ -115,8 +115,6 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           src={mobile_shadow_2}
           alt=""
         />
-
-
         <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:mx-auto gap-x-[192px] md:justify-center justify-between">
           <div className="w-[224px] flex-col flex items-center">
             <div
@@ -154,25 +152,12 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
             </div>
           </div>
           <div className="w-[224px] max-md:mt-[81px] flex-col flex relative items-center pt-[13px]">
-            <ScaleBox className=" flex flex-col items-center justify-center">
-              {/* <p className="font-[Lexend] textScale z-30 bg-[#1A1A1A] w-[98px] text-[28px] leading-[100%] font-[250]">
-                            DREAM
-                        </p>
-                        <p className="font-[Lexend] textScale mt-5 z-30 bg-[#1A1A1A] text-[40px] leading-[100%] font-[250]">
-                            OFFER
-                        </p>
-                        <Box>
-                            <Image
-                                className=" ball1 top-0 left-0 absolute"
-                                src={icon_star}
-                                alt=""
-                            />
-                        </Box> */}
+            {/* <ScaleBox className=" flex flex-col items-center justify-center"> */}
               <div
-                className="w-[224px] bg-cover mt-[-45px] bg-blend-lighten bg-[#1A1A1A] h-[203px]"
-                style={{ backgroundImage: `url(${DreamOffer.src})` }}
+                className="w-[224px] bg-cover mt-[-45px] bg-blend-lighten bg-[#1a1a1a] h-[203px]"
+                style={{ backgroundImage: `url(${DreamOffer.src}) lightgray 50% / cover no-repeat` }}
               ></div>
-            </ScaleBox>
+            {/* </ScaleBox> */}
             <div className="py-4">
               <div className="font-light  max-md:font-[300] max-md:leading-[200%] uppercase leading-[220%] md:px-[2px] text-[14px] opacity-70 text-center">
                 以专业的教学专注的态度帮助每一位热爱音乐的学生拿到dream offer
