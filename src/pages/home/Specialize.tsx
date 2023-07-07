@@ -74,8 +74,11 @@ const CourseBox = styled.div`
     padding: 24px 36px;
   }
 `;
-export default function Specialize() {
-  const [musicGenre, setMusicGenre] = useState<number>(1);
+interface SpecializeProps {
+    musicGenre:number
+    setMusicGenre:Function
+}
+export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) {
   return (
     <SpecializeBox className="flex  Specialize justify-center md:h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen md:overflow-hidden md:mt-[-190px] flex-col items-center">
       <SpecializeBg></SpecializeBg>
@@ -177,7 +180,13 @@ export default function Specialize() {
             <div
               className={`md:w-[200px] ${musicGenre === 1 ? "md:mb-2" : ""
                 } transition-all duration-300 cursor-pointer text-center`}
-              onClick={() => setMusicGenre(1)}
+              onClick={() => {
+                setMusicGenre(1)
+                window.scrollTo({
+                  top: 3280,
+                  behavior: 'smooth',
+                })
+              }}
             >
               <p
                 className={`text-[24px] ${musicGenre === 1
@@ -191,7 +200,13 @@ export default function Specialize() {
             <div
               className={`md:w-[200px] ${musicGenre === 2 ? "md:mb-2" : ""
                 } transition-all duration-300 cursor-pointer text-center`}
-              onClick={() => setMusicGenre(2)}
+              onClick={() => {
+                setMusicGenre(2)
+                window.scrollTo({
+                  top: 3280,
+                  behavior: 'smooth',
+                })
+              }}
             >
               <p
                 className={`text-[24px] ${musicGenre === 2
@@ -205,7 +220,13 @@ export default function Specialize() {
             <div
               className={`md:w-[200px] ${musicGenre === 3 ? "md:mb-2" : ""
                 } transition-all duration-300 cursor-pointer text-center`}
-              onClick={() => setMusicGenre(3)}
+              onClick={() => {
+                setMusicGenre(3)
+                window.scrollTo({
+                  top: 3280,
+                  behavior: 'smooth',
+                })
+              }}
             >
               <p
                 className={`text-[24px] ${musicGenre === 3

@@ -48,6 +48,7 @@ const Box = styled.div`
 `;
 export default function Homepage() {
   const dispatch = useAppDispatch();
+  const [musicGenre, setMusicGenre] = useState<number>(1);
   const [ourTeamScrollTop, setOurTeamScrollTop] = useState<number>(0);
   const [characteristicType, setCharacteristicType] = useState<number>(0);
   const [right, setRight] = useState<number>(0);
@@ -66,49 +67,49 @@ export default function Homepage() {
     dispatch(setIsChrome(window.navigator.userAgent.indexOf("Chrome") >= 0));
   });
   return (
-      <Box
-        className={`relative  md:h-screen max-md:h-full md:overflow-auto  max-md:max-w-[100vw]`}
+    <Box
+      className={`relative  md:h-screen max-md:h-full md:overflow-auto  max-md:max-w-[100vw]`}
+    >
+      <Header
+        setCharacteristicType={setCharacteristicType}
+        setRight={setRight}
+        scrollTop={ourTeamScrollTop}
+        isOpenConsult={isOpenConsult}
+        setIsOpenConsult={setIsOpenConsult}
+        isOpenCampus={isOpenCampus}
+        setIsOpenCampus={setIsOpenCampus}
+        scrollToView={scrollToView}
+      />
+      <Swiper
+        id="Swiper"
+        direction={"vertical"}
+        threshold={100}
+        className="mySwiper max-md:!hidden w-screen h-screen"
       >
-        <Header
-          setCharacteristicType={setCharacteristicType}
-          setRight={setRight}
-          scrollTop={ourTeamScrollTop}
-          isOpenConsult={isOpenConsult}
-          setIsOpenConsult={setIsOpenConsult}
-          isOpenCampus={isOpenCampus}
-          setIsOpenCampus={setIsOpenCampus}
-          scrollToView={scrollToView}
-        />
-        <Swiper
-          id="Swiper"
-          direction={"vertical"}
-          threshold={100}
-          className="mySwiper max-md:!hidden w-screen h-screen"
-        >
-          <SwiperSlide>
-            <Sign />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Introduction setIsOpenConsult={setIsOpenConsult} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Products />
-          </SwiperSlide>
-          <SwiperSlide>
-            <OurTeam setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Disc />
-          </SwiperSlide>
-        </Swiper>
-        <div className="md:hidden">
+        <SwiperSlide>
           <Sign />
+        </SwiperSlide>
+        <SwiperSlide>
           <Introduction setIsOpenConsult={setIsOpenConsult} />
-          <Products />
-          <Specialize />
-          <OurTeam setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre}/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <OurTeam setRight={setRight} musicGenre={musicGenre} setMusicGenre={setMusicGenre} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+        </SwiperSlide>
+        <SwiperSlide>
           <Disc />
-        </div>
-      </Box>
+        </SwiperSlide>
+      </Swiper>
+      <div className="md:hidden">
+        <Sign />
+        <Introduction setIsOpenConsult={setIsOpenConsult} />
+        <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre}/>
+        <Specialize musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
+        <OurTeam musicGenre={musicGenre} setMusicGenre={setMusicGenre} setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+        <Disc />
+      </div>
+    </Box>
   );
 }

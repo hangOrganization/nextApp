@@ -62,6 +62,13 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
         
       }
   `
+    const MobileBox = styled.div`
+      @media not all and (min-width: 768px) {
+        max-height:${innerHeight - 120}px;
+        
+      }
+  `
+
     return (
         <Transition appear show={isOpen === 1 ? true : false} as={Fragment}>
             <Dialog as="div" className="relative z-[1000000]" onClose={closeModal}>
@@ -98,7 +105,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                     </svg>
                                 </Dialog.Title>
                                 <div className=" mx-auto max-md:mx-1 h-full max-md:pt-3 pt-10 md:w-[1200px]">
-                                    <div className="md:flex justify-between">
+                                    <MobileBox className="md:flex max-md:overflow-auto justify-between">
                                         <Box className='max-md:flex overflow-auto'>
                                             <Image className='w-[389px] max-md:w-[148px] max-md:h-[197px] mb-6 object-contain h-[519px]' src={teachers[textValue].image} alt='' />
                                             <div className='max-md:ml-4'>
@@ -107,7 +114,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                                 <p className=' font-[300] max-md:text-[12px] max-md:w-[179px] text-[14px] w-[235px] max-md:opacity-70 leading-[180%] text-[#1A1A1A]'>{teachers[textValue].works}</p>
                                             </div>
                                         </Box>
-                                        <Box className='flex flex-col max-md:w-full overflow-auto gap-y-4 max-md:pb-8 h-full'>
+                                        <Box className='flex flex-col max-md:w-full md:overflow-auto gap-y-4 h-full'>
                                             {teachers[textValue].detailed.map((el: any) => (
                                                 <div key={`${teachers[textValue].value}-${teachers[textValue].name}-1-MentorInformation`} className='text-[#1A1A1A] md:w-[642px] text-[14px] max-md:text-[12px] max-md:font-[300] max-md:opacity-80 leading-[180%] font-light text-justify'>
                                                     {el}
@@ -129,7 +136,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                                 </div>
                                             ))}
                                         </Box>
-                                    </div>
+                                    </MobileBox>
                                 </div>
                             </Panel>
                         </Transition.Child>

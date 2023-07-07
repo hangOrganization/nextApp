@@ -118,10 +118,10 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:mx-auto gap-x-[192px] md:justify-center justify-between">
           <div className="w-[224px] flex-col flex items-center">
             <div
-              className="w-[220px]  bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
+              className="w-[220px] max-md:w-[167px] max-md:h-[92px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
               style={{ backgroundImage: `url(${speed_line.src})` }}
             >
-              <LineBox className="w-full   overflow-hidden">
+              <LineBox className="w-full scale-[0.76] overflow-hidden">
                 <div className="flex mt-[-2px] h-[86px] w-full gap-[6px] before justify-center items-end"></div>
               </LineBox>
             </div>
@@ -138,7 +138,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           <div className="w-[224px] flex-col max-md:mt-[112px] flex items-center">
             <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
               <div
-                className="w-[220px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
+                className="w-[220px] max-md:h-[92px] max-md:w-[167px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
                 style={{ backgroundImage: `url(${apply_gif.src})` }}
               ></div>
             </div>
@@ -151,15 +151,15 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
             </div>
           </div>
-          <div className="w-[224px] max-md:mt-[81px] flex-col flex relative items-center pt-[13px]">
-            {/* <ScaleBox className=" flex flex-col items-center justify-center"> */}
+          <div className="w-[224px] flex-col max-md:mt-[50px] flex items-center">
+            <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
               <div
-                className="w-[224px] bg-cover mt-[-45px] bg-blend-lighten bg-[#1a1a1a] h-[203px]"
-                style={{ backgroundImage: `url(${DreamOffer.src}) lightgray 50% / cover no-repeat` }}
+                className="w-[220px] max-md:h-[151px] max-md:w-[167px] h-[200px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A]"
+                style={{ backgroundImage: `url(${DreamOffer.src})` }}
               ></div>
-            {/* </ScaleBox> */}
-            <div className="py-4">
-              <div className="font-light  max-md:font-[300] max-md:leading-[200%] uppercase leading-[220%] md:px-[2px] text-[14px] opacity-70 text-center">
+            </div>
+            <div className=" py-[31px] h-[124px]">
+              <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] text-[14px] opacity-70 text-center">
                 以专业的教学专注的态度帮助每一位热爱音乐的学生拿到dream offer
                 开发艺术领域的无限可能性
               </div>
@@ -170,23 +170,26 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         <p className="mx-auto mt-[120px] max-md:hidden mb-[40px] font-[300] text-[14px] leading-[220%] uppercase text-center text-[#FFFFFF] opacity-[0.7]">
           - 请观看导师学生作品混剪 -
         </p>
-        <div className="w-full cursor-pointer z-50 relative">
+        <div className="w-full cursor-pointer max-md:mt-[112px]  z-50 relative">
           {play ?
             <iframe
               src="//player.bilibili.com/player.html?aid=314854552&bvid=BV1zP411i7RD&cid=1170792653&page=1"
               scrolling="no"
-              className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]"
+              className="w-[960px] max-md:w-screen relative z-50 mx-auto max-md:h-[200px] md:h-[542px]"
               frameBorder="no"
               allowFullScreen={false}
             >
             </iframe>
             :
-            <Image className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]" src={video_cover} alt="" onClick={() => setPlay(true)} />
+            <div>
+              <Image className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]" src={video_cover} alt="" onClick={() => setPlay(true)} />
+              <div onClick={() => setPlay(true)} className="md:hidden mb-[88px] px-4">
+                <Image src={mobile_video} alt="" />
+              </div>
+            </div>
           }
         </div>
-        <div className="md:hidden mt-[96px] mb-[88px] px-4">
-          <Image src={mobile_video} alt="" />
-        </div>
+
         <ButtonBox className="flex mt-[160px] w-screen overflow-hidden items-center relative justify-center">
           <ButtonBorder
             style={{ borderColor: "rgb(157, 54, 11,0.1)" }}

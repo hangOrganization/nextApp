@@ -78,8 +78,11 @@ const ProductsBg = styled.div`
     background-blend-mode: soft-light, overlay, normal;
   }
 `;
-interface ProductsProps { }
-export default function Products({ }: ProductsProps) {
+interface ProductsProps {
+  musicGenre: number
+  setMusicGenre: Function
+}
+export default function Products({ setMusicGenre, musicGenre }: ProductsProps) {
   const [value, setValue] = useState<number>(0);
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
@@ -570,7 +573,7 @@ export default function Products({ }: ProductsProps) {
           <SchoolRoll value={value} />
           {(value === 2) && (
             <>
-              <Specialize />
+              <Specialize musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
             </>
           )}
         </div>

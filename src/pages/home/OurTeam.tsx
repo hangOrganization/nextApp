@@ -29,13 +29,11 @@ const OurTeamBox = styled.div`
   z-index: 2;
   @media (min-width: 768px) {
     margin-top: 100px;
-    padding-bottom: 308px;
     border-radius: 48px 48px 0px 0px;
   }
   @media not all and (min-width: 768px) {
     background: url(${mobileOurTeam_bg.src});
     background-size: cover;
-    padding-bottom: 220px;
   }
 `;
 const OurTeamBg = styled.div`
@@ -147,8 +145,10 @@ interface OurTeamProps {
   right: number,
   setRight: Function,
   setCharacteristicType: Function;
+  musicGenre: number
+  setMusicGenre: Function
 }
-export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, right, setRight, characteristicType, setCharacteristicType }: OurTeamProps) {
+export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, scrollTop, setScrollTop, right, setRight, characteristicType, setCharacteristicType }: OurTeamProps) {
   const swiper = useSwiper();
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
@@ -248,7 +248,7 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
             <div style={{
               background: 'linear-gradient(180deg, rgba(207, 196, 219, 0.00) 0%, rgba(207, 196, 219, 0.40) 100%)',
               backdropFilter: 'blur(40px)'
-            }} className="max-md:text-center md:hidden max-md:sticky pb-4 pt-[88px] z-50 max-md:top-0">
+            }} className="max-md:text-center md:hidden max-md:sticky  pb-4 pt-[88px] z-50 max-md:top-0">
               <p className=" font-extrabold max-md:text-[28px] text-[56px] leading-[120%] text-[#1a1a1a]">
                 师资团队
               </p>
@@ -295,7 +295,7 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
                 </div>
               </div>
             </div>
-            <div className="flex w-screen md:gap-[67px] overflow-hidden max-md:pb-20 max-md:mt-10 md:py-20">
+            <div className="flex w-screen md:gap-[67px] max-md:pb-[80px] overflow-hidden max-md:mt-10 md:py-20">
               <RollBox
                 className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}
               >
@@ -359,21 +359,23 @@ export default function OurTeam({ setIsOpenCampus, scrollTop, setScrollTop, righ
                 ))}
               </RollBox>
             </div>
+            <div
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, #1A1A1A 100%)",
+              }}
+              className="w-screen z-[1001] relative max-md:h-[300px] h-[228px]"
+            ></div>
           </OurTeamBg>
           <MentorInformation
             textValue={textValue}
             isOpen={isOpen}
             setIsOpen={setIsOpen}
           />
-          <div
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(26, 26, 26, 0.00) 0%, #1A1A1A 100%)",
-            }}
-            className="w-screen z-50 absolute bottom-0 left-0  max-md:h-[300px] h-[228px]"
-          ></div>
         </OurTeamBox>
         <SignCharacteristic
+          musicGenre={musicGenre}
+          setMusicGenre={setMusicGenre}
           right={right}
           scrollTop={scrollTop}
           setIsOpenCampus={setIsOpenCampus}
