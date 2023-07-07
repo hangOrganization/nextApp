@@ -29,7 +29,7 @@ const Box = styled.div`
 const CampusBox = styled.div`
   border: 1px solid rgba(204, 204, 204, 0.5);
   @media (min-width: 768px) {
-  border: 1px solid rgba(204, 204, 204, 0.3);
+    border: 1px solid rgba(204, 204, 204, 0.3);
   }
 `;
 
@@ -57,12 +57,12 @@ export default function Header({
   const dispatch = useAppDispatch();
   const activeType = useActiveType();
   return (
-    <Box className="fixed z-[10000] w-screen pl-[48px] max-md:px-4 max-md:py-3  pr-6  py-4 left-0 flex items-center justify-between top-0">
+    <Box className="fixed z-[10000] w-screen pl-[48px] max-md:px-4 max-md:py-3  pr-6  py-4 left-0 flex items-center justify-between top-0 max-md:backdrop-blur-sm-[24px]">
       <div
         className=" cursor-pointer"
         onClick={() => {
-          setCharacteristicType(0)
-          setRight(0)
+          setCharacteristicType(0);
+          setRight(0);
           dispatch(setActiveIndex(0));
         }}
       >
@@ -71,23 +71,28 @@ export default function Header({
       </div>
       <div className="flex gap-4 max-md:gap-2 items-center">
         <div
-          className={`py-4 ${activeIndex === 2 ? "active-item " : ""} cursor-pointer flex justify-center relative text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 max-md:hidden font-light `}
+          className={`py-4 ${
+            activeIndex === 2 ? "active-item " : ""
+          } cursor-pointer flex justify-center relative text-[14px] leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 max-md:hidden font-light `}
           onClick={() => {
             dispatch(setActiveIndex(2));
             dispatch(setComePage(1));
-            setRight(0)
-            setCharacteristicType(0)
+            setRight(0);
+            setCharacteristicType(0);
           }}
         >
           音乐留学
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${activeIndex === 3 && activeType === 0 && scrollTop < 1200 ? "active-item " : ""
-            }`}
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light ${
+            activeIndex === 3 && activeType === 0 && scrollTop < 1200
+              ? "active-item "
+              : ""
+          }`}
           onClick={() => {
-            setCharacteristicType(0)
+            setCharacteristicType(0);
             dispatch(setActiveIndex(3));
-            setRight(0)
+            setRight(0);
             dispatch(setAboutOrCorporation(0));
             dispatch(setComePage(2));
           }}
@@ -95,8 +100,13 @@ export default function Header({
           师资团队
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 3 && (activeType === 0 || activeType === 1) && scrollTop > 1200 ? "active-item " : ""
-            }`}
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            activeIndex === 3 &&
+            (activeType === 0 || activeType === 1) &&
+            scrollTop > 1200
+              ? "active-item "
+              : ""
+          }`}
           onClick={() => {
             dispatch(setActiveIndex(3));
             dispatch(setAboutOrCorporation(1));
@@ -106,8 +116,9 @@ export default function Header({
           公司特色
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 3 && activeType === 2 ? "active-item " : ""
-            }`}
+          className={`py-4 cursor-pointer text-[14px] flex max-md:hidden justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            activeIndex === 3 && activeType === 2 ? "active-item " : ""
+          }`}
           onClick={() => {
             dispatch(setActiveIndex(3));
             dispatch(setAboutOrCorporation(2));
@@ -117,8 +128,9 @@ export default function Header({
           关于我们
         </div>
         <div
-          className={`py-4 cursor-pointer text-[14px] max-md:hidden flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${activeIndex === 4 ? "active-item " : ""
-            }`}
+          className={`py-4 cursor-pointer text-[14px] max-md:hidden flex justify-center relative leading-[100%] hover:font-normal hover:opacity-100 opacity-80 px-6 font-light  ${
+            activeIndex === 4 ? "active-item " : ""
+          }`}
           onClick={() => {
             dispatch(setActiveIndex(4));
             dispatch(setComePage(3));

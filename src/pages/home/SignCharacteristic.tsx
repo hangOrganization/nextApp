@@ -33,16 +33,18 @@ const SignBox = styled.div`
 `;
 const MaskBox = styled.div`
   position: absolute;
-  bottom: 100px;
+  bottom: 8px;
   left: 0;
   width: 100%;
-  height: 160px;
+  height: 230px;
   background: linear-gradient(
     180deg,
-    rgb(26, 26, 26, 1) 0%,
+    rgb(26, 26, 26, 0.1) 1%,
+    rgb(26, 26, 26, 0.5) 10%,
+    rgb(26, 26, 26, 1) 40%,
     rgb(26, 26, 26, 1) 100%
   );
-  z-index: 99;
+  z-index: 10000;
 `;
 const Box = styled.div`
   @media not all and (min-width: 768px) {
@@ -285,7 +287,7 @@ export default function SignCharacteristic({
               />
             </div>
             <SignCharacteristicBox
-              className={` max-md:sticky z-50 max-md:top-[-50px] ${
+              className={` max-md:sticky z-20 max-md:top-[-50px] ${
                 right !== 0 ? " translate-x-[908px]" : "translate-x-[0px]"
               } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-1000`}
             >
@@ -385,6 +387,8 @@ export default function SignCharacteristic({
                 </div>
               </div>
             </SignCharacteristicBox>
+            <MaskBox className="md:hidden"></MaskBox>
+
             <div
               className={`transition-all max-md:pb-[210px] duration-1000 md:flex items-center ${
                 right !== 0
@@ -397,9 +401,8 @@ export default function SignCharacteristic({
                   mobileRight == 0 ? "h-[1665px]" : "h-[765px]"
                 } max-md:overflow-hidden  relative `}
               >
-                <MaskBox></MaskBox>
                 <div
-                  className={`md:ml-[202px]  max-md:w-[750px] max-md:m-auto  max-md:flex max-md:justify-between `}
+                  className={`md:ml-[202px]  max-md:w-[200%] max-md:m-auto  max-md:flex max-md:justify-between `}
                 >
                   <div
                     className={`${
