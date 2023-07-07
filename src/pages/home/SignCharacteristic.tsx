@@ -31,7 +31,21 @@ const SignBox = styled.div`
   z-index: 2;
   width: 100vw;
 `;
-
+const MaskBox = styled.div`
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 230px;
+  background: linear-gradient(
+    180deg,
+    rgb(26, 26, 26, 0.1) 1%,
+    rgb(26, 26, 26, 0.5) 10%,
+    rgb(26, 26, 26, 1) 40%,
+    rgb(26, 26, 26, 1) 100%
+  );
+  z-index: 10000;
+`;
 const Box = styled.div`
   @media not all and (min-width: 768px) {
     width: 100vw;
@@ -273,10 +287,15 @@ export default function SignCharacteristic({
               />
             </div>
             <SignCharacteristicBox
-              className={` max-md:sticky z-50 max-md:top-0 ${
+              className={` max-md:sticky z-20 max-md:top-[-50px] ${
                 right !== 0 ? " translate-x-[908px]" : "translate-x-[0px]"
               } max-md:pl-[68px] max-md:pb-[72px] max-md:pr-[77px] max-md:pt-[135px] transition-all duration-1000`}
             >
+              <Image
+                className="md:hidden absolute left-0 z-[-1] top-[80px]"
+                src={mobile_shadow_5}
+                alt=""
+              />
               <div>
                 <div className="max-md:flex justify-between">
                   <div className="w-[221px] relative max-md:hidden h-[67px]">
@@ -303,13 +322,17 @@ export default function SignCharacteristic({
                     </p>
                   </div>
                   <p
-                    className=" font-light text-[56px] max-md:text-[24px] md:hidden leading-[120%]"
+                    className={` transition-all duration-500  font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${
+                      mobileRight == 0 ? "font-[600]" : "font-light"
+                    }`}
                     onClick={() => setMobileRight(0)}
                   >
                     公司特色
                   </p>
                   <p
-                    className=" font-light text-[56px] max-md:text-[24px] md:hidden leading-[120%]"
+                    className={` transition-all duration-500  font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${
+                      mobileRight == 1 ? "font-[600]" : "font-light"
+                    }`}
                     onClick={() => setMobileRight(1)}
                   >
                     关于我们
@@ -317,7 +340,7 @@ export default function SignCharacteristic({
                 </div>
                 <div className="mt-[18px] md:hidden relative h-2 w-full">
                   <Image
-                    className={`absolute transition-all ${
+                    className={`absolute transition-all duration-500 ${
                       mobileRight === 0
                         ? "translate-x-[16px] left-0"
                         : "translate-x-[-125%] left-[100%]"
@@ -364,6 +387,8 @@ export default function SignCharacteristic({
                 </div>
               </div>
             </SignCharacteristicBox>
+            <MaskBox className="md:hidden"></MaskBox>
+
             <div
               className={`transition-all max-md:pb-[210px] duration-1000 md:flex items-center ${
                 right !== 0
@@ -371,9 +396,13 @@ export default function SignCharacteristic({
                   : "md:opacity-100 translate-x-[0px]"
               }`}
             >
-              <div className=" max-md:overflow-hidden  ">
+              <div
+                className={`${
+                  mobileRight == 0 ? "h-[1665px]" : "h-[765px]"
+                } max-md:overflow-hidden  relative `}
+              >
                 <div
-                  className={`md:ml-[202px]  max-md:w-[750px] max-md:m-auto  max-md:flex max-md:justify-between `}
+                  className={`md:ml-[202px]  max-md:w-[200%] max-md:m-auto  max-md:flex max-md:justify-between `}
                 >
                   <div
                     className={`${
@@ -598,13 +627,8 @@ export default function SignCharacteristic({
                       mobileRight == 1
                         ? "transfrom-mobile1"
                         : "transfrom-mobile2"
-                    } md:hidden  max-md:w-[100%] relative mt-[51px] px-6  `}
+                    } md:hidden  max-md:w-[100%] relative mt-[51px] px-6 max-md:h-[765px] overflow-hidden`}
                   >
-                    <Image
-                      className=" absolute left-0 top-[-200px]"
-                      src={mobile_shadow_5}
-                      alt=""
-                    />
                     <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 max-md:mb-2 font-light leading-[220%] opacity-70">
                       高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
                     </p>
