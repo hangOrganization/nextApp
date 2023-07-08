@@ -12,6 +12,18 @@
 animation: EchoRollBoxVidoeMove 500ms linear 300ms forwards ;
 }
 
+.visible_2{
+  animation: visibleMove 500ms linear 300ms forwards ;
+}
+@keyframes visibleMove {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1 !important;
+    }
+}
+
 .EchoRollBoxVidoeMove{
   height: 30px;
   opacity: 0;

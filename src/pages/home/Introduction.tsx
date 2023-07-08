@@ -1,5 +1,5 @@
 "use client";
-import _ from "lodash";
+import _, { max } from "lodash";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useSwiper } from "swiper/react";
@@ -53,6 +53,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const tenYearsRef = useRef<HTMLDivElement | null>(null);
   const applyRef = useRef<HTMLDivElement | null>(null);
   const DreamOfferRef = useRef<HTMLDivElement | null>(null);
+  const [lazyLoad, setLazyLoad] = useState<number>(0)
   useEffect(() => {
     if (activeIndex === 1) {
       if (comePage === 8) {
@@ -67,29 +68,31 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         });
       }
     }
-    if (innerWidth < 768) {
+
+  }, [activeIndex, comePage]);
+  useEffect(() => {
+    if (innerWidth < 768 && lazyLoad !== 3) {
       window.addEventListener("scroll", () => {
-        if (tenYearsRef.current!.getBoundingClientRect().top < 700) {
-          tenYearsRef.current?.classList.add("fade-in");
+        if (tenYearsRef.current!.getBoundingClientRect().top < 500) {
+          setLazyLoad(1)
           setShowLineBox(true);
         }
-        if (applyRef.current!.getBoundingClientRect().top < 800) {
-          applyRef.current?.classList.add("fade-in");
+        if (applyRef.current!.getBoundingClientRect().top < 500) {
+          setLazyLoad(2)
         }
-        if (DreamOfferRef.current!.getBoundingClientRect().top < 750) {
-          DreamOfferRef.current?.classList.add("fade-in");
+        if (DreamOfferRef.current!.getBoundingClientRect().top < 500) {
+          setLazyLoad(3)
         }
       });
     } else {
       setShowLineBox(true);
     }
-  }, [activeIndex, comePage]);
+  }, [lazyLoad])
   return (
     <div
       id="introductionBox"
-      className={`md:h-screen md:pb-20 ${
-        activeIndex === 1 ? "swiper-move-in" : "swiper-move-out"
-      }  md:overflow-auto relative`}
+      className={`md:h-screen md:pb-20 ${activeIndex === 1 ? "swiper-move-in" : "swiper-move-out"
+        }  md:overflow-auto relative`}
       onScroll={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
@@ -104,7 +107,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           }
           if (
             e.target.scrollHeight -
-              (e.target.scrollTop + e.target.clientHeight) <
+            (e.target.scrollTop + e.target.clientHeight) <
             3
           ) {
             dispatch(setThrottleFlag(true));
@@ -145,7 +148,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           alt=""
         />
         <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:mx-auto gap-x-[192px] md:justify-center justify-between">
-          <div className="max-md:opacity-0 " ref={tenYearsRef}>
+          <div className={`max-md:opacity-0 transition-all duration-1000 ${lazyLoad > 0 ? 'max-md:opacity-100' : ''}`} ref={tenYearsRef}>
             <div className="w-[224px] flex-col flex items-center">
               <div
                 className="w-[220px] max-md:w-[167px] max-md:h-[92px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
@@ -168,7 +171,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
             </div>
           </div>
-          <div className="max-md:opacity-0 " ref={applyRef}>
+          <div className={`max-md:opacity-0 transition-all duration-1000 ${lazyLoad > 1 ? 'max-md:opacity-100' : ''}`} ref={applyRef}>
             <div className="w-[224px] flex-col max-md:mt-[112px] flex items-center">
               <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
                 <div
@@ -186,7 +189,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
             </div>
           </div>
-          <div className="max-md:opacity-0 " ref={DreamOfferRef}>
+          <div className={`max-md:opacity-0 transition-all duration-1000 ${lazyLoad > 2 ? 'max-md:opacity-100' : ''}`} ref={DreamOfferRef}>
             <div className="w-[224px] flex-col max-md:mt-[50px] flex items-center">
               <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
                 <div
@@ -250,38 +253,32 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               >
                 <ButtonBorder
                   style={{ borderColor: "rgb(157, 54, 11,0.4)" }}
-                  className={`${
-                    buttonHover === "hover" ? " md:scale-[1.01]" : ""
-                  } transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] px-[49px]`}
+                  className={`${buttonHover === "hover" ? " md:scale-[1.01]" : ""
+                    } transition-all duration-1000 opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] px-[49px]`}
                 >
                   <ButtonBorder
                     style={{ borderColor: "rgb(157, 54, 11,0.5)" }}
-                    className={`opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-500 ${
-                      buttonHover === "hover" ? " md:scale-[1.02]" : ""
-                    }`}
+                    className={`opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-1000 ${buttonHover === "hover" ? " md:scale-[1.02]" : ""
+                      }`}
                   >
                     <ButtonBorder
                       style={{ borderColor: "rgb(157, 54, 11,0.6)" }}
-                      className={`opacity-100 max-md:py-[6px] ${
-                        buttonHover === "hover" ? " md:scale-[1.03]" : ""
-                      } transition-all duration-500 py-[9px] max-md:rounded-[32px] rounded-[55px] max-md:px-[15px] px-[27px]`}
+                      className={`opacity-100 max-md:py-[6px] ${buttonHover === "hover" ? " md:scale-[1.03]" : ""
+                        } transition-all duration-1000 py-[9px] max-md:rounded-[32px] rounded-[55px] max-md:px-[15px] px-[27px]`}
                     >
                       <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.7)" }}
-                        className={`opacity-100 max-md:py-[6px] ${
-                          buttonHover === "hover" ? " md:scale-[1.04]" : ""
-                        } transition-all duration-500 py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[13px] px-[23px]`}
+                        className={`opacity-100 max-md:py-[6px] ${buttonHover === "hover" ? " md:scale-[1.04]" : ""
+                          } transition-all duration-1000 py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[13px] px-[23px]`}
                       >
                         <ButtonBorder
                           style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
-                          className={`opacity-100 md:px-[24px] ${
-                            buttonHover === "hover" ? " md:scale-[1.05]" : ""
-                          } transition-all duration-500 py-[6px] max-md:py-[6px] max-md:rounded-[32px] rounded-[55px]`}
+                          className={`opacity-100 md:px-[24px] ${buttonHover === "hover" ? " md:scale-[1.05]" : ""
+                            } transition-all duration-1000 py-[6px] max-md:py-[6px] max-md:rounded-[32px] rounded-[55px]`}
                         >
                           <button
-                            className={`bg-[#FF4B00] ${
-                              buttonHover === "hover" ? " md:scale-[1]" : ""
-                            } max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
+                            className={`bg-[#FF4B00] ${buttonHover === "hover" ? " md:scale-[1]" : ""
+                              } max-md:rounded-[28px] rounded-[39px] flex transition-all duration-1000 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
                             onClick={() => {
                               setIsOpenConsult(1);
                             }}
@@ -296,12 +293,12 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                               LEt’s Rock
                             </p>
                             <Image
-                              className="absolute transition-all duration-500 max-w-[918px] z-10 w-[918px] h-[110px]"
+                              className="absolute transition-all duration-1000 max-w-[918px] z-10 w-[918px] h-[110px]"
                               src={lEtsRock_button}
                               alt=""
                             />
                             <div className="absolute w-[314px] max-md:hidden rounded-[39px] overflow-hidden h-20 z-10">
-                              <ShadowBox className="transition-all ml-[-60px] mt-[-27px] duration-500 shadow">
+                              <ShadowBox className="transition-all ml-[-60px] mt-[-27px] duration-1000 shadow">
                                 <ShadowBox2 className=""></ShadowBox2>
                               </ShadowBox>
                             </div>
