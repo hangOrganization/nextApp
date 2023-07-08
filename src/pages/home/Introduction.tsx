@@ -1,7 +1,7 @@
 "use client";
 import _ from "lodash";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSwiper } from "swiper/react";
 import { useAppDispatch } from "@/state/hooks";
 import apply_gif from "@/assets/image/gif/apply.gif";
@@ -15,7 +15,11 @@ import mobile_video from "../../assets/image/mobile/mobile-video.png";
 import mobile_shadow from "../../assets/image/mobile-shadow/mobile-shadow.svg";
 import mobile_shadow_1 from "../../assets/image/mobile-shadow/mobile-shadow-1.svg";
 import mobile_shadow_2 from "../../assets/image/mobile-shadow/mobile-shadow-2.svg";
-import { setActiveIndex, setComePage, setThrottleFlag } from "@/state/application/reducer";
+import {
+  setActiveIndex,
+  setComePage,
+  setThrottleFlag,
+} from "@/state/application/reducer";
 import {
   useActiveIndex,
   useComePage,
@@ -32,6 +36,7 @@ import {
   ShadowBox,
   ShadowBox2,
 } from "@/styles/SignCss";
+import { classicalMusicHotMajor } from "@/utils/specializeText";
 
 interface IntroductionProps {
   setIsOpenConsult: Function;
@@ -41,10 +46,13 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const throttleFlag = useThrottleFlag();
   const activeIndex = useActiveIndex();
   const swiper = useSwiper();
-  const comePage = useComePage()
+  const comePage = useComePage();
   const innerWidth = useOuterWidth();
   const [buttonHover, setButtonHover] = useState<string>("");
   const [play, setPlay] = useState<boolean>(false);
+  const tenYearsRef = useRef<HTMLDivElement>();
+  const applyRef = useRef<HTMLDivElement>();
+  const DreamOfferRef = useRef<HTMLDivElement>();
   useEffect(() => {
     if (activeIndex === 1) {
       if (comePage === 8) {
@@ -59,12 +67,25 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         });
       }
     }
+    window.addEventListener("scroll", () => {
+      if (tenYearsRef.current!.getBoundingClientRect().top < 700) {
+        tenYearsRef.current?.classList.add("fade-in");
+      }
+      console.log(applyRef.current!.getBoundingClientRect().top);
+      if (applyRef.current!.getBoundingClientRect().top < 800) {
+        applyRef.current?.classList.add("fade-in");
+      }
+      if (DreamOfferRef.current!.getBoundingClientRect().top < 750) {
+        DreamOfferRef.current?.classList.add("fade-in");
+      }
+    });
   }, [activeIndex, comePage]);
   return (
     <div
       id="introductionBox"
-      className={`md:h-screen md:pb-20 ${activeIndex === 1 ? "swiper-move-in" : "swiper-move-out"
-        }  md:overflow-auto relative`}
+      className={`md:h-screen md:pb-20 ${
+        activeIndex === 1 ? "swiper-move-in" : "swiper-move-out"
+      }  md:overflow-auto relative`}
       onScroll={(e: any) => {
         if (throttleFlag) return;
         if (innerWidth > 768) {
@@ -77,7 +98,11 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               dispatch(setThrottleFlag(false));
             }, 1200);
           }
-          if (e.target.scrollHeight - (e.target.scrollTop + e.target.clientHeight) < 3) {
+          if (
+            e.target.scrollHeight -
+              (e.target.scrollTop + e.target.clientHeight) <
+            3
+          ) {
             dispatch(setThrottleFlag(true));
             dispatch(setActiveIndex(2));
             dispatch(setComePage(1));
@@ -116,7 +141,10 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           alt=""
         />
         <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:mx-auto gap-x-[192px] md:justify-center justify-between">
-          <div className="w-[224px] flex-col flex items-center">
+          <div
+            className="w-[224px] flex-col flex items-center max-md:opacity-0"
+            ref={tenYearsRef}
+          >
             <div
               className="w-[220px] max-md:w-[167px] max-md:h-[92px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
               style={{ backgroundImage: `url(${speed_line.src})` }}
@@ -135,7 +163,10 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
             </div>
           </div>
-          <div className="w-[224px] flex-col max-md:mt-[112px] flex items-center">
+          <div
+            className="w-[224px] flex-col max-md:mt-[112px] flex items-center  max-md:opacity-0"
+            ref={applyRef}
+          >
             <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
               <div
                 className="w-[220px] max-md:h-[92px] max-md:w-[167px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
@@ -151,7 +182,10 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
             </div>
           </div>
-          <div className="w-[224px] flex-col max-md:mt-[50px] flex items-center">
+          <div
+            className="w-[224px] flex-col max-md:mt-[50px] flex items-center  max-md:opacity-0"
+            ref={DreamOfferRef}
+          >
             <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
               <div
                 className="w-[220px] max-md:h-[151px] max-md:w-[167px] h-[200px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A]"
@@ -171,23 +205,30 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           - 请观看导师学生作品混剪 -
         </p>
         <div className="w-full cursor-pointer max-md:mt-[112px]  z-50 relative">
-          {play ?
+          {play ? (
             <iframe
               src="//player.bilibili.com/player.html?aid=314854552&bvid=BV1zP411i7RD&cid=1170792653&page=1"
               scrolling="no"
               className="w-[960px] max-md:w-screen relative z-50 mx-auto max-md:h-[200px] md:h-[542px]"
               frameBorder="no"
               allowFullScreen={false}
-            >
-            </iframe>
-            :
+            ></iframe>
+          ) : (
             <div>
-              <Image className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]" src={video_cover} alt="" onClick={() => setPlay(true)} />
-              <div onClick={() => setPlay(true)} className="md:hidden mb-[88px] px-4">
+              <Image
+                className="w-[960px] max-md:hidden relative z-50 mx-auto h-[542px]"
+                src={video_cover}
+                alt=""
+                onClick={() => setPlay(true)}
+              />
+              <div
+                onClick={() => setPlay(true)}
+                className="md:hidden mb-[88px] px-4"
+              >
                 <Image src={mobile_video} alt="" />
               </div>
             </div>
-          }
+          )}
         </div>
 
         <ButtonBox className="flex mt-[160px] w-screen overflow-hidden items-center relative justify-center">
@@ -205,32 +246,38 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               >
                 <ButtonBorder
                   style={{ borderColor: "rgb(157, 54, 11,0.4)" }}
-                  className={`${buttonHover === "hover" ? " md:scale-[1.01]" : ""
-                    } transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] px-[49px]`}
+                  className={`${
+                    buttonHover === "hover" ? " md:scale-[1.01]" : ""
+                  } transition-all duration-500 opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] px-[49px]`}
                 >
                   <ButtonBorder
                     style={{ borderColor: "rgb(157, 54, 11,0.5)" }}
-                    className={`opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-500 ${buttonHover === "hover" ? " md:scale-[1.02]" : ""
-                      }`}
+                    className={`opacity-100 max-md:py-[6px] py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[17px] px-[34px] transition-all duration-500 ${
+                      buttonHover === "hover" ? " md:scale-[1.02]" : ""
+                    }`}
                   >
                     <ButtonBorder
                       style={{ borderColor: "rgb(157, 54, 11,0.6)" }}
-                      className={`opacity-100 max-md:py-[6px] ${buttonHover === "hover" ? " md:scale-[1.03]" : ""
-                        } transition-all duration-500 py-[9px] max-md:rounded-[32px] rounded-[55px] max-md:px-[15px] px-[27px]`}
+                      className={`opacity-100 max-md:py-[6px] ${
+                        buttonHover === "hover" ? " md:scale-[1.03]" : ""
+                      } transition-all duration-500 py-[9px] max-md:rounded-[32px] rounded-[55px] max-md:px-[15px] px-[27px]`}
                     >
                       <ButtonBorder
                         style={{ borderColor: "rgb(157, 54, 11,0.7)" }}
-                        className={`opacity-100 max-md:py-[6px] ${buttonHover === "hover" ? " md:scale-[1.04]" : ""
-                          } transition-all duration-500 py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[13px] px-[23px]`}
+                        className={`opacity-100 max-md:py-[6px] ${
+                          buttonHover === "hover" ? " md:scale-[1.04]" : ""
+                        } transition-all duration-500 py-[8px] max-md:rounded-[32px] rounded-[55px] max-md:px-[13px] px-[23px]`}
                       >
                         <ButtonBorder
                           style={{ borderColor: "rgb(157, 54, 11,0.8)" }}
-                          className={`opacity-100 md:px-[24px] ${buttonHover === "hover" ? " md:scale-[1.05]" : ""
-                            } transition-all duration-500 py-[6px] max-md:py-[6px] max-md:rounded-[32px] rounded-[55px]`}
+                          className={`opacity-100 md:px-[24px] ${
+                            buttonHover === "hover" ? " md:scale-[1.05]" : ""
+                          } transition-all duration-500 py-[6px] max-md:py-[6px] max-md:rounded-[32px] rounded-[55px]`}
                         >
                           <button
-                            className={`bg-[#FF4B00] ${buttonHover === "hover" ? " md:scale-[1]" : ""
-                              } max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
+                            className={`bg-[#FF4B00] ${
+                              buttonHover === "hover" ? " md:scale-[1]" : ""
+                            } max-md:rounded-[28px] rounded-[39px] flex transition-all duration-500 justify-center relative items-center max-md:w-[255px] max-md:h-[56px] w-[314px] max-md:mx-2  h-20`}
                             onClick={() => {
                               setIsOpenConsult(1);
                             }}

@@ -7,6 +7,12 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+.fade-in{
+
+animation: EchoRollBoxVidoeMove 500ms linear 300ms forwards ;
+
+}
+
 .EchoRollBoxVidoeMove{
   height: 30px;
   opacity: 0;
