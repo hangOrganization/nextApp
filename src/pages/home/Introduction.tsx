@@ -67,18 +67,20 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         });
       }
     }
-    window.addEventListener("scroll", () => {
-      if (tenYearsRef.current!.getBoundingClientRect().top < 700) {
-        tenYearsRef.current?.classList.add("fade-in");
-      }
-      console.log(applyRef.current!.getBoundingClientRect().top);
-      if (applyRef.current!.getBoundingClientRect().top < 800) {
-        applyRef.current?.classList.add("fade-in");
-      }
-      if (DreamOfferRef.current!.getBoundingClientRect().top < 750) {
-        DreamOfferRef.current?.classList.add("fade-in");
-      }
-    });
+    if (innerWidth < 768) {
+      window.addEventListener("scroll", () => {
+        if (tenYearsRef.current!.getBoundingClientRect().top < 700) {
+          tenYearsRef.current?.classList.add("fade-in");
+        }
+        console.log(applyRef.current!.getBoundingClientRect().top);
+        if (applyRef.current!.getBoundingClientRect().top < 800) {
+          applyRef.current?.classList.add("fade-in");
+        }
+        if (DreamOfferRef.current!.getBoundingClientRect().top < 750) {
+          DreamOfferRef.current?.classList.add("fade-in");
+        }
+      });
+    }
   }, [activeIndex, comePage]);
   return (
     <div
