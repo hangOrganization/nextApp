@@ -65,7 +65,6 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
     const MobileBox = styled.div`
       @media not all and (min-width: 768px) {
         max-height:${innerHeight - 120}px;
-        
       }
   `
 
@@ -105,7 +104,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                     </svg>
                                 </Dialog.Title>
                                 <div className=" mx-auto max-md:mx-1 h-full max-md:pt-3 pt-10 md:w-[1200px]">
-                                    <MobileBox className="md:flex max-md:overflow-auto justify-between">
+                                    <MobileBox className="md:flex max-md:overflow-auto  justify-between">
                                         <Box className='max-md:flex overflow-auto'>
                                             <Image className='w-[389px] max-md:w-[148px] max-md:h-[197px] mb-6 object-contain h-[519px]' src={teachers[textValue].image} alt='' />
                                             <div className='max-md:ml-4'>
@@ -135,6 +134,10 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                                     {el}
                                                 </div>
                                             ))}
+                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
+                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
+                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
+                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
                                         </Box>
                                     </MobileBox>
                                 </div>

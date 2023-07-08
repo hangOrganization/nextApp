@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Fragment, useState } from "react";
 import { list } from "@/utils/campusEnvironmentList";
 import { Dialog, Transition } from "@headlessui/react";
+import Modal from "./Modal";
 const TurningButton = styled.div`
   border-radius: 100%;
   :hover {
@@ -30,7 +31,7 @@ export default function CampusEnvironment({
   }
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [oldCurrentPage, setOldCurrentPage] = useState<number>(0);
-
+  const [open, setOpen] = useState<number>(0);
   return (
     <Transition appear show={isOpen === 1 ? true : false} as={Fragment}>
       <Dialog as="div" className="relative z-[1000000]" onClose={closeModal}>
@@ -62,6 +63,15 @@ export default function CampusEnvironment({
                   closeModal()
                 }}
               >
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg md:hidden flex justify-end font-medium leading-6 text-gray-900"
+                >
+                  <svg onClick={closeModal} className=' cursor-pointer' width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 24L24.0012 7.99879" stroke="#ffffff" />
+                    <path d="M8 8L24.0012 24.0012" stroke="#ffffff" />
+                  </svg>
+                </Dialog.Title>
                 <div className="text-center max-md:hidden w-screen">
                   <div className="w-[1200px] mx-auto items-center h-[520px] flex justify-center relative overflow-x-hidden">
                     <div className="w-[644px] flex items-center h-[520px]">
@@ -223,18 +233,23 @@ export default function CampusEnvironment({
                     {currentPage + 1}/{list.length}
                   </p>
                 </div>
-                <div className="md:hidden">
+                <div className="md:hidden mt-4">
                   <div className=" flex justify-between gap-y-4 flex-wrap">
                     {list.map((el: any) => (
-                      <div className=" w-[165px] relative flex justify-center items-end h-[160px]" key={`mobile-CampusEnvironment-${el.index}`} >
-                        <p className="mb-2 font-light absolute text-[12px] leading-[180%]">
+                      <div onClick={(event) => {
+                        event.stopPropagation()
+                        setCurrentPage(el.index)
+                        setOpen(1)
+                      }} className=" w-[165px] relative flex justify-center items-end h-[160px]" key={`mobile-CampusEnvironment-${el.index}`} >
+                        <p className="mb-2 font-light absolute text-ellipsis overflow-hidden line-clamp-1 text-[12px] leading-[180%]">
                           {el.name}
                         </p>
-                        <Image src={el.image} className="w-[165px] h-[165px]" alt="" />
+                        <Image src={el.image} className="w-[165px] object-contain h-[165px]" alt="" />
                       </div>
                     ))}
                   </div>
                 </div>
+                <Modal isOpen={open} setCurrentPage={setCurrentPage} currentPage={currentPage} setIsOpen={setOpen} />
               </Dialog.Panel>
             </Transition.Child>
           </div>

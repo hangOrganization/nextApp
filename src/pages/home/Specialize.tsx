@@ -559,6 +559,7 @@ export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) 
               </div>
             </div>
           </div>
+          <div style={{background: 'linear-gradient(180deg,rgb(26, 26, 26, 0.1) 1%,rgb(26, 26, 26, 0.5) 10%,rgb(26, 26, 26, 1) 40%,rgb(26, 26, 26, 1) 100%)'}} className=" w-full h-[180px] absolute bottom-0 left-0 z-[1001] bg-[#1a1a1a]"></div>
         </div>
       </div>
     </SpecializeBox>

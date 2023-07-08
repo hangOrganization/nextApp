@@ -1,7 +1,7 @@
 "use client";
 import _ from "lodash";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSwiper } from "swiper/react";
 import { useAppDispatch } from "@/state/hooks";
 import apply_gif from "@/assets/image/gif/apply.gif";
@@ -49,6 +49,9 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const innerWidth = useOuterWidth();
   const [buttonHover, setButtonHover] = useState<string>("");
   const [play, setPlay] = useState<boolean>(false);
+  const tenYearsRef = useRef<HTMLDivElement | null>();
+  const applyRef = useRef<HTMLDivElement | null>();
+  const DreamOfferRef = useRef<HTMLDivElement | null>();
   useEffect(() => {
     if (activeIndex === 1) {
       if (comePage === 8) {
@@ -125,52 +128,58 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           alt=""
         />
         <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:mx-auto gap-x-[192px] md:justify-center justify-between">
-          <div className="w-[224px] flex-col flex items-center">
-            <div
-              className="w-[220px] max-md:w-[167px] max-md:h-[92px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
-              style={{ backgroundImage: `url(${speed_line.src})` }}
-            >
-              <LineBox className="w-full scale-[0.76] overflow-hidden">
-                <div className="flex mt-[-2px] h-[86px] w-full gap-[6px] before justify-center items-end"></div>
-              </LineBox>
-            </div>
-            <div className="mt-6">
-              <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                十万象限 是杭州首家拥有
+          <div>
+            <div className="w-[224px] flex-col flex items-center">
+              <div
+                className="w-[220px] max-md:w-[167px] max-md:h-[92px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
+                style={{ backgroundImage: `url(${speed_line.src})` }}
+              >
+                <LineBox className="w-full scale-[0.76] overflow-hidden">
+                  <div className="flex mt-[-2px] h-[86px] w-full gap-[6px] before justify-center items-end"></div>
+                </LineBox>
               </div>
-              <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                十年音乐传媒行业经验的专业团队 由世界艺术名校海归艺术家导师及
-                独立音乐人联合创立
+              <div className="mt-6">
+                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
+                  十万象限 是杭州首家拥有
+                </div>
+                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
+                  十年音乐传媒行业经验的专业团队 由世界艺术名校海归艺术家导师及
+                  独立音乐人联合创立
+                </div>
               </div>
             </div>
           </div>
-          <div className="w-[224px] flex-col max-md:mt-[112px] flex items-center">
-            <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
-              <div
-                className="w-[220px] max-md:h-[92px] max-md:w-[167px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
-                style={{ backgroundImage: `url(${apply_gif.src})` }}
-              ></div>
-            </div>
-            <div className="mt-6 py-[31px] h-[124px]">
-              <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                专攻于 音乐艺术作品集教育
+          <div>
+            <div className="w-[224px] flex-col max-md:mt-[112px] flex items-center">
+              <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
+                <div
+                  className="w-[220px] max-md:h-[92px] max-md:w-[167px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
+                  style={{ backgroundImage: `url(${apply_gif.src})` }}
+                ></div>
               </div>
-              <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                留学申请规划 以及 跨界艺术联动
+              <div className="mt-6 py-[31px] h-[124px]">
+                <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
+                  专攻于 音乐艺术作品集教育
+                </div>
+                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
+                  留学申请规划 以及 跨界艺术联动
+                </div>
               </div>
             </div>
           </div>
-          <div className="w-[224px] flex-col max-md:mt-[50px] flex items-center">
-            <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
-              <div
-                className="w-[220px] max-md:h-[151px] max-md:w-[167px] h-[200px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A]"
-                style={{ backgroundImage: `url(${DreamOffer.src})` }}
-              ></div>
-            </div>
-            <div className=" py-[31px] h-[124px]">
-              <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] text-[14px] opacity-70 text-center">
-                以专业的教学专注的态度帮助每一位热爱音乐的学生拿到dream offer
-                开发艺术领域的无限可能性
+          <div>
+            <div className="w-[224px] flex-col max-md:mt-[50px] flex items-center">
+              <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
+                <div
+                  className="w-[220px] max-md:h-[151px] max-md:w-[167px] h-[200px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A]"
+                  style={{ backgroundImage: `url(${DreamOffer.src})` }}
+                ></div>
+              </div>
+              <div className=" py-[31px] h-[124px]">
+                <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] text-[14px] opacity-70 text-center">
+                  以专业的教学专注的态度帮助每一位热爱音乐的学生拿到dream offer
+                  开发艺术领域的无限可能性
+                </div>
               </div>
             </div>
           </div>
