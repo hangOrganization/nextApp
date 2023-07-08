@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import businesspartner_bg from "@/assets/image/svg/businesspartner-bg.svg";
+import businesspartner_bg from "@/assets/image/png/businesspartner-bg.png";
 import styled from "styled-components";
 
 import partner from "@/utils/partner";
@@ -30,7 +30,8 @@ const ScrollBox = styled.div`
 const MoveLeftBgBox = styled.div`
   background: url(${businesspartner_bg.src});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+
   mix-blend-mode: lighten;
   animation: bgMove 5s linear infinite alternate;
 
@@ -45,7 +46,7 @@ const MoveLeftBgBox = styled.div`
 
   @media not all and (min-width: 768px) {
     animation: unset;
-    transform: translateX(-194px);
+    transform: translateX(-164px);
   }
 
   /* translate-x-[184px] */
@@ -53,7 +54,7 @@ const MoveLeftBgBox = styled.div`
 const MoveRightBgBox = styled.div`
   background: url(${businesspartner_bg.src});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   mix-blend-mode: lighten;
 
   animation: bgMove2 5s linear infinite alternate;
@@ -66,7 +67,8 @@ const MoveRightBgBox = styled.div`
     }
   }
   @media not all and (min-width: 768px) {
-    transform: scale(-1) translateX(-169px);
+    transform: scale(-1) translateX(-164px);
+
     animation: unset;
   }
 `;
