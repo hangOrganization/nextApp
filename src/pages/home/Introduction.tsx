@@ -1,7 +1,7 @@
 "use client";
 import _ from "lodash";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSwiper } from "swiper/react";
 import { useAppDispatch } from "@/state/hooks";
 import apply_gif from "@/assets/image/gif/apply.gif";
@@ -36,7 +36,6 @@ import {
   ShadowBox,
   ShadowBox2,
 } from "@/styles/SignCss";
-import { classicalMusicHotMajor } from "@/utils/specializeText";
 
 interface IntroductionProps {
   setIsOpenConsult: Function;
@@ -50,9 +49,6 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
   const innerWidth = useOuterWidth();
   const [buttonHover, setButtonHover] = useState<string>("");
   const [play, setPlay] = useState<boolean>(false);
-  const tenYearsRef = useRef<HTMLDivElement>();
-  const applyRef = useRef<HTMLDivElement>();
-  const DreamOfferRef = useRef<HTMLDivElement>();
   useEffect(() => {
     if (activeIndex === 1) {
       if (comePage === 8) {
@@ -66,19 +62,6 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           behavior: "smooth",
         });
       }
-    }
-    if (innerWidth < 768) {
-      window.addEventListener("scroll", () => {
-        if (tenYearsRef.current!.getBoundingClientRect().top < 700) {
-          tenYearsRef.current?.classList.add("fade-in");
-        }
-        if (applyRef.current!.getBoundingClientRect().top < 800) {
-          applyRef.current?.classList.add("fade-in");
-        }
-        if (DreamOfferRef.current!.getBoundingClientRect().top < 750) {
-          DreamOfferRef.current?.classList.add("fade-in");
-        }
-      });
     }
   }, [activeIndex, comePage]);
   return (
@@ -142,10 +125,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
           alt=""
         />
         <div className="flex max-md:flex-col md:pt-[120px] items-center overflow-auto md:mx-auto gap-x-[192px] md:justify-center justify-between">
-          <div
-            className="w-[224px] flex-col flex items-center max-md:opacity-0"
-            ref={tenYearsRef}
-          >
+          <div className="w-[224px] flex-col flex items-center">
             <div
               className="w-[220px] max-md:w-[167px] max-md:h-[92px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
               style={{ backgroundImage: `url(${speed_line.src})` }}
@@ -164,10 +144,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
             </div>
           </div>
-          <div
-            className="w-[224px] flex-col max-md:mt-[112px] flex items-center  max-md:opacity-0"
-            ref={applyRef}
-          >
+          <div className="w-[224px] flex-col max-md:mt-[112px] flex items-center">
             <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
               <div
                 className="w-[220px] max-md:h-[92px] max-md:w-[167px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
@@ -183,10 +160,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
             </div>
           </div>
-          <div
-            className="w-[224px] flex-col max-md:mt-[50px] flex items-center  max-md:opacity-0"
-            ref={DreamOfferRef}
-          >
+          <div className="w-[224px] flex-col max-md:mt-[50px] flex items-center">
             <div className="flex w-full py-[9px] px-[2px] gap-[27px] justify-center items-center">
               <div
                 className="w-[220px] max-md:h-[151px] max-md:w-[167px] h-[200px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A]"
