@@ -72,7 +72,6 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
         if (tenYearsRef.current!.getBoundingClientRect().top < 700) {
           tenYearsRef.current?.classList.add("fade-in");
         }
-        console.log(applyRef.current!.getBoundingClientRect().top);
         if (applyRef.current!.getBoundingClientRect().top < 800) {
           applyRef.current?.classList.add("fade-in");
         }
