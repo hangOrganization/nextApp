@@ -366,6 +366,12 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
               }}
               className="w-screen z-[1001] relative max-md:h-[300px] h-[228px]"
             ></div>
+            <div
+              style={{
+                background: '#1A1A1A',
+              }}
+              className="w-screen z-[1001] relative max-md:h-[80px] md:hidden"
+            ></div>
           </OurTeamBg>
           <MentorInformation
             textValue={textValue}

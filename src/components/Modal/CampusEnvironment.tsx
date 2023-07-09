@@ -2,7 +2,7 @@ import "swiper/css";
 import Image from "next/image";
 import "swiper/css/pagination";
 import styled from "styled-components";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { list } from "@/utils/campusEnvironmentList";
 import { Dialog, Transition } from "@headlessui/react";
 import Modal from "./Modal";
@@ -26,6 +26,10 @@ export default function CampusEnvironment({
   isOpen,
   setIsOpen,
 }: CampusEnvironmentProps) {
+  const [innerHeight, setInnerHeight] = useState<number>(0)
+  useEffect(() => {
+    setInnerHeight(window.innerHeight)
+  }, []);
   function closeModal() {
     setIsOpen(0);
   }
@@ -47,7 +51,7 @@ export default function CampusEnvironment({
           <div className="fixed inset-0 bg-black bg-opacity-90" />
         </Transition.Child>
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div className="flex min-h-full items-center justify-center p-4 max-md:pb-0 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -65,7 +69,7 @@ export default function CampusEnvironment({
               >
                 <Dialog.Title
                   as="h3"
-                  className="text-lg md:hidden flex justify-end font-medium leading-6 text-gray-900 max-md:absolute max-md:right-0"
+                  className="text-lg md:hidden flex justify-end font-medium leading-6 text-gray-900 max-md:right-0"
                 >
                   <svg
                     onClick={closeModal}
@@ -154,9 +158,8 @@ export default function CampusEnvironment({
                       {list.map((el: any) => (
                         <p
                           key={`${el.index}-el.name-campusEnvironment`}
-                          className={`font-light absolute text-[14px] transition-all ${
-                            el.index === currentPage ? "opacity-100" : ""
-                          } duration-1000 opacity-0 mt-8 leading-[180%]`}
+                          className={`font-light absolute text-[14px] transition-all ${el.index === currentPage ? "opacity-100" : ""
+                            } duration-1000 opacity-0 mt-8 leading-[180%]`}
                         >
                           {el.name}
                         </p>
@@ -250,8 +253,8 @@ export default function CampusEnvironment({
                     {currentPage + 1}/{list.length}
                   </p>
                 </div>
-                <div className="md:hidden mt-4">
-                  <div className=" flex justify-between gap-y-[6px] flex-wrap">
+                <div className="md:hidden">
+                  <div style={{ maxHeight: `${innerHeight - 48}px` }} className=" pb-[96px] overflow-y-auto flex justify-between gap-y-[6px] flex-wrap">
                     {list.map((el: any) => (
                       <div
                         onClick={(event) => {
@@ -262,7 +265,7 @@ export default function CampusEnvironment({
                         className=" w-[165px] relative flex justify-center items-end h-[160px] max-md:h-[190px]"
                         key={`mobile-CampusEnvironment-${el.index}`}
                       >
-                        <p className="mb-2 font-light absolute text-ellipsis overflow-hidden line-clamp-1 text-[12px] max-md:bottom-[-32px] leading-[180%]">
+                        <p className="mb-2 font-light absolute text-ellipsis overflow-hidden line-clamp-1 text-[12px] max-md:bottom-[-32px]leading-[180%]">
                           {el.name}
                         </p>
                         <Image
@@ -272,6 +275,7 @@ export default function CampusEnvironment({
                         />
                       </div>
                     ))}
+                    <div className=" w-screen h-12 max-md:hidden"></div>
                   </div>
                 </div>
                 <Modal
