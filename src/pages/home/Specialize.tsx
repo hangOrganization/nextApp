@@ -16,8 +16,7 @@ import {
 } from "@/utils/specializeText";
 import { useEffect, useState } from "react";
 
-const SpecializeBox = styled.div`
-`;
+const SpecializeBox = styled.div``;
 const SpecializeBg = styled.div`
   position: absolute;
   top: 0;
@@ -25,17 +24,17 @@ const SpecializeBg = styled.div`
 
   @media (min-width: 768px) {
     background: linear-gradient(
-      180deg,
-      #1a1a1a 0%,
-      rgba(26, 26, 26, 0.46) 48.22%,
-      #1a1a1a 100%
-    ),
-    url(${specialize_bg.src});
-  width: 100vw;
-  height: 1309px;
-  background-size: cover;
-  background-repeat: no-repeat !important;
-  background-blend-mode: normal, soft-light, color-dodge;
+        180deg,
+        #1a1a1a 0%,
+        rgba(26, 26, 26, 0.46) 48.22%,
+        #1a1a1a 100%
+      ),
+      url(${specialize_bg.src});
+    width: 100vw;
+    height: 1309px;
+    background-size: cover;
+    background-repeat: no-repeat !important;
+    background-blend-mode: normal, soft-light, color-dodge;
   }
   @media not all and (min-width: 768px) {
     background: linear-gradient(
@@ -44,7 +43,7 @@ const SpecializeBg = styled.div`
         rgba(26, 26, 26, 0.46) 48.22%,
         #1a1a1a 100%
       ),
-    url(${mobileSpecialize_bg.src});
+      url(${mobileSpecialize_bg.src});
     width: 100vw;
     height: 100%;
     background-size: contain;
@@ -75,10 +74,13 @@ const CourseBox = styled.div`
   }
 `;
 interface SpecializeProps {
-    musicGenre:number
-    setMusicGenre:Function
+  musicGenre: number;
+  setMusicGenre: Function;
 }
-export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) {
+export default function Specialize({
+  musicGenre,
+  setMusicGenre,
+}: SpecializeProps) {
   return (
     <SpecializeBox className="flex  Specialize justify-center md:h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen md:overflow-hidden md:mt-[-190px] flex-col items-center">
       <SpecializeBg></SpecializeBg>
@@ -103,68 +105,77 @@ export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) 
               background: "rgba(26, 26, 26, 0.90)",
               backdropFilter: "blur(40px)",
             }}
-            className="flex max-md:sticky md:!backdrop-blur-none max-md:hidden max-md:mt-[-64px] md:!bg-transparent  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end">
+            className="flex max-md:sticky md:!backdrop-blur-none max-md:hidden max-md:mt-[-64px] md:!bg-transparent  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end"
+          >
             <div className="flex gap-4 max-md:justify-between items-end">
               <div
-                className={`md:w-[200px] ${musicGenre === 1 ? "md:mb-2" : ""
-                  } transition-all duration-300 cursor-pointer text-center`}
+                className={`md:w-[200px] ${
+                  musicGenre === 1 ? "md:mb-2" : ""
+                } transition-all duration-300 cursor-pointer text-center`}
                 onClick={() => setMusicGenre(1)}
               >
                 <p
-                  className={`text-[24px] ${musicGenre === 1
-                    ? "font-[200]"
-                    : "font-[100] max-md:font-light"
-                    } max-md:text-[14px] font-[200] leading-[160%]`}
+                  className={`text-[24px] ${
+                    musicGenre === 1
+                      ? "font-[200]"
+                      : "font-[100] max-md:font-light"
+                  } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   现代音乐类
                 </p>
               </div>
               <div
-                className={`md:w-[200px] ${musicGenre === 2 ? "md:mb-2" : ""
-                  } transition-all duration-300 cursor-pointer text-center`}
+                className={`md:w-[200px] ${
+                  musicGenre === 2 ? "md:mb-2" : ""
+                } transition-all duration-300 cursor-pointer text-center`}
                 onClick={() => setMusicGenre(2)}
               >
                 <p
-                  className={`text-[24px] ${musicGenre === 2
-                    ? "font-[200]"
-                    : "font-[100] max-md:font-light"
-                    } max-md:text-[14px] font-[200] leading-[160%]`}
+                  className={`text-[24px] ${
+                    musicGenre === 2
+                      ? "font-[200]"
+                      : "font-[100] max-md:font-light"
+                  } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   古典音乐类
                 </p>
               </div>
               <div
-                className={`md:w-[200px] ${musicGenre === 3 ? "md:mb-2" : ""
-                  } transition-all duration-300 cursor-pointer text-center`}
+                className={`md:w-[200px] ${
+                  musicGenre === 3 ? "md:mb-2" : ""
+                } transition-all duration-300 cursor-pointer text-center`}
                 onClick={() => setMusicGenre(3)}
               >
                 <p
-                  className={`text-[24px] ${musicGenre === 3
-                    ? "font-[200]"
-                    : "font-[100] max-md:font-light"
-                    } max-md:text-[14px] font-[200] leading-[160%]`}
+                  className={`text-[24px] ${
+                    musicGenre === 3
+                      ? "font-[200]"
+                      : "font-[100] max-md:font-light"
+                  } max-md:text-[14px] font-[200] leading-[160%]`}
                 >
                   音乐理论及应用类
                 </p>
               </div>
             </div>
             <div
-              className={`w-[86px] transition-all max-md:hidden duration-500 ${musicGenre === 1
-                ? "translate-x-[-488.5px]"
-                : musicGenre === 2
+              className={`w-[86px] transition-all max-md:hidden duration-500 ${
+                musicGenre === 1
+                  ? "translate-x-[-488.5px]"
+                  : musicGenre === 2
                   ? "translate-x-[-272.5px]"
                   : "translate-x-[-56.5px]"
-                } `}
+              } `}
               style={{ border: "0.5px solid #FFFFFF" }}
             ></div>
             <div className="mt-[16px] md:hidden h-[1px] relative w-full">
               <div
-                className={`w-12 transition-all absolute duration-500  ${musicGenre === 1
-                  ? "left-[0%] translate-x-[10px]"
-                  : musicGenre === 2
+                className={`w-12 transition-all absolute duration-500  ${
+                  musicGenre === 1
+                    ? "left-[0%] translate-x-[10px]"
+                    : musicGenre === 2
                     ? "left-[50%] translate-x-[-45px]"
                     : "left-[100%] translate-x-[-82px]"
-                  }`}
+                }`}
                 style={{ border: "0.25px solid #FFFFFF" }}
               ></div>
             </div>
@@ -175,113 +186,135 @@ export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) 
             background: "rgba(26, 26, 26, 0.90)",
             backdropFilter: "blur(40px)",
           }}
-          className="flex md:hidden max-md:sticky max-md:mt-[-64px]  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end">
+          className="flex md:hidden max-md:sticky max-md:mt-[-64px]  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end"
+        >
           <div className="flex gap-4 max-md:justify-between items-end">
             <div
-              className={`md:w-[200px] ${musicGenre === 1 ? "md:mb-2" : ""
-                } transition-all duration-300 cursor-pointer text-center`}
+              className={`md:w-[200px] ${
+                musicGenre === 1 ? "md:mb-2" : ""
+              } transition-all duration-300 cursor-pointer text-center`}
               onClick={() => {
-                setMusicGenre(1)
-                window.scrollTo({
-                  top: 3280,
-                  behavior: 'smooth',
-                })
+                setMusicGenre(1);
+                // window.scrollTo({
+                //   top: 3280,
+                //   behavior: 'smooth',
+                // })
               }}
             >
               <p
-                className={`text-[24px] ${musicGenre === 1
-                  ? "font-[200]"
-                  : "font-[100] max-md:font-light"
-                  } max-md:text-[14px] font-[200] leading-[160%]`}
+                className={`text-[24px] ${
+                  musicGenre === 1
+                    ? "font-[200]"
+                    : "font-[100] max-md:font-light"
+                } max-md:text-[14px] font-[200] leading-[160%]`}
               >
                 现代音乐类
               </p>
             </div>
             <div
-              className={`md:w-[200px] ${musicGenre === 2 ? "md:mb-2" : ""
-                } transition-all duration-300 cursor-pointer text-center`}
+              className={`md:w-[200px] ${
+                musicGenre === 2 ? "md:mb-2" : ""
+              } transition-all duration-300 cursor-pointer text-center`}
               onClick={() => {
-                setMusicGenre(2)
-                window.scrollTo({
-                  top: 3280,
-                  behavior: 'smooth',
-                })
+                setMusicGenre(2);
+                // window.scrollTo({
+                //   top: 3280,
+                //   behavior: 'smooth',
+                // })
               }}
             >
               <p
-                className={`text-[24px] ${musicGenre === 2
-                  ? "font-[200]"
-                  : "font-[100] max-md:font-light"
-                  } max-md:text-[14px] font-[200] leading-[160%]`}
+                className={`text-[24px] ${
+                  musicGenre === 2
+                    ? "font-[200]"
+                    : "font-[100] max-md:font-light"
+                } max-md:text-[14px] font-[200] leading-[160%]`}
               >
                 古典音乐类
               </p>
             </div>
             <div
-              className={`md:w-[200px] ${musicGenre === 3 ? "md:mb-2" : ""
-                } transition-all duration-300 cursor-pointer text-center`}
+              className={`md:w-[200px] ${
+                musicGenre === 3 ? "md:mb-2" : ""
+              } transition-all duration-300 cursor-pointer text-center`}
               onClick={() => {
-                setMusicGenre(3)
-                window.scrollTo({
-                  top: 3280,
-                  behavior: 'smooth',
-                })
+                setMusicGenre(3);
+                // window.scrollTo({
+                //   top: 3280,
+                //   behavior: 'smooth',
+                // })
               }}
             >
               <p
-                className={`text-[24px] ${musicGenre === 3
-                  ? "font-[200]"
-                  : "font-[100] max-md:font-light"
-                  } max-md:text-[14px] font-[200] leading-[160%]`}
+                className={`text-[24px] ${
+                  musicGenre === 3
+                    ? "font-[200]"
+                    : "font-[100] max-md:font-light"
+                } max-md:text-[14px] font-[200] leading-[160%]`}
               >
                 音乐理论及应用类
               </p>
             </div>
           </div>
           <div
-            className={`w-[86px] transition-all max-md:hidden duration-500 ${musicGenre === 1
-              ? "translate-x-[-488.5px]"
-              : musicGenre === 2
+            className={`w-[86px] transition-all max-md:hidden duration-500 ${
+              musicGenre === 1
+                ? "translate-x-[-488.5px]"
+                : musicGenre === 2
                 ? "translate-x-[-272.5px]"
                 : "translate-x-[-56.5px]"
-              } `}
+            } `}
             style={{ border: "0.5px solid #FFFFFF" }}
           ></div>
           <div className="mt-[16px] md:hidden h-[1px] relative w-full">
             <div
-              className={`w-12 transition-all absolute duration-500  ${musicGenre === 1
-                ? "left-[0%] translate-x-[10px]"
-                : musicGenre === 2
+              className={`w-12 transition-all absolute duration-500  ${
+                musicGenre === 1
+                  ? "left-[0%] translate-x-[10px]"
+                  : musicGenre === 2
                   ? "left-[50%] translate-x-[-45px]"
                   : "left-[100%] translate-x-[-82px]"
-                }`}
+              }`}
               style={{ border: "0.25px solid #FFFFFF" }}
             ></div>
           </div>
         </div>
-        <div className={`relative ${musicGenre === 2 ? 'max-md:h-[1118px]' : musicGenre === 3 ? ' max-md:h-[695px] ' : 'max-md:h-[1248px]'} md:pb-[168px] w-screen md:w-[1440px]`}>
+        <div
+          className={`relative ${
+            musicGenre === 2
+              ? "max-md:h-[1118px]"
+              : musicGenre === 3
+              ? " max-md:h-[695px] "
+              : "max-md:h-[1248px]"
+          } md:pb-[168px] w-screen md:w-[1440px]`}
+        >
           <Image
-            className={`absolute max-md:hidden bottom-[0px] transition-all duration-500 ${musicGenre === 1
-              ? "rotate-0"
-              : musicGenre === 2
+            className={`absolute max-md:hidden bottom-[0px] transition-all duration-500 ${
+              musicGenre === 1
+                ? "rotate-0"
+                : musicGenre === 2
                 ? "rotate-[90deg]"
                 : "rotate-[180deg]"
-              } right-[-50px]`}
+            } right-[-50px]`}
             src={specialize_Star}
             alt=""
           />
-          <div className={`flex max-md:mt-5 mt-12 md:w-[1440px]  md:px-[120px] overflow-hidden justify-between`}>
+          <div
+            className={`flex max-md:mt-5 mt-12 md:w-[1440px]  md:px-[120px] overflow-hidden justify-between`}
+          >
             <div
-              className={`flex gap-[120px] transition-all duration-500 ${musicGenre === 1
-                ? "translate-x-[0px]"
-                : musicGenre === 2
+              className={`flex gap-[120px] transition-all duration-500 ${
+                musicGenre === 1
+                  ? "translate-x-[0px]"
+                  : musicGenre === 2
                   ? "translate-x-[-1320px] max-md:translate-x-[-494px]"
                   : "translate-x-[-2640px] max-md:translate-x-[-988px]"
-                } w-[3880px]`}
+              } w-[3880px]`}
             >
               <div
-                className={`flex md:w-[1200px] transition-all duration-500 ${musicGenre === 1 ? " opacity-100" : "opacity-0"
-                  } max-md:flex-col justify-between`}
+                className={`flex md:w-[1200px] transition-all duration-500 ${
+                  musicGenre === 1 ? " opacity-100" : "opacity-0"
+                } max-md:flex-col justify-between`}
               >
                 <CourseBox>
                   <div className="flex max-md:justify-center items-center">
@@ -382,8 +415,9 @@ export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) 
                 </CourseBox>
               </div>
               <div
-                className={`flex md:w-[1200px]  transition-all duration-500 ${musicGenre === 2 ? " opacity-100" : "opacity-0"
-                  } max-md:flex-col  md:justify-between`}
+                className={`flex md:w-[1200px]  transition-all duration-500 ${
+                  musicGenre === 2 ? " opacity-100" : "opacity-0"
+                } max-md:flex-col  md:justify-between`}
               >
                 <CourseBox className="max-md:!h-[285px]">
                   <div className="flex max-md:justify-center items-center">
@@ -488,8 +522,9 @@ export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) 
                 </CourseBox>
               </div>
               <div
-                className={`flex w-[1200px]  transition-all duration-500 ${musicGenre === 3 ? " opacity-100" : "opacity-0"
-                  } max-md:flex-col md:justify-between`}
+                className={`flex w-[1200px]  transition-all duration-500 ${
+                  musicGenre === 3 ? " opacity-100" : "opacity-0"
+                } max-md:flex-col md:justify-between`}
               >
                 <CourseBox className="max-md:!h-[225px]">
                   <div className="flex max-md:justify-center items-center">
@@ -559,7 +594,13 @@ export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) 
               </div>
             </div>
           </div>
-          <div style={{background: 'linear-gradient(180deg,rgb(26, 26, 26, 0.1) 1%,rgb(26, 26, 26, 0.5) 10%,rgb(26, 26, 26, 1) 40%,rgb(26, 26, 26, 1) 100%)'}} className=" w-full h-[180px] absolute bottom-0 left-0 z-[1001] bg-[#1a1a1a]"></div>
+          <div
+            style={{
+              background:
+                "linear-gradient(180deg,rgb(26, 26, 26, 0.1) 1%,rgb(26, 26, 26, 0.5) 10%,rgb(26, 26, 26, 1) 40%,rgb(26, 26, 26, 1) 100%)",
+            }}
+            className=" w-full h-[180px] absolute bottom-0 left-0 z-[1001] bg-[#1a1a1a]"
+          ></div>
         </div>
       </div>
     </SpecializeBox>
