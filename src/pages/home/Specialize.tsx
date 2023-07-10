@@ -79,6 +79,10 @@ interface SpecializeProps {
     setMusicGenre:Function
 }
 export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) {
+  const [innerWidth,setInnerWidth] =useState<number>(0)
+  useEffect(()=>{
+    setInnerWidth(window.innerWidth+16)
+  },[])
   return (
     <SpecializeBox className="flex  Specialize justify-center md:h-[1309px] md:mb-[300px] relative  pt-[470px] max-md:pt-[100px] w-screen md:overflow-hidden md:mt-[-190px] flex-col items-center">
       <SpecializeBg></SpecializeBg>
@@ -272,11 +276,11 @@ export default function Specialize({musicGenre, setMusicGenre}:SpecializeProps) 
           />
           <div className={`flex max-md:mt-5 mt-12 md:w-[1440px]  md:px-[120px] overflow-hidden justify-between`}>
             <div
-              className={`flex gap-[120px] transition-all duration-500 ${musicGenre === 1
+              className={`flex md:gap-[120px] max-md:gap-[16px] transition-all duration-500 ${musicGenre === 1
                 ? "translate-x-[0px]"
                 : musicGenre === 2
-                  ? "translate-x-[-1320px] max-md:translate-x-[-494px]"
-                  : "translate-x-[-2640px] max-md:translate-x-[-988px]"
+                  ? `md:translate-x-[-1320px] max-md:translate-x-[-494px]`
+                  : "md:translate-x-[-2640px] max-md:translate-x-[-988px]"
                 } w-[3880px]`}
             >
               <div
