@@ -107,15 +107,21 @@ export default function Specialize({
           <div
             style={{
               background: "rgba(26, 26, 26, 0.90)",
-              backdropFilter: "blur(40px)",
+              backdropFilter: "blur(50px)",
             }}
-            className="flex max-md:sticky md:!backdrop-blur-none max-md:hidden max-md:mt-[-64px] md:!bg-transparent  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end"
-          >
+            className="flex max-md:sticky md:!backdrop-blur-none max-md:hidden max-md:mt-[-64px] md:!bg-transparent  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end">
             <div className="flex gap-4 max-md:justify-between items-end">
               <div
                 className={`md:w-[200px] ${musicGenre === 1 ? "md:mb-2" : ""
                   } transition-all duration-300 cursor-pointer text-center`}
-                onClick={() => setMusicGenre(1)}
+                onClick={() => {
+                  setMusicGenre(1)
+                  window.scrollTo({
+                    top: 3280,
+                    behavior: 'smooth',
+                  })
+                }
+                }
               >
                 <p
                   className={`text-[24px] ${musicGenre === 1
@@ -129,7 +135,13 @@ export default function Specialize({
               <div
                 className={`md:w-[200px] ${musicGenre === 2 ? "md:mb-2" : ""
                   } transition-all duration-300 cursor-pointer text-center`}
-                onClick={() => setMusicGenre(2)}
+                onClick={() => {
+                  setMusicGenre(2)
+                  window.scrollTo({
+                    top: 3280,
+                    behavior: 'smooth',
+                  })
+                }}
               >
                 <p
                   className={`text-[24px] ${musicGenre === 2
@@ -143,7 +155,13 @@ export default function Specialize({
               <div
                 className={`md:w-[200px] ${musicGenre === 3 ? "md:mb-2" : ""
                   } transition-all duration-300 cursor-pointer text-center`}
-                onClick={() => setMusicGenre(3)}
+                onClick={() => {
+                  setMusicGenre(3)
+                  window.scrollTo({
+                    top: 3280,
+                    behavior: 'smooth',
+                  })
+                }}
               >
                 <p
                   className={`text-[24px] ${musicGenre === 3

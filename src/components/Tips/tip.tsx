@@ -169,7 +169,7 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
   };
   return (
     <div style={{ cursor: "pointer" }} onClick={goPage}>
-      <HoverButton className="hover:translate-y-[-4px] transition-all" id={id}>
+      <HoverButton className="hover:md:translate-y-[-4px] transition-all" id={id}>
         {icon}
       </HoverButton>
       <TooltipBox data-tooltip-offset={1} anchorSelect={`#${id}`}>
