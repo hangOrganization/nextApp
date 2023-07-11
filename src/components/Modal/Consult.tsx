@@ -41,8 +41,8 @@ export default function Consult({ isOpen, setIsOpen }: ConsultProps) {
                 >
                     <div className="fixed inset-0 bg-[#1a1a1a] bg-opacity-70" />
                 </Transition.Child>
-                <div className="fixed inset-0 overflow-y-auto">
-                    <div className="flex min-h-screen items-center md:pt-10 justify-center text-center">
+                <div className="fixed inset-0 items-center flex justify-center overflow-y-auto">
+                    <div className="flex items-center md:pt-10 justify-center text-center">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-[270ms]"
@@ -100,6 +100,7 @@ export default function Consult({ isOpen, setIsOpen }: ConsultProps) {
                                         imgSrc={1}
                                         qrCodeSrc={bilibili_QRcode}
                                         id="my-anchor-element-id-bilibili_QRcode"
+                                        url='https://space.bilibili.com/1195424266?spm_id_from=333.337.0.0'
                                     ></Tip>
                                     <Tip
                                         imgSrc={2}
@@ -110,6 +111,7 @@ export default function Consult({ isOpen, setIsOpen }: ConsultProps) {
                                         imgSrc={3}
                                         qrCodeSrc={red_book_QRcode}
                                         id="my-anchor-element-id-red_book_QRcode"
+                                        url='https://www.xiaohongshu.com/user/profile/627497ec0000000021020be7?xhsshare=WeixinSession&appuid=5d29776c0000000011018943&apptime=1687776556'
                                     ></Tip>
                                 </div>
                             </Panel>

@@ -93,7 +93,7 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                             leaveFrom="translate-y-[0px]"
                             leaveTo="translate-y-[1000px]"
                         >
-                            <Panel className="w-full min-h-full h-full overflow-hidden transform p-12 max-md:p-[12px] text-left align-middle shadow-xl transition-all">
+                            <Panel className="w-full max-md:w-screen min-h-full h-full overflow-hidden transform p-12 max-md:p-[12px] text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title
                                     as="h3"
                                     className="text-lg flex justify-end font-medium leading-6 text-gray-900"
@@ -134,10 +134,10 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                                     {el}
                                                 </div>
                                             ))}
-                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
-                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
-                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
-                                            <div className=' w-screen h-[48px] opacity-0 md:hidden'>1111111111</div>
+                                            <div className=' w-12 h-[48px] opacity-0 md:hidden'>1111111111</div>
+                                            <div className=' w-12 h-[48px] opacity-0 md:hidden'>1111111111</div>
+                                            <div className=' w-12 h-[48px] opacity-0 md:hidden'>1111111111</div>
+                                            <div className=' w-12 h-[48px] opacity-0 md:hidden'>1111111111</div>
                                         </Box>
                                     </MobileBox>
                                 </div>
