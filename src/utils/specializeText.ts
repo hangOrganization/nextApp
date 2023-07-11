@@ -105,7 +105,7 @@ export const musicalTheoryHotMajor = [
     },
     {
         title: '音乐商业',
-        englishTitle: 'Music Businessss'
+        englishTitle: 'Music Business'
     },
     {
         title: '音乐产业',

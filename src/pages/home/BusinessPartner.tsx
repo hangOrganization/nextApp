@@ -7,7 +7,27 @@ import partner from "@/utils/partner";
 
 const ScrollBox = styled.div`
   /* transform: translateX(-126px); */
-
+  animation: bg 25s linear infinite 1.5s;
+  @keyframes bg {
+    from {
+    }
+    to {
+      transform: translateX(-2432px);
+    }
+  }
+  @media not all and (min-width: 768px) {
+    animation: bg 25s linear infinite ;
+    @keyframes bg {
+      from {
+      }
+      to {
+        transform: translateX(-973px);
+      }
+    }
+  }
+`;
+const ScrollThirdBox = styled.div`
+  /* transform: translateX(-126px); */
   animation: bg 25s linear infinite;
   @keyframes bg {
     from {
@@ -17,7 +37,7 @@ const ScrollBox = styled.div`
     }
   }
   @media not all and (min-width: 768px) {
-    animation: bg 25s linear infinite;
+    animation: bg 25s linear infinite ;
     @keyframes bg {
       from {
       }
@@ -143,12 +163,12 @@ export default function BusinessPartner() {
         共筑商业价值
       </p>
       <div className="overflow-hidden relative z-10">
-        <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
+        <ScrollBox className="flex items-center justify-center cursor-pointer md:left-[-62px] overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.first, ...partner.first, ...partner.first].map(
             (item: any, index: number) => (
               <div
                 key={`${index}-1-partner.first`}
-                className="flex items-center justify-center w-[288px] h-[136px] max-md:w-[115.2px] max-md:h-[54.4px]  relative"
+                className="flex items-center justify-center w-[288px] h-[136px] max-md:w-[115.2px] max-md:h-[54.4px] relative"
               >
                 <PartnerFilter></PartnerFilter>
                 <Partner>
@@ -173,7 +193,7 @@ export default function BusinessPartner() {
             )
           )}
         </ScrollCenterBox>
-        <ScrollBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
+        <ScrollThirdBox className="flex items-center justify-center cursor-pointer overflow-hidden gap-[16px] max-md:gap-[6.4px] ">
           {[...partner.third, ...partner.third, ...partner.third].map(
             (item: any, index: number) => (
               <div
@@ -187,7 +207,7 @@ export default function BusinessPartner() {
               </div>
             )
           )}
-        </ScrollBox>
+        </ScrollThirdBox>
       </div>
     </div>
   );

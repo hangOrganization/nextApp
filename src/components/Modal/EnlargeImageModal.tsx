@@ -25,7 +25,7 @@ interface CampusEnvironmentProps {
   setCurrentPage: Function;
   setIsOpen: Function;
 }
-export default function Modal({
+export default function EnlargeImageModal({
   currentPage,
   setCurrentPage,
   isOpen,

@@ -154,7 +154,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 className="w-[220px] max-md:w-[167px] max-md:h-[92px] bg-cover bg-blend-lighten flex justify-center items-center bg-[#1A1A1A] h-[120px]"
                 style={{ backgroundImage: `url(${speed_line.src})` }}
               >
-                {(showLineBox|| innerWidth>768) && (
+                {(showLineBox || innerWidth > 768) && (
                   <LineBox className="w-full max-md:scale-[0.76] overflow-hidden">
                     <div className="flex mt-[-2px] h-[86px] w-full gap-[6px] before justify-center items-end"></div>
                   </LineBox>
@@ -162,7 +162,7 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
               </div>
               <div className="mt-10 max-md:mt-6">
                 <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                  十万象限 是杭州首家拥有
+                  十万象限 是浙江省首家拥有
                 </div>
                 <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
                   十年音乐传媒行业经验的专业团队 由世界艺术名校海归艺术家导师及
@@ -185,6 +185,9 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 </div>
                 <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
                   留学申请规划 以及 跨界艺术联动
+                </div>
+                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
+                  是浙江省最大的音乐留学作品集机构
                 </div>
               </div>
             </div>

@@ -271,7 +271,7 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
               >
                 <div className="w-[119px] max-md:w-[99px] text-center">
                   <p className=" font-normal  text-[32px] max-md:text-[24px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
-                    6
+                    8
                   </p>
                   <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     全职一线导师

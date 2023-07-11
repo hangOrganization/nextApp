@@ -5,7 +5,7 @@ import icon_mangoTV from "@/assets/image/brand-icon/icon-mangoTV.svg";
 import icon_king_gory from "@/assets/image/brand-icon/icon-king-gory.svg";
 import icon_netease from "@/assets/image/brand-icon/icon-netease.svg";
 import icon_nhk from "@/assets/image/brand-icon/icon-nhk.svg";
-import icon_onmyoji from "@/assets/image/brand-icon/icon-onmyoji.svg";
+// import icon_onmyoji from "@/assets/image/brand-icon/icon-onmyoji.svg";
 
 import icon_dota from "@/assets/image/brand-icon/icon-dota.svg";
 import icon_ghost from "@/assets/image/brand-icon/icon-ghost.svg";
@@ -32,7 +32,6 @@ export default {
     icon_jiangsuTV,
     icon_mangoTV,
     icon_king_gory,
-    icon_onmyoji,
     icon_netease,
     icon_nhk,
   ],

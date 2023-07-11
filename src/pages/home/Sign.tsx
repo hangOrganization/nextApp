@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import Image from "next/image";
 import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
 import mobile_sign_bg_1 from "@/assets/image/mobile/mobile-sign-bg-1.png";
+import mobile_signBeam from "@/assets/image/mobile/mobile-signBeam.svg";
+import mobile_sign from "@/assets/image/mobile/mobile-sign.png";
+import mobile_moireFringe from "@/assets/image/mobile/mobile-moireFringe.svg";
 import sign_bg_1 from "@/assets/image/svg/sign-bg-1.svg";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.png";
 import { EchoRollBox, SignBgBox } from "../../styles/SignCss";
@@ -58,14 +61,13 @@ export default function Sign({}: SignProps) {
         }
       }}
     >
-      <div className="w-screen flex z-[30] max-md:top-[150px] justify-center left-0 absolute">
+      <div className="w-screen flex z-[30] max-md:top-[50px] justify-center left-0 absolute">
         <div
           style={{ border: "10px solid #1a1a1a" }}
           className="md:h-[727px] absolute w-screen"
         >
-          {" "}
         </div>
-        <video autoPlay muted loop className="w-[1440px] md:min-w-[1440px]">
+        <video autoPlay muted loop className="w-[1440px] max-md:hidden md:min-w-[1440px]">
           <source
             src={
               isChrome ? "/video/moireFringe.webm" : "/video/moireFringe.mp4"
@@ -73,6 +75,7 @@ export default function Sign({}: SignProps) {
             type={`${isChrome ? "video/webm" : " video/mp4"}`}
           ></source>
         </video>
+        <Image className="md:hidden" src={mobile_moireFringe} alt="" />
       </div>
       <div className="md:h-[728px] z-40 relative">
         <SignBgBox className=" absolute z-10 md:h-[728px] max-md:top-[100px] max-md:h-[324px] w-screen max-md:items-center flex justify-center top-0 left-0">
@@ -100,23 +103,25 @@ export default function Sign({}: SignProps) {
         </SignBgBox>
         <div className=" relative z-20 flex justify-center items-center flex-col max-md:pt-[226px] pt-[302px] ">
           <div className="h-[155px] max-md:h-[72px]">
-            <video autoPlay muted className="w-[612px] max-md:h-[82px]">
+            <video autoPlay muted className="w-[612px] max-md:hidden max-md:h-[82px]">
               <source
                 src={isChrome ? "/video/sign.webm" : "/video/sign.mp4"}
                 type={`${isChrome ? "video/webm" : " video/mp4"}`}
               ></source>
             </video>
+            <Image className="md:hidden w-[284px] object-contain" src={mobile_sign} alt="" />
           </div>
           <video
             autoPlay
             muted
-            className="mt-[70px] max-md:mt-12 max-md:h-[21px] h-[49px]"
+            className="mt-[70px] max-md:hidden max-md:mt-12 max-md:h-[21px] h-[49px]"
           >
             <source
               src={isChrome ? "/video/signBeam.webm" : "/video/signBeam.mp4"}
               type={`${isChrome ? "video/webm" : " video/mp4"}`}
             ></source>
           </video>
+          <Image  className="md:hidden max-md:mt-12 object-contain" src={mobile_signBeam} alt="" />
           <div className="flex md:mt-[72px] max-md:mt-12 max-md:w-screen w-[600px] overflow-hidden relative">
             <EchoRollBox className="md:flex justify-center  ">
               <div className="md:w-[600px] md:h-[30px] max-md:w-screen relative text-center">

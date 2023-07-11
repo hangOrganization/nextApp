@@ -258,7 +258,7 @@ export default function Products({ setMusicGenre, musicGenre }: ProductsProps) {
                         }  max-md:h-[121px]`}
                     >
                       <p className="text-[38px] max-md:hidden max-md:mb-4 mb-[35px] text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]">
-                        主体课程综合增值服务
+                        综合增值服务
                       </p>
                       <p className="text-[38px] md:hidden max-md:mb-4 mb-[35px] text-right text-[#FF4B00] max-md:text-[20px] font-medium leading-[160%]">
                         综合增值服务
@@ -490,6 +490,12 @@ export default function Products({ setMusicGenre, musicGenre }: ProductsProps) {
                           <p className="text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light">
                             面试技巧辅导
                           </p>
+                          <div
+                            style={{ border: "1px solid #FF4B00" }}
+                            className="text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]"
+                          >
+                            vip
+                          </div>
                         </div>
                         <div className="flex gap-2 max-md:gap-1  items-center">
                           <p className="text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]">
@@ -498,6 +504,12 @@ export default function Products({ setMusicGenre, musicGenre }: ProductsProps) {
                           <p className="text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light">
                             海外大师课
                           </p>
+                          <div
+                            style={{ border: "1px solid #FF4B00" }}
+                            className="text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]"
+                          >
+                            vip
+                          </div>
                         </div>
                         <div className="flex gap-2 max-md:gap-1  items-center">
                           <p className="text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]">
@@ -506,6 +518,12 @@ export default function Products({ setMusicGenre, musicGenre }: ProductsProps) {
                           <p className="text-[20px] leading-[160%] text-[#cccccc] max-md:text-[12px] font-light">
                             现场艺术展演
                           </p>
+                          <div
+                            style={{ border: "1px solid #FF4B00" }}
+                            className="text-[14px] leading-[160%] max-md:!border-none text-[#FF4B00] uppercase max-md:font-light max-md:text-[12px] font-bold rounded-[8px] py-[2] px-2 font-[Lexend]"
+                          >
+                            vip
+                          </div>
                         </div>
                         <div className="flex gap-2 max-md:gap-1 items-center">
                           <p className="text-[20px] leading-[160%] text-[#cccccc] font-extralight max-md:hidden font-[Lexend]">

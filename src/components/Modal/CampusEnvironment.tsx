@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Fragment, useEffect, useState } from "react";
 import { list } from "@/utils/campusEnvironmentList";
 import { Dialog, Transition } from "@headlessui/react";
-import Modal from "./Modal";
+import EnlargeImageModal from "./EnlargeImageModal";;
 const TurningButton = styled.div`
   border-radius: 100%;
   :hover {
@@ -278,7 +278,7 @@ export default function CampusEnvironment({
                     <div className=" w-screen h-12 max-md:hidden"></div>
                   </div>
                 </div>
-                <Modal
+                <EnlargeImageModal
                   isOpen={open}
                   setCurrentPage={setCurrentPage}
                   currentPage={currentPage}

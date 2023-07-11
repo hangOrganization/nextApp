@@ -42,7 +42,7 @@ export default function Consult({ isOpen, setIsOpen }: ConsultProps) {
                     <div className="fixed inset-0 bg-[#1a1a1a] bg-opacity-70" />
                 </Transition.Child>
                 <div className="fixed inset-0 overflow-y-auto">
-                    <div className="flex min-h-screen items-center pt-10 justify-center text-center">
+                    <div className="flex min-h-screen items-center md:pt-10 justify-center text-center">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-[270ms]"

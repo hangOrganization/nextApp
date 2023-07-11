@@ -293,8 +293,8 @@ export default function Specialize({
               className={`flex gap-[120px] max-md:gap-4 transition-all duration-500 ${musicGenre === 1
                 ? "translate-x-[0px]"
                 : musicGenre === 2
-                  ? "md:translate-x-[-1320px]"
-                  : "md:translate-x-[-2640px]"
+                  ? "md:!translate-x-[-1320px]"
+                  : "md:!translate-x-[-2640px]"
                 } w-[3880px]`}
             >
               <div
