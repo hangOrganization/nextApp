@@ -5,7 +5,9 @@ import styled from "styled-components";
 import { Fragment, useEffect, useState } from "react";
 import { list } from "@/utils/campusEnvironmentList";
 import { Dialog, Transition } from "@headlessui/react";
-import EnlargeImageModal from "./EnlargeImageModal";;
+import arrow_normal from "../../assets/image/png/arrow_normal2.png";
+import arrow_active from "../../assets/image/png/arrow_active.png";
+import EnlargeImageModal from "./EnlargeImageModal";
 const TurningButton = styled.div`
   border-radius: 100%;
   :hover {
@@ -18,6 +20,24 @@ const TurningButton = styled.div`
     }
   }
 `;
+const ButtonBox = styled.div`
+  .normal-arrow {
+    transition: 150ms all;
+    cursor: pointer;
+    &:hover {
+      opacity: 0;
+    }
+  }
+  .active-arrow {
+    transition: 150ms all;
+    cursor: pointer;
+
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
+`;
 interface CampusEnvironmentProps {
   isOpen: number;
   setIsOpen: Function;
@@ -26,9 +46,9 @@ export default function CampusEnvironment({
   isOpen,
   setIsOpen,
 }: CampusEnvironmentProps) {
-  const [innerHeight, setInnerHeight] = useState<number>(0)
+  const [innerHeight, setInnerHeight] = useState<number>(0);
   useEffect(() => {
-    setInnerHeight(window.innerHeight)
+    setInnerHeight(window.innerHeight);
   }, []);
   function closeModal() {
     setIsOpen(0);
@@ -158,85 +178,74 @@ export default function CampusEnvironment({
                       {list.map((el: any) => (
                         <p
                           key={`${el.index}-el.name-campusEnvironment`}
-                          className={`font-light absolute text-[14px] transition-all ${el.index === currentPage ? "opacity-100" : ""
-                            } duration-1000 opacity-0 mt-8 leading-[180%]`}
+                          className={`font-light absolute text-[14px] transition-all ${
+                            el.index === currentPage ? "opacity-100" : ""
+                          } duration-1000 opacity-0 mt-8 leading-[180%]`}
                         >
                           {el.name}
                         </p>
                       ))}
                     </div>
                   </div>
-                  <div className="flex mt-[64px] justify-center relative w-[758px] overflow-hidden mx-auto items-center gap-4">
-                    <div className="flex w-[86px] items-center h-[86px] p-2">
+                  <div className="w-full flex items-center justify-center">
+                    <ButtonBox className="w-[900px] h-[86px] max-md:hidden  absolute bottom-[43px] z-[1] flex items-center justify-between">
                       <div
-                        style={{
-                          transform: `translateX(-${currentPage * 86}px)`,
+                        className="flex relative"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          if (currentPage == 0) return;
+                          setCurrentPage(currentPage - 1);
                         }}
-                        className="flex transition-all duration-500 gap-4"
                       >
-                        {list.map((el: any) => (
-                          <div
-                            key={`CampusEnvironment-${el.index}-min`}
-                            className="w-[70px] h-[70px]"
-                          >
-                            <Image
-                              className="w-[70px] h-[70px]"
-                              src={el.image}
-                              alt=""
-                              onClick={() => {
-                                if (currentPage !== oldCurrentPage) {
-                                  setOldCurrentPage(currentPage);
-                                }
-                                setCurrentPage(el.index);
-                              }}
-                            />
-                          </div>
-                        ))}
+                        <Image
+                          src={arrow_normal}
+                          alt=""
+                          className="normal-arrow  w-[48px]"
+                        ></Image>
+                        <Image
+                          src={arrow_active}
+                          alt=""
+                          className="active-arrow absolute w-[48px]"
+                        ></Image>
                       </div>
-                    </div>
-                    <div
-                      style={{ border: " 1px solid #FF4B00" }}
-                      className="flex w-[86px] absolute items-center h-[86px] p-2"
-                    ></div>
-                    {
                       <div
-                        style={{
-                          background:
-                            "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                        className="flex relative"
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          if (currentPage == 39) return;
+                          setCurrentPage(currentPage + 1);
                         }}
-                        className=" w-[300px] h-full absolute top-0 left-0"
-                      ></div>
-                    }
-                    <div
-                      style={{
-                        background:
-                          "linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
-                      }}
-                      className=" w-[300px] h-full absolute top-0 right-0"
-                    ></div>
-                    <div className="flex absolute justify-center w-[758px] overflow-hidden top-0 left-0 opacity-0 items-center gap-4">
-                      <div
-                        style={{ border: " 1px solid #FF4B00" }}
-                        className="flex w-[86px] items-center h-[86px] p-2"
                       >
+                        <Image
+                          src={arrow_normal}
+                          alt=""
+                          className="flex rotate-[180deg] normal-arrow w-[48px] "
+                        ></Image>
+                        <Image
+                          src={arrow_active}
+                          alt=""
+                          className="flex rotate-[180deg] active-arrow  absolute"
+                        ></Image>
+                      </div>
+                    </ButtonBox>
+                    <div className="flex mt-[64px] justify-center relative w-[758px] z-[2]  overflow-hidden mx-auto items-center gap-4">
+                      <div className="flex w-[86px] items-center h-[86px] p-2">
                         <div
                           style={{
                             transform: `translateX(-${currentPage * 86}px)`,
                           }}
-                          className="flex cursor-pointer transition-all duration-500 gap-4"
+                          className="flex transition-all duration-500 gap-4"
                         >
-                          {" "}
                           {list.map((el: any) => (
                             <div
-                              key={`CampusEnvironment-${el.index}-min---`}
+                              key={`CampusEnvironment-${el.index}-min`}
                               className="w-[70px] h-[70px]"
                             >
                               <Image
                                 className="w-[70px] h-[70px]"
                                 src={el.image}
                                 alt=""
-                                onClick={(event) => {
-                                  event.stopPropagation();
+                                onClick={() => {
                                   if (currentPage !== oldCurrentPage) {
                                     setOldCurrentPage(currentPage);
                                   }
@@ -247,14 +256,74 @@ export default function CampusEnvironment({
                           ))}
                         </div>
                       </div>
+                      <div
+                        style={{ border: " 1px solid #FF4B00" }}
+                        className="flex w-[86px] absolute items-center h-[86px] p-2"
+                      ></div>
+
+                      {
+                        <div
+                          style={{
+                            background:
+                              "linear-gradient(270deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                          }}
+                          className=" w-[300px] h-full absolute top-0 left-0"
+                        ></div>
+                      }
+                      <div
+                        style={{
+                          background:
+                            "linear-gradient(90deg, rgba(0, 0, 0, 0) 0% , rgba(0, 0, 0, 0.9) 100%)",
+                        }}
+                        className=" w-[300px] h-full absolute top-0 right-0"
+                      ></div>
+
+                      <div className="flex absolute justify-center w-[758px] overflow-hidden top-0 left-0 opacity-0 items-center gap-4">
+                        <div
+                          style={{ border: " 1px solid #FF4B00" }}
+                          className="flex w-[86px] items-center h-[86px] p-2"
+                        >
+                          <div
+                            style={{
+                              transform: `translateX(-${currentPage * 86}px)`,
+                            }}
+                            className="flex cursor-pointer transition-all duration-500 gap-4"
+                          >
+                            {" "}
+                            {list.map((el: any) => (
+                              <div
+                                key={`CampusEnvironment-${el.index}-min---`}
+                                className="w-[70px] h-[70px]"
+                              >
+                                <Image
+                                  className="w-[70px] h-[70px]"
+                                  src={el.image}
+                                  alt=""
+                                  onClick={(event) => {
+                                    event.stopPropagation();
+                                    if (currentPage !== oldCurrentPage) {
+                                      setOldCurrentPage(currentPage);
+                                    }
+                                    setCurrentPage(el.index);
+                                  }}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+
                   <p className="mt-4 font-light text-[#FF4B00] text-[14px] leading-[180%]">
                     {currentPage + 1}/{list.length}
                   </p>
                 </div>
                 <div className="md:hidden">
-                  <div style={{ maxHeight: `${innerHeight - 48}px` }} className=" pb-[96px] overflow-y-auto flex justify-between gap-y-[6px] flex-wrap">
+                  <div
+                    style={{ maxHeight: `${innerHeight - 48}px` }}
+                    className=" pb-[96px] overflow-y-auto flex justify-between gap-y-[6px] flex-wrap"
+                  >
                     {list.map((el: any) => (
                       <div
                         onClick={(event) => {

@@ -7,6 +7,8 @@ import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
+import arrow_normal from "../../assets/image/png/arrow_normal.png";
+import arrow_active from "../../assets/image/png/arrow_active.png";
 import {
   useActiveIndex,
   useActiveType,
@@ -22,6 +24,8 @@ import {
   setComePage,
   setAboutOrCorporation,
 } from "@/state/application/reducer";
+import Image from "next/image";
+import { ChildProcess } from "child_process";
 
 const OurTeamBox = styled.div`
   width: 100%;
@@ -61,11 +65,7 @@ const CardBox = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      0deg,
-      #ececec 0%,
-      rgba(236, 236, 236, 0) 100%
-    );
+    background: linear-gradient(0deg, #ececec 0%, rgba(236, 236, 236, 0) 100%);
   }
   @media not all and (min-width: 768px) {
     width: 154px;
@@ -105,7 +105,10 @@ const NameOur = styled.p`
   }
 `;
 const RollBox = styled.div`
-  @media (min-width: 768px) {
+  padding-left: 15px;
+  transition: all 500ms;
+  /* transform: translateX(-1520px); */
+  /* @media (min-width: 768px) {
     animation: teachersRoll 80s linear infinite;
     &.hover {
       animation-play-state: paused;
@@ -117,6 +120,24 @@ const RollBox = styled.div`
       to {
         transform: translateX(-7600px);
       }
+    }
+  } */
+`;
+const ButtonBox = styled.div`
+  .normal-arrow {
+    transition: 150ms all;
+    cursor: pointer;
+    &:hover {
+      opacity: 0;
+    }
+  }
+  .active-arrow {
+    transition: 150ms all;
+    cursor: pointer;
+
+    opacity: 0;
+    &:hover {
+      opacity: 1;
     }
   }
 `;
@@ -140,15 +161,25 @@ const Box = styled.div`
 interface OurTeamProps {
   setIsOpenCampus: Function;
   characteristicType: number;
-  scrollTop: number
-  setScrollTop: Function
-  right: number,
-  setRight: Function,
+  scrollTop: number;
+  setScrollTop: Function;
+  right: number;
+  setRight: Function;
   setCharacteristicType: Function;
-  musicGenre: number
-  setMusicGenre: Function
+  musicGenre: number;
+  setMusicGenre: Function;
 }
-export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, scrollTop, setScrollTop, right, setRight, characteristicType, setCharacteristicType }: OurTeamProps) {
+export default function OurTeam({
+  musicGenre,
+  setIsOpenCampus,
+  setMusicGenre,
+  scrollTop,
+  setScrollTop,
+  right,
+  setRight,
+  characteristicType,
+  setCharacteristicType,
+}: OurTeamProps) {
   const swiper = useSwiper();
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
@@ -160,6 +191,16 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
   const [cardHover, setCardHover] = useState<string>("");
   const activeIndex = useActiveIndex();
   const activeType = useActiveType();
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const nextPage = () => {
+    if (currentPage === 4) return;
+    setCurrentPage(currentPage + 1);
+  };
+  const prePage = () => {
+    if (currentPage === 0) return;
+    setCurrentPage(currentPage - 1);
+  };
 
   useEffect(() => {
     if (activeIndex === 3) {
@@ -211,9 +252,11 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
     <Box>
       <div
         id="ourTeamBox"
-        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"}  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
+        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${
+          characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
+        }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
-          setScrollTop(e.target.scrollTop)
+          setScrollTop(e.target.scrollTop);
           if (throttleFlag) return;
           if (innerWidth > 768) {
             if (e.target.scrollTop === 0) {
@@ -245,10 +288,14 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
             </video>
           </div>
           <OurTeamBg>
-            <div style={{
-              background: 'linear-gradient(180deg, rgba(207, 196, 219, 0.00) 0%, rgba(207, 196, 219, 0.40) 100%)',
-              backdropFilter: 'blur(40px)'
-            }} className="max-md:text-center md:hidden max-md:sticky  pb-4 pt-[88px] z-50 max-md:top-0">
+            <div
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(207, 196, 219, 0.00) 0%, rgba(207, 196, 219, 0.40) 100%)",
+                backdropFilter: "blur(40px)",
+              }}
+              className="max-md:text-center md:hidden max-md:sticky  pb-4 pt-[88px] z-50 max-md:top-0"
+            >
               <p className=" font-extrabold max-md:text-[28px] text-[56px] leading-[120%] text-[#1a1a1a]">
                 师资团队
               </p>
@@ -295,9 +342,12 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
                 </div>
               </div>
             </div>
-            <div className="flex w-screen md:gap-[67px] max-md:pb-[80px] overflow-hidden max-md:mt-10 md:py-20">
+            <div className="flex w-screen md:gap-[67px] max-md:pb-[80px] overflow-hidden max-md:mt-10 md:py-20 md:pt-[32px]">
               <RollBox
                 className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-x-[22px] max-md:gap-y-[24px] md:gap-[67px]`}
+                style={{
+                  transform: `translateX(-${currentPage * 1520}px)`,
+                }}
               >
                 {teachers.map((el: any, index: number) => (
                   <CardBox
@@ -359,6 +409,32 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
                 ))}
               </RollBox>
             </div>
+            <ButtonBox className="flex items-center justify-center gap-[64px] relative  max-md:hidden">
+              <div className="flex relative" onClick={prePage}>
+                <Image
+                  src={arrow_normal}
+                  alt=""
+                  className="normal-arrow  w-[48px]"
+                ></Image>
+                <Image
+                  src={arrow_active}
+                  alt=""
+                  className="active-arrow absolute w-[48px]"
+                ></Image>
+              </div>
+              <div className="flex relative" onClick={nextPage}>
+                <Image
+                  src={arrow_normal}
+                  alt=""
+                  className="flex rotate-[180deg] normal-arrow w-[48px] "
+                ></Image>
+                <Image
+                  src={arrow_active}
+                  alt=""
+                  className="flex rotate-[180deg] active-arrow  absolute"
+                ></Image>
+              </div>
+            </ButtonBox>
             <div
               style={{
                 background:
@@ -368,7 +444,7 @@ export default function OurTeam({ musicGenre, setIsOpenCampus, setMusicGenre, sc
             ></div>
             <div
               style={{
-                background: '#1A1A1A',
+                background: "#1A1A1A",
               }}
               className="w-screen z-[1001] relative max-md:h-[80px] md:hidden"
             ></div>
