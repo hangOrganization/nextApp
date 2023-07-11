@@ -33,6 +33,7 @@ export default {
     icon_mangoTV,
     icon_king_gory,
     icon_netease,
+    icon_jiangsuTV,
     icon_nhk,
   ],
   second: [

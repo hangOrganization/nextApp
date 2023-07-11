@@ -7,7 +7,7 @@ import partner from "@/utils/partner";
 
 const ScrollBox = styled.div`
   /* transform: translateX(-126px); */
-  animation: bg 25s linear infinite 1.5s;
+  animation: bg 25s linear infinite;
   @keyframes bg {
     from {
     }
@@ -16,7 +16,7 @@ const ScrollBox = styled.div`
     }
   }
   @media not all and (min-width: 768px) {
-    animation: bg 25s linear infinite ;
+    animation: bg 25s linear infinite;
     @keyframes bg {
       from {
       }
@@ -37,7 +37,7 @@ const ScrollThirdBox = styled.div`
     }
   }
   @media not all and (min-width: 768px) {
-    animation: bg 25s linear infinite ;
+    animation: bg 25s linear infinite;
     @keyframes bg {
       from {
       }
