@@ -1,11 +1,8 @@
 import { Tooltip } from "react-tooltip";
 import Image from "next/image";
 import styled from "styled-components";
-import bilibili_img from "../../assets/image/svg/icon-bilibili.svg";
-import wechat_img from "../../assets/image/svg/icon-wechat.svg";
-import red_book_img from "../../assets/image/svg/icon-red-book.svg";
-import net_ease_cloud_img from "../../assets/image/svg/icon-net-ease-cloud.svg";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { useOuterWidth } from "@/state/application/hooks";
 
 interface props {
   children?: Element;
@@ -42,6 +39,8 @@ const Img = styled(Image)`
   }
 `;
 export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
+  const [isOpen, setIsOpen] = useState(false)
+  const innerWidth = useOuterWidth();
   const icon = useMemo(() => {
     switch (imgSrc) {
       case 1:
@@ -168,13 +167,31 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
     }
   };
   return (
-    <div style={{ cursor: "pointer" }} onClick={goPage}>
-      <HoverButton className="hover:md:translate-y-[-4px] transition-all" id={id}>
-        {icon}
-      </HoverButton>
-      <TooltipBox data-tooltip-offset={1} anchorSelect={`#${id}`}>
-        <Img className="mb-[-20px]" src={qrCodeSrc} alt=""/>
-      </TooltipBox>
+    <div>
+      {innerWidth > 768 ?
+        <div style={{ cursor: "pointer" }} onClick={goPage}>
+          <HoverButton className="hover:md:translate-y-[-4px] transition-all" id={id}>
+            {icon}
+          </HoverButton>
+          <TooltipBox data-tooltip-offset={1} anchorSelect={`#${id}`}>
+            <Img className="mb-[-20px]" src={qrCodeSrc} alt="" />
+          </TooltipBox>
+        </div> :
+        <div style={{ cursor: "pointer" }} onClick={goPage}>
+          <HoverButton onClick={() => {
+            if (!url) {
+              isOpen ? setIsOpen(false) : setIsOpen(true)
+            }
+          }
+          } className="hover:md:translate-y-[-4px] transition-all" id={id}>
+            {icon}
+          </HoverButton>
+          <TooltipBox isOpen={isOpen} data-tooltip-offset={1} anchorSelect={`#${id}`}>
+            <Img className="mb-[-20px]" src={qrCodeSrc} alt="" />
+          </TooltipBox>
+        </div>
+      }
     </div>
+
   );
 }
