@@ -173,7 +173,9 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
         {icon}
       </HoverButton>
       <TooltipBox data-tooltip-offset={1} anchorSelect={`#${id}`}>
-        <Img className="mb-[-20px]" src={qrCodeSrc} alt="" />
+        <Img className="mb-[-20px]" src={qrCodeSrc} alt="" onClick={() => {
+          event.stopPropagation();
+        }} />
       </TooltipBox>
     </div>
   );

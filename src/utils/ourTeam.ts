@@ -38,7 +38,8 @@ export const teachers = [
                 '专注传媒行业十年，擅长全平台声音音乐前中后期制作、运营及对接，所培养的同期录音师专注于影视声音前期，并能熟练运用国际先进的录音流程工艺',
             ],
         personalWorks:
-            ['个人部分作品及履历',
+            [
+                '个人部分作品及履历',
                 '央视纪录片《味道江南》担任同期声录制及部分后期制作',
                 '电视剧《二炮手》宣传TVC担任棚拍声音录制',
                 '浙江卫视《奔跑吧兄弟—天使的城》宣传TVC担任棚拍声音录制',
@@ -59,7 +60,7 @@ export const teachers = [
         name: 'GAO',
         value: 1,
         position: '声音设计 / 音乐科技导师',
-        works: '2018雅加达亚运会闭幕式杭州六分钟》《奔跑吧》《西泠印社》',
+        works: '《2018雅加达亚运会闭幕式杭州六分钟》《奔跑吧》《西泠印社》',
         image: _2_Gao,
         participatingWorks: [
             '参与作品曾获奖项：',
@@ -477,7 +478,7 @@ export const teachers = [
     {
         name: 'YE',
         value: 16,
-        position:'吉他演奏/指弹吉他/唱作人导师',
+        position: '吉他演奏/指弹吉他/唱作人导师',
         works: '多次斩获全国吉他大赛冠军，青年吉他演奏家，知名吉他手，唱作人',
         image: _17_YE,
         participatingWorks: [],

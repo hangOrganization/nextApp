@@ -178,9 +178,8 @@ export default function CampusEnvironment({
                       {list.map((el: any) => (
                         <p
                           key={`${el.index}-el.name-campusEnvironment`}
-                          className={`font-light absolute text-[14px] transition-all ${
-                            el.index === currentPage ? "opacity-100" : ""
-                          } duration-1000 opacity-0 mt-8 leading-[180%]`}
+                          className={`font-light absolute text-[14px] transition-all ${el.index === currentPage ? "opacity-100" : ""
+                            } duration-1000 opacity-0 mt-8 leading-[180%]`}
                         >
                           {el.name}
                         </p>
@@ -194,7 +193,14 @@ export default function CampusEnvironment({
                         onClick={(event) => {
                           event.stopPropagation();
                           if (currentPage == 0) return;
-                          setCurrentPage(currentPage - 1);
+                          if (currentPage !== oldCurrentPage) {
+                            setOldCurrentPage(currentPage);
+                          }
+                          if (currentPage - 10 > 0) {
+                            setCurrentPage(currentPage - 10);
+                          } else {
+                            setCurrentPage(0);
+                          }
                         }}
                       >
                         <Image
@@ -212,8 +218,15 @@ export default function CampusEnvironment({
                         className="flex relative"
                         onClick={(event) => {
                           event.stopPropagation();
-                          if (currentPage == 39) return;
-                          setCurrentPage(currentPage + 1);
+                          if (currentPage == list.length - 1) return;
+                          if (currentPage !== oldCurrentPage) {
+                            setOldCurrentPage(currentPage);
+                          }
+                          if (currentPage + 10 < list.length - 1) {
+                            setCurrentPage(currentPage + 10);
+                          } else {
+                            setCurrentPage(list.length - 1);
+                          }
                         }}
                       >
                         <Image
@@ -289,7 +302,6 @@ export default function CampusEnvironment({
                             }}
                             className="flex cursor-pointer transition-all duration-500 gap-4"
                           >
-                            {" "}
                             {list.map((el: any) => (
                               <div
                                 key={`CampusEnvironment-${el.index}-min---`}
@@ -314,7 +326,6 @@ export default function CampusEnvironment({
                       </div>
                     </div>
                   </div>
-
                   <p className="mt-4 font-light text-[#FF4B00] text-[14px] leading-[180%]">
                     {currentPage + 1}/{list.length}
                   </p>
