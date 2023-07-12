@@ -320,10 +320,10 @@ export default function SignCharacteristic({
                       window.scrollTo({
                         top:
                           musicGenre === 1
-                            ? 8930
+                            ? 8800
                             : musicGenre === 2
-                              ? 8780
-                              : 8380,
+                              ? 8650
+                              : 8250,
                         behavior: "smooth",
                       });
                     }}
@@ -343,10 +343,10 @@ export default function SignCharacteristic({
                       window.scrollTo({
                         top:
                           musicGenre === 1
-                            ? 8930
+                            ? 8800
                             : musicGenre === 2
-                              ? 8780
-                              : 8380,
+                              ? 8650
+                              : 8250,
                         behavior: "smooth",
                       });
                     }}
@@ -408,7 +408,7 @@ export default function SignCharacteristic({
             >
               <div
                 className={`${mobileRight == 0 ? "max-md:h-[1665px]" : "max-md:h-[765px]"
-                  } max-md:overflow-hidden  relative `}
+                  } max-md:overflow-hidden transition-all duration-1000 relative `}
               >
                 <div
                   className={`md:ml-[202px]  max-md:w-[200%] max-md:m-auto  max-md:flex max-md:justify-between `}
