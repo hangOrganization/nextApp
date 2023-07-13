@@ -177,7 +177,7 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
             <Img className="mb-[-20px]" src={qrCodeSrc} alt="" />
           </TooltipBox>
         </div> :
-        <div style={{ cursor: "pointer" }} onClick={goPage}>
+        <div style={{ cursor: "pointer" }} className=" flex justify-center items-center" onClick={goPage}>
           <HoverButton onClick={() => {
             if (!url) {
               isOpen ? setIsOpen(false) : setIsOpen(true)
@@ -186,9 +186,7 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
           } className="hover:md:translate-y-[-4px] transition-all" id={id}>
             {icon}
           </HoverButton>
-          <TooltipBox isOpen={isOpen} data-tooltip-offset={1} anchorSelect={`#${id}`}>
-            <Img className="mb-[-20px]" src={qrCodeSrc} alt="" />
-          </TooltipBox>
+          {imgSrc === 2 && <Img className={`absolute transition-all ${isOpen ? 'h-[100px]' : ''} h-0 bottom-12`} src={qrCodeSrc} alt="" onClick={() => console.log('11111111111')} />}
         </div>
       }
     </div>
