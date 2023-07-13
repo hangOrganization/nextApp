@@ -17,21 +17,15 @@ const Panel = styled(Dialog.Panel)`
     }
 `
 const NameOur = styled.p`
-    font-family: "General Sans";
-    font-style: italic;
     font-weight: 700;
     font-size: 64px;
     line-height: 120%;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #e8e8e8;
-    -webkit-text-stroke: 1px #0000ff;
-    text-shadow: 4px 0px 0px #0000ff;
+    color: #0000ff;
     @media not all and (min-width: 768px) {
         color: #00F;
-        font-family: General Sans;
         font-size: 32px;
-        font-style: italic;
         font-weight: 700;
         line-height: 120%;
         letter-spacing: 1.6px;

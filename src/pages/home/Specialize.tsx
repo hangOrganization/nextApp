@@ -107,7 +107,7 @@ export default function Specialize({
           <div
             style={{
               background: "rgba(26, 26, 26, 0.90)",
-              backdropFilter: "blur(50px)",
+              backdropFilter: "blur(40px)",
             }}
             className="flex max-md:sticky md:!backdrop-blur-none max-md:hidden max-md:mt-[-64px] md:!bg-transparent  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end">
             <div className="flex gap-4 max-md:justify-between items-end">
@@ -198,7 +198,7 @@ export default function Specialize({
         <div
           style={{
             background: "rgba(26, 26, 26, 0.90)",
-            backdropFilter: "blur(40px)",
+            backdropFilter: "blur(30px)",
           }}
           className="flex md:hidden max-md:sticky max-md:mt-[-64px]  max-md:top-0 z-[1000] flex-col max-md:px-[31px] max-md:w-screen relative max-md:pt-[96px] md:justify-end md:items-end"
         >
@@ -600,7 +600,7 @@ export default function Specialize({
               background:
                 "linear-gradient(180deg,rgb(26, 26, 26, 0.1) 1%,rgb(26, 26, 26, 0.5) 10%,rgb(26, 26, 26, 1) 40%,rgb(26, 26, 26, 1) 100%)",
             }}
-            className=" w-full h-[180px] absolute bottom-0 left-0 z-[1001] bg-[#1a1a1a]"
+            className=" w-full h-[180px] md:hidden absolute bottom-0 left-0 z-[1001] bg-[#1a1a1a]"
           ></div>
         </div>
       </div>
