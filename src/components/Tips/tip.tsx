@@ -186,7 +186,12 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
           } className="hover:md:translate-y-[-4px] transition-all" id={id}>
             {icon}
           </HoverButton>
-          {imgSrc === 2 && <Img className={`absolute transition-all ${isOpen ? 'h-[100px]' : ''} h-0 bottom-12`} src={qrCodeSrc} alt="" onClick={() => console.log('11111111111')} />}
+
+          {imgSrc === 2 &&
+            <div className={`absolute transition-all overflow-hidden w-[100px] ${isOpen ? 'h-[100px] w-[100px]' : ''} h-0 bottom-[56px]`} >
+              <Img className={`w-[100px] h-[100px]`} src={qrCodeSrc} alt="" onClick={() => console.log('11111111111')} />
+            </div>
+          }
         </div>
       }
     </div>
