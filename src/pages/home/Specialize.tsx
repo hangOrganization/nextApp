@@ -208,10 +208,10 @@ export default function Specialize({
                 } transition-all duration-300 cursor-pointer text-center`}
               onClick={() => {
                 setMusicGenre(1);
-                // window.scrollTo({
-                //   top: 3280,
-                //   behavior: 'smooth',
-                // })
+                window.scrollTo({
+                  top: 3280,
+                  behavior: 'smooth',
+                })
               }}
             >
               <p
@@ -228,10 +228,10 @@ export default function Specialize({
                 } transition-all duration-300 cursor-pointer text-center`}
               onClick={() => {
                 setMusicGenre(2);
-                // window.scrollTo({
-                //   top: 3280,
-                //   behavior: 'smooth',
-                // })
+                window.scrollTo({
+                  top: 3280,
+                  behavior: 'smooth',
+                })
               }}
             >
               <p
@@ -248,10 +248,10 @@ export default function Specialize({
                 } transition-all duration-300 cursor-pointer text-center`}
               onClick={() => {
                 setMusicGenre(3);
-                // window.scrollTo({
-                //   top: 3280,
-                //   behavior: 'smooth',
-                // })
+                window.scrollTo({
+                  top: 3280,
+                  behavior: 'smooth',
+                })
               }}
             >
               <p
@@ -286,7 +286,7 @@ export default function Specialize({
           </div>
         </div>
         <div
-          className={`relative ${musicGenre === 2
+          className={`relative transition-all duration-1000 ${musicGenre === 2
             ? "max-md:h-[1118px]"
             : musicGenre === 3
               ? " max-md:h-[695px] "

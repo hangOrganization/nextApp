@@ -129,11 +129,6 @@ export default function MentorInformation({ isOpen, setIsOpen, textValue }: Ment
                                                     {el}
                                                 </div>
                                             ))}
-                                            {teachers[textValue].personalWorks.map((el: any) => (
-                                                <div key={`${teachers[textValue].value}-${teachers[textValue].name}-4-MentorInformation`} className='text-[#1A1A1A] md:w-[642px] text-[14px] max-md:text-[12px] max-md:font-[300] max-md:opacity-80 leading-[180%] font-light text-justify'>
-                                                    {el}
-                                                </div>
-                                            ))}
                                             <div className=' w-12 h-[48px] opacity-0 md:hidden'>1111111111</div>
                                             <div className=' w-12 h-[48px] opacity-0 md:hidden'>1111111111</div>
                                             <div className=' w-12 h-[48px] opacity-0 md:hidden'>1111111111</div>

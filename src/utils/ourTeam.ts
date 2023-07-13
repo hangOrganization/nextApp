@@ -57,7 +57,7 @@ export const teachers = [
     name: "GAO",
     value: 1,
     position: "声音设计 / 音乐科技导师",
-    works: "2018雅加达亚运会闭幕式杭州六分钟》《奔跑吧》《西泠印社》",
+    works: "《2018雅加达亚运会闭幕式杭州六分钟》《奔跑吧》《西泠印社》",
     image: _2_Gao,
     participatingWorks: [
       "参与作品曾获奖项：",

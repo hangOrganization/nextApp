@@ -22,10 +22,8 @@ import {
   setActiveIndex,
   setThrottleFlag,
   setComePage,
-  setAboutOrCorporation,
 } from "@/state/application/reducer";
 import Image from "next/image";
-import { ChildProcess } from "child_process";
 
 const OurTeamBox = styled.div`
   width: 100%;
@@ -83,19 +81,16 @@ const CardFilterBox = styled.div`
 const NameOur = styled.p`
   margin-left: 4px;
   @media (min-width: 768px) {
-    font-family: "General Sans";
     font-weight: 600;
     font-size: 36px;
+    color: #00f;
     line-height: 120%;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    -webkit-text-stroke: 1px #0000ff;
-    text-shadow: 4px 0px 0px #0000ff;
   }
   @media not all and (min-width: 768px) {
     color: #00f;
     font-size: 24px;
-    font-family: "General Sans";
     font-weight: 600;
     line-height: 120%;
     letter-spacing: 1.2px;
@@ -192,12 +187,18 @@ export default function OurTeam({
   const [currentPage, setCurrentPage] = useState(0);
 
   const nextPage = () => {
-    if (currentPage === 4) return;
-    setCurrentPage(currentPage + 1);
+    if (currentPage === 4) {
+      setCurrentPage(0);
+    } else {
+      setCurrentPage(currentPage + 1);
+    }
   };
   const prePage = () => {
-    if (currentPage === 0) return;
-    setCurrentPage(currentPage - 1);
+    if (currentPage === 0) {
+      setCurrentPage(4);
+    } else {
+      setCurrentPage(currentPage - 1); 
+    }
   };
 
   useEffect(() => {
@@ -250,9 +251,8 @@ export default function OurTeam({
     <Box>
       <div
         id="ourTeamBox"
-        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${
-          characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
-        }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
+        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
+          }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
           setScrollTop(e.target.scrollTop);
           if (throttleFlag) return;
