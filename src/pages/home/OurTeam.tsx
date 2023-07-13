@@ -100,7 +100,6 @@ const NameOur = styled.p`
   }
 `;
 const RollBox = styled.div`
-  padding-left: 15px;
   transition: all 500ms;
   /* transform: translateX(-1520px); */
   /* @media (min-width: 768px) {
@@ -344,7 +343,7 @@ export default function OurTeam({
             </div>
             <div className="flex w-screen md:gap-[67px] max-md:pb-[80px] overflow-hidden max-md:mt-10 md:py-20 md:pt-[32px]">
               <RollBox
-                className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[16px] max-md:flex-wrap max-md:justify-between max-md:gap-[8px] max-md:gap-y-[35px] md:gap-[67px]`}
+                className={`flex ${cardHover}  max-md:w-[344px] max-md:mx-auto md:w-[15133px] max-md:flex-wrap max-md:justify-between max-md:gap-[8px] max-md:gap-y-[35px] md:gap-[67px]`}
                 style={{
                   transform: `translateX(-${currentPage * 1520}px)`,
                 }}

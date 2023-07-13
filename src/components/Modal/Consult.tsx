@@ -41,7 +41,7 @@ export default function Consult({ isOpen, setIsOpen }: ConsultProps) {
                 >
                     <div className="fixed inset-0 bg-[#1a1a1a] bg-opacity-70" />
                 </Transition.Child>
-                <div className="fixed inset-0 items-center flex justify-center overflow-y-auto">
+                <div className="fixed inset-0 w-screen overflow-hidden items-center flex justify-center overflow-y-auto">
                     <div className="flex items-center md:pt-10 justify-center text-center">
                         <Transition.Child
                             as={Fragment}

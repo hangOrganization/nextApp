@@ -320,10 +320,10 @@ export default function SignCharacteristic({
                       window.scrollTo({
                         top:
                           musicGenre === 1
-                            ? 8800
+                            ? 9000
                             : musicGenre === 2
-                              ? 8650
-                              : 8250,
+                              ? 8850
+                              : 8450,
                         behavior: "smooth",
                       });
                     }}
@@ -343,10 +343,10 @@ export default function SignCharacteristic({
                       window.scrollTo({
                         top:
                           musicGenre === 1
-                            ? 8800
+                            ? 9000
                             : musicGenre === 2
-                              ? 8650
-                              : 8250,
+                              ? 8850
+                              : 8450,
                         behavior: "smooth",
                       });
                     }}
