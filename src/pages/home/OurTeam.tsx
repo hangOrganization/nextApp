@@ -66,16 +66,18 @@ const CardBox = styled.div`
     background: linear-gradient(0deg, #ececec 0%, rgba(236, 236, 236, 0) 100%);
   }
   @media not all and (min-width: 768px) {
-    width: 154px;
-    height: 239px;
+    /* width: 154px;
+    height: 239px; */
+    width: 168px;
+    height: 238px;
   }
 `;
 const CardFilterBox = styled.div`
   width: 237px;
   height: 50%;
   @media not all and (min-width: 768px) {
-    width: 154px;
-    height: 239px;
+    width: 168px;
+    height: 238px;
   }
 `;
 const NameOur = styled.p`
@@ -289,8 +291,8 @@ export default function OurTeam({
             <div
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(207, 196, 219, 0.00) 0%, rgba(207, 196, 219, 0.40) 100%)",
-                backdropFilter: "blur(50px)",
+                  "linear-gradient(180deg, #D8CBE7 77.38%, rgba(207, 196, 219, 0.01) 96.35%)",
+                // backdropFilter: "blur(50px)",
               }}
               className="max-md:text-center md:hidden max-md:sticky  pb-4 pt-[88px] z-50 max-md:top-0"
             >
@@ -342,7 +344,7 @@ export default function OurTeam({
             </div>
             <div className="flex w-screen md:gap-[67px] max-md:pb-[80px] overflow-hidden max-md:mt-10 md:py-20 md:pt-[32px]">
               <RollBox
-                className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[29px] max-md:flex-wrap max-md:justify-between max-md:gap-[8px] md:gap-[67px]`}
+                className={`flex ${cardHover} max-md:w-screen md:w-[15133px] max-md:pl-4 max-md:pr-[16px] max-md:flex-wrap max-md:justify-between max-md:gap-[8px] max-md:gap-y-[35px] md:gap-[67px]`}
                 style={{
                   transform: `translateX(-${currentPage * 1520}px)`,
                 }}
@@ -359,12 +361,12 @@ export default function OurTeam({
                       setIsOpen(1);
                       setTextValue(el.value);
                     }}
-                    style={{ backgroundImage: `url(${el.image.src})` }}
+                    style={{ backgroundImage: `url(${el.image.src})`}}
                     key={`${el.name}-${index}-teachers`}
-                    className={`md:hover:translate-y-[-16px]`}
+                    className={`max-md:!bg-cover md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
-                      <div className=" pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
+                      <div className=" pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[168px] max-md:h-[137px] w-[253px] absolute max-md:bottom-[-27px] bottom-0 md:right-[-51px] h-[184px] md:ml-[51px] bg-[#FFFFFF]">
                         <NameOur>{el.name}</NameOur>
                         <p className="font-normal md:ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 text-ellipsis overflow-hidden line-clamp-1 leading-[120%] uppercase text-[#1a1a1a]">
                           {el.position}
@@ -393,7 +395,7 @@ export default function OurTeam({
                     className={`max-md:!hidden md:hover:translate-y-[-16px]`}
                   >
                     <CardFilterBox className="relative">
-                      <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute bottom-0 max-md:right-[-12px] right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
+                      <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute max-md:right-[-12px] bottom-0 right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
                         <NameOur>{el.name}</NameOur>
                         <p className="font-normal ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
                           {el.position}
