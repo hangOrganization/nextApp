@@ -6,7 +6,7 @@ import sign_QRcode from '@/assets/image/svg/sign-QRcode.svg'
 import sign_QRcode_bg_2 from '@/assets/image/svg/sign-QRcode-bg-2.png'
 import { Dialog, Transition } from '@headlessui/react'
 import styled from 'styled-components'
-import wechat_QRcode from "../../assets/image/svg/wechat-QRcode.svg";
+import wechat_QRcode from "../../assets/image/svg/wechat-QRcode.png";
 import red_book_QRcode from "../../assets/image/svg/red-book-QRcode.svg";
 import bilibili_QRcode from "../../assets/image/svg/bilibili-QRcode.svg";
 import Tip from '../Tips/tip'

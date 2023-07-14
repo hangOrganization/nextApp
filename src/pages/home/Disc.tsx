@@ -10,7 +10,6 @@ import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
 import disc_mobile_bg from "../../assets/image/mobile/mobile-disc-bg.png";
 import cd_mask from "../../assets/image/disc-icon/CDMask.png";
-import text_bg from "../../assets/image/disc-icon/Bright.png";
 import { useEffect, useState } from "react";
 import BusinessPartner from "./BusinessPartner";
 import Footer from "@/components/Footer";
@@ -26,7 +25,6 @@ import {
 import { useAppDispatch } from "@/state/hooks";
 import {
   setActiveIndex,
-  setComePage,
   setThrottleFlag,
 } from "@/state/application/reducer";
 

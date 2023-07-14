@@ -139,12 +139,12 @@ export default function SignCharacteristic({
   const throttleFlag = useThrottleFlag();
   const [mobileRight, setMobileRight] = useState<number>(0);
   return (
-    <Box className={`flex w-screen md:pb-[300px] z-50 md:overflow-hidden`}>
+    <Box className={`flex w-screen items-center z-50 md:overflow-hidden`}>
       <div className="flex relative">
         <SignBox
           className={`md:flex md:h-[1050px] relative w-screen items-center justify-center`}
           onWheel={(e: any) => {
-            if (scrollTop > 1350) {
+            if (scrollTop > 1200) {
               if (innerWidth > 768) {
                 if (throttleFlag) {
                   dispatch(setThrottleFlag(true));

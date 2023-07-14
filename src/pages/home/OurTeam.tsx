@@ -252,9 +252,10 @@ export default function OurTeam({
     <Box>
       <div
         id="ourTeamBox"
-        className={`md:h-screen md:pt-32 md:opacity-0 md:pb-[300px] ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
+        className={`md:h-screen md:pt-32 md:opacity-0 ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
           }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
+          console.log("🚀 ~ file: OurTeam.tsx:258 ~ e:", e.target.scrollTop)
           setScrollTop(e.target.scrollTop);
           if (throttleFlag) return;
           if (innerWidth > 768) {
