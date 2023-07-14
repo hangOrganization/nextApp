@@ -1,6 +1,6 @@
 import Image from "next/image";
 import logo from "@/assets/image/svg/logo.svg";
-import wechat_QRcode from "../../assets/image/svg/wechat-QRcode.svg";
+import wechat_QRcode from "../../assets/image/svg/wechat-QRcode.png";
 import red_book_QRcode from "../../assets/image/svg/red-book-QRcode.svg";
 import bilibili_QRcode from "../../assets/image/svg/bilibili-QRcode.svg";
 import net_ease_cloud_QRcode from "../../assets/image/svg/net-ease-cloud-QRcode.svg";
