@@ -1,12 +1,15 @@
 "use client";
 import mobileOurTeam_bg from "@/assets/image/mobile/mobileOurTeam-bg.svg";
 import MentorInformation from "@/components/Modal/MentorInformation";
-import { teachers } from "@/utils/ourTeam";
-import { useEffect, useState } from "react";
+// import { teachers } from "@/utils/ourTeam";
+import { teacherImageList } from "@/utils/ourTeam";
+
+import { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
+import { getTeacherList } from "../../api/teacher.ts";
 import arrow_normal from "../../assets/image/png/arrow_normal.png";
 import arrow_active from "../../assets/image/png/arrow_active.png";
 import {
@@ -23,7 +26,7 @@ import {
   setThrottleFlag,
   setComePage,
 } from "@/state/application/reducer";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 const OurTeamBox = styled.div`
   width: 100%;
@@ -185,7 +188,15 @@ export default function OurTeam({
   const [cardHover, setCardHover] = useState<string>("");
   const activeIndex = useActiveIndex();
   const activeType = useActiveType();
+  const [teacherList, useTeacherList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  useEffect(() => {
+    getTeacherFunc();
+  }, []);
+  const getTeacherFunc = useCallback(async () => {
+    const data = await getTeacherList();
+    useTeacherList(data);
+  }, []);
 
   const nextPage = () => {
     if (currentPage === 4) {
@@ -198,7 +209,7 @@ export default function OurTeam({
     if (currentPage === 0) {
       setCurrentPage(4);
     } else {
-      setCurrentPage(currentPage - 1); 
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -252,10 +263,11 @@ export default function OurTeam({
     <Box>
       <div
         id="ourTeamBox"
-        className={`md:h-screen md:pt-32 md:opacity-0 ${characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
-          }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
+        className={`md:h-screen md:pt-32 md:opacity-0 ${
+          characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
+        }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
-          console.log("🚀 ~ file: OurTeam.tsx:258 ~ e:", e.target.scrollTop)
+          console.log("🚀 ~ file: OurTeam.tsx:258 ~ e:", e.target.scrollTop);
           setScrollTop(e.target.scrollTop);
           if (throttleFlag) return;
           if (innerWidth > 768) {
@@ -349,7 +361,7 @@ export default function OurTeam({
                   transform: `translateX(-${currentPage * 1520}px)`,
                 }}
               >
-                {teachers.map((el: any, index: number) => (
+                {teacherList.map((el: any, index: number) => (
                   <CardBox
                     onMouseEnter={() => {
                       setCardHover("hover");
@@ -359,9 +371,15 @@ export default function OurTeam({
                     }}
                     onClick={() => {
                       setIsOpen(1);
-                      setTextValue(el.value);
+                      setTextValue(el);
                     }}
-                    style={{ backgroundImage: `url(${el.image.src})`}}
+                    style={{
+                      backgroundImage: `url(${
+                        (teacherImageList as unknown as StaticImageData[])[
+                          el.image
+                        ].src
+                      })`,
+                    }}
                     key={`${el.name}-${index}-teachers`}
                     className={`max-md:!bg-cover md:hover:translate-y-[-16px]`}
                   >
@@ -369,16 +387,17 @@ export default function OurTeam({
                       <div className=" pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[168px] max-md:h-[137px] w-[253px] absolute max-md:bottom-[-27px] bottom-0 md:right-[-51px] h-[184px] md:ml-[51px] bg-[#FFFFFF]">
                         <NameOur>{el.name}</NameOur>
                         <p className="font-normal md:ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 text-ellipsis overflow-hidden line-clamp-1 leading-[120%] uppercase text-[#1a1a1a]">
-                          {el.position}
+                          {el.jobTitle}
                         </p>
                         <p className="font-light md:ml-1 max-md:ml-[-12px] max-md:w-[156px] max-md:scale-[0.83333] text-[12px] max-md:leading-[18px] text-ellipsis overflow-hidden line-clamp-3 max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
-                          {el.works}
+                          {el.work}
+                          {}
                         </p>
                       </div>
                     </CardFilterBox>
                   </CardBox>
                 ))}
-                {teachers.map((el: any, index: number) => (
+                {teacherList.map((el: any, index: number) => (
                   <CardBox
                     onMouseEnter={() => {
                       setCardHover("hover");
@@ -388,9 +407,15 @@ export default function OurTeam({
                     }}
                     onClick={() => {
                       setIsOpen(1);
-                      setTextValue(el.value);
+                      setTextValue(el);
                     }}
-                    style={{ backgroundImage: `url(${el.image.src})` }}
+                    style={{
+                      backgroundImage: `url(${
+                        (teacherImageList as unknown as StaticImageData[])[
+                          el.image
+                        ].src
+                      })`,
+                    }}
                     key={`${el.name}----${index}-teachers`}
                     className={`max-md:!hidden md:hover:translate-y-[-16px]`}
                   >
@@ -398,10 +423,11 @@ export default function OurTeam({
                       <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute max-md:right-[-12px] bottom-0 right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
                         <NameOur>{el.name}</NameOur>
                         <p className="font-normal ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
-                          {el.position}
+                          {el.jobTitle}
                         </p>
                         <p className="font-light ml-1 text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
-                          {el.works}
+                          {el.work}
+                          {}
                         </p>
                       </div>
                     </CardFilterBox>

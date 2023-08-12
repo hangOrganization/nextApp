@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import Products from "./Products";
 import Header from "@/components/Header";
 import Introduction from "./Introduction";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 // import ShadowBg from "@/components/ShadowBg";
 // import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,6 +15,7 @@ import { useAppDispatch } from "@/state/hooks";
 import { setIsChrome } from "@/state/application/reducer";
 import styled from "styled-components";
 import Specialize from "./Specialize";
+import { getCompanyInfo } from "@/api/company";
 const Box = styled.div`
   .swiper-move-in {
     @media (min-width: 768px) {
@@ -60,6 +61,15 @@ export default function Homepage() {
       behavior: "smooth",
     });
   };
+
+  // useEffect(() => {
+  //   getCompanyInfoFunc();
+  // }, []);
+  // const getCompanyInfoFunc = useCallback(async () => {
+  //   const data = await getCompanyInfo();
+  //   console.log(data);
+  // }, []);
+
   useEffect(() => {
     if (window.outerWidth > 768) {
       document.body.classList.add("overflow-hidden");
@@ -93,10 +103,20 @@ export default function Homepage() {
           <Introduction setIsOpenConsult={setIsOpenConsult} />
         </SwiperSlide>
         <SwiperSlide>
-          <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre}/>
+          <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
         </SwiperSlide>
         <SwiperSlide>
-          <OurTeam setRight={setRight} musicGenre={musicGenre} setMusicGenre={setMusicGenre} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+          <OurTeam
+            setRight={setRight}
+            musicGenre={musicGenre}
+            setMusicGenre={setMusicGenre}
+            scrollTop={ourTeamScrollTop}
+            setScrollTop={setOurTeamScrollTop}
+            right={right}
+            characteristicType={characteristicType}
+            setCharacteristicType={setCharacteristicType}
+            setIsOpenCampus={setIsOpenCampus}
+          />
         </SwiperSlide>
         <SwiperSlide>
           <Disc />
@@ -105,9 +125,19 @@ export default function Homepage() {
       <div className="md:hidden">
         <Sign />
         <Introduction setIsOpenConsult={setIsOpenConsult} />
-        <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre}/>
+        <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
         <Specialize musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
-        <OurTeam musicGenre={musicGenre} setMusicGenre={setMusicGenre} setRight={setRight} scrollTop={ourTeamScrollTop} setScrollTop={setOurTeamScrollTop} right={right} characteristicType={characteristicType} setCharacteristicType={setCharacteristicType} setIsOpenCampus={setIsOpenCampus} />
+        <OurTeam
+          musicGenre={musicGenre}
+          setMusicGenre={setMusicGenre}
+          setRight={setRight}
+          scrollTop={ourTeamScrollTop}
+          setScrollTop={setOurTeamScrollTop}
+          right={right}
+          characteristicType={characteristicType}
+          setCharacteristicType={setCharacteristicType}
+          setIsOpenCampus={setIsOpenCampus}
+        />
         <Disc />
       </div>
     </Box>
