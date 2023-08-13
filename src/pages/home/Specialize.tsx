@@ -15,6 +15,7 @@ import {
   modernMusicSchool,
 } from "@/utils/specializeText";
 import { useEffect, useState } from "react";
+import { dataFrom } from ".";
 
 const SpecializeBox = styled.div``;
 const SpecializeBg = styled.div`
@@ -76,9 +77,11 @@ const CourseBox = styled.div`
 interface SpecializeProps {
   musicGenre: number;
   setMusicGenre: Function;
+  dataFrom?: dataFrom
 }
 export default function Specialize({
   musicGenre,
+  dataFrom,
   setMusicGenre,
 }: SpecializeProps) {
   const [innerWidth, setInnerWidth] = useState<number>(0)
@@ -337,16 +340,16 @@ export default function Specialize({
                   </div>
                   <div className="flex mt-4 md:items-center h-[469px] justify-between">
                     <div className="flex flex-col max-md:h-[390px] h-[469px] flex-wrap md:pl-2 max-md:gap-y-[11px] max-md:gap-x-6 gap-3 md:gap-x-8">
-                      {modernMusicHotMajor.map((el: any, index: number) => (
+                      {dataFrom?.popularMajors.modernMusic.popularMajorsEn.map((el: any, index: number) => (
                         <div
                           className="max-md:w-[124px] max-md:text-center"
-                          key={`${index}-${el.englishTitle}-modernMusicHotMajor`}
+                          key={`${index}-${el}-modernMusicHotMajor`}
                         >
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
-                            {el.title}
+                            {dataFrom?.popularMajors.modernMusic.popularMajorsCn[index]}
                           </p>
                           <p className="text-[10px] max-md:scale-[0.83333] max-md:leading-[13px] text-ellipsis overflow-hidden  font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
-                            {el.englishTitle}
+                            {el}
                           </p>
                         </div>
                       ))}
@@ -381,7 +384,7 @@ export default function Specialize({
                     </div>
                     <div className="flex max-md:mt-4 mt-[24px] justify-between">
                       <div className="flex h-[138px] max-md:w-[163px] max-md:h-[171px] flex-wrap flex-col max-md:gap-x-6 gap-x-12 gap-y-[11.75px]">
-                        {modernMusicSchool[0].map((el: any, index: number) => (
+                        {dataFrom?.popularColleges.modernMusic.specificColleges.map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool`}
                             className="text-[13px] max-md:w-[163px] max-md:scale-[0.916666] max-md:text-ellipsis max-md:overflow-hidden max-md:line-clamp-1 max-md:font-light max-md:text-[12px] max-md:leading-[14.3px] leading-[140%] text-[#3E3E3E] font-[300] "
@@ -404,7 +407,7 @@ export default function Specialize({
                     </div>
                     <div className="flex max-md:mt-4 mt-[24px]">
                       <div className="flex flex-col max-md:h-[97px] h-[138px] gap-x-[137px] max-md:gap-x-[100px] flex-wrap gap-y-[11.75px]">
-                        {modernMusicSchool[1].map((el: any, index: number) => (
+                        {dataFrom?.popularColleges.modernMusic.area.map((el: any, index: number) => (
                           <p
                             key={`${index}-modernMusicSchool-Japan and South Korea`}
                             className="text-[13px] max-md:text-[11px] max-md:scale-[0.916666] max-md:leading-[15.4px] leading-[140%] max-md:font-light text-[#3E3E3E] font-[300] "
@@ -439,16 +442,16 @@ export default function Specialize({
                   </div>
                   <div className="flex mt-4 items-center md:h-[469px] justify-between">
                     <div className="flex flex-col max-md:h-[198px] h-[264px] flex-wrap md:pl-2 max-md:gap-x-[20px] md:gap-x-[65px] max-md:gap-y-[12px] gap-y-[28px]">
-                      {classicalMusicHotMajor.map((el: any, index: number) => (
+                      {dataFrom?.popularMajors.classicalMusic.popularMajorsEn.map((el: any, index: number) => (
                         <div
                           className="max-md:w-[126px] max-md:text-center"
-                          key={`${index}-${el.englishTitle}-classicalMusicHotMajor`}
+                          key={`${index}-${el}-classicalMusicHotMajor`}
                         >
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
-                            {el.title}
+                            {dataFrom?.popularMajors.classicalMusic.popularMajorsCn[index]}
                           </p>
                           <p className="text-[12px] text-ellipsis max-md:scale-[0.83333] overflow-hidden  max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
-                            {el.englishTitle}
+                            {el}
                           </p>
                         </div>
                       ))}
@@ -483,15 +486,14 @@ export default function Specialize({
                     </div>
                     <div className="flex mt-[24px] max-md:mt-4 md:justify-between">
                       <div className="flex max-md:h-[170px] h-[138px] flex-wrap flex-col max-md:gap-x-[68px] gap-x-[86px] max-md:gap-y-[11px] gap-y-[11.75px]">
-                        {classicalMusicSchool[0].map(
-                          (el: any, index: number) => (
-                            <p
-                              key={`${index}-classicalMusicSchool`}
-                              className="text-[13px] leading-[140%] text-[#3E3E3E] max-md:scale-[0.916666] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[300] "
-                            >
-                              {el}
-                            </p>
-                          )
+                        {dataFrom?.popularColleges.classicalMusic.specificColleges.map((el: any, index: number) => (
+                          <p
+                            key={`${index}-classicalMusicSchool`}
+                            className="text-[13px] leading-[140%] text-[#3E3E3E] max-md:scale-[0.916666] max-md:text-[11px] max-md:leading-[14.3px] max-md:font-light  font-[300] "
+                          >
+                            {el}
+                          </p>
+                        )
                         )}
                       </div>
                     </div>
@@ -508,15 +510,14 @@ export default function Specialize({
                     </div>
                     <div className="flex max-md:mt-4 mt-[24px]">
                       <div className="flex flex-col max-md:h-[170px] h-[138px] gap-x-[47.5px] max-md:gap-x-[20px] flex-wrap max-md:gap-y-[11px] gap-y-[11.75px]">
-                        {classicalMusicSchool[1].map(
-                          (el: any, index: number) => (
-                            <p
-                              key={`${index}-classicalMusicSchool-Japan and South Korea`}
-                              className="text-[13px] max-md:text-[11px] max-md:scale-[0.916666] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
-                            >
-                              {el}
-                            </p>
-                          )
+                        {dataFrom?.popularColleges.classicalMusic.area.map((el: any, index: number) => (
+                          <p
+                            key={`${index}-classicalMusicSchool-Japan and South Korea`}
+                            className="text-[13px] max-md:text-[11px] max-md:scale-[0.916666] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"
+                          >
+                            {el}
+                          </p>
+                        )
                         )}
                       </div>
                     </div>
@@ -545,16 +546,16 @@ export default function Specialize({
                   </div>
                   <div className="flex mt-4 items-center md:h-[469px] justify-between">
                     <div className="flex flex-col max-md:h-[129px] h-[264px] flex-wrap md:pl-2 max-md:gap-y-[11px] gap-y-[28px] max-md:gap-x-[23px] gap-x-[128px]">
-                      {musicalTheoryHotMajor.map((el: any, index: number) => (
+                      {dataFrom?.popularMajors.musicTheory.popularMajorsEn.map((el: any, index: number) => (
                         <div
                           className="max-md:text-center max-md:w-[124px]"
-                          key={`${index}-${el.englishTitle}-musicalTheoryHotMajor`}
+                          key={`${index}-${el}-musicalTheoryHotMajor`}
                         >
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
-                            {el.title}
+                            {dataFrom?.popularMajors.musicTheory.popularMajorsCn[index]}
                           </p>
                           <p className="text-[12px] text-ellipsis overflow-hidden max-md:scale-[0.83333] max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
-                            {el.englishTitle}
+                            {el}
                           </p>
                         </div>
                       ))}
@@ -580,7 +581,7 @@ export default function Specialize({
                   <div className="md:pl-2">
                     <div className="flex max-md:mt-4 mt-[24px] md:justify-between">
                       <div className="flex max-md:h-[167px] max-md:w-[155px] h-[254px] flex-wrap flex-col max-md:gap-x-[24px] gap-x-[102px] max-md:gap-y-[11px] gap-y-[18px]">
-                        {musicalTheorySchool.map((el: any, index: number) => (
+                        {dataFrom?.popularColleges.musicTheory.specificColleges.map((el: any, index: number) => (
                           <p
                             key={`${index}-musicalTheorySchool`}
                             className="text-[13px] max-md:text-[11px] max-md:scale-[0.916666] max-md:leading-[14.3px] max-md:font-light leading-[140%] text-[#3E3E3E] font-[300]"

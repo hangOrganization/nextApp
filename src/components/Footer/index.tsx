@@ -5,8 +5,12 @@ import red_book_QRcode from "../../assets/image/svg/red-book-QRcode.svg";
 import bilibili_QRcode from "../../assets/image/svg/bilibili-QRcode.svg";
 import net_ease_cloud_QRcode from "../../assets/image/svg/net-ease-cloud-QRcode.svg";
 import Tip from "../../components/Tips/tip";
+import { dataFrom } from "@/pages/home";
 
-export default function Footer() {
+interface FooterProps {
+  dataFrom?: dataFrom
+}
+export default function Footer({ dataFrom }: FooterProps) {
   return (
     <div className="pb-[80px] max-md:pb-[24px]  px-6 max-md:px-[16px] mt-[-80px] max-md:mt-[200px]">
       <div
@@ -50,10 +54,10 @@ export default function Footer() {
           <div className="max-md:font-[300]  max-md:opacity-[0.5] ">
             联系我们
           </div>
-          <div className="flex items-center gap-[8px]">15558188911</div>
+          <div className="flex items-center gap-[8px]">{ dataFrom?.phone}</div>
           <div className="flex items-center gap-[8px]">
             <span>邮箱</span>
-            signartedu@yeah.net
+            { dataFrom?.email}
           </div>
         </div>
 
@@ -61,7 +65,7 @@ export default function Footer() {
           <div className="max-md:opacity-[0.5]   max-md:text-[14px] ">
             公司地址
           </div>
-          浙江省杭州市滨江区UDC星光时代1008
+          {dataFrom?.address}
         </div>
 
         <div
