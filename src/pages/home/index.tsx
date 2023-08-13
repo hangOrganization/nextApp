@@ -47,6 +47,28 @@ const Box = styled.div`
     }
   }
 `;
+export interface dataFrom {
+  aboutUs: any
+  address: any
+  email: any
+  features: any
+  firstLineTutor: any
+  footerSloganCn: any
+  footerSloganEn: any
+  marqueeContent: any
+  partTimeMusicTutor: any
+  phone: any
+  id: any
+  popularColleges: any
+  popularMajorsCn: any
+  popularMajorsEn: any
+  productSystem: any
+  promotionalTitle: any
+  promotionalUrl: any
+  seniorStudyAbroadPlanner: any
+  slogan: any
+  popularMajors: any
+}
 export default function Homepage() {
   const dispatch = useAppDispatch();
   const [musicGenre, setMusicGenre] = useState<number>(1);
@@ -55,25 +77,79 @@ export default function Homepage() {
   const [right, setRight] = useState<number>(0);
   const [isOpenConsult, setIsOpenConsult] = useState<number>(0);
   const [isOpenCampus, setIsOpenCampus] = useState<number>(0);
+  const [data, setData] = useState<dataFrom>()
+  const dataFrom: dataFrom = {
+    aboutUs: '',
+    address: '',
+    email: '',
+    features: '',
+    firstLineTutor: '',
+    footerSloganCn: '',
+    footerSloganEn: '',
+    marqueeContent: '',
+    partTimeMusicTutor: '',
+    phone: '',
+    id: '1',
+    popularColleges: '',
+    popularMajorsCn: '',
+    popularMajorsEn: '',
+    productSystem: '',
+    promotionalTitle: '',
+    promotionalUrl: '',
+    seniorStudyAbroadPlanner: '',
+    slogan: '',
+    popularMajors: {
+      modernMusic: {
+        popularMajorsCn: [],
+        popularMajorsEn: []
+      },
+      classicalMusic: {
+        popularMajorsCn: [],
+        popularMajorsEn: []
+      },
+      musicTheory: {
+        popularMajorsCn: [],
+        popularMajorsEn: []
+      }
+    },
+  }
   const scrollToView = (number: any) => {
     window?.scrollTo({
       top: number,
       behavior: "smooth",
     });
   };
-
-  // useEffect(() => {
-  //   getCompanyInfoFunc();
-  // }, []);
-  // const getCompanyInfoFunc = useCallback(async () => {
-  //   const data = await getCompanyInfo();
-  //   console.log(data);
-  // }, []);
-
+  const getCompanyInfoFunc = useCallback(async () => {
+    const data = await getCompanyInfo()
+    dataFrom.aboutUs = JSON.parse(data.aboutUs)
+    dataFrom.address = data.address
+    dataFrom.email = data.email
+    dataFrom.features = JSON.parse(data.features)
+    dataFrom.firstLineTutor = data.firstLineTutor
+    dataFrom.footerSloganCn = data.footerSloganCn
+    dataFrom.footerSloganEn = data.footerSloganEn
+    dataFrom.marqueeContent = JSON.parse(data.marqueeContent)
+    dataFrom.partTimeMusicTutor = data.partTimeMusicTutor
+    dataFrom.phone = data.phone
+    dataFrom.popularColleges = JSON.parse(data.popularColleges)
+    dataFrom.productSystem = JSON.parse(data.productSystem)
+    dataFrom.promotionalTitle = data.promotionalTitle
+    dataFrom.promotionalUrl = data.promotionalUrl
+    dataFrom.seniorStudyAbroadPlanner = data.seniorStudyAbroadPlanner
+    dataFrom.slogan = JSON.parse(data.slogan)
+    dataFrom.popularMajors.modernMusic.popularMajorsCn = JSON.parse(data.popularMajorsCn).modernMusic
+    dataFrom.popularMajors.classicalMusic.popularMajorsCn = JSON.parse(data.popularMajorsCn).classicalMusic
+    dataFrom.popularMajors.musicTheory.popularMajorsCn = JSON.parse(data.popularMajorsCn).musicTheory
+    dataFrom.popularMajors.modernMusic.popularMajorsEn = JSON.parse(data.popularMajorsEn).modernMusic
+    dataFrom.popularMajors.classicalMusic.popularMajorsEn = JSON.parse(data.popularMajorsEn).classicalMusic
+    dataFrom.popularMajors.musicTheory.popularMajorsEn = JSON.parse(data.popularMajorsEn).musicTheory
+    setData(dataFrom)
+  }, [])
   useEffect(() => {
     if (window.outerWidth > 768) {
       document.body.classList.add("overflow-hidden");
     }
+    getCompanyInfoFunc()
     dispatch(setIsChrome(window.navigator.userAgent.indexOf("Chrome") >= 0));
   });
   return (
@@ -100,13 +176,14 @@ export default function Homepage() {
           <Sign />
         </SwiperSlide>
         <SwiperSlide>
-          <Introduction setIsOpenConsult={setIsOpenConsult} />
+          <Introduction dataFrom={data} setIsOpenConsult={setIsOpenConsult} />
         </SwiperSlide>
         <SwiperSlide>
-          <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
+          <Products dataFrom={data}  musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
         </SwiperSlide>
         <SwiperSlide>
           <OurTeam
+          dataFrom={data}
             setRight={setRight}
             musicGenre={musicGenre}
             setMusicGenre={setMusicGenre}
@@ -119,15 +196,16 @@ export default function Homepage() {
           />
         </SwiperSlide>
         <SwiperSlide>
-          <Disc />
+          <Disc dataFrom={data}  />
         </SwiperSlide>
       </Swiper>
       <div className="md:hidden">
         <Sign />
-        <Introduction setIsOpenConsult={setIsOpenConsult} />
-        <Products musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
-        <Specialize musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
+        <Introduction dataFrom={data} setIsOpenConsult={setIsOpenConsult} />
+        <Products dataFrom={data} musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
+        <Specialize dataFrom={data} musicGenre={musicGenre} setMusicGenre={setMusicGenre} />
         <OurTeam
+        dataFrom={data}
           musicGenre={musicGenre}
           setMusicGenre={setMusicGenre}
           setRight={setRight}
@@ -138,7 +216,7 @@ export default function Homepage() {
           setCharacteristicType={setCharacteristicType}
           setIsOpenCampus={setIsOpenCampus}
         />
-        <Disc />
+        <Disc dataFrom={data}  />
       </div>
     </Box>
   );

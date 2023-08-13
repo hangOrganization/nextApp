@@ -5,6 +5,7 @@ import slogan_mobile_bg from "@/assets/image/png/slogan-mobile-bg.png";
 import Image from "next/image";
 import slogan from "@/assets/image/png/Slogan.png";
 import icon_right_arrow from "@/assets/image/svg/icon-right-black-arrow.svg";
+import { dataFrom } from ".";
 
 const Box = styled.div`
   background: linear-gradient(
@@ -87,13 +88,16 @@ const MoveBox = styled.div`
     }
   }
 `;
+interface SloganProps {
+  dataFrom?:dataFrom
+}
 
-export default function Slogan() {
+export default function Slogan({dataFrom}:SloganProps) {
   return (
     <Box className="mt-[-185px]  max-md:mt-[0] w-full h-[866px]  max-md:h-[476px]">
       <div className="h-[866px]  max-md:h-[476px] flex items-center flex-col text-center   max-md:pt-[140px] max-md:pb-[48px]">
         <div className="text-[24px] max-md:text-[16px] text-[#FFFFFF] leading-[180%] font-[250]  mt-[235px] max-md:mt-[0] mb-[40px] max-md:mb-4 ">
-          因形创声 随时造曲 应物无穷
+          {dataFrom?.footerSloganCn}
         </div>
         <div
           className="text-[16px] max-md:text-[12px] font-[100] font-[Lexend] leading-[180%] tracking-[3.2px] max-md:tracking-[2.4px] mb-[81px] max-md:mb-[56px]   max-md:px-[32px] "
@@ -102,7 +106,7 @@ export default function Slogan() {
             fontFeatureSettings: "'liga' off",
           }}
         >
-          Shaping Sound Crafting Melodies Infinite Adaptations
+         {dataFrom?.footerSloganEn}
         </div>
 
         <div

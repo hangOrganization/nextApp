@@ -27,6 +27,7 @@ import {
   setActiveIndex,
   setThrottleFlag,
 } from "@/state/application/reducer";
+import { dataFrom } from ".";
 
 interface DiscBoxProps {
   title: string;
@@ -229,8 +230,10 @@ const ImgBox = styled.div`
   background-size: 100% 100%;
 `;
 
-interface DiscProps {}
-export default function Disc({}: DiscProps) {
+interface DiscProps {
+  dataFrom?: dataFrom
+}
+export default function Disc({ dataFrom }: DiscProps) {
   const swiper = useSwiper();
   const innerWidth = useOuterWidth();
   const dispatch = useAppDispatch();
@@ -274,9 +277,8 @@ export default function Disc({}: DiscProps) {
     <SwiperContent>
       <div
         id="discBox"
-        className={`md:h-screen md:overflow-auto md:opacity-0 transition-all duration-10000 ${
-          activeIndex === 4 ? "swiper-move-in" : "swiper-move-out"
-        }`}
+        className={`md:h-screen md:overflow-auto md:opacity-0 transition-all duration-10000 ${activeIndex === 4 ? "swiper-move-in" : "swiper-move-out"
+          }`}
         onScroll={(e: any) => {
           if (throttleFlag) return;
           if (innerWidth > 768) {
@@ -309,9 +311,8 @@ export default function Disc({}: DiscProps) {
                   <Image
                     src={disc_film}
                     alt=""
-                    className={`film-img w-[444px] h-[444px] absolute transition-all duration-[450ms]  z-[4] max-md:w-[222px] max-md:h-[222px] max-md:translate-x-[40px]  ${
-                      swiper?.activeIndex === 4 ? "start-film-move" : ""
-                    }`}
+                    className={`film-img w-[444px] h-[444px] absolute transition-all duration-[450ms]  z-[4] max-md:w-[222px] max-md:h-[222px] max-md:translate-x-[40px]  ${swiper?.activeIndex === 4 ? "start-film-move" : ""
+                      }`}
                   ></Image>
                   <Image
                     src={disc_acquiesce}
@@ -323,11 +324,10 @@ export default function Disc({}: DiscProps) {
                     return (
                       <ImgBox
                         key={item.key}
-                        className={` w-[492px] h-[492px] absolute z-[4] max-md:hidden  opacity-0  ${
-                          activeKey === item.key
+                        className={` w-[492px] h-[492px] absolute z-[4] max-md:hidden  opacity-0  ${activeKey === item.key
                             ? "film-master-map-active"
                             : "film-master-map"
-                        }`}
+                          }`}
                         style={{
                           backgroundImage: `url(${item.bg.src})`,
                         }}
@@ -571,8 +571,8 @@ export default function Disc({}: DiscProps) {
           </div>
         </Box>
         <BusinessPartner />
-        <Slogan />
-        <Footer />
+        <Slogan dataFrom={dataFrom} />
+        <Footer dataFrom={dataFrom} />
       </div>
     </SwiperContent>
   );

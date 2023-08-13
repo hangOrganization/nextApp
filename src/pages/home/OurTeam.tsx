@@ -9,7 +9,7 @@ import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
-import { getTeacherList } from "../../api/teacher.ts";
+import { getTeacherList } from "@/api/teacher";
 import arrow_normal from "../../assets/image/png/arrow_normal.png";
 import arrow_active from "../../assets/image/png/arrow_active.png";
 import {
@@ -27,6 +27,7 @@ import {
   setComePage,
 } from "@/state/application/reducer";
 import Image, { StaticImageData } from "next/image";
+import { dataFrom } from ".";
 
 const OurTeamBox = styled.div`
   width: 100%;
@@ -165,6 +166,7 @@ interface OurTeamProps {
   setCharacteristicType: Function;
   musicGenre: number;
   setMusicGenre: Function;
+  dataFrom?:dataFrom;
 }
 export default function OurTeam({
   musicGenre,
@@ -173,6 +175,7 @@ export default function OurTeam({
   scrollTop,
   setScrollTop,
   right,
+  dataFrom,
   setRight,
   characteristicType,
   setCharacteristicType,
@@ -330,7 +333,7 @@ export default function OurTeam({
               >
                 <div className="w-[119px] max-md:w-[99px] text-center">
                   <p className=" font-normal  text-[32px] max-md:text-[24px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
-                    8
+                  {dataFrom?.firstLineTutor}
                   </p>
                   <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     全职一线导师
@@ -338,7 +341,7 @@ export default function OurTeam({
                 </div>
                 <div className="w-[119px] max-md:w-[99px] text-center">
                   <p className=" font-normal max-md:text-[24px] text-[32px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
-                    150+
+                  {dataFrom?.partTimeMusicTutor}+
                   </p>
                   <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     兼职音乐导师
@@ -346,7 +349,7 @@ export default function OurTeam({
                 </div>
                 <div className="w-[119px] max-md:w-[99px] text-center">
                   <p className=" font-normal text-[32px] max-md:text-[24px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
-                    5
+                  {dataFrom?.seniorStudyAbroadPlanner}
                   </p>
                   <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     资深留学规划师
@@ -373,13 +376,13 @@ export default function OurTeam({
                       setIsOpen(1);
                       setTextValue(el);
                     }}
-                    style={{
-                      backgroundImage: `url(${
-                        (teacherImageList as unknown as StaticImageData[])[
-                          el.image
-                        ].src
-                      })`,
-                    }}
+                    // style={{
+                    //   backgroundImage: `url(${
+                    //     (teacherImageList as unknown as StaticImageData[])[
+                    //       el.image
+                    //     ].src
+                    //   })`,
+                    // }}
                     key={`${el.name}-${index}-teachers`}
                     className={`max-md:!bg-cover md:hover:translate-y-[-16px]`}
                   >
@@ -409,13 +412,13 @@ export default function OurTeam({
                       setIsOpen(1);
                       setTextValue(el);
                     }}
-                    style={{
-                      backgroundImage: `url(${
-                        (teacherImageList as unknown as StaticImageData[])[
-                          el.image
-                        ].src
-                      })`,
-                    }}
+                    // style={{
+                    //   backgroundImage: `url(${
+                    //     (teacherImageList as unknown as StaticImageData[])[
+                    //       el.image
+                    //     ].src
+                    //   })`,
+                    // }}
                     key={`${el.name}----${index}-teachers`}
                     className={`max-md:!hidden md:hover:translate-y-[-16px]`}
                   >
@@ -482,6 +485,7 @@ export default function OurTeam({
           />
         </OurTeamBox>
         <SignCharacteristic
+          dataFrom={dataFrom}
           musicGenre={musicGenre}
           setMusicGenre={setMusicGenre}
           right={right}

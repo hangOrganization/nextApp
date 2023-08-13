@@ -36,11 +36,13 @@ import {
   ShadowBox,
   ShadowBox2,
 } from "@/styles/SignCss";
+import { dataFrom } from ".";
 
 interface IntroductionProps {
   setIsOpenConsult: Function;
+  dataFrom?: dataFrom
 }
-export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
+export default function Introduction({ setIsOpenConsult, dataFrom }: IntroductionProps) {
   const dispatch = useAppDispatch();
   const throttleFlag = useThrottleFlag();
   const activeIndex = useActiveIndex();
@@ -161,13 +163,11 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 )}
               </div>
               <div className="mt-10 max-md:mt-6">
-                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                  十万象限 是浙江省首家拥有
-                </div>
-                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                  十年音乐传媒行业经验的专业团队 由世界艺术名校海归艺术家导师及
-                  独立音乐人联合创立
-                </div>
+                {dataFrom?.slogan.slogan1.map((el: string, index: number) => (
+                  <div key={index} className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
+                    {el}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -180,15 +180,11 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 ></div>
               </div>
               <div className="mt-6 py-[31px] md:mt-2 h-[124px]">
-                <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                  专攻于 音乐艺术作品集教育
-                </div>
-                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
-                  留学申请规划 以及 跨界艺术联动是
-                </div>
-                <div className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] whitespace-normal px-[2px] text-[14px] opacity-70 text-center">
-                  浙江省最大的音乐留学作品集机构
-                </div>
+                {dataFrom?.slogan.slogan2.map((el: string, index: number) => (
+                  <div key={`${index}slogan.slogan2`} className="font-light max-md:font-[300] max-md:leading-[200%] leading-[220%] px-[2px] text-[14px] opacity-70 text-center">
+                    {el}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -201,23 +197,22 @@ export default function Introduction({ setIsOpenConsult }: IntroductionProps) {
                 ></div>
               </div>
               <div className=" py-[31px] md:py-0 h-[124px]">
-                <div className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] text-[14px] opacity-70 text-center">
-                  以专业的教学专注的态度帮助每一位热爱音乐的学生拿到dream offer
-                  <br />
-                  开发艺术领域的无限可能性
-                </div>
+              {dataFrom?.slogan.slogan3.map((el: string, index: number) => (
+                <div key={`${index}slogan.slogan3`} className="font-light  max-md:font-[300] max-md:leading-[200%] leading-[220%] text-[14px] opacity-70 text-center">
+                   {el}
+                </div>))}
               </div>
             </div>
           </div>
         </div>
         {/* <Video /> */}
         <p className="mx-auto mt-[120px] max-md:hidden mb-[40px] font-[300] text-[14px] leading-[220%] uppercase text-center text-[#FFFFFF] opacity-[0.7]">
-          - 请观看导师学生作品混剪 -
+          {dataFrom?.promotionalTitle}
         </p>
         <div className="w-full cursor-pointer max-md:mt-[112px]  z-50 relative">
           {play ? (
             <iframe
-              src="//player.bilibili.com/player.html?aid=314854552&bvid=BV1zP411i7RD&cid=1170792653&page=1"
+              src={dataFrom?.promotionalUrl}
               scrolling="no"
               className="w-[960px] max-md:w-screen relative z-50 mx-auto max-md:h-[200px] md:h-[542px]"
               frameBorder="no"

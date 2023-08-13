@@ -189,7 +189,7 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
 
           {imgSrc === 2 &&
             <div className={`absolute transition-all overflow-hidden w-[100px] ${isOpen ? 'h-[100px] w-[100px]' : ''} h-0 bottom-[56px]`} >
-              <Img className={`w-[100px] h-[100px]`} src={qrCodeSrc} alt="" onClick={() => console.log('11111111111')} />
+              <Img className={`w-[100px] h-[100px]`} src={qrCodeSrc} alt=""  />
             </div>
           }
         </div>
