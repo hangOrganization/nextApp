@@ -270,7 +270,6 @@ export default function OurTeam({
           characteristicType === 0 ? "md:overflow-auto" : "md:overflow-hidden"
         }  ${comePage === 2 ? "swiper-move-in-self" : "swiper-move-in"}  `}
         onScroll={(e: any) => {
-          console.log("🚀 ~ file: OurTeam.tsx:258 ~ e:", e.target.scrollTop);
           setScrollTop(e.target.scrollTop);
           if (throttleFlag) return;
           if (innerWidth > 768) {
