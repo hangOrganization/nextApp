@@ -39,7 +39,7 @@ const Img = styled(Image)`
   }
 `;
 export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const innerWidth = useOuterWidth();
   const icon = useMemo(() => {
     switch (imgSrc) {
@@ -168,33 +168,51 @@ export default function Index({ children, imgSrc, id, qrCodeSrc, url }: props) {
   };
   return (
     <div>
-      {innerWidth > 768 ?
+      {innerWidth > 768 ? (
         <div style={{ cursor: "pointer" }} onClick={goPage}>
-          <HoverButton className="hover:md:translate-y-[-4px] transition-all" id={id}>
+          <HoverButton
+            className="hover:md:translate-y-[-4px] transition-all"
+            id={id}
+          >
             {icon}
           </HoverButton>
           <TooltipBox data-tooltip-offset={1} anchorSelect={`#${id}`}>
-            <Img className="mb-[-20px]" src={qrCodeSrc} alt="" />
+            <Img
+              className="mb-[-20px] w-[100px] h-[100px]"
+              src={qrCodeSrc}
+              alt=""
+            />
           </TooltipBox>
-        </div> :
-        <div style={{ cursor: "pointer" }} className=" flex justify-center items-center" onClick={goPage}>
-          <HoverButton onClick={() => {
-            if (!url) {
-              isOpen ? setIsOpen(false) : setIsOpen(true)
-            }
-          }
-          } className="hover:md:translate-y-[-4px] transition-all" id={id}>
+        </div>
+      ) : (
+        <div
+          style={{ cursor: "pointer" }}
+          className=" flex justify-center items-center"
+          onClick={goPage}
+        >
+          <HoverButton
+            onClick={() => {
+              if (!url) {
+                isOpen ? setIsOpen(false) : setIsOpen(true);
+              }
+            }}
+            className="hover:md:translate-y-[-4px] transition-all"
+            id={id}
+          >
             {icon}
           </HoverButton>
 
-          {imgSrc === 2 &&
-            <div className={`absolute transition-all overflow-hidden w-[100px] ${isOpen ? 'h-[100px] w-[100px]' : ''} h-0 bottom-[56px]`} >
-              <Img className={`w-[100px] h-[100px]`} src={qrCodeSrc} alt=""  />
+          {imgSrc === 2 && (
+            <div
+              className={`absolute transition-all overflow-hidden w-[100px] ${
+                isOpen ? "h-[100px] w-[100px]" : ""
+              } h-0 bottom-[56px]`}
+            >
+              <Img className={`w-[100px] h-[100px]`} src={qrCodeSrc} alt="" />
             </div>
-          }
+          )}
         </div>
-      }
+      )}
     </div>
-
   );
 }

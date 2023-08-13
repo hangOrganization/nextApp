@@ -166,7 +166,7 @@ interface OurTeamProps {
   setCharacteristicType: Function;
   musicGenre: number;
   setMusicGenre: Function;
-  dataFrom?:dataFrom;
+  dataFrom?: dataFrom;
 }
 export default function OurTeam({
   musicGenre,
@@ -332,7 +332,7 @@ export default function OurTeam({
               >
                 <div className="w-[119px] max-md:w-[99px] text-center">
                   <p className=" font-normal  text-[32px] max-md:text-[24px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
-                  {dataFrom?.firstLineTutor}
+                    {dataFrom?.firstLineTutor}
                   </p>
                   <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     全职一线导师
@@ -340,7 +340,7 @@ export default function OurTeam({
                 </div>
                 <div className="w-[119px] max-md:w-[99px] text-center">
                   <p className=" font-normal max-md:text-[24px] text-[32px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
-                  {dataFrom?.partTimeMusicTutor}+
+                    {dataFrom?.partTimeMusicTutor}+
                   </p>
                   <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     兼职音乐导师
@@ -348,7 +348,7 @@ export default function OurTeam({
                 </div>
                 <div className="w-[119px] max-md:w-[99px] text-center">
                   <p className=" font-normal text-[32px] max-md:text-[24px] font-[Lexend] leading-[100%] text-[#1a1a1a]">
-                  {dataFrom?.seniorStudyAbroadPlanner}
+                    {dataFrom?.seniorStudyAbroadPlanner}
                   </p>
                   <p className=" font-[300] text-[14px] mt-2 max-md:text-[12px] leading-[180%] text-[#1a1a1a]">
                     资深留学规划师
@@ -375,13 +375,13 @@ export default function OurTeam({
                       setIsOpen(1);
                       setTextValue(el);
                     }}
-                    // style={{
-                    //   backgroundImage: `url(${
-                    //     (teacherImageList as unknown as StaticImageData[])[
-                    //       el.image
-                    //     ].src
-                    //   })`,
-                    // }}
+                    style={{
+                      backgroundImage: `url(${
+                        (teacherImageList as unknown as StaticImageData[])[
+                          el.image
+                        ].src
+                      })`,
+                    }}
                     key={`${el.name}-${index}-teachers`}
                     className={`max-md:!bg-cover md:hover:translate-y-[-16px]`}
                   >
@@ -411,13 +411,13 @@ export default function OurTeam({
                       setIsOpen(1);
                       setTextValue(el);
                     }}
-                    // style={{
-                    //   backgroundImage: `url(${
-                    //     (teacherImageList as unknown as StaticImageData[])[
-                    //       el.image
-                    //     ].src
-                    //   })`,
-                    // }}
+                    style={{
+                      backgroundImage: `url(${
+                        (teacherImageList as unknown as StaticImageData[])[
+                          el.image
+                        ].src
+                      })`,
+                    }}
                     key={`${el.name}----${index}-teachers`}
                     className={`max-md:!hidden md:hover:translate-y-[-16px]`}
                   >
