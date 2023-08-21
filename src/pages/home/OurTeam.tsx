@@ -4,7 +4,7 @@ import MentorInformation from "@/components/Modal/MentorInformation";
 // import { teachers } from "@/utils/ourTeam";
 import { teacherImageList } from "@/utils/ourTeam";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import SignCharacteristic from "./SignCharacteristic";
 import { useSwiper } from "swiper/react";
@@ -193,8 +193,13 @@ export default function OurTeam({
   const activeType = useActiveType();
   const [teacherList, useTeacherList] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+
+  const initialized = useRef(false);
   useEffect(() => {
-    getTeacherFunc();
+    if (!initialized.current) {
+      getTeacherFunc();
+      initialized.current = true;
+    }
   }, []);
   const getTeacherFunc = useCallback(async () => {
     const data = await getTeacherList();
