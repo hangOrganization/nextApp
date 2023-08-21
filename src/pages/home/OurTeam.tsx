@@ -259,6 +259,27 @@ export default function OurTeam({
     }
   }, [activeType]);
 
+  const [isClient, setIsClient] = useState(false);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((item) => {
+        if (item.intersectionRatio > 0) {
+          setIsClient(true);
+          observer.unobserve(ourTeamRef.current);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      root: null,
+    }
+  );
+
+  const ourTeamRef = useRef<any>(null);
+  useEffect(() => {
+    observer.observe(ourTeamRef.current);
+  }, []);
+
   useEffect(() => {
     if (characteristicType !== 0) {
       document.querySelector("#ourTeamBox")?.scrollTo({
@@ -268,7 +289,7 @@ export default function OurTeam({
     }
   }, [characteristicType]);
   return (
-    <Box>
+    <Box ref={ourTeamRef}>
       <div
         id="ourTeamBox"
         className={`md:h-screen md:pt-32 md:opacity-0 ${
@@ -368,78 +389,80 @@ export default function OurTeam({
                   transform: `translateX(-${currentPage * 1520}px)`,
                 }}
               >
-                {teacherList.map((el: any, index: number) => (
-                  <CardBox
-                    onMouseEnter={() => {
-                      setCardHover("hover");
-                    }}
-                    onMouseLeave={() => {
-                      setCardHover("");
-                    }}
-                    onClick={() => {
-                      setIsOpen(1);
-                      setTextValue(el);
-                    }}
-                    style={{
-                      backgroundImage: `url(${
-                        (teacherImageList as unknown as StaticImageData[])[
-                          el.image
-                        ].src
-                      })`,
-                    }}
-                    key={`${el.name}-${index}-teachers`}
-                    className={`max-md:!bg-cover md:hover:translate-y-[-16px]`}
-                  >
-                    <CardFilterBox className="relative">
-                      <div className=" pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[168px] max-md:h-[137px] w-[253px] absolute max-md:bottom-[-27px] bottom-0 md:right-[-51px] h-[184px] md:ml-[51px] bg-[#FFFFFF]">
-                        <NameOur>{el.name}</NameOur>
-                        <p className="font-normal md:ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 text-ellipsis overflow-hidden line-clamp-1 leading-[120%] uppercase text-[#1a1a1a]">
-                          {el.jobTitle}
-                        </p>
-                        <p className="font-light md:ml-1 max-md:ml-[-12px] max-md:w-[156px] max-md:scale-[0.83333] text-[12px] max-md:leading-[18px] text-ellipsis overflow-hidden line-clamp-3 max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
-                          {el.work}
-                          {}
-                        </p>
-                      </div>
-                    </CardFilterBox>
-                  </CardBox>
-                ))}
-                {teacherList.map((el: any, index: number) => (
-                  <CardBox
-                    onMouseEnter={() => {
-                      setCardHover("hover");
-                    }}
-                    onMouseLeave={() => {
-                      setCardHover("");
-                    }}
-                    onClick={() => {
-                      setIsOpen(1);
-                      setTextValue(el);
-                    }}
-                    style={{
-                      backgroundImage: `url(${
-                        (teacherImageList as unknown as StaticImageData[])[
-                          el.image
-                        ].src
-                      })`,
-                    }}
-                    key={`${el.name}----${index}-teachers`}
-                    className={`max-md:!hidden md:hover:translate-y-[-16px]`}
-                  >
-                    <CardFilterBox className="relative">
-                      <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute max-md:right-[-12px] bottom-0 right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
-                        <NameOur>{el.name}</NameOur>
-                        <p className="font-normal ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
-                          {el.jobTitle}
-                        </p>
-                        <p className="font-light ml-1 text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
-                          {el.work}
-                          {}
-                        </p>
-                      </div>
-                    </CardFilterBox>
-                  </CardBox>
-                ))}
+                {isClient &&
+                  teacherList.map((el: any, index: number) => (
+                    <CardBox
+                      onMouseEnter={() => {
+                        setCardHover("hover");
+                      }}
+                      onMouseLeave={() => {
+                        setCardHover("");
+                      }}
+                      onClick={() => {
+                        setIsOpen(1);
+                        setTextValue(el);
+                      }}
+                      style={{
+                        backgroundImage: `url(${
+                          (teacherImageList as unknown as StaticImageData[])[
+                            el.image
+                          ].src
+                        })`,
+                      }}
+                      key={`${el.name}-${index}-teachers`}
+                      className={`max-md:!bg-cover md:hover:translate-y-[-16px]`}
+                    >
+                      <CardFilterBox className="relative">
+                        <div className=" pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[168px] max-md:h-[137px] w-[253px] absolute max-md:bottom-[-27px] bottom-0 md:right-[-51px] h-[184px] md:ml-[51px] bg-[#FFFFFF]">
+                          <NameOur>{el.name}</NameOur>
+                          <p className="font-normal md:ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 text-ellipsis overflow-hidden line-clamp-1 leading-[120%] uppercase text-[#1a1a1a]">
+                            {el.jobTitle}
+                          </p>
+                          <p className="font-light md:ml-1 max-md:ml-[-12px] max-md:w-[156px] max-md:scale-[0.83333] text-[12px] max-md:leading-[18px] text-ellipsis overflow-hidden line-clamp-3 max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
+                            {el.work}
+                            {}
+                          </p>
+                        </div>
+                      </CardFilterBox>
+                    </CardBox>
+                  ))}
+                {isClient &&
+                  teacherList.map((el: any, index: number) => (
+                    <CardBox
+                      onMouseEnter={() => {
+                        setCardHover("hover");
+                      }}
+                      onMouseLeave={() => {
+                        setCardHover("");
+                      }}
+                      onClick={() => {
+                        setIsOpen(1);
+                        setTextValue(el);
+                      }}
+                      style={{
+                        backgroundImage: `url(${
+                          (teacherImageList as unknown as StaticImageData[])[
+                            el.image
+                          ].src
+                        })`,
+                      }}
+                      key={`${el.name}----${index}-teachers`}
+                      className={`max-md:!hidden md:hover:translate-y-[-16px]`}
+                    >
+                      <CardFilterBox className="relative">
+                        <div className="pt-6 pl-5  pr-4 max-md:p-3 max-md:w-[154px] max-md:h-[137px] w-[253px] absolute max-md:right-[-12px] bottom-0 right-[-51px] h-[184px] ml-[51px] bg-[#FFFFFF]">
+                          <NameOur>{el.name}</NameOur>
+                          <p className="font-normal ml-1 text-[16px] max-md:text-[12px] mt-2 max-md:mb-2 mb-4 leading-[120%] uppercase text-[#1a1a1a]">
+                            {el.jobTitle}
+                          </p>
+                          <p className="font-light ml-1 text-[12px] max-md:leading-[18px] max-md:opacity-70 leading-[180%] uppercase opacity-80 text-[#1a1a1a]">
+                            {el.work}
+                            {}
+                          </p>
+                        </div>
+                      </CardFilterBox>
+                    </CardBox>
+                  ))}
               </RollBox>
             </div>
             <ButtonBox className="flex items-center justify-center gap-[64px] relative  max-md:hidden">

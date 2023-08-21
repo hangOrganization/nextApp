@@ -10,7 +10,7 @@ import disc_film from "@/assets/image/png/disc-film.png";
 import disc_acquiesce from "@/assets/image/png/disc-acquiesce.png";
 import disc_mobile_bg from "../../assets/image/mobile/mobile-disc-bg.png";
 import cd_mask from "../../assets/image/disc-icon/CDMask.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BusinessPartner from "./BusinessPartner";
 import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
@@ -23,10 +23,7 @@ import {
   useThrottleFlag,
 } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
-import {
-  setActiveIndex,
-  setThrottleFlag,
-} from "@/state/application/reducer";
+import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import { dataFrom } from ".";
 
 interface DiscBoxProps {
@@ -231,7 +228,7 @@ const ImgBox = styled.div`
 `;
 
 interface DiscProps {
-  dataFrom?: dataFrom
+  dataFrom?: dataFrom;
 }
 export default function Disc({ dataFrom }: DiscProps) {
   const swiper = useSwiper();
@@ -273,12 +270,35 @@ export default function Disc({ dataFrom }: DiscProps) {
       behavior: "smooth",
     });
   }, [swiper?.activeIndex]);
+
+  const [isClient, setIsClient] = useState(false);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((item) => {
+        if (item.intersectionRatio > 0) {
+          setIsClient(true);
+          observer.unobserve(discRef.current);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      root: null,
+    }
+  );
+
+  const discRef = useRef<any>(null);
+  useEffect(() => {
+    observer.observe(discRef.current);
+  }, []);
+
   return (
     <SwiperContent>
       <div
         id="discBox"
-        className={`md:h-screen md:overflow-auto md:opacity-0 transition-all duration-10000 ${activeIndex === 4 ? "swiper-move-in" : "swiper-move-out"
-          }`}
+        className={`md:h-screen md:overflow-auto md:opacity-0 transition-all duration-10000 ${
+          activeIndex === 4 ? "swiper-move-in" : "swiper-move-out"
+        }`}
         onScroll={(e: any) => {
           if (throttleFlag) return;
           if (innerWidth > 768) {
@@ -293,7 +313,10 @@ export default function Disc({ dataFrom }: DiscProps) {
           }
         }}
       >
-        <Box className="h-[1440px] max-md:h-full max-md:pb-[160px] w-screen flex  items-center justify-center max-md:justify-normal flex-col relative ">
+        <Box
+          ref={discRef}
+          className="h-[1440px] max-md:h-full max-md:pb-[160px] w-screen flex  items-center justify-center max-md:justify-normal flex-col relative "
+        >
           <FilterBox
             className="fliter-box z-[4] max-md:hidden"
             style={{
@@ -311,8 +334,9 @@ export default function Disc({ dataFrom }: DiscProps) {
                   <Image
                     src={disc_film}
                     alt=""
-                    className={`film-img w-[444px] h-[444px] absolute transition-all duration-[450ms]  z-[4] max-md:w-[222px] max-md:h-[222px] max-md:translate-x-[40px]  ${swiper?.activeIndex === 4 ? "start-film-move" : ""
-                      }`}
+                    className={`film-img w-[444px] h-[444px] absolute transition-all duration-[450ms]  z-[4] max-md:w-[222px] max-md:h-[222px] max-md:translate-x-[40px]  ${
+                      swiper?.activeIndex === 4 ? "start-film-move" : ""
+                    }`}
                   ></Image>
                   <Image
                     src={disc_acquiesce}
@@ -320,22 +344,24 @@ export default function Disc({ dataFrom }: DiscProps) {
                     className="film-mask   w-[492px] h-[492px] relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
                   ></Image>
 
-                  {discList.map((item: DiscBoxProps) => {
-                    return (
-                      <ImgBox
-                        key={item.key}
-                        className={` w-[492px] h-[492px] absolute z-[4] max-md:hidden  opacity-0  ${activeKey === item.key
-                            ? "film-master-map-active"
-                            : "film-master-map"
+                  {isClient &&
+                    discList.map((item: DiscBoxProps) => {
+                      return (
+                        <ImgBox
+                          key={item.key}
+                          className={` w-[492px] h-[492px] absolute z-[4] max-md:hidden  opacity-0  ${
+                            activeKey === item.key
+                              ? "film-master-map-active"
+                              : "film-master-map"
                           }`}
-                        style={{
-                          backgroundImage: `url(${item.bg.src})`,
-                        }}
-                      >
-                        item.bg
-                      </ImgBox>
-                    );
-                  })}
+                          style={{
+                            backgroundImage: `url(${item.bg.src})`,
+                          }}
+                        >
+                          item.bg
+                        </ImgBox>
+                      );
+                    })}
                 </FilmBox>
                 <ButtonBox className="flex gap-[40px] h-[48px]  relative z-[5] max-md:hidden">
                   <ChangeButton className="scale-x-[-1]" onClick={nextPage}>
@@ -410,56 +436,57 @@ export default function Disc({ dataFrom }: DiscProps) {
                   : `translateX(${1199 * currentPage}px)`,
             }}
           >
-            {discList.map((item: DiscBoxProps) => (
-              <DiscBox
-                key={item.key}
-                onMouseEnter={() => mouseEnter(item.bg, item.key)}
-                onMouseLeave={mouseLeave}
-                className="w-[389px] h-[168px] flex transition-all duration-500 p-[16px]"
-              >
-                <Image
-                  className="w-[136px] h-[136px]"
-                  src={item.src}
-                  alt=""
-                ></Image>
-                <div className="ml-4 w-full">
-                  <div className="flex items-center gap-[8px]">
-                    {item.type.map((items: any) => {
-                      return (
-                        <div
-                          key={item.key + items}
-                          className=" h-[30px] px-[12px] flex items-center justify-center mt-1 mb-[16px]  text-[14px] leading-[100%] font-[400] text-[#FF4B00] box-border "
-                          style={{
-                            border: "1px solid rgba(255, 75, 0, 0.5)",
-                            borderRadius: "12px",
-                          }}
-                        >
-                          {items}
+            {isClient &&
+              discList.map((item: DiscBoxProps) => (
+                <DiscBox
+                  key={item.key}
+                  onMouseEnter={() => mouseEnter(item.bg, item.key)}
+                  onMouseLeave={mouseLeave}
+                  className="w-[389px] h-[168px] flex transition-all duration-500 p-[16px]"
+                >
+                  <Image
+                    className="w-[136px] h-[136px]"
+                    src={item.src}
+                    alt=""
+                  ></Image>
+                  <div className="ml-4 w-full">
+                    <div className="flex items-center gap-[8px]">
+                      {item.type.map((items: any) => {
+                        return (
+                          <div
+                            key={item.key + items}
+                            className=" h-[30px] px-[12px] flex items-center justify-center mt-1 mb-[16px]  text-[14px] leading-[100%] font-[400] text-[#FF4B00] box-border "
+                            style={{
+                              border: "1px solid rgba(255, 75, 0, 0.5)",
+                              borderRadius: "12px",
+                            }}
+                          >
+                            {items}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="font-[300] text-[22px] leading-[100%] font-[Lexend] text-[#FFFFFF] whitespace-nowrap">
+                      {item.title}
+                    </div>
+                    <div className=" w-[112px]" style={{ marginLeft: "auto" }}>
+                      <div
+                        className="flex items-center justify-center w-[112px] h-[40px] bg-[#FF4B00] rounded-[16px] mt-[20px]  transition-all duration-500 audition-button"
+                        onClick={() => goOtherPage(item.url)}
+                      >
+                        <div className=" font-[400] text-[14px] leading-[100%]">
+                          前往试听
                         </div>
-                      );
-                    })}
-                  </div>
-                  <div className="font-[300] text-[22px] leading-[100%] font-[Lexend] text-[#FFFFFF] whitespace-nowrap">
-                    {item.title}
-                  </div>
-                  <div className=" w-[112px]" style={{ marginLeft: "auto" }}>
-                    <div
-                      className="flex items-center justify-center w-[112px] h-[40px] bg-[#FF4B00] rounded-[16px] mt-[20px]  transition-all duration-500 audition-button"
-                      onClick={() => goOtherPage(item.url)}
-                    >
-                      <div className=" font-[400] text-[14px] leading-[100%]">
-                        前往试听
+                        <Image
+                          className="w-[24px]"
+                          src={icon_right_arrow}
+                          alt=""
+                        ></Image>
                       </div>
-                      <Image
-                        className="w-[24px]"
-                        src={icon_right_arrow}
-                        alt=""
-                      ></Image>
                     </div>
                   </div>
-                </div>
-              </DiscBox>
-            ))}
+                </DiscBox>
+              ))}
           </div>
 
           <div
