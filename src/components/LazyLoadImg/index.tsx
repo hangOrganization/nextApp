@@ -21,9 +21,10 @@ export default function LazyLoadImg(props: Props) {
     setErr(true);
     console.log(123);
   };
+  let observer: any = null;
   useEffect(() => {
     // 监听图片
-    const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+    observer = new IntersectionObserver(([{ isIntersecting }]) => {
       if (isIntersecting) {
         console.log(imgRef.current.src);
         // 图片在可视区
@@ -33,7 +34,7 @@ export default function LazyLoadImg(props: Props) {
         observer.unobserve(imgRef.current);
       }
     });
-    observer.observe(imgRef.current);
+    observer && imgRef.current && observer.observe(imgRef.current);
   }, []);
   return (
     <div>

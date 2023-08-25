@@ -260,24 +260,25 @@ export default function OurTeam({
   }, [activeType]);
 
   const [isClient, setIsClient] = useState(false);
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((item) => {
-        if (item.intersectionRatio > 0) {
-          setIsClient(true);
-          observer.unobserve(ourTeamRef.current);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      root: null,
-    }
-  );
+  let observer: any = null;
 
   const ourTeamRef = useRef<any>(null);
   useEffect(() => {
-    observer.observe(ourTeamRef.current);
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((item) => {
+          if (item.intersectionRatio > 0) {
+            setIsClient(true);
+            observer.unobserve(ourTeamRef.current);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        root: null,
+      }
+    );
+    observer && ourTeamRef.current && observer.observe(ourTeamRef.current);
   }, []);
 
   useEffect(() => {

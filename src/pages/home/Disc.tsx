@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import disc_bg from "@/assets/image/svg/disc-bg.svg";
+import disc_bg from "@/assets/image/png/disc-bg.png";
 import Image from "next/image";
 import icon_right_arrow from "@/assets/image/svg/icon-right-white-arrow.svg";
 import discList from "@/utils/discList";
@@ -272,24 +272,25 @@ export default function Disc({ dataFrom }: DiscProps) {
   }, [swiper?.activeIndex]);
 
   const [isClient, setIsClient] = useState(false);
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((item) => {
-        if (item.intersectionRatio > 0) {
-          setIsClient(true);
-          observer.unobserve(discRef.current);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      root: null,
-    }
-  );
+  let observer: any = null;
 
   const discRef = useRef<any>(null);
   useEffect(() => {
-    observer.observe(discRef.current);
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((item) => {
+          if (item.intersectionRatio > 0) {
+            setIsClient(true);
+            observer.unobserve(discRef.current);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        root: null,
+      }
+    );
+    observer && discRef.current && observer.observe(discRef.current);
   }, []);
 
   return (
