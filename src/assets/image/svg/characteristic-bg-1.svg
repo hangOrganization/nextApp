@@ -1,17 +1,1 @@
-<svg width="582" height="1065" viewBox="0 0 582 1065" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.15" filter="url(#filter0_f_2089_29235)">
-<path d="M330.038 666.514C291.021 614.339 279.363 543.078 365.742 423.536C414.682 238.465 640.355 221.685 692.457 377.958C744.56 534.23 589.497 715.656 537.887 754.251C486.276 792.846 369.056 718.69 330.038 666.514Z" fill="url(#paint0_linear_2089_29235)"/>
-</g>
-<defs>
-<filter id="filter0_f_2089_29235" x="0.425781" y="-28.3242" width="1002.59" height="1093.29" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_2089_29235"/>
-</filter>
-<linearGradient id="paint0_linear_2089_29235" x1="540.5" y1="269" x2="407" y2="679.5" gradientUnits="userSpaceOnUse">
-<stop stop-color="#0000FF"/>
-<stop offset="0.538954" stop-color="#A70085"/>
-<stop offset="1" stop-color="#FF4B00"/>
-</linearGradient>
-</defs>
-</svg>
+<svg fill="none" height="1065" viewBox="0 0 582 1065" width="582" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><filter id="a" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="1093.29" width="1002.59" x=".425781" y="-28.3242"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2089_29235" stdDeviation="150"/></filter><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="540.5" x2="407" y1="269" y2="679.5"><stop offset="0" stop-color="#00f"/><stop offset=".538954" stop-color="#a70085"/><stop offset="1" stop-color="#ff4b00"/></linearGradient><g filter="url(#a)" opacity=".15"><path d="m330.038 666.514c-39.017-52.175-50.675-123.436 35.704-242.978 48.94-185.071 274.613-201.851 326.715-45.578 52.103 156.272-102.96 337.698-154.57 376.293-51.611 38.595-168.831-35.561-207.849-87.737z" fill="url(#b)"/></g></svg>

@@ -105,7 +105,7 @@ const ButtonBox = styled.div`
     border-radius: 64px;
     color: #ccc;
     font-size: 12px;
-    font-family: "Alibaba PuHuiTi 2.0";
+    /* font-family: "Alibaba PuHuiTi 2.0"; */
     line-height: 120%;
     text-transform: uppercase;
     padding: 12px 11px 12px 15px;
@@ -310,19 +310,19 @@ export default function SignCharacteristic({
                   <div className="w-[221px] relative max-md:hidden h-[67px]">
                     <p
                       className={`${right === 0 ? "opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                        } transition-all absolute top-0 left-0 whitespace-nowrap duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       公司特色
                     </p>
                     <p
                       className={`${right === 1 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                        } transition-all absolute top-0 left-0 whitespace-nowrap duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       关于我们
                     </p>
                     <p
                       className={`${right === 2 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                        } transition-all absolute top-0 left-0 whitespace-nowrap duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       发展历程
                     </p>
@@ -342,14 +342,14 @@ export default function SignCharacteristic({
                     }}
                   >
                     <p
-                      className={` transition-all duration-500  font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 0 ? "font-[600]" : "font-light"
+                      className={` transition-all duration-500 whitespace-nowrap font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 0 ? "font-[600]" : "font-light"
                         }`}
                     >
                       公司特色
                     </p>
                   </a>
                   <p
-                    className={` transition-all duration-500  font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 1 ? "font-[600]" : "font-light"
+                    className={` transition-all duration-500 whitespace-nowrap font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 1 ? "font-[600]" : "font-light"
                       }`}
                     onClick={() => {
                       setMobileRight(1);

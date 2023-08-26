@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import MentorInformation_bg from "@/assets/image/svg/MentorInformation-bg.svg";
-import { teacherImageList, teachers } from "@/utils/ourTeam";
+import { teacherImageList } from "@/utils/ourTeam";
 import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import styled from "styled-components";

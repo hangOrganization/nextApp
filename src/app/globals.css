@@ -33,7 +33,7 @@
   font-family: 'Misto';
   src: url('../font/Misto/Misto.ttf');
 }
-@font-face {
+/* @font-face {
   font-family: 'Alibaba PuHuiTi 2.0';
   src: url('../font/AlibabaPuHuiTi/AlibabaPuHuiTi-2-35-Thin.otf');
   font-weight: 100;
@@ -67,11 +67,11 @@
   font-family: 'Alibaba PuHuiTi 2.0';
   src: url('../font/AlibabaPuHuiTi//AlibabaPuHuiTi-2-115-Black.otf');
   font-weight: 900;
-}
+} */
 
 body {
   background: #1A1A1A;
-  font-family: 'Alibaba PuHuiTi 2.0';
+  /* font-family: 'Alibaba PuHuiTi 2.0'; */
   font-style: normal;
   color: #FFFFFF;
   /* box-sizing: border-box; */
