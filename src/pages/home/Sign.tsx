@@ -5,7 +5,7 @@ import mobile_sign_bg_2 from "@/assets/image/mobile/mobile-sign-bg-2.png";
 import mobile_sign_bg_1 from "@/assets/image/mobile/mobile-sign-bg-1.png";
 import mobile_signBeam from "@/assets/image/mobile/mobile-signBeam.svg";
 import mobile_sign from "@/assets/image/mobile/mobile-sign.png";
-import mobile_moireFringe from "@/assets/image/mobile/mobile-moireFringe.svg";
+import mobile_moireFringe from "@/assets/image/mobile/mobile-moireFringe.png";
 import sign_bg_1 from "@/assets/image/png/sign-bg-1.png";
 import sign_bg_2 from "@/assets/image/svg/sign-bg-2.png";
 import { EchoRollBox, SignBgBox } from "../../styles/SignCss";
