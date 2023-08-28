@@ -1,6 +1,6 @@
-import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.png";
-import campusEnvironment_2 from "@/assets/image/campusEnvironment/campusEnvironment-2.png";
-import campusEnvironment_3 from "@/assets/image/campusEnvironment/campusEnvironment-3.png";
+import campusEnvironment_1 from "@/assets/image/campusEnvironment/campusEnvironment-1.jpg";
+import campusEnvironment_2 from "@/assets/image/campusEnvironment/campusEnvironment-2.jpg";
+import campusEnvironment_3 from "@/assets/image/campusEnvironment/campusEnvironment-3.jpg";
 import campusEnvironment_4 from "@/assets/image/campusEnvironment/campusEnvironment-4.jpg";
 import campusEnvironment_5 from "@/assets/image/campusEnvironment/campusEnvironment-5.jpg";
 import campusEnvironment_6 from "@/assets/image/campusEnvironment/campusEnvironment-6.jpg";
@@ -14,13 +14,13 @@ import campusEnvironment_13 from "@/assets/image/campusEnvironment/campusEnviron
 import campusEnvironment_14 from "@/assets/image/campusEnvironment/campusEnvironment-14.jpg";
 import campusEnvironment_15 from "@/assets/image/campusEnvironment/campusEnvironment-15.jpg";
 import campusEnvironment_16 from "@/assets/image/campusEnvironment/campusEnvironment-16.jpg";
-import campusEnvironment_17 from "@/assets/image/campusEnvironment/campusEnvironment-17.jpeg";
+import campusEnvironment_17 from "@/assets/image/campusEnvironment/campusEnvironment-17.jpg";
 import campusEnvironment_18 from "@/assets/image/campusEnvironment/campusEnvironment-18.jpg";
 import campusEnvironment_19 from "@/assets/image/campusEnvironment/campusEnvironment-19.jpg";
 import campusEnvironment_20 from "@/assets/image/campusEnvironment/campusEnvironment-20.jpg";
 import campusEnvironment_21 from "@/assets/image/campusEnvironment/campusEnvironment-21.jpg";
 import campusEnvironment_22 from "@/assets/image/campusEnvironment/campusEnvironment-22.jpg";
-import campusEnvironment_23 from "@/assets/image/campusEnvironment/campusEnvironment-23.jpeg";
+import campusEnvironment_23 from "@/assets/image/campusEnvironment/campusEnvironment-23.jpg";
 import campusEnvironment_24 from "@/assets/image/campusEnvironment/campusEnvironment-24.jpg";
 import campusEnvironment_25 from "@/assets/image/campusEnvironment/campusEnvironment-25.jpg";
 import campusEnvironment_26 from "@/assets/image/campusEnvironment/campusEnvironment-26.jpg";
@@ -247,799 +247,799 @@ export const CampusEnvironmentBg = styled.div`
   /* background-image: url(${campusEnvironment_1.src}); */
   animation: CampusEnvironmentBg_move 400s linear infinite;
   @keyframes CampusEnvironmentBg_move {
-    0%{
+    0% {
       background-image: url(${list[0].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    0.5%{
+    0.5% {
       background-image: url(${list[0].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    2.5%{
+    2.5% {
       background-image: url(${list[0].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    2.51%{
+    2.51% {
       background-image: url(${list[1].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 0 !important;
     }
-    3%{
+    3% {
       background-image: url(${list[1].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    4.5%{
+    4.5% {
       background-image: url(${list[1].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    5%{
+    5% {
       background-image: url(${list[1].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    5.01%{
+    5.01% {
       background-image: url(${list[2].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 0 !important;
     }
-    5.5%{
+    5.5% {
       background-image: url(${list[2].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    7%{
+    7% {
       background-image: url(${list[2].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    7.5%{
+    7.5% {
       background-image: url(${list[2].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    7.51%{
+    7.51% {
       background-image: url(${list[3].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    8%{
+    8% {
       background-image: url(${list[3].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    9.5%{
+    9.5% {
       background-image: url(${list[3].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    10%{
+    10% {
       background-image: url(${list[3].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    10.01%{
+    10.01% {
       background-image: url(${list[4].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    10.5%{
+    10.5% {
       background-image: url(${list[4].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    12%{
+    12% {
       background-image: url(${list[4].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    12.5%{
+    12.5% {
       background-image: url(${list[4].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    12.51%{
+    12.51% {
       background-image: url(${list[5].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    13%{
+    13% {
       background-image: url(${list[5].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    14.5%{
+    14.5% {
       background-image: url(${list[5].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    15%{
+    15% {
       background-image: url(${list[5].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    15.01%{
+    15.01% {
       background-image: url(${list[6].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    15.5%{
+    15.5% {
       background-image: url(${list[6].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    17%{
+    17% {
       background-image: url(${list[6].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    17.5%{
+    17.5% {
       background-image: url(${list[6].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    17.51%{
+    17.51% {
       background-image: url(${list[7].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    18%{
+    18% {
       background-image: url(${list[7].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    19.5%{
+    19.5% {
       background-image: url(${list[7].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    20%{
+    20% {
       background-image: url(${list[7].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    20.01%{
+    20.01% {
       background-image: url(${list[8].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    20.5%{
+    20.5% {
       background-image: url(${list[8].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    22%{
+    22% {
       background-image: url(${list[8].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    22.5%{
+    22.5% {
       background-image: url(${list[8].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    22.51%{
+    22.51% {
       background-image: url(${list[9].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    23%{
+    23% {
       background-image: url(${list[9].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    24.5%{
+    24.5% {
       background-image: url(${list[9].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    25%{
+    25% {
       background-image: url(${list[9].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    25.01%{
+    25.01% {
       background-image: url(${list[10].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    25.5%{
+    25.5% {
       background-image: url(${list[10].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    27%{
+    27% {
       background-image: url(${list[10].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    27.5%{
+    27.5% {
       background-image: url(${list[10].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    27.51%{
+    27.51% {
       background-image: url(${list[11].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    28%{
+    28% {
       background-image: url(${list[11].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    29.5%{
+    29.5% {
       background-image: url(${list[11].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    30%{
+    30% {
       background-image: url(${list[11].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    30.01%{
+    30.01% {
       background-image: url(${list[12].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    30.5%{
+    30.5% {
       background-image: url(${list[12].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    32%{
+    32% {
       background-image: url(${list[12].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    32.5%{
+    32.5% {
       background-image: url(${list[12].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    32.51%{
+    32.51% {
       background-image: url(${list[13].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    33%{
+    33% {
       background-image: url(${list[13].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    34.5%{
+    34.5% {
       background-image: url(${list[13].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    35%{
+    35% {
       background-image: url(${list[13].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    35.01%{
+    35.01% {
       background-image: url(${list[14].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    35.5%{
+    35.5% {
       background-image: url(${list[14].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    37%{
+    37% {
       background-image: url(${list[14].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    37.5%{
+    37.5% {
       background-image: url(${list[14].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    37.51%{
+    37.51% {
       background-image: url(${list[15].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    38%{
+    38% {
       background-image: url(${list[15].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    39.5%{
+    39.5% {
       background-image: url(${list[15].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    40%{
+    40% {
       background-image: url(${list[15].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    40.01%{
+    40.01% {
       background-image: url(${list[16].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    40.5%{
+    40.5% {
       background-image: url(${list[16].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    42%{
+    42% {
       background-image: url(${list[16].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    42.5%{
+    42.5% {
       background-image: url(${list[16].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    42.51%{
+    42.51% {
       background-image: url(${list[17].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    43%{
+    43% {
       background-image: url(${list[17].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    44.5%{
+    44.5% {
       background-image: url(${list[17].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    45%{
+    45% {
       background-image: url(${list[17].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    45.01%{
+    45.01% {
       background-image: url(${list[18].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    45.5%{
+    45.5% {
       background-image: url(${list[18].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    47%{
+    47% {
       background-image: url(${list[18].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    47.5%{
+    47.5% {
       background-image: url(${list[18].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    47.51%{
+    47.51% {
       background-image: url(${list[19].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    48%{
+    48% {
       background-image: url(${list[19].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    49.5%{
+    49.5% {
       background-image: url(${list[19].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    50%{
+    50% {
       background-image: url(${list[19].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    50.01%{
+    50.01% {
       background-image: url(${list[20].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    50.5%{
+    50.5% {
       background-image: url(${list[20].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    52%{
+    52% {
       background-image: url(${list[20].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    52.5%{
+    52.5% {
       background-image: url(${list[20].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    52.51%{
+    52.51% {
       background-image: url(${list[21].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    53%{
+    53% {
       background-image: url(${list[21].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    54.5%{
+    54.5% {
       background-image: url(${list[21].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    55%{
+    55% {
       background-image: url(${list[21].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    55.01%{
+    55.01% {
       background-image: url(${list[22].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    55.5%{
+    55.5% {
       background-image: url(${list[22].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    57%{
+    57% {
       background-image: url(${list[22].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    57.5%{
+    57.5% {
       background-image: url(${list[22].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    57.51%{
+    57.51% {
       background-image: url(${list[23].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    58%{
+    58% {
       background-image: url(${list[23].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    59.5%{
+    59.5% {
       background-image: url(${list[23].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    60%{
+    60% {
       background-image: url(${list[23].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    60.01%{
+    60.01% {
       background-image: url(${list[24].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    60.5%{
+    60.5% {
       background-image: url(${list[24].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    62%{
+    62% {
       background-image: url(${list[24].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    62.5%{
+    62.5% {
       background-image: url(${list[24].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    62.51%{
+    62.51% {
       background-image: url(${list[25].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    63%{
+    63% {
       background-image: url(${list[25].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    64.5%{
+    64.5% {
       background-image: url(${list[25].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    65%{
+    65% {
       background-image: url(${list[25].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    65.01%{
+    65.01% {
       background-image: url(${list[26].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    65.5%{
+    65.5% {
       background-image: url(${list[26].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    67%{
+    67% {
       background-image: url(${list[26].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    67.5%{
+    67.5% {
       background-image: url(${list[26].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    67.51%{
+    67.51% {
       background-image: url(${list[27].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    68%{
+    68% {
       background-image: url(${list[27].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    69.5%{
+    69.5% {
       background-image: url(${list[27].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    70%{
+    70% {
       background-image: url(${list[27].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    70.01%{
+    70.01% {
       background-image: url(${list[28].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    70.5%{
+    70.5% {
       background-image: url(${list[28].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    72%{
+    72% {
       background-image: url(${list[28].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    72.5%{
+    72.5% {
       background-image: url(${list[28].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    72.51%{
+    72.51% {
       background-image: url(${list[29].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    73%{
+    73% {
       background-image: url(${list[29].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    74.5%{
+    74.5% {
       background-image: url(${list[29].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    75%{
+    75% {
       background-image: url(${list[29].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    75.01%{
+    75.01% {
       background-image: url(${list[30].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    75.5%{
+    75.5% {
       background-image: url(${list[30].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    77%{
+    77% {
       background-image: url(${list[30].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    77.5%{
+    77.5% {
       background-image: url(${list[30].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    77.51%{
+    77.51% {
       background-image: url(${list[31].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    78%{
+    78% {
       background-image: url(${list[31].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    79.5%{
+    79.5% {
       background-image: url(${list[31].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    80%{
+    80% {
       background-image: url(${list[31].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    80.01%{
+    80.01% {
       background-image: url(${list[32].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    80.5%{
+    80.5% {
       background-image: url(${list[32].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    82%{
+    82% {
       background-image: url(${list[32].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    82.5%{
+    82.5% {
       background-image: url(${list[32].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    82.51%{
+    82.51% {
       background-image: url(${list[33].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    83%{
+    83% {
       background-image: url(${list[33].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    84.5%{
+    84.5% {
       background-image: url(${list[33].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    85%{
+    85% {
       background-image: url(${list[33].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    85.01%{
+    85.01% {
       background-image: url(${list[34].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    85.5%{
+    85.5% {
       background-image: url(${list[34].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    87%{
+    87% {
       background-image: url(${list[34].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    87.5%{
+    87.5% {
       background-image: url(${list[34].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    87.51%{
+    87.51% {
       background-image: url(${list[35].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    88%{
+    88% {
       background-image: url(${list[35].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    89.5%{
+    89.5% {
       background-image: url(${list[35].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    90%{
+    90% {
       background-image: url(${list[35].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    90.01%{
+    90.01% {
       background-image: url(${list[36].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    90.5%{
+    90.5% {
       background-image: url(${list[36].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    92%{
+    92% {
       background-image: url(${list[36].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    92.5%{
+    92.5% {
       background-image: url(${list[36].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    92.51%{
+    92.51% {
       background-image: url(${list[37].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    93%{
+    93% {
       background-image: url(${list[37].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    94.5%{
+    94.5% {
       background-image: url(${list[37].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    95%{
+    95% {
       background-image: url(${list[37].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    95.01%{
+    95.01% {
       background-image: url(${list[38].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    95.5%{
+    95.5% {
       background-image: url(${list[38].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    97%{
+    97% {
       background-image: url(${list[38].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    97.5%{
+    97.5% {
       background-image: url(${list[38].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
-    97.51%{
+    97.51% {
       background-image: url(${list[39].image.src});
-      transform:scale(1);
-opacity: 0 !important;
+      transform: scale(1);
+      opacity: 0 !important;
     }
-    98%{
+    98% {
       background-image: url(${list[39].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    99.5%{
+    99.5% {
       background-image: url(${list[39].image.src});
-      transform:scale(1);
+      transform: scale(1);
       opacity: 1;
     }
-    100%{
+    100% {
       background-image: url(${list[39].image.src});
-      transform:scale(1.1);
+      transform: scale(1.1);
       opacity: 0;
     }
   }
