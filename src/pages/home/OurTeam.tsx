@@ -283,8 +283,9 @@ export default function OurTeam({
 
   useEffect(() => {
     if (characteristicType !== 0) {
+      console.log("🚀 ~ file: OurTeam.tsx:286 ~ useEffect ~ characteristicType:11111", characteristicType)
       document.querySelector("#ourTeamBox")?.scrollTo({
-        top: 1300,
+        top: 100,
         behavior: "smooth",
       });
     }

@@ -157,7 +157,7 @@ export default function SignCharacteristic({
         <SignBox
           className={`md:flex md:h-[1050px] relative w-screen items-center justify-center`}
           onWheel={(e: any) => {
-            if (scrollTop > 1000) {
+            if (scrollTop > 1200) {
               if (innerWidth > 768) {
                 if (throttleFlag) {
                   dispatch(setThrottleFlag(true));
@@ -528,7 +528,7 @@ export default function SignCharacteristic({
                           {aboutUs.exquisiteTeaching?.map((el: string, index: number) => (
                             <span key={`${index}exquisiteTeaching`}>
                               {el}
-                              <br  />
+                              <br />
                             </span>
                           ))}
                         </p>
@@ -589,7 +589,7 @@ export default function SignCharacteristic({
                       </p>
                     ))}
                     <ButtonBox
-                      className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center"
+                      className="mt-[68px] mx-auto w-[132px] leading-[120%] font-light flex items-center"
                       onClick={() => setIsOpenCampus(1)}
                     >
                       了解校区环境
