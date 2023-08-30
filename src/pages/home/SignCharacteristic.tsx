@@ -14,9 +14,9 @@ import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.pn
 import { CampusEnvironmentBg } from "@/utils/campusEnvironmentList";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
 import styled from "styled-components";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
-import { useThrottleFlag } from "@/state/application/hooks";
+import { useActiveType, useThrottleFlag } from "@/state/application/hooks";
 import {
   setAboutOrCorporation,
   setActiveIndex,
@@ -140,6 +140,8 @@ export default function SignCharacteristic({
   let time: any = "";
   const swiper = useSwiper();
   const throttleFlag = useThrottleFlag();
+  const activeType = useActiveType();
+
   const aboutUs = useMemo(() => {
     return {
       backgroundEnhancement:
@@ -152,9 +154,35 @@ export default function SignCharacteristic({
     };
   }, [dataFrom]);
   const [mobileRight, setMobileRight] = useState<number>(0);
+  const boxRef = useRef<any>(null);
+  // useEffect(() => {
+  //   if (activeType == 1) {
+  //     console.log(123132);
+  //     // document.querySelector("#ourTeamBox")?.scrollTo({
+  //     //   top: 1000,
+  //     //   behavior: "smooth",
+  //     // });
+  //     setTimeout(() => {
+  //       boxRef.current.scrollIntoView({ behavior: "smooth" });
+  //     }, 500);
+  //     setRight(0);
+  //   } else if (activeType == 2) {
+  //     console.log(123132);
+  //     setTimeout(() => {
+  //       boxRef.current.scrollIntoView({ behavior: "smooth" });
+  //     }, 500);
+
+  //     // document.querySelector("#ourTeamBox")?.scrollTo({
+  //     //   top: 1000,
+  //     //   behavior: "smooth",
+  //     // });
+  //     setRight(1);
+  //   }
+  // }, [activeType]);
+
   return (
     <Box className={`flex w-screen items-center z-50 md:overflow-hidden`}>
-      <div className="flex relative">
+      <div className="flex relative" ref={boxRef}>
         <SignBox
           className={`md:flex md:h-[1050px] relative w-screen items-center justify-center`}
           onWheel={(e: any) => {

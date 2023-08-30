@@ -279,9 +279,7 @@ export default function Disc({ dataFrom }: DiscProps) {
   let observer: any = null;
 
   const discRef = useRef<any>(null);
-  const counter = useSelector(
-    (state: any) => state.application.ourTeamObserver
-  );
+
   useEffect(() => {
     observer = new IntersectionObserver(
       (entries) => {
@@ -299,9 +297,7 @@ export default function Disc({ dataFrom }: DiscProps) {
     );
     observer && discRef.current && observer.observe(discRef.current);
   }, []);
-  useEffect(() => {
-    console.log(counter);
-  }, [counter]);
+
   return (
     <SwiperContent>
       <div
@@ -353,7 +349,7 @@ export default function Disc({ dataFrom }: DiscProps) {
                     alt=""
                     className="film-mask  w-[492px] h-[492px] md relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
                   ></Image>
-                  {isClient &&
+                  {ourTeamObserver &&
                     discList.map((item: DiscBoxProps) => {
                       return (
                         <ImgBox
@@ -445,7 +441,7 @@ export default function Disc({ dataFrom }: DiscProps) {
                   : `translateX(${1199 * currentPage}px)`,
             }}
           >
-            {isClient &&
+            {ourTeamObserver &&
               discList.map((item: DiscBoxProps) => (
                 <DiscBox
                   key={item.key}

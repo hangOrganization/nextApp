@@ -122,7 +122,7 @@ export default function Products({
       (entries) => {
         entries.forEach((item) => {
           if (item.intersectionRatio > 0) {
-            setOurTeamObserver(true);
+            dispatch(setOurTeamObserver(true));
             observer.unobserve(introductionRef.current);
           }
         });
