@@ -16,14 +16,18 @@ import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
+import { useSelector } from "react-redux";
+
 import {
   useActiveIndex,
+  useOurTeamObserver,
   useOuterWidth,
   useThrottleFlag,
 } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import { dataFrom } from ".";
+import store from "@/state";
 
 interface DiscBoxProps {
   title: string;
@@ -236,6 +240,7 @@ export default function Disc({ dataFrom }: DiscProps) {
   const activeIndex = useActiveIndex();
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
+  const ourTeamObserver = useOurTeamObserver();
   const [discImg, setDiscImg] = useState(disc_acquiesce);
   const [activeKey, setactiveKey] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -274,6 +279,9 @@ export default function Disc({ dataFrom }: DiscProps) {
   let observer: any = null;
 
   const discRef = useRef<any>(null);
+  const counter = useSelector(
+    (state: any) => state.application.ourTeamObserver
+  );
   useEffect(() => {
     observer = new IntersectionObserver(
       (entries) => {
@@ -291,7 +299,9 @@ export default function Disc({ dataFrom }: DiscProps) {
     );
     observer && discRef.current && observer.observe(discRef.current);
   }, []);
-
+  useEffect(() => {
+    console.log(counter);
+  }, [counter]);
   return (
     <SwiperContent>
       <div

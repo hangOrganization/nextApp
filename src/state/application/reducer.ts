@@ -11,6 +11,7 @@ export interface ApplicationState {
   isChrome: boolean;
   activeType: number;
   comePage: number;
+  ourTeamObserver: any;
 }
 
 export interface TokenDecimals {
@@ -26,6 +27,7 @@ const initialState: ApplicationState = {
   isChrome: false,
   comePage: 0,
   activeType: 0,
+  ourTeamObserver: false,
 };
 
 const applicationSlice = createSlice({
@@ -51,6 +53,9 @@ const applicationSlice = createSlice({
     setAboutOrCorporation(state, action) {
       state.activeType = action.payload;
     },
+    setOurTeamObserver(state, action) {
+      state.ourTeamObserver = action.payload;
+    },
   },
 });
 
@@ -61,5 +66,6 @@ export const {
   setAboutOrCorporation,
   setActiveIndex,
   setComePage,
+  setOurTeamObserver,
 } = applicationSlice.actions;
 export default applicationSlice.reducer;
