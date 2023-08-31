@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSwiper } from "swiper/react";
 import { useAppDispatch } from "@/state/hooks";
 import apply_gif from "@/assets/image/gif/apply.gif";
-import video_cover from "@/assets/image/svg/video-cover.png";
+import video_cover from "@/assets/image/svg/video-cover.jpeg";
 import shadow_bg from "@/assets/image/svg/shadow-bg.svg";
 import DreamOffer from "@/assets/image/svg/dreamOffer.gif";
 import speed_line from "@/assets/image/gif/speed-line.gif";
