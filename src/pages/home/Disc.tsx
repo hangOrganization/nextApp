@@ -363,7 +363,6 @@ export default function Disc({ dataFrom }: DiscProps) {
                             backgroundImage: `url(${item.bg.src})`,
                           }}
                         >
-                          item.bg
                         </ImgBox>
                       );
                     })}
