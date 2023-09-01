@@ -19,6 +19,9 @@ export function useComePage() {
 export function useActiveType() {
   return useAppSelector((state: AppState) => state.application.activeType);
 }
+export function useOurTeamObserver() {
+  return useAppSelector((state: AppState) => state.application.ourTeamObserver);
+}
 // export function useGrowthPoolValues() {
 //   return useAppSelector((state: AppState) => state.application.growthPoolValues)
 // }

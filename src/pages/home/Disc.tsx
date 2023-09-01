@@ -16,14 +16,18 @@ import Footer from "@/components/Footer";
 import Slogan from "./Slogan";
 import { useSwiper } from "swiper/react";
 import _ from "lodash";
+import { useSelector } from "react-redux";
+
 import {
   useActiveIndex,
+  useOurTeamObserver,
   useOuterWidth,
   useThrottleFlag,
 } from "@/state/application/hooks";
 import { useAppDispatch } from "@/state/hooks";
 import { setActiveIndex, setThrottleFlag } from "@/state/application/reducer";
 import { dataFrom } from ".";
+import store from "@/state";
 
 interface DiscBoxProps {
   title: string;
@@ -236,6 +240,7 @@ export default function Disc({ dataFrom }: DiscProps) {
   const activeIndex = useActiveIndex();
   const throttleFlag = useThrottleFlag();
   const [moveFlag, setMoveFlag] = useState(false);
+  const ourTeamObserver = useOurTeamObserver();
   const [discImg, setDiscImg] = useState(disc_acquiesce);
   const [activeKey, setactiveKey] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
@@ -274,6 +279,7 @@ export default function Disc({ dataFrom }: DiscProps) {
   let observer: any = null;
 
   const discRef = useRef<any>(null);
+
   useEffect(() => {
     observer = new IntersectionObserver(
       (entries) => {
@@ -343,7 +349,7 @@ export default function Disc({ dataFrom }: DiscProps) {
                     alt=""
                     className="film-mask  w-[492px] h-[492px] md relative z-[5] max-md:translate-x-[-20px]  max-md:w-[246px] max-md:h-[246px]"
                   ></Image>
-                  {isClient &&
+                  {ourTeamObserver &&
                     discList.map((item: DiscBoxProps) => {
                       return (
                         <ImgBox
@@ -357,7 +363,6 @@ export default function Disc({ dataFrom }: DiscProps) {
                             backgroundImage: `url(${item.bg.src})`,
                           }}
                         >
-                          item.bg
                         </ImgBox>
                       );
                     })}
@@ -435,7 +440,7 @@ export default function Disc({ dataFrom }: DiscProps) {
                   : `translateX(${1199 * currentPage}px)`,
             }}
           >
-            {isClient &&
+            {ourTeamObserver &&
               discList.map((item: DiscBoxProps) => (
                 <DiscBox
                   key={item.key}
