@@ -54,7 +54,6 @@ const SpecializeBg = styled.div`
 `;
 const CourseBox = styled.div`
   width: 541px;
-  height: 600px;
   padding: 40px;
   background: linear-gradient(
     241.27deg,
@@ -69,7 +68,7 @@ const CourseBox = styled.div`
   @media not all and (min-width: 768px) {
     width: calc(100vw - 32px);
     margin: 0 16px;
-    height: 486px;
+    /* height: 486px; */
     border-radius: 32px;
     padding: 24px 36px;
   }
@@ -84,6 +83,7 @@ export default function Specialize({
   dataFrom,
   setMusicGenre,
 }: SpecializeProps) {
+  console.log("🚀 ~ file: Specialize.tsx:87 ~ dataFrom:", dataFrom)
   const [innerWidth, setInnerWidth] = useState<number>(0)
   useEffect(() => {
     setInnerWidth(window.innerWidth + 16)
@@ -338,15 +338,30 @@ export default function Specialize({
                       alt=""
                     />
                   </div>
-                  <div className="flex mt-4 md:items-center h-[469px] justify-between">
-                    <div className="flex flex-col max-md:h-[390px] h-[469px] flex-wrap md:pl-2 max-md:gap-y-[11px] max-md:gap-x-6 gap-3 md:gap-x-8">
-                      {dataFrom?.popularMajors.modernMusic.popularMajorsEn.map((el: any, index: number) => (
+                  <div className="flex mt-4 md:items-center max-md:gap-x-6 gap-3 md:gap-x-8">
+                    <div className="flex flex-col  flex-wrap md:pl-2 max-md:gap-y-[11px] max-md:gap-x-6 gap-3 md:gap-x-8">
+                      {dataFrom?.popularMajors.modernMusic.popularMajorsEn.slice(0,Math.round(dataFrom?.popularMajors.modernMusic.popularMajorsEn.length/2)).map((el: any, index: number) => (
                         <div
                           className="max-md:w-[124px] max-md:text-center"
                           key={`${index}-${el}-modernMusicHotMajor`}
                         >
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
                             {dataFrom?.popularMajors.modernMusic.popularMajorsCn[index]}
+                          </p>
+                          <p className="text-[10px] max-md:scale-[0.83333] max-md:leading-[13px] text-ellipsis overflow-hidden  font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
+                            {el}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex flex-col flex-wrap md:pl-2 max-md:gap-y-[11px] max-md:gap-x-6 gap-3 md:gap-x-8">
+                      {dataFrom?.popularMajors.modernMusic.popularMajorsEn.slice(Math.round(dataFrom?.popularMajors.modernMusic.popularMajorsEn.length/2),dataFrom?.popularMajors.modernMusic.popularMajorsEn.length).map((el: any, index: number) => (
+                        <div
+                          className="max-md:w-[124px] max-md:text-center"
+                          key={`${index}-${el}-modernMusicHotMajor`}
+                        >
+                          <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
+                            {dataFrom?.popularMajors.modernMusic.popularMajorsCn[Math.round(dataFrom?.popularMajors.modernMusic.popularMajorsEn.length/2)+index]}
                           </p>
                           <p className="text-[10px] max-md:scale-[0.83333] max-md:leading-[13px] text-ellipsis overflow-hidden  font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
                             {el}
@@ -424,7 +439,7 @@ export default function Specialize({
                 className={`flex md:w-[1200px]  transition-all duration-500 ${musicGenre === 2 ? " opacity-100" : "opacity-0"
                   } max-md:flex-col  md:justify-between`}
               >
-                <CourseBox className="max-md:!h-[285px]">
+                <CourseBox className="">
                   <div className="flex max-md:justify-center items-center">
                     <p className="text-[32px] mr-3 leading-[160%] max-md:text-[20px] max-md:font-semibold max-md:mr-2 text-[#0000FF] font-[950]">
                       热门专业
@@ -440,15 +455,30 @@ export default function Specialize({
                       alt=""
                     />
                   </div>
-                  <div className="flex mt-4 items-center md:h-[469px] justify-between">
-                    <div className="flex flex-col max-md:h-[198px] h-[264px] flex-wrap md:pl-2 max-md:gap-x-[20px] md:gap-x-[65px] max-md:gap-y-[12px] gap-y-[28px]">
-                      {dataFrom?.popularMajors.classicalMusic.popularMajorsEn.map((el: any, index: number) => (
+                  <div className="flex mt-4 items-center md:h-[469px] max-md:gap-x-[20px] md:gap-x-[65px]">
+                    <div className="flex flex-col flex-wrap md:pl-2 max-md:gap-x-[20px] md:gap-x-[65px] max-md:gap-y-[12px] gap-y-[28px]">
+                      {dataFrom?.popularMajors.classicalMusic.popularMajorsEn.slice(0,Math.round(dataFrom?.popularMajors.classicalMusic.popularMajorsEn.length/2)).map((el: any, index: number) => (
                         <div
                           className="max-md:w-[126px] max-md:text-center"
                           key={`${index}-${el}-classicalMusicHotMajor`}
                         >
                           <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
                             {dataFrom?.popularMajors.classicalMusic.popularMajorsCn[index]}
+                          </p>
+                          <p className="text-[12px] text-ellipsis max-md:scale-[0.83333] overflow-hidden  max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
+                            {el}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex flex-col flex-wrap md:pl-2 max-md:gap-x-[20px] md:gap-x-[65px] max-md:gap-y-[12px] gap-y-[28px]">
+                      {dataFrom?.popularMajors.classicalMusic.popularMajorsEn.slice(Math.round(dataFrom?.popularMajors.classicalMusic.popularMajorsEn.length/2),dataFrom?.popularMajors.classicalMusic.popularMajorsEn.length).map((el: any, index: number) => (
+                        <div
+                          className="max-md:w-[126px] max-md:text-center"
+                          key={`${index}-${el}-classicalMusicHotMajor`}
+                        >
+                          <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
+                            {dataFrom?.popularMajors.classicalMusic.popularMajorsCn[Math.round(dataFrom?.popularMajors.classicalMusic.popularMajorsEn.length/2)+index]}
                           </p>
                           <p className="text-[12px] text-ellipsis max-md:scale-[0.83333] overflow-hidden  max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
                             {el}
@@ -528,7 +558,7 @@ export default function Specialize({
                 className={`flex w-[1200px]  transition-all duration-500 ${musicGenre === 3 ? " opacity-100" : "opacity-0"
                   } max-md:flex-col md:justify-between`}
               >
-                <CourseBox className="max-md:!h-[225px]">
+                <CourseBox className="">
                   <div className="flex max-md:justify-center items-center">
                     <p className="text-[32px] mr-3 max-md:text-[20px] max-md:font-semibold max-md:mr-2 leading-[160%] text-[#0000FF] font-[950]">
                       热门专业
@@ -544,9 +574,9 @@ export default function Specialize({
                       alt=""
                     />
                   </div>
-                  <div className="flex mt-4 items-center md:h-[469px] justify-between">
-                    <div className="flex flex-col max-md:h-[129px] h-[264px] flex-wrap md:pl-2 max-md:gap-y-[11px] gap-y-[28px] max-md:gap-x-[23px] gap-x-[128px]">
-                      {dataFrom?.popularMajors.musicTheory.popularMajorsEn.map((el: any, index: number) => (
+                  <div className="flex mt-4 items-center max-md:gap-x-[23px] gap-x-[128px] md:h-[469px]">
+                    <div className="flex flex-col flex-wrap md:pl-2 max-md:gap-x-[23px] gap-x-[128px] max-md:gap-y-[11px] gap-y-[28px] ">
+                      {dataFrom?.popularMajors.musicTheory.popularMajorsEn.slice(0,Math.round(dataFrom?.popularMajors.musicTheory.popularMajorsEn.length/2)).map((el: any, index: number) => (
                         <div
                           className="max-md:text-center max-md:w-[124px]"
                           key={`${index}-${el}-musicalTheoryHotMajor`}
@@ -560,9 +590,25 @@ export default function Specialize({
                         </div>
                       ))}
                     </div>
+                    <div className="flex flex-col flex-wrap md:pl-2 max-md:gap-x-[23px] gap-x-[128px] max-md:gap-y-[11px] gap-y-[28px]">
+                    {dataFrom?.popularMajors.musicTheory.popularMajorsEn.slice(Math.round(dataFrom?.popularMajors.musicTheory.popularMajorsEn.length/2),6).map((el: any, index: number) => (
+                        <div
+                          className="max-md:text-center max-md:w-[124px]"
+                          key={`${index}-${el}-musicalTheoryHotMajor`}
+                        >
+                          <p className="text-[16px] max-md:text-[14px] font-[400] text-[#1A1A1A] leading-[160%]">
+                            {dataFrom?.popularMajors.musicTheory.popularMajorsCn[Math.round(dataFrom?.popularMajors.musicTheory.popularMajorsEn.length/2)+index]}
+                          </p>
+                          <p className="text-[12px] text-ellipsis overflow-hidden max-md:scale-[0.83333] max-md:leading-[13px] font-[200] font-[Lexend] text-[#1A1A1A] opacity-40 leading-[160%]">
+                            {el}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
                   </div>
                 </CourseBox>
-                <CourseBox className="md:!w-[643px] max-md:!h-[261px] max-md:!mt-4">
+                <CourseBox className="md:!w-[643px] max-md:!mt-4">
                   <div className="flex md:mb-[102px] max-md:justify-center items-center">
                     <p className="text-[32px] mr-3 max-md:text-[20px] max-md:font-semibold max-md:mr-2 leading-[160%] text-[#0000FF] font-[950]">
                       热门院校
@@ -580,7 +626,7 @@ export default function Specialize({
                   </div>
                   <div className="md:pl-2">
                     <div className="flex max-md:mt-4 mt-[24px] md:justify-between">
-                      <div className="flex max-md:h-[167px] max-md:w-[155px] h-[254px] flex-wrap flex-col max-md:gap-x-[24px] gap-x-[102px] max-md:gap-y-[11px] gap-y-[18px]">
+                      <div className="flex max-md:h-[200px] max-md:w-[155px] h-[254px] flex-wrap flex-col max-md:gap-x-[24px] gap-x-[102px] max-md:gap-y-[11px] gap-y-[18px]">
                         {dataFrom?.popularColleges.musicTheory.specificColleges.map((el: any, index: number) => (
                           <p
                             key={`${index}-musicalTheorySchool`}
@@ -601,7 +647,7 @@ export default function Specialize({
               background:
                 "linear-gradient(180deg,rgb(26, 26, 26, 0.1) 1%,rgb(26, 26, 26, 0.5) 10%,rgb(26, 26, 26, 1) 40%,rgb(26, 26, 26, 1) 100%)",
             }}
-            className=" w-full h-[180px] md:hidden absolute bottom-0 left-0 z-[1001] bg-[#1a1a1a]"
+            className=" w-full h-[180px] md:hidden absolute bottom-[-20px] left-0 z-[1001] bg-[#1a1a1a]"
           ></div>
         </div>
       </div>
