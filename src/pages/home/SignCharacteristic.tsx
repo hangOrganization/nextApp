@@ -33,7 +33,7 @@ const SignBox = styled.div`
 `;
 const MaskBox = styled.div`
   position: absolute;
-  bottom: 8px;
+  bottom: -30px;
   left: 0;
   width: 100%;
   height: 230px;
@@ -586,7 +586,7 @@ export default function SignCharacteristic({
                         } max-md:mt-16 flex flex-col justify-center`}
                       >
                         <div className="flex max-md:mb-10 ">
-                          <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
+                          <p className="text-[40px] mr-[26px] whitespace-nowrap max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
                             高质量高效率精致教学
                           </p>
                           <Image
@@ -627,7 +627,7 @@ export default function SignCharacteristic({
                         } md:w-[680px] max-md:mt-20 duration-1000 transition-all flex md:opacity-0 flex-col justify-center`}
                       >
                         <div className="flex">
-                          <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
+                          <p className="text-[40px] whitespace-nowrap mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
                             产学结合&背景提升
                           </p>
                           <Image
@@ -671,6 +671,21 @@ export default function SignCharacteristic({
                         {el}
                       </p>
                     ))}
+                    <div className="flex my-6">
+                          <p className="text-[40px] whitespace-nowrap mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
+                          发展历程
+                          </p>
+                          <Image
+                            className="md:hidden max-md:w-[94px] max-md:h-6"
+                            src={signCharacteristic_title}
+                            alt=""
+                          />
+                          <TitleBeam
+                            type={`${
+                              characteristicType === 3 ? "open" : "down"
+                            }`}
+                          />
+                        </div>
                     {aboutUs.developmentHistory?.map(
                       (el: string, index: number) => (
                         <p
