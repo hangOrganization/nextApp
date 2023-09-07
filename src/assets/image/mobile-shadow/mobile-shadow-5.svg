@@ -1,17 +1,1 @@
-<svg width="169" height="390" viewBox="0 0 169 390" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.1" filter="url(#filter0_f_1760_25820)">
-<path d="M-84.4565 263.66C-102.598 239.4 -108.019 206.266 -67.8558 150.684C-45.1002 64.6328 59.8289 56.8308 84.0548 129.492C108.281 202.153 36.1822 286.509 12.1853 304.454C-11.8117 322.399 -66.3148 287.919 -84.4565 263.66Z" fill="url(#paint0_linear_1760_25820)"/>
-</g>
-<defs>
-<filter id="filter0_f_1760_25820" x="-178.227" y="0.0742188" width="347.188" height="389.363" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="40" result="effect1_foregroundBlur_1760_25820"/>
-</filter>
-<linearGradient id="paint0_linear_1760_25820" x1="-38.1275" y1="277.137" x2="67.1865" y2="108.82" gradientUnits="userSpaceOnUse">
-<stop stop-color="#0000FF"/>
-<stop offset="0.538954" stop-color="#A70085"/>
-<stop offset="1" stop-color="#FF4B00"/>
-</linearGradient>
-</defs>
-</svg>
+<svg fill="none" height="390" viewBox="0 0 169 390" width="169" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><filter id="a" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="389.363" width="347.188" x="-178.227" y=".074219"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_1760_25820" stdDeviation="40"/></filter><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="-38.1275" x2="67.1865" y1="277.137" y2="108.82"><stop offset="0" stop-color="#00f"/><stop offset=".538954" stop-color="#a70085"/><stop offset="1" stop-color="#ff4b00"/></linearGradient><g filter="url(#a)" opacity=".1"><path d="m-84.4565 263.66c-18.1415-24.26-23.5625-57.394 16.6007-112.976 22.7556-86.0512 127.6847-93.8532 151.9106-21.192 24.2262 72.661-47.8726 157.017-71.8695 174.962-23.997 17.945-78.5001-16.535-96.6418-40.794z" fill="url(#b)"/></g></svg>

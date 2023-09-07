@@ -14,9 +14,9 @@ import characteristic_bg_logo from "@/assets/image/svg/characteristic-bg-logo.pn
 import { CampusEnvironmentBg } from "@/utils/campusEnvironmentList";
 import signCharacteristic_bg from "@/assets/image/svg/signCharacteristic-bg.svg";
 import styled from "styled-components";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useAppDispatch } from "@/state/hooks";
-import { useThrottleFlag } from "@/state/application/hooks";
+import { useActiveType, useThrottleFlag } from "@/state/application/hooks";
 import {
   setAboutOrCorporation,
   setActiveIndex,
@@ -61,7 +61,6 @@ const Box = styled.div`
     }
     .transfrom-mobile2 {
       transform: translateX(0);
-
       transition: all 500ms;
     }
   }
@@ -105,7 +104,7 @@ const ButtonBox = styled.div`
     border-radius: 64px;
     color: #ccc;
     font-size: 12px;
-    font-family: "Alibaba PuHuiTi 2.0";
+    /* font-family: "Alibaba PuHuiTi 2.0"; */
     line-height: 120%;
     text-transform: uppercase;
     padding: 12px 11px 12px 15px;
@@ -122,7 +121,7 @@ interface SignCharacteristicProps {
   setCharacteristicType: Function;
   right: number;
   setRight: Function;
-  dataFrom?: dataFrom
+  dataFrom?: dataFrom;
 }
 export default function SignCharacteristic({
   innerWidth,
@@ -140,24 +139,54 @@ export default function SignCharacteristic({
   let time: any = "";
   const swiper = useSwiper();
   const throttleFlag = useThrottleFlag();
+  const activeType = useActiveType();
+
   const aboutUs = useMemo(() => {
     return {
-      backgroundEnhancement: dataFrom?.features.backgroundEnhancement.split('\n'),
-      configuration: dataFrom?.features.configuration.split('\n'),
-      exquisiteTeaching: dataFrom?.features.exquisiteTeaching.split('\n'),
-      seniorTutor: dataFrom?.features.seniorTutor.split('\n'),
-      aboutUs: dataFrom?.aboutUs.aboutUs.split('\n'),
-      developmentHistory: dataFrom?.aboutUs.developmentHistory.split('\n'),
-    }
-  }, [dataFrom])
+      backgroundEnhancement:
+        dataFrom?.features.backgroundEnhancement.split("\n"),
+      configuration: dataFrom?.features.configuration.split("\n"),
+      exquisiteTeaching: dataFrom?.features.exquisiteTeaching.split("\n"),
+      seniorTutor: dataFrom?.features.seniorTutor.split("\n"),
+      aboutUs: dataFrom?.aboutUs.aboutUs.split("\n"),
+      developmentHistory: dataFrom?.aboutUs.developmentHistory.split("\n"),
+    };
+  }, [dataFrom]);
+  console.log("🚀 ~ file: SignCharacteristic.tsx:156 ~ aboutUs ~ aboutUs:", aboutUs)
   const [mobileRight, setMobileRight] = useState<number>(0);
+  const boxRef = useRef<any>(null);
+  // useEffect(() => {
+  //   if (activeType == 1) {
+  //     console.log(123132);
+  //     // document.querySelector("#ourTeamBox")?.scrollTo({
+  //     //   top: 1000,
+  //     //   behavior: "smooth",
+  //     // });
+  //     setTimeout(() => {
+  //       boxRef.current.scrollIntoView({ behavior: "smooth" });
+  //     }, 500);
+  //     setRight(0);
+  //   } else if (activeType == 2) {
+  //     console.log(123132);
+  //     setTimeout(() => {
+  //       boxRef.current.scrollIntoView({ behavior: "smooth" });
+  //     }, 500);
+
+  //     // document.querySelector("#ourTeamBox")?.scrollTo({
+  //     //   top: 1000,
+  //     //   behavior: "smooth",
+  //     // });
+  //     setRight(1);
+  //   }
+  // }, [activeType]);
+
   return (
     <Box className={`flex w-screen items-center z-50 md:overflow-hidden`}>
-      <div className="flex relative">
+      <div className="flex relative" ref={boxRef}>
         <SignBox
           className={`md:flex md:h-[1050px] relative w-screen items-center justify-center`}
           onWheel={(e: any) => {
-            if (scrollTop > 1000) {
+            if (scrollTop > 1200) {
               if (innerWidth > 768) {
                 if (throttleFlag) {
                   dispatch(setThrottleFlag(true));
@@ -310,19 +339,19 @@ export default function SignCharacteristic({
                   <div className="w-[221px] relative max-md:hidden h-[67px]">
                     <p
                       className={`${right === 0 ? "opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                        } transition-all absolute top-0 left-0 whitespace-nowrap duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       公司特色
                     </p>
                     <p
                       className={`${right === 1 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                        } transition-all absolute top-0 left-0 whitespace-nowrap duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       关于我们
                     </p>
                     <p
                       className={`${right === 2 ? " opacity-100" : ""
-                        } transition-all absolute top-0 left-0 duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
+                        } transition-all absolute top-0 left-0 whitespace-nowrap duration-1000 opacity-0 font-light text-[56px] max-md:text-[24px] leading-[120%]`}
                     >
                       发展历程
                     </p>
@@ -342,14 +371,14 @@ export default function SignCharacteristic({
                     }}
                   >
                     <p
-                      className={` transition-all duration-500  font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 0 ? "font-[600]" : "font-light"
+                      className={` transition-all duration-500 whitespace-nowrap font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 0 ? "font-[600]" : "font-light"
                         }`}
                     >
                       公司特色
                     </p>
                   </a>
                   <p
-                    className={` transition-all duration-500  font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 1 ? "font-[600]" : "font-light"
+                    className={` transition-all duration-500 whitespace-nowrap font-light text-[56px] max-md:text-[24px]  md:hidden leading-[120%] ${mobileRight == 1 ? "font-[600]" : "font-light"
                       }`}
                     onClick={() => {
                       setMobileRight(1);
@@ -420,8 +449,7 @@ export default function SignCharacteristic({
                 }`}
             >
               <div
-                className={`${mobileRight == 0 ? "max-md:h-[1665px]" : "max-md:h-[765px]"
-                  } max-md:overflow-hidden transition-all duration-1000 relative `}
+                className={` max-md:overflow-hidden transition-all duration-1000 relative `}
               >
                 <div
                   className={`md:ml-[202px]  max-md:w-[200%] max-md:m-auto  max-md:flex max-md:justify-between `}
@@ -431,7 +459,7 @@ export default function SignCharacteristic({
                     className={`${mobileRight == 0
                       ? "transfrom-mobile2"
                       : "transfrom-mobile1"
-                      } md:h-[488px]  max-md:w-[100%]  max-md:px-6 overflow-hidden`}
+                      } md:h-[488px]  max-md:w-[100%]  max-md:px-6 `}
                   >
                     <div
                       className={`transition-all duration-1000 ${characteristicType === 1
@@ -441,7 +469,7 @@ export default function SignCharacteristic({
                           : characteristicType === 3
                             ? "translate-y-[-1464px]"
                             : ""
-                        } `}
+                        } ${mobileRight===0?'':'max-md:h-0'}`}
                     >
                       <div className="md:h-[488px] md:w-[680px] max-md:mt-11 flex flex-col justify-center">
                         <div className="flex">
@@ -462,16 +490,26 @@ export default function SignCharacteristic({
                           className={`md:w-[488px] md:opacity-0 duration-1000 transition-all ${characteristicType === 0 ? "md:opacity-100" : ""
                             } md:opacity-0 mt-12`}
                         >
-                          {aboutUs.seniorTutor?.map((el: string, index: number) => (
-                            <p key={`${index}+aboutUs1111`} className="text-[14px] mt-[31px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70">
-                              {el}
-                            </p>
-                          ))}
-                          {aboutUs.seniorTutor?.map((el: string, index: number) => (
-                            <p key={`${index}+aboutUs`} className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2  font-light leading-[220%] opacity-70">
-                              {el}
-                            </p>
-                          ))}
+                          {aboutUs.seniorTutor?.map(
+                            (el: string, index: number) => (
+                              <p
+                                key={`${index}+aboutUs1111`}
+                                className="text-[14px] mt-[31px] max-md:hidden max-md:leading-[200%] font-light leading-[220%] opacity-70"
+                              >
+                                {el}
+                              </p>
+                            )
+                          )}
+                          {aboutUs.seniorTutor?.map(
+                            (el: string, index: number) => (
+                              <p
+                                key={`${index}+aboutUs`}
+                                className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2  font-light leading-[220%] opacity-70"
+                              >
+                                {el}
+                              </p>
+                            )
+                          )}
                         </div>
                       </div>
                       <div
@@ -493,18 +531,28 @@ export default function SignCharacteristic({
                           />
                         </div>
                         <p className="text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70">
-                          {aboutUs.configuration?.map((el: string, index: number) => (
-                            <span className="block" key={`1111${index}+configuration`}>
-                              {el}
-                              <br />
-                            </span>
-                          ))}
+                          {aboutUs.configuration?.map(
+                            (el: string, index: number) => (
+                              <span
+                                className="block"
+                                key={`1111${index}+configuration`}
+                              >
+                                {el}
+                                <br />
+                              </span>
+                            )
+                          )}
                         </p>
-                        {aboutUs.configuration?.map((el: string, index: number) => (
-                          <p key={`${index}--configuration`} className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2    font-light leading-[220%] opacity-70">
-                            {el}
-                          </p>
-                        ))}
+                        {aboutUs.configuration?.map(
+                          (el: string, index: number) => (
+                            <p
+                              key={`${index}--configuration`}
+                              className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2    font-light leading-[220%] opacity-70"
+                            >
+                              {el}
+                            </p>
+                          )
+                        )}
                       </div>
                       <div
                         className={`md:h-[488px] md:opacity-0 duration-1000 transition-all md:w-[680px] ${characteristicType === 2 ? "md:opacity-100" : ""
@@ -525,24 +573,31 @@ export default function SignCharacteristic({
                           />
                         </div>
                         <p className="text-[14px] max-md:hidden md:w-[488px] mt-12 font-light leading-[320%] opacity-70">
-                          {aboutUs.exquisiteTeaching?.map((el: string, index: number) => (
-                            <span key={`${index}exquisiteTeaching`}>
-                              {el}
-                              <br  />
-                            </span>
-                          ))}
+                          {aboutUs.exquisiteTeaching?.map(
+                            (el: string, index: number) => (
+                              <span key={`${index}exquisiteTeaching`}>
+                                {el}
+                                <br />
+                              </span>
+                            )
+                          )}
                         </p>
-                        {aboutUs.exquisiteTeaching?.map((el: string, index: number) => (
-                          <p key={`${index}exquisiteTeaching111`} className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2 font-light leading-[220%] opacity-70">
-                            {el}
-                          </p>
-                        ))}
+                        {aboutUs.exquisiteTeaching?.map(
+                          (el: string, index: number) => (
+                            <p
+                              key={`${index}exquisiteTeaching111`}
+                              className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-3  max-md:mb-2 font-light leading-[220%] opacity-70"
+                            >
+                              {el}
+                            </p>
+                          )
+                        )}
                       </div>
                       <div
                         className={`md:h-[488px] ${characteristicType === 3
-                          ? "opacity-100"
-                          : "md:opacity-0"
-                          } md:w-[680px] max-md:mt-20 flex flex-col justify-center`}
+                          ? "md:opacity-100"
+                          : ""
+                          } md:w-[680px] max-md:mt-20 duration-1000 transition-all flex md:opacity-0 flex-col justify-center`}
                       >
                         <div className="flex">
                           <p className="text-[40px] mr-[26px] max-md:mr-[16px] font-normal leading-[120%] max-md:text-[22px] text-[#FF4B00]">
@@ -559,11 +614,13 @@ export default function SignCharacteristic({
                           />
                         </div>
                         <p className="text-[14px] md:w-[488px] max-md:text-[13px] max-md:leading-[200%]  mt-12 font-light leading-[220%] opacity-70">
-                          {aboutUs.backgroundEnhancement?.map((el: string, index: number) => (
-                            <span key={`${index}-backgroundEnhancement`} >
-                              {el}
-                            </span>
-                          ))}
+                          {aboutUs.backgroundEnhancement?.map(
+                            (el: string, index: number) => (
+                              <span key={`${index}-backgroundEnhancement`}>
+                                {el}
+                              </span>
+                            )
+                          )}
                         </p>
                       </div>
                     </div>
@@ -572,24 +629,25 @@ export default function SignCharacteristic({
                     className={`${mobileRight == 1
                       ? "transfrom-mobile1"
                       : "transfrom-mobile2"
-                      } md:hidden  max-md:w-[100%] relative mt-[51px] px-6 max-md:h-[765px] overflow-hidden`}
+                      } md:hidden  max-md:w-[100%] relative mt-[51px] px-6 overflow-hidden`}
                   >
-                    <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 max-md:mb-2 font-light leading-[220%] opacity-70">
-                      高标准高要求的一线资深海归音乐导师团队，拥有五年以上的一线行业经验及教学经验，独树一帜的从业思维教学结合往年丰富的海外院校申请经验，让学生接受最新的音乐专业讯息，带来的音乐艺术理念、音乐创作思维和声音设计紧跟时代潮流，富有指导性和前瞻性。
-                    </p>
-                    <p className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5  max-md:mb-2 font-light leading-[220%] opacity-70">
-                      已配备全职音乐导师6人，兼职音乐导师150+，音乐产业规划师1人，专业录音师2人，资深留学规划师2人，专业师资团队由海外各个院校的海归音乐导师、一线声音从业者及交响乐团演奏家组成。
-                    </p>
-                    <p className="text-[14px] md:hidden max-md:text-[13px] mb-12   max-md:mb-2 max-md:leading-[200%]   font-light leading-[220%] opacity-70">
-                      由SIGNART名校录取导师团队全程跟踪，各领域专业导师多对一服务，实现名校战略录取。
-                    </p>
-                    {aboutUs.developmentHistory?.map((el: string, index: number) => (
-                      <p key={`${index}+developmentHistory---`} className={`text-[14px]  md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5  max-md:mb-2  font-light leading-[220%] opacity-70`}>
+                    {aboutUs.seniorTutor?.map((el: string, index: number) => (
+                      <p key={`${index}-seniorTutor-m`} className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 max-md:mb-2 font-light leading-[220%] opacity-70">
                         {el}
                       </p>
                     ))}
+                    {aboutUs.developmentHistory?.map(
+                      (el: string, index: number) => (
+                        <p
+                          key={`${index}+developmentHistory---`}
+                          className={`text-[14px]  md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5  max-md:mb-2  font-light leading-[220%] opacity-70`}
+                        >
+                          {el}
+                        </p>
+                      )
+                    )}
                     <ButtonBox
-                      className="mt-[68px] mx-auto w-[131px] leading-[120%] font-light flex items-center"
+                      className="mt-[68px] mx-auto w-[132px] leading-[120%] font-light flex items-center"
                       onClick={() => setIsOpenCampus(1)}
                     >
                       了解校区环境
@@ -646,7 +704,11 @@ export default function SignCharacteristic({
                         }`}
                     >
                       {aboutUs.aboutUs?.map((el: string, index: number) => (
-                        <p key={`${index}-aboutUs.aboutUs-0-`} className={`text-[14px] ${index < aboutUs.aboutUs.length ? 'mb-[31px]' : ''} font-light leading-[220%] opacity-70`}>
+                        <p
+                          key={`${index}-aboutUs.aboutUs-0-`}
+                          className={`text-[14px] ${index < aboutUs.aboutUs.length ? "mb-[31px]" : ""
+                            } font-light leading-[220%] opacity-70`}
+                        >
                           {el}
                         </p>
                       ))}
@@ -655,12 +717,16 @@ export default function SignCharacteristic({
                       className={`h-[420px] opacity-0 transition-all duration-1000 ${right === 1 ? "" : "opacity-100"
                         } flex justify-center flex-col`}
                     >
-                      {aboutUs.developmentHistory?.map((el: string, index: number) => (
-                        <p key={`${index}-developmentHistory`} className="text-[14px] font-light leading-[320%] opacity-70">
-                          {el}
-                        </p>
-                      ))
-                      }
+                      {aboutUs.developmentHistory?.map(
+                        (el: string, index: number) => (
+                          <p
+                            key={`${index}-developmentHistory`}
+                            className="text-[14px] font-light leading-[320%] opacity-70"
+                          >
+                            {el}
+                          </p>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>

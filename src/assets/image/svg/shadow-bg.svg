@@ -1,12 +1,1 @@
-<svg width="456" height="866" viewBox="0 0 456 866" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g opacity="0.3" filter="url(#filter0_f_238_2879)">
-<path d="M256 418.275C256 491.301 215.504 563.092 44.5239 612.414C-137.706 745.688 -369.43 609.266 -306.437 434.016C-243.444 258.766 39.3631 200 117.641 200C195.918 200 256 345.25 256 418.275Z" fill="#FF4B00"/>
-</g>
-<defs>
-<filter id="filter0_f_238_2879" x="-517" y="0" width="973" height="866" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_238_2879"/>
-</filter>
-</defs>
-</svg>
+<svg fill="none" height="866" viewBox="0 0 456 866" width="456" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><filter id="a" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="866" width="973" x="-517" y="0"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_238_2879" stdDeviation="100"/></filter><g filter="url(#a)" opacity=".3"><path d="m256 418.275c0 73.026-40.496 144.817-211.4761 194.139-182.2299 133.274-413.9539-3.148-350.9609-178.398s345.8001-234.016 424.078-234.016c78.277 0 138.359 145.25 138.359 218.275z" fill="#ff4b00"/></g></svg>

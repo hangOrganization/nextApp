@@ -1,12 +1,1 @@
-<svg width="331" height="331" viewBox="0 0 331 331" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_f_2135_13886)">
-<circle cx="165.5" cy="165.5" r="85.5" fill="#FF4B00"/>
-</g>
-<defs>
-<filter id="filter0_f_2135_13886" x="0" y="0" width="331" height="331" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="40" result="effect1_foregroundBlur_2135_13886"/>
-</filter>
-</defs>
-</svg>
+<svg fill="none" height="331" viewBox="0 0 331 331" width="331" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><filter id="a" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="331" width="331" x="0" y="0"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2135_13886" stdDeviation="40"/></filter><g filter="url(#a)"><circle cx="165.5" cy="165.5" fill="#ff4b00" r="85.5"/></g></svg>
