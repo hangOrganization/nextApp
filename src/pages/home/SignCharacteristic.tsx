@@ -635,7 +635,7 @@ export default function SignCharacteristic({
                         : "transfrom-mobile2"
                       } md:hidden  max-md:w-[100%] relative mt-[51px] px-6 overflow-hidden`}
                   >
-                    {aboutUs.seniorTutor?.map((el: string, index: number) => (
+                    {aboutUs.aboutUs?.map((el: string, index: number) => (
                       <p
                         key={`${index}-seniorTutor-m`}
                         className="text-[14px] md:hidden max-md:text-[13px] max-md:leading-[200%] mb-5 max-md:mb-2 font-light leading-[220%] opacity-70"
