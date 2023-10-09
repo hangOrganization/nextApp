@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: http://signart.com.cn/sitemap.xml
