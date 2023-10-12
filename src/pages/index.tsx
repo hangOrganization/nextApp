@@ -1,7 +1,4 @@
-"use client";
-
-import dynamic from 'next/dynamic';
-const Homepage = dynamic(import('./home'), { ssr: false });
+import Homepage from './home';
 
 export default function Index() {
   return <Homepage></Homepage>;
