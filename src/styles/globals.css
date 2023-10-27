@@ -242,3 +242,7 @@ body {
 * {
   -ms-overflow-style: none;
 }
+
+img[src=""], img:not([src]){
+  opacity:0;
+}
